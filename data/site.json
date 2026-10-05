@@ -1,5 +1,5 @@
 {
-  "base_url": "https://couga54.github.io/aion2-guides/",
+  "base_url": "https://watao56.github.io/aion2-HP/",
   "langs": ["en", "ru", "uk", "tr", "ja"],
   "launch_utc": "2026-10-05T13:00:00Z",
   "_weekly_reset": "Weekly reset: Wednesday 10:00 Kyiv time (from the user, Oct 1). anchor = the first reset (UTC); every next one is 7 days later at the same local time in tz, so the reset keeps its wall-clock hour across daylight saving changes. confirmed=false shows the 'not announced' note.",
@@ -10,11 +10,11 @@
   "energy": {"regen": 15, "interval_min": 180, "cap": 840, "chest": 40},
   "_art": "art_pos: where the figure stands in its render (x y, CSS object-position); x also centres the pop-out figure on home cards. art_up: lift the pop-out figure (share of the image height).",
   "_src": "classes[].src: per guide mode, [who the info comes from, date it was checked]; shown in the class hero.",
-  "repo": "https://github.com/Couga54/aion2-guides",
+  "repo": "https://github.com/watao56/aion2-HP",
   "_feedback": "Report form: the page POSTs to this Cloudflare Worker (tools/feedback-worker/worker.js), which sends the text to the owner in Telegram. Empty string = the report buttons open a GitHub issue instead.",
-  "feedback_url": "https://aion2-feedback.couga-ua.workers.dev/",
+  "feedback_url": "",
   "_ga": "Google Analytics 4 measurement ID; the tag is added to every page by base.html (not loaded on localhost). Empty string = analytics off.",
-  "ga": "G-6WYEWLG4B5",
+  "ga": "",
   "_events": "Home timers. at=null -> 'date TBA'. confirmed=false -> date is official, hour is not. delayed=true -> a small 'delayed' mark next to the time. celebrate=true -> the site celebrates when it starts (assets/js/celebrate.js, once per visitor within 24 h; ?celebrate=1 previews it). acc_label=false hides the access mark; ongoing=true keeps a started event from being greyed out (pre-download is still going).",
   "events": [
     {"id": "pre_founder", "access": "all", "acc_label": false, "ongoing": true, "at": "2026-09-28T13:00:00Z", "confirmed": true},
