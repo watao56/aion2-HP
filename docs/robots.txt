@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://watao56.github.io/aion2-HP/sitemap.xml
+Disallow: /

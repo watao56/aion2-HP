@@ -13,6 +13,7 @@ Inputs:
 import json
 import shutil
 from pathlib import Path
+from urllib.parse import urlparse
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, pass_context
 from markupsafe import Markup, escape
@@ -536,7 +537,7 @@ def build():
 
     # Root: language chooser that redirects by browser language.
     write("index.html", e.get_template("root.html").render(page_ctx("en", "", "")))
-    write("404.html", e.get_template("404.html").render(page_ctx("en", "", "/aion2-guides/")))
+    write("404.html", e.get_template("404.html").render(page_ctx("en", "", urlparse(SITE["base_url"]).path)))
 
     base = SITE["base_url"]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -549,7 +550,7 @@ def build():
             sm.append("  </url>")
     sm.append("</urlset>")
     write("sitemap.xml", "\n".join(sm) + "\n")
-    write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {base}sitemap.xml\n")
+    write("robots.txt", "User-agent: *\nDisallow: /\n" if SITE.get("noindex") else f"User-agent: *\nAllow: /\n\nSitemap: {base}sitemap.xml\n")
     print(f"built {len(urls)} pages -> docs/")
 
 

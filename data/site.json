@@ -15,6 +15,8 @@
   "feedback_url": "",
   "_ga": "Google Analytics 4 measurement ID; the tag is added to every page by base.html (not loaded on localhost). Empty string = analytics off.",
   "ga": "",
+  "_noindex": "true = every page asks search engines not to index it (robots meta tag) and robots.txt disallows crawling. This fork is a personal copy of Couga54/aion2-guides with a Japanese version; the original site is the one that should be found.",
+  "noindex": true,
   "_events": "Home timers. at=null -> 'date TBA'. confirmed=false -> date is official, hour is not. delayed=true -> a small 'delayed' mark next to the time. celebrate=true -> the site celebrates when it starts (assets/js/celebrate.js, once per visitor within 24 h; ?celebrate=1 previews it). acc_label=false hides the access mark; ongoing=true keeps a started event from being greyed out (pre-download is still going).",
   "events": [
     {"id": "pre_founder", "access": "all", "acc_label": false, "ongoing": true, "at": "2026-09-28T13:00:00Z", "confirmed": true},

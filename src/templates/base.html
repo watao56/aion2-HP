@@ -6,6 +6,9 @@
 <title>{% block title %}{{ t.home_title }}{% endblock %}</title>
 <meta name="description" content="{% block desc %}{{ t.home_desc }}{% endblock %}">
 <link rel="canonical" href="{{ canonical }}">
+{% if SITE.get('noindex') %}
+<meta name="robots" content="noindex, nofollow">
+{% endif %}
 {% for l, u in alt_urls.items() %}
 <link rel="alternate" hreflang="{{ l }}" href="{{ u }}">
 {% endfor %}

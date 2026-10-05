@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{% if SITE.get('noindex') %}<meta name="robots" content="noindex, nofollow">
+{% endif %}<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AION 2 Guides</title>
 <meta name="description" content="{{ t.home_desc }}">
 <link rel="canonical" href="{{ SITE.base_url }}en/">
