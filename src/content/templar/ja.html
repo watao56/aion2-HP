@@ -1,0 +1,284 @@
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+
+{# ===== PvE and PvP: each PvP block follows its PvE counterpart, so both modes read in the same order; shared sections are 'pve pvp' ===== #}
+{% call glance('pve') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('judgment', '20'), ('punishment', '20'), ('pummel', '20'), ('annihilate', '16'), ('shield-smite', '16')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('empyrean-lords-punishment', 15), ('battlefield-banner', 15), ('doom-shield', 15), ('taunt', 5)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['fury', 'punishing-benediction', 'insulting-roar', 'ironclad-defense']) }}
+{% endcall %}
+
+{% call glance('pvp') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('judgment', '20'), ('punishment', '20'), ('pummel', '20'), ('annihilate', '20')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('executing-blade', 10), ('empyrean-lords-punishment', 15), ('doom-shield', 15), ('nezekans-shield', 15)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['fury', 'punishing-benediction', 'ironclad-defense', 'survival-willpower']) }}
+{% endcall %}
+
+{% call section('intro', '概要', 'pve') %}
+  <p>テンプラーはAION 2のメインタンクで、それでいて火力もしっかり出る。ビルド全体を支えるのは、できるだけ早く20まで上げる3つのスキルの<strong>「三位一体」</strong>：{{ s('judgment') }}、{{ s('punishment') }}、{{ s('pummel') }}。これをとにかく回せるだけ回す。テンプラーの限界を決めるのは生存力ではなく火力だ。</p>
+  <div class="callout accent">
+    <h3>ビルドを一言で</h3>
+    <p>盾スキルが{{ s('judgment') }}を発動させる。審判ラインをサイドボタンで連打し、マクロを押しっぱなしにして連続乱打とその発動スキルを回す。{{ s('punishment') }}は再使用時間が明けるたびにチャージして撃ち、大きな攻撃はガードしてパーティーに{{ s('fury') }}を維持する。</p>
+  </div>
+  <p class="note">このガイドはSolAshurのグローバル版ローンチ向けテンプラービルド（solashur.com、9月27日）と、その解説動画（9月29日）に基づく。9月30日に動画のフレームと照らし合わせて再確認した。</p>
+{% endcall %}
+
+{% call section('intro-pvp', '概要', 'pvp') %}
+  <p>PvPでも三位一体と審判のループは変わらない。変わるのはスティグマだ。{{ s('executing-blade') }}はどの決闘でも優位をもたらし、{{ s('annihilate') }}は20で範囲転倒スキルになる。</p>
+  <p>近接はカイトされる。相手に届かなければ強い武器も意味が薄いので、接近スキルと破滅のシールドを軸に立ち回ろう。</p>
+  <p class="note">KR/TWのPvP専用装備セットはグローバル版での実装が未確認なので、PvEタブのPvX装備で進める想定だ。PvP装備が出た場合は、まずPvPスティグマを上げ、そのあとでPvP武器や防具に投資する。</p>
+{% endcall %}
+
+{% call section('global', 'グローバル版シーズン1：変更点', 'pve pvp') %}
+  <p>グローバル版サーバーは<strong>2026年10月5日</strong>にオープンする（ファウンダー先行アクセスは9月30日から）。テンプラーにとっての意味は次のとおり。</p>
+  <div class="callout">
+    <ul>
+      <li><strong>Lv45でスティグマは4つ。</strong>SolAshurの台湾版の構成は6つだったが、グローバル版ではプロファイルごとに2つ外している（「スティグマ」に記載）。</li>
+      <li><strong>ローンチ前にスキルプリセットを3つ作る</strong>：PvX、PvP、PvE。コンテンツの切り替えがワンクリックで済む。</li>
+      <li><strong>Skill Point Shardは早めに集める</strong>：三位一体が20に届く速さはこれで決まる。</li>
+      <li><strong>レギオンに入る</strong>：ソロでのアビス周回は効率が悪い。</li>
+      <li>ローンチ時にスティグマ名を確認しよう。グローバル版クライアントでは名前が変わっているものがあるかもしれない。</li>
+    </ul>
+  </div>
+{% endcall %}
+
+{% call section('skills', 'スキル', 'pve') %}
+  <p>三位一体をまず<strong>20</strong>まで上げる。スキルはスキルポイントで10、ディーヴァニオンで14まで上がり、その先は指輪とアルカナで三位一体をさらに伸ばす。下の特化はSolAshurのもの。</p>
+  <ul class="skill-grid">
+    {% call skill('judgment', 'must', '20', [4, 3, 2]) %}火力の中心。シールド強打、庇護の一撃、シールド突撃、破滅のシールドで発動し、16で再使用時間がなくなる。{% endcall %}
+    {% call skill('punishment', 'must', '20', [1, 4, 2]) %}チャージ式のバースト。持続ダメージ、ガードを無視した確定クリティカル、スキル速度+30%。移動可能化とHP吸収の特化は取らないこと。攻撃速度が十分なら、どちらも「罠」でしかない。{% endcall %}
+    {% call skill('pummel', 'must', '20', [1, 2, 4]) %}つなぎとグロッキー用。SolAshurは特化をすべて戒めの一撃に寄せている：HPを回復し、もう一度発動する。懲罰の再使用時間−1sの特化は取らない。できるだけ早く20にしよう。trueeevilは逆にその懲罰−1sの特化を取る。懲罰が早く戻ってくるので、回復が要らないならHP吸収と入れ替える価値は十分ある。{% endcall %}
+    {% call skill('annihilate', 'must', '16 → 20', [2, 3]) %}行動不可免疫のボスにダメージ+100%、再使用時間−10s。別ビルドでは範囲転倒の特化のために20まで上げる。3つ目のスロットは20で開く：ボス向けに多段ヒット。{% endcall %}
+    {% call skill('shield-smite', 'must', '16', [3, 2]) %}審判を発動させる。再使用時間−2sと、50%の確率で衰弱の猛打が発動。{% endcall %}
+    {% call skill('debilitating-smash', 'opt', '12', [3, 0]) %}ガード後やシールド強打の後に発動する。ガードと回避を無視する。{% endcall %}
+    {% call skill('warding-strike', 'opt', '12', [1, 3]) %}審判を発動させる。庇護中はガードとダメージ耐性が上がる。{% endcall %}
+    {% call skill('flash-rampage', 'opt', '12 → 16', [4, 3]) %}グロッキー状態の対象にしか使えない。1ヒットごとに全スキルの再使用時間−1s。PvEマクロには入れるが、ディーヴァニオンのノードは取らない：中盤で失速する。−1sの特化は16が必要で、12では多段ヒットとMP回復を取る。{% endcall %}
+    {% call skill('shield-rush', 'opt', '12', [3, 1]) %}回避 → 突進。審判を発動させる。再使用時間−10sと射程+10m。{% endcall %}
+    {% call skill('vicious-strike', 'opt', '10', []) %}左クリックの基本攻撃。スキルポイントで上がる10で十分。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('skills-pvp', 'スキル', 'pvp') %}
+  <ul class="skill-grid">
+    {% call skill('judgment', 'must', '20', [4, 3, 2]) %}PvEと同じループ：盾スキルで発動する。{% endcall %}
+    {% call skill('punishment', 'must', '20', [1, 4, 2]) %}ガードと回避を貫くバースト。{% endcall %}
+    {% call skill('pummel', 'must', '20', [1, 2, 4]) %}審判の発動の合間をつなぐ。戒めの一撃でHPが回復し、もう一度発動する。{% endcall %}
+    {% call skill('annihilate', 'must', '20', [2, 3, 4]) %}別ビルド：20では気絶か転倒状態の敵を最大4体まで攻撃し、30%の確率で転倒させる。−10sの特化と合わせれば連発できる範囲転倒になる。{% endcall %}
+    {% call skill('shield-smite', 'opt', '16', [3, 2]) %}審判の発動役で、気絶の手段にもなる。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('passives', 'パッシブ', 'pve') %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>パッシブ</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>{{ s('fury') }}</td><td>ガードするたびに自分<em>とパーティー</em>のPvEダメージ増幅が上がる。パーティーがテンプラーを欲しがる理由だ。</td></tr>
+      <tr><td>2</td><td>{{ s('punishing-benediction') }}</td><td>攻撃が当たるたびにクリティカルと追加ダメージの発動。鐘のアルカナで狙える。</td></tr>
+      <tr><td>3</td><td>{{ s('insulting-roar') }}</td><td>ヘイトに加え、正面からの攻撃で攻撃力が上がる。</td></tr>
+      <tr><td>4</td><td>{{ s('ironclad-defense') }}</td><td>防御力と鉄壁。鉄壁型ステータスビルドの核になる。SolAshurのキャラクター（+6レベル）では防御力+37%、鉄壁+16%。</td></tr>
+    </tbody>
+  </table></div>
+{% endcall %}
+
+{% call section('gear', '装備の進め方', 'pve') %}
+  <p>初日から始めるなら、ルートは次のとおり。</p>
+  <ol>
+    <li><strong>聖霊セット</strong>：アビス下層（1体倒すごとにアビス ポイント、ペット、ゴールドがドロップし、ボスも出現する）か、オープンワールドのどこでも集められる。<strong>戦闘力1,600前後</strong>が目安。</li>
+    <li><strong>最初のダンジョン帯は飛ばす</strong>：<strong>ウルググ峡谷</strong>でアウルラムスのロングソード（アイテムレベル76、攻撃力308–385、取得時に刻印）、<strong>バクロンの空中島</strong>でバクロンのガーダー（アイテムレベル76）とバクロンの防具を狙う。炎の神殿に挑めるようになるまでバクロン装備を強化し続ける。</li>
+    <li><strong>超越</strong>で<strong>炎の神殿</strong>（怒りのクロメデのソード：アイテムレベル84、攻撃力340–425、射程延長）と<strong>獰猛な角岩窟</strong>（Nuakum防具）に備える。周回はNuakumの方が安全：ほぼ全部位が更新になる一方、武器箱からは他クラスの武器が出ることがある。</li>
+    <li><strong>最終目標</strong>：PvEなら白龍王の剣、次に盾、次にアクセサリーで、防具はNuakum（白龍防具一式はPvE耐性が増えるだけで、重課金者の領域）。大半のプレイヤー向けのPvX構成は、怒りのクロメデの剣、白龍の盾、Nuakum防具、白龍のアクセサリー。</li>
+  </ol>
+  <p><strong>翼：</strong>序盤はDark Veil（追加攻撃力、ダメージ増幅）、終盤はTalisra：攻撃力60、防御力400、命中35、再使用時間減少4%。再使用時間減少はできるだけ早く積もう。盾スキルのクールタイムが短いほど審判の発動が増える。ほかの翼もすべて集めておく。「所持」効果と飛行力がアビス周回の助けになる。</p>
+{% endcall %}
+
+{% call section('stats', 'ステータス、魂刻印、ペット', 'pve pvp') %}
+  <p>ステータスビルドは2通り。どのステータスと噛み合うかで選ぶ。</p>
+  <div class="callout"><ul>
+    <li><strong>A · ガード + 回避 + Dexterity</strong>：序盤から中盤、命中が高くない相手向け。Dexterityはガードと回避の両方を伸ばす。SolAshurがローンチ時に選んだのはこちら。</li>
+    <li><strong>B · ガード + 鉄壁 + 鉄壁防御</strong>：終盤向け。鉄壁が100%なら被ダメージが50%減る。</li>
+  </ul></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>部位</th><th>固有オプション</th><th>その次</th></tr></thead>
+    <tbody>
+      <tr><td>武器、盾</td><td>戦闘速度 + 武器ダメージ増幅</td><td>Might + 多段ヒット。命中上限に届いていなければPrecision</td></tr>
+      <tr><td>兜</td><td>受ける治癒量</td><td>攻撃力、Might、クリティカル、Precision</td></tr>
+      <tr><td>肩</td><td>クリティカル ダメージ増幅</td><td>攻撃力、Might、Precision、完璧</td></tr>
+      <tr><td>胴</td><td>ダメージ増幅</td><td>攻撃力、Might、クリティカル、Constitution</td></tr>
+      <tr><td>手</td><td>戦闘速度</td><td>完璧、攻撃力、Might、多段ヒット</td></tr>
+      <tr><td>脚</td><td>完璧</td><td>ダメージ耐性、攻撃力、Might、Constitution</td></tr>
+      <tr><td>足</td><td>移動速度</td><td>完璧、攻撃力、Might、Dexterity</td></tr>
+      <tr><td>マント</td><td>クリティカル ダメージ耐性</td><td>完璧、ダメージ耐性、攻撃力</td></tr>
+      <tr><td>指輪 / イヤリング / ネックレス</td><td colspan="2">指輪：主力アクティブスキル上位4つ · イヤリング：パッシブ上位4つ · ネックレス：アクティブ2つ + 攻撃力、クリティカル、武器ダメージ増幅</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>ペット（Genus Insight）</strong>：飛ばさないこと。2週間もすれば、攻撃が当たるか外れるかの差になる。通常のものは攻撃力と命中、特殊なものは攻撃力とダメージ増幅が付く。数値を良くするため、Genusはできるだけ早く<strong>10</strong>まで上げよう。ロックは最初の大きなギーナの使い道になる。固有の最大値50%を引いた重要なステータスだけをロックし、つなぎのステータスはロックしない。ロックするスロットの順番は<strong>4 → 7 → 2と8</strong> → 残り（攻撃力、命中、クリティカル）。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>スロット</th><th>通常</th><th>特殊</th></tr></thead>
+    <tbody>
+      <tr><td>1, 4, 7</td><td>クリティカル、命中、ガード（または回避）</td><td>最大攻撃力、追加攻撃力</td></tr>
+      <tr><td>2, 5, 8</td><td>最大攻撃力、追加攻撃力</td><td>最大攻撃力、追加攻撃力</td></tr>
+      <tr><td>3</td><td colspan="2">ダメージ増幅、武器ダメージ増幅、強打または完璧</td></tr>
+      <tr><td>6</td><td>クリティカル、命中、ダメージ耐性</td><td>ダメージ耐性、武器ダメージ耐性</td></tr>
+      <tr><td>9</td><td>ダメージ増幅、武器ダメージ増幅、強打または完璧</td><td>ダメージ増幅または完璧</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Pantheon：</strong>まずWisdom（強打）、次にSpace（ガード）。その後は<span data-only="pve">PvEならIllusion（再使用時間減少）</span><span data-only="pvp">PvPならTime（攻撃速度）</span>。序盤に資源をつぎ込んで肖像を無理に開放しないこと。プレイしていれば自然に開放される。</p>
+{% endcall %}
+
+{% call section('arcana', 'アルカナ', 'pve') %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>カード</th><th>狙うスキル</th></tr></thead>
+    <tbody>
+      <tr><td>聖杯</td><td>{{ s('pummel') }}、{{ s('punishment') }}</td></tr>
+      <tr><td>羊皮紙</td><td>{{ s('judgment') }}、{{ s('punishment') }}</td></tr>
+      <tr><td>コンパス</td><td>{{ s('pummel') }}、{{ s('shield-smite') }}</td></tr>
+      <tr><td>鐘</td><td>{{ s('fury') }}、{{ s('punishing-benediction') }}</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">セット効果は生存系より火力系を狙う。テンプラーの生存力はもう十分足りている。</p>
+{% endcall %}
+
+{% call section('daevanion', 'ディーヴァニオン ボード', 'pve pvp') %}
+  <p>ディーヴァニオンでスキルは10から14まで上がり、ステータスも増える。青いノードはそれぞれ対応するスキルを<strong>+1レベル</strong>上げる。</p>
+  <div class="callout"><ul>
+    <li><strong>優先度：</strong>{{ s('judgment') }}、{{ s('punishment') }}、{{ s('pummel') }}の青ノード、次に{{ s('shield-smite') }}と{{ s('annihilate') }}。その次がオレンジのノード。</li>
+    <li><strong>不要：</strong>MPのノード（ポイントは攻撃力に回す）、{{ s('flash-rampage') }}のノード、緑の庇護のシールド / Guardian Shieldのノード（ポイントが余っていれば取ってよい）。</li>
+    <li data-only="pve"><strong>グローバル版にアリエルはない：</strong>ボードは5枚で、Lv45のアスフェルはPvPダメージ増幅と耐性しか上げない。PvEでは最初の4枚を埋めよう。</li>
+    <li data-only="pvp"><strong>アスフェル</strong>（Lv45）はすべてPvPダメージ増幅と耐性。取ろう。</li>
+  </ul></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ボード</th><th>開放</th><th>オレンジのノード</th></tr></thead>
+    <tbody>
+      <tr><td>ネザカン</td><td>Lv12</td><td>戦闘速度、再使用時間減少</td></tr>
+      <tr><td>ジケル</td><td>Lv20</td><td>ダメージ増幅、ダメージ耐性</td></tr>
+      <tr><td>バイゼル</td><td>Lv30</td><td>クリティカル ダメージ増幅、クリティカル ダメージ耐性</td></tr>
+      <tr><td>トリニエル</td><td>Lv40</td><td>多段ヒット的中、多段ヒット抵抗</td></tr>
+      <tr><td>アスフェル</td><td>Lv45</td><td>PvPダメージ増幅、PvPダメージ耐性。スキルノードなし</td></tr>
+    </tbody>
+  </table></div>
+  <h3>ボード上のルート</h3>
+  <p>ゲームデータから取った実際のグローバル版ボード。金色は「開始」から、このガイドが取るノード（優先する5スキルの青ノードとオレンジのノード）までの最安ルートを示す。ノードにカーソルを合わせると効果を確認できる。</p>
+  <div data-only="pve">{{ dv_board('pve') }}</div>
+  <div data-only="pvp">{{ dv_board('pvp') }}</div>
+  <p class="note">ボードとコストはグローバル版クライアントのデータ（questlog.gg）に基づく。ルートは計算で求めたもので、動画から取ったものではない。ステータスの数値はローンチ時に変わる可能性があるので、ルートを最後まで決める前にゲーム内のボードを確認しよう。</p>
+{% endcall %}
+
+{% call section('stigmas', 'スティグマ', 'pve') %}
+  <p><strong>深さより広さ：</strong>まず4つすべてに1ポイントずつ入れ、次に神の懲罰と戦場の旗を5まで上げる。そこからブレイクポイントを狙う：神の懲罰10 → 15、戦場の旗10 → 15、破滅のシールド15。</p>
+  <ul class="skill-grid">
+    {% call skill('empyrean-lords-punishment', 'must', 'Lv15', upto=15) %}グロッキー値の大きい範囲ダメージ（10で+50）。15でPvEダメージ増幅+10%。グロッキーギミックのあるボスでは必須。{% endcall %}
+    {% call skill('battlefield-banner', 'must', 'Lv15', upto=15) %}火力バフ：多段ヒット、武器ダメージ増幅、防御力に比例した攻撃力。強いのはLv10とLv15の段階。{% endcall %}
+    {% call skill('doom-shield', 'must', 'Lv15', upto=15) %}審判の主な発動役。15では敵を倒すと再使用時間が初期化される。PvXとペット周回では欠かせない。{% endcall %}
+    {% call skill('taunt', 'must', 'Lv5', upto=5) %}パーティーコンテンツでのヘイト取り。ソロならネザカンのシールドに替える。{% endcall %}
+    {% call skill('nezekans-shield', 'opt', '代替', upto=15) %}生存力重視の入れ替え候補。15未満では弱い。{% endcall %}
+    {% call skill('comrade-in-arms', 'opt', 'パーティー', upto=15) %}ダンジョンで生存力を上げるための入れ替え候補で、破滅のシールドと替える。ソロでは役に立たない。{% endcall %}
+    {% call skill('executing-blade', 'opt', 'ソロ · 序盤', upto=10) %}trueeevilが初日のPvEで選んだスティグマ。対象の防御力−30%、10で隙を付与。これで開幕し、続けて懲罰を撃つ。神の懲罰か挑発の代わりになる、ソロ・序盤向けの選択肢。{% endcall %}
+    {% call skill('noble-armor', 'opt', 'ソロ · 序盤', upto=5) %}2分間、最大HPと防御力が上がり、再使用時間も2分なので常に維持できる。trueeevilはソロで使っている。パーティーでは挑発とグロッキー用のスティグマの方が重要。{% endcall %}
+  </ul>
+  <div class="table-wrap"><table>
+    <thead><tr><th>プロファイル</th><th>スティグマ4つ</th><th>代替</th></tr></thead>
+    <tbody>
+      <tr><td>PvE</td><td>神の懲罰、戦場の旗、破滅のシールド、挑発</td><td>ネザカンのシールド、戦友保護</td></tr>
+      <tr><td>PvE、ソロ</td><td>神の懲罰、戦場の旗、破滅のシールド、ネザカンのシールド</td><td>ソロならヘイト取りやパーティー向けのスキルは不要</td></tr>
+      <tr><td>PvE、生存力重視のダンジョン</td><td>神の懲罰、戦場の旗、挑発、戦友保護</td><td>破滅のシールドによる審判の発動を失う</td></tr>
+      <tr><td>PvX（汎用）</td><td>神の懲罰、処刑の剣、戦場の旗、破滅のシールド</td><td>ネザカンのシールド、戦友保護、二重鎧</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">どの入れ替えにも代償がある。破滅のシールドを外せば審判の発動が減り、神の懲罰を外せばグロッキー、戦場の旗を外せば火力を失う。生存力が必要なら、その戦闘で機動力が要らないときに外すのは破滅のシールドだ。</p>
+{% endcall %}
+
+{% call section('stigmas-pvp', 'スティグマ', 'pvp') %}
+  <ul class="skill-grid">
+    {% call skill('executing-blade', 'must', 'Lv10', upto=10) %}1対1で最強：対象の防御力を下げる（10で隙を付与）。1対1ならスティグマポイントは最優先でこれに入れる。{% endcall %}
+    {% call skill('empyrean-lords-punishment', 'must', 'Lv15', upto=15) %}素直なCCと範囲ダメージ。{% endcall %}
+    {% call skill('doom-shield', 'must', 'Lv15', upto=15) %}接近手段、転倒、審判の発動役を兼ねる。{% endcall %}
+    {% call skill('nezekans-shield', 'must', 'Lv15', upto=15) %}物理アタッカー対策。15未満では弱い。{% endcall %}
+    {% call skill('second-skin', 'opt', '対魔法', upto=10) %}魔法ダメージ対策。生き残る必要があるときに神の懲罰と入れ替える。{% endcall %}
+    {% call skill('comrade-in-arms', 'opt', 'パーティーPvP', upto=20) %}パーティーPvPではネザカンのシールドと入れ替える。20で最も強い。{% endcall %}
+    {% call skill('assault-fury', 'opt', '終盤') %}装備が十分育ってからの終盤の入れ替え候補：気絶確率付きの遠距離範囲攻撃。一番弱いスロットと入れ替える。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('macro', 'マクロとローテーション', 'pve') %}
+  <p>AION 2には別々のツールが2つある。</p>
+  <ul>
+    <li><strong>ホットバーライン</strong>：<em>1つ</em>のホットバーボタンに複数のスキルを重ねたもの。押すと使用可能なスキルのうち最も優先度の高いものが発動し、AION 2では<strong>一番下のスロットが最優先</strong>になる。カードは各ラインをゲーム内と同じく上から下の順に表示している。</li>
+    <li><strong>ゲーム内マクロ</strong>：キーを押している間、ホットバーラインを順番に押し、モーションの後隙をキャンセルする。再使用待ちのスキルは飛ばされる。</li>
+  </ul>
+
+  <h3>1. ホットバーライン</h3>
+  <div class="hotlines">
+    {% call hotline('右クリック', '連続乱打ライン', ['annihilate', 'debilitating-smash', 'flash-rampage', 'pummel']) %}ゲーム内マクロが押すのはこのライン。発動スキルは光った瞬間に発動し、それ以外は連続乱打が埋める。{{ s('flash-rampage') }}はグロッキー状態の対象にしか当たらない。それ以外のときはマクロが飛ばし、グロッキー中は1ヒットごとに全スキルの再使用時間が1s短くなる。{% endcall %}
+    {% call hotline('サイド', '審判ライン', ['judgment', 'shield-smite', 'warding-strike', 'doom-shield']) %}連打する。盾スキルはすべて審判を発動させ、審判が常に優先される。{% endcall %}
+    {% call hotline('右クリック · PvX', 'PvX用の連続乱打ライン', ['doom-shield', 'annihilate', 'debilitating-smash', 'pummel']) %}PvXプリセットでの同じボタン。{{ s('flash-rampage') }}が抜け、{{ s('doom-shield') }}が最優先になり、残りは順に下がる。審判ラインにも入れているのは意図的だ。ここでは戦闘の開幕役で、突進してNPCに確定転倒を入れ、{{ s('annihilate') }}を使えるようにする。さらにLv15では敵を倒すと再使用時間が初期化され、PvXとペット周回の要になる。{% endcall %}
+  </div>
+
+  <h3>2. キー</h3>
+  <ul class="presslist">
+    <li><span class="press-how">左クリック</span><span class="press-what">{{ s('vicious-strike') }}（クイックスロット1）。</span></li>
+    <li><span class="press-how">右クリック</span><span class="press-what">ゲーム内マクロ（連続乱打ライン）、10ms。</span></li>
+    <li><span class="press-how">サイドボタン</span><span class="press-what">審判ライン。SolAshurは<span class="key">R</span>に割り当て、マウスでRを毎秒約10回リピートさせている。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">チャージした{{ s('punishment') }}を再使用時間ごとに、{{ s('battlefield-banner') }}、グロッキー用の{{ s('empyrean-lords-punishment') }}、{{ s('taunt') }}。</span></li>
+  </ul>
+  <p class="note">SolAshurはホットキー設定の全体を以前のマクロ動画で解説している。それに合わせるには、ゲーム内のキー割り当てをいくつか変える必要がある。</p>
+{% endcall %}
+
+{% call section('recap', 'まとめ', 'pve') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>まず審判、懲罰、連続乱打を20に。殲滅とシールド強打は16、残りは12。</li>
+    <li><strong>スティグマ：</strong>神の懲罰、戦場の旗、破滅のシールド、挑発。それぞれに1ポイント入れてからブレイクポイントへ。</li>
+    <li><strong>ステータス：</strong>序盤はガード + 回避 + Dexterity、終盤はガード + 鉄壁。ペットは飛ばさない。</li>
+    <li><strong>装備：</strong>聖霊 → ウルググ / バクロン → 炎の神殿と獰猛な角岩窟 → 白龍の武器、盾、アクセサリー。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('recap-pvp', 'まとめ', 'pvp') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>同じ三位一体を20に。加えて範囲転倒のために殲滅も20。</li>
+    <li><strong>スティグマ：</strong>処刑の剣、神の懲罰、破滅のシールド、ネザカンのシールド（魔法相手には二重鎧、パーティーなら戦友保護）。</li>
+    <li><strong>Pantheon：</strong>IllusionではなくTime（攻撃速度）。</li>
+  </ul></div>
+{% endcall %}
+
+{# ============================ Leveling ============================ #}
+{% call section('fight-lvl', t.lvl_combat, 'lvl') %}
+  <div class="callout"><ul>
+    <li><strong>雑魚の群れ：</strong>{{ s('poach') }}で1体引き寄せる（倒すと再使用時間が初期化）→ {{ s('warding-strike') }} → {{ s('vicious-strike') }} + {{ s('pummel') }}マクロを押しっぱなし。</li>
+    <li><strong>エリート：</strong>チャージした{{ s('punishment') }} → {{ s('shield-smite') }}（気絶）→ {{ s('judgment') }} → {{ s('annihilate') }}。</li>
+    <li><strong>MP：</strong>猛烈な一撃でMPが回復し、連続乱打で消費する。交互に使えばMPは切れない。</li>
+    <li><strong>HPが減ったら：</strong>庇護の一撃で回復しつつ被ダメージを減らす。ガードするたびに庇護のシールドでHPが回復する。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
+  <p>レベリングとカンスト直後の数日向けの簡易構成で、Grobsの序盤用マクロがベース。入れるのは連打するスキルだけで、バフ、スティグマのバースト、接近スキルは個別のキーに置く。</p>
+  <div class="hotlines">
+    {{ hotline('1', 'ライン1', ['doom-shield', 'debilitating-smash', 'judgment', 'shield-smite'], []) }}
+    {{ hotline('2', 'ライン2', ['warding-strike', 'pummel'], []) }}
+  </div>
+  <p>ゲーム内マクロ：ライン1 → ライン2、それぞれディレイ10ms。左クリックの基本攻撃{{ s('vicious-strike') }}<strong>と</strong>マクロキーを同時に押し続ける。</p>
+  <p class="note">スキルが12–16になり、特化で再使用時間が変わったら、PvEタブの完全版の構成に切り替えよう。</p>
+{% endcall %}
+
+{# ============================ Sources ============================ #}
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">{{ t.sources }}</h2>
+  <ul>
+    <li><a href="https://solashur.com/builds/templar-global-build.html" target="_blank" rel="noopener">SolAshur「AION 2 Templar global build」</a>と<a href="https://www.youtube.com/watch?v=ayyzLdGOaNc" target="_blank" rel="noopener">その解説動画</a>：このガイドが従うビルド（スキル、プロファイル別のスティグマ、マクロ、装備の進め方、ステータス、ペット、Pantheon、アルカナ）。特化は<a href="https://questlog.gg/aion-2/en/character-builder/QuickCobraLifeBanish" target="_blank" rel="noopener">彼のquestlogビルド</a>から</li>
+    <li><a href="https://www.youtube.com/watch?v=JEWRiaOb9JY" target="_blank" rel="noopener">NoBS Game Guides「Aion 2 Templar Guide: Skills Introduction + Early Game Macro」</a>（スキル概要とレベリング用マクロのベース）</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/templar" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルとスティグマのデータ</li>
+    <li><a href="https://www.inven.co.kr/board/aion2/6438/12803" target="_blank" rel="noopener">Inven</a>：韓国版テンプラーのスキル特化、スティグマ、マクロ設定</li>
+    <li><a href="https://vortexgaming.io/postdetail/977999" target="_blank" rel="noopener">Vortex Gaming</a>：韓国版のPvE構成（スキルLv、装備のステータス）と<a href="https://vortexgaming.io/postdetail/836552" target="_blank" rel="noopener">PvP構成の方針</a></li>
+    <li><a href="https://www.inven.co.kr/board/aion2/6438/7621" target="_blank" rel="noopener">Inven</a>と<a href="https://www.fmkorea.com/9447817669" target="_blank" rel="noopener">FM Korea</a>：PvPのスティグマ選び</li>
+    <li><a href="https://mmo-codex.com/articles/aion-2-templar-guide/" target="_blank" rel="noopener">MMO Codex</a>：レベリング中のスキル順、パッシブの優先度</li>
+    <li><a href="https://nemobek.github.io/aion2-guide/" target="_blank" rel="noopener">nemobek.github.io/aion2-guide</a>（TitanTheFの表）：レベリングルート</li>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs「AION 2 Macro Guide」</a>：ホットバーラインとゲーム内マクロの仕組み</li>
+    <li><a href="https://www.youtube.com/watch?v=ZQVq7IYbLy8" target="_blank" rel="noopener">trueeevil「Ultimate Templar Guide for Aion 2: Skills, Stigmas, Rotations, Daevanion Board Explained」</a>：グローバル版2日目の構成。ソロPvE向けの処刑の剣と高潔の甲冑、連続乱打の懲罰−1s特化、パッシブの順番</li>
+  </ul>
+  <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
+</section>

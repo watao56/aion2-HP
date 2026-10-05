@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ja" data-mode="pve">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ゲーム設定：操作、キー、FPS — AION 2 ガイド</title>
+<meta name="description" content="初日に変えておきたいAION 2の設定。操作モード、ターゲット選択、マクロキー、独立した衝撃解除キー、バフスクロールの自動使用、ボスの向きとヘイト範囲、FPS、大規模PvPのオプション。">
+<link rel="canonical" href="https://couga54.github.io/aion2-guides/ja/settings/">
+<link rel="alternate" hreflang="en" href="https://couga54.github.io/aion2-guides/en/settings/">
+<link rel="alternate" hreflang="ru" href="https://couga54.github.io/aion2-guides/ru/settings/">
+<link rel="alternate" hreflang="uk" href="https://couga54.github.io/aion2-guides/uk/settings/">
+<link rel="alternate" hreflang="tr" href="https://couga54.github.io/aion2-guides/tr/settings/">
+<link rel="alternate" hreflang="ja" href="https://couga54.github.io/aion2-guides/ja/settings/">
+<link rel="alternate" hreflang="x-default" href="https://couga54.github.io/aion2-guides/en/settings/">
+<meta name="theme-color" content="#0b0e14">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AION 2 ガイド">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="ゲーム設定：操作、キー、FPS — AION 2 ガイド">
+<meta property="og:description" content="初日に変えておきたいAION 2の設定。操作モード、ターゲット選択、マクロキー、独立した衝撃解除キー、バフスクロールの自動使用、ボスの向きとヘイト範囲、FPS、大規模PvPのオプション。">
+<meta property="og:url" content="https://couga54.github.io/aion2-guides/ja/settings/">
+<meta property="og:image" content="https://couga54.github.io/aion2-guides/assets/og/settings-ja.jpg?v=16a30350">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&display=swap&subset=cyrillic">
+<script>
+  // Theme + guide mode before first paint (no flash).
+  (function (r) {
+    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') r.dataset.theme = t; } catch (e) {}
+    var off = (r.getAttribute('data-off') || '').split(' ');
+    var modes = ['pve', 'pvp', 'lvl'].filter(function (x) { return off.indexOf(x) < 0; });
+    var m = new URLSearchParams(location.search).get('mode');
+    if (modes.indexOf(m) < 0) { try { m = localStorage.getItem('mode'); } catch (e) {} }
+    if (modes.indexOf(m) >= 0) r.dataset.mode = m;
+    else if (modes.indexOf(r.dataset.mode) < 0) r.dataset.mode = modes[0];
+  })(document.documentElement);
+</script>
+<script>
+  // Google Analytics (site.json "ga"). Not loaded on local previews. A visitor who came through the root
+  // language redirect keeps the site they came from (root.html saves it in sessionStorage).
+  if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6WYEWLG4B5';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      var ref = null;
+      try { ref = sessionStorage.getItem('ref'); sessionStorage.removeItem('ref'); } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-6WYEWLG4B5', ref ? { page_referrer: ref } : {});
+    })();
+  }
+</script>
+<link rel="stylesheet" href="../../assets/css/site.css?v=16a30350">
+</head>
+<body class="page-guide page-settings">
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="../../ja/">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg>
+      <span>AION 2 ガイド</span>
+    </a>
+    <details class="class-menu">
+      <summary class="class-menu-btn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg><span>クラス</span>        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <nav class="class-menu-panel" aria-label="クラス">
+        <a href="../../ja/gladiator/" class="cm-item accent-crimson">
+          <img src="../../assets/classes/gladiator.webp" width="44" height="44" alt=""><span class="cm-name">グラディエーター</span><span class="cm-role">近接DPS · ブルーザー</span>
+        </a>
+        <a href="../../ja/ranger/" class="cm-item accent-emerald">
+          <img src="../../assets/classes/ranger.webp" width="44" height="44" alt=""><span class="cm-name">レンジャー</span><span class="cm-role">遠距離DPS · カイター</span>
+        </a>
+        <a href="../../ja/templar/" class="cm-item accent-sapphire">
+          <img src="../../assets/classes/templar.webp" width="44" height="44" alt=""><span class="cm-name">テンプラー</span><span class="cm-role">タンク · パーティーバッファー</span>
+        </a>
+        <a href="../../ja/assassin/" class="cm-item accent-violet">
+          <img src="../../assets/classes/assassin.webp" width="44" height="44" alt=""><span class="cm-name">アサシン</span><span class="cm-role">近接DPS · バースト</span>
+        </a>
+        <a href="../../ja/sorcerer/" class="cm-item accent-frost">
+          <img src="../../assets/classes/sorcerer.webp" width="44" height="44" alt=""><span class="cm-name">ソーサラー</span><span class="cm-role">遠距離魔法DPS</span>
+        </a>
+        <a href="../../ja/elementalist/" class="cm-item accent-spirit">
+          <img src="../../assets/classes/elementalist.webp" width="44" height="44" alt=""><span class="cm-name">スピリットマスター</span><span class="cm-role">召喚士 · 魔法DPS</span>
+        </a>
+        <a href="../../ja/cleric/" class="cm-item accent-sunlight">
+          <img src="../../assets/classes/cleric.webp" width="44" height="44" alt=""><span class="cm-name">クレリック</span><span class="cm-role">ヒーラー · 大地と雷の攻撃</span>
+        </a>
+        <a href="../../ja/chanter/" class="cm-item accent-amber">
+          <img src="../../assets/classes/chanter.webp" width="44" height="44" alt=""><span class="cm-name">チャンター</span><span class="cm-role">近接サポート · バッファー</span>
+        </a>
+      </nav>
+    </details>
+    <div class="topbar-tools">      <span class="rift-timer" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="亀裂が開放中" title="亀裂：敵対エリアへのポータル。3時間ごとに開き、入口は10分間開いたままで、中には約1時間滞在できる。次回">
+        <svg class="rt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="7.5" ry="10.5"/><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/><g transform="rotate(180 12 12)"><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/></g></svg><span class="rt-name">Rift</span><b class="rt-time">--:--</b>
+      </span>
+      <a class="wr-chip" href="../../ja/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="日,時間,分,秒" title="週間リセットまで">
+        <svg class="wr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="wr-name">リセット</span><b class="wr-time">--</b>
+      </a>
+      <a class="top-timer" href="../../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-09-28T13:00:00Z", "n": "\u30d7\u30ea\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9", "o": ""}, {"at": "2026-09-30T14:00:00Z", "n": "\u5148\u884c\u30a2\u30af\u30bb\u30b9", "o": "\u5148\u884c\u30a2\u30af\u30bb\u30b9\u958b\u59cb"}, {"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
+        <span class="tt-dot" aria-hidden="true"></span><span class="tt-name"></span><b class="tt-time">--:--:--</b>
+      </a>
+      <details class="class-menu nav-menu">
+        <summary class="class-menu-btn is-here">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>ガイド</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <nav class="nav-menu-panel" aria-label="ガイド">
+          <div class="nm-col">
+            <p class="nm-group">進行</p>
+            <a href="../../ja/week-1/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
+              <span class="nm-name">1週目</span><span class="nm-desc">最初のリセットまでに終えること</span>
+            </a>
+            <a href="../../ja/progression/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h4v-6H3zM10 20h4V9h-4zM17 20h4V4h-4z"/></svg>
+              <span class="nm-name">45以降</span><span class="nm-desc">レイドまでのアイテムレベルルート</span>
+            </a>
+            <a href="../../ja/crafting/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 1.3-1.3a4 4 0 0 0-5-5L3 10l3-3 3 3 1.3-1.3a4 4 0 0 1 4.4-2.4z"/></svg>
+              <span class="nm-name">採集と製作</span><span class="nm-desc">生産スキルとゴールドの素体</span>
+            </a>
+            <a href="../../ja/settings/" class="nm-item" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+              <span class="nm-name">ゲーム設定</span><span class="nm-desc">操作、キー、FPS、大規模PvP</span>
+            </a>
+          </div>
+          <div class="nm-col">
+            <p class="nm-group">トラッカー</p>
+            <a href="../../ja/weekly/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8.5 15l2 2 4-4"/></svg>
+              <span class="nm-name">週間</span><span class="nm-desc">週間入場回数とエネルギー</span>
+            </a>
+            <a href="../../ja/bosses/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4.4 0-8 3.1-8 7.5 0 2.6 1.3 4.4 3 5.5V20h2v-2h2v2h2v-2h2v2h2v-4c1.7-1.1 3-2.9 3-5.5C20 6.1 16.4 3 12 3z"/><circle cx="9" cy="11" r="1.5"/><circle cx="15" cy="11" r="1.5"/></svg>
+              <span class="nm-name">ボス</span><span class="nm-desc">討伐トラッカーとタイマー</span>
+            </a>
+          </div>
+          <div class="nm-foot">
+            <a href="../../ja/sources/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h6M8 11h6"/></svg>
+              <span class="nm-name">出典とクレジット</span><span class="nm-desc">このサイトの土台になった人たち</span>
+            </a>
+          </div>
+        </nav>
+      </details>      <details class="lang-menu">
+        <summary class="lang-switch" title="言語"><span aria-hidden="true">JA</span><span class="sr-only">言語</span></summary>
+        <nav class="lang-panel" aria-label="言語">
+<a href="../../en/settings/" hreflang="en" lang="en" data-keep-query><b>EN</b>English</a><a href="../../ru/settings/" hreflang="ru" lang="ru" data-keep-query><b>RU</b>Русский</a><a href="../../uk/settings/" hreflang="uk" lang="uk" data-keep-query><b>UA</b>Українська</a><a href="../../tr/settings/" hreflang="tr" lang="tr" data-keep-query><b>TR</b>Türkçe</a><a href="../../ja/settings/" hreflang="ja" lang="ja" aria-current="true" data-keep-query><b>JA</b>日本語</a>        </nav>
+      </details>
+      <button class="icon-btn search-open" type="button" aria-label="検索 (Ctrl+K)" title="検索 (Ctrl+K)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+<a class="icon-btn wn-top" href="../../ja/changelog/" aria-label="更新履歴" title="更新履歴">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.9"/><path d="M12 17h.01"/></svg>
+      </a>      <button class="icon-btn theme-toggle" type="button" aria-label="ダークモード切替" title="ダークモード切替">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero has-art" style="--hero-art:url('../../assets/art/hero-sources.webp');--hero-pos:50% 30%">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../ja/">全クラス</a><span aria-hidden="true">/</span><span>設定</span></nav>
+      <h1>ゲーム設定</h1>
+      <p class="lead">初日に設定で変えておくこと。操作とターゲット、見落としやすいキー、画面に表示するもの、FPS、大規模PvP。</p>
+    </div>
+  </section>
+
+  <div class="wrap guide-layout pg-layout"><aside class="toc-side pg-side" aria-label="このページの内容">
+    <p class="toc-title">このページの内容</p>
+    <nav class="toc-list">
+<a href="#first">最初に変更する設定</a><a href="#controls">Combat → Controls</a><a href="#targeting">Combat → Target Scanning</a><a href="#autouse">Combat → Looting and Auto-use</a><a href="#keys">Key Settings：割り当てておきたいキー</a><a href="#display">Info Display：画面に表示するもの</a><a href="#graphics">Graphics → Optimize：FPSと大規模PvP</a><a href="#camera">Graphics → Camera / Direction</a><a href="#other">その他のタブ</a>    </nav>
+  </aside>
+  <div class="pg-page">
+    <p class="pg-note">Whelps（レンジャーメイン）とGrobsの設定動画2本をもとにしている。設定項目名は英語クライアントの表記のまま。値は2人のもので、たたき台として扱おう。2人の意見が分かれる項目は両方の案を載せている。各ブロックから動画の該当箇所へ飛べる。
+<a class="w1-src" href="https://www.youtube.com/watch?v=M5IeDf9CczU" target="_blank" rel="noopener" title="Whelps — My Settings &amp; Recommendations | Aion 2">Whelps</a><a class="w1-src" href="https://www.youtube.com/watch?v=5BoGBzDZdZI" target="_blank" rel="noopener" title="Grobs — 12 Settings You Should Change in AION 2">Grobs</a></p>
+
+    <ol class="pg-toc" aria-label="ステップ">
+      <li><a href="#first"><span>最初に変更する設定</span></a></li>
+      <li><a href="#controls"><span>Combat → Controls</span></a></li>
+      <li><a href="#targeting"><span>Combat → Target Scanning</span></a></li>
+      <li><a href="#autouse"><span>Combat → Looting and Auto-use</span></a></li>
+      <li><a href="#keys"><span>Key Settings：割り当てておきたいキー</span></a></li>
+      <li><a href="#display"><span>Info Display：画面に表示するもの</span></a></li>
+      <li><a href="#graphics"><span>Graphics → Optimize：FPSと大規模PvP</span></a></li>
+      <li><a href="#camera"><span>Graphics → Camera / Direction</span></a></li>
+      <li><a href="#other"><span>その他のタブ</span></a></li>
+    </ol>
+
+    <section class="pg-sec" id="first" aria-labelledby="h-first">
+      <h2 id="h-first" class="section-title">最初に変更する設定</h2>
+<p class="pg-lead">2分しかないなら、効果が大きいのはこの設定。詳細と理由は下の各セクションにある。</p><p class="st-label">Key Settings <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> General</p>      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Macro</p><div class="st-body"><p class="st-val"><b class="sv">キーを割り当てる</b>：右クリックが定番</p><p class="st-why">初期状態ではキーが未設定で、割り当てないとゲーム内マクロはまったく動かない。</p></div></div>
+        <div class="st-row"><p class="st-name">Separate Defiance Hotkey</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b> + 専用キー</p><p class="st-why">Spaceのままだと、Defianceがジャンプ・滑空と同じキーになる。拘束中に連打すると滑空して飛び立ってしまう。</p></div></div>
+        <div class="st-row"><p class="st-name">Fly Up, Fly Down</p><div class="st-body"><p class="st-val"><b class="sv">押しやすいキー</b></p><p class="st-why">初期設定はCtrl+RとCtrl+Fで、どちらも常に使う。</p></div></div>
+        <div class="st-row"><p class="st-name">Interact</p><div class="st-body"><p class="st-val"><b class="sv">2つ目のキー</b>：<kbd>F</kbd> + <kbd>Z</kbd></p><p class="st-why">2つを交互に連打すると、クエストの会話がかなり速く進む。</p></div></div>
+      </div>
+<p class="st-label">戦闘</p>      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Auto-use → Buff Auto-use Conditions</p><div class="st-body"><p class="st-val"><b class="sv">In Combat</b></p><p class="st-why">街中を走り回ってもバフスクロールが減らなくなる。</p></div></div>
+        <div class="st-row"><p class="st-name">Controls → Skill Queue</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">マクロとの相性が最も良い。</p></div></div>
+        <div class="st-row"><p class="st-name">Target Scanning → Preferred Search Direction</p><div class="st-body"><p class="st-val"><b class="sv">Front of Camera</b></p><p class="st-why">Tabで見ている方向の対象を選べる。</p></div></div>
+        <div class="st-row"><p class="st-name">Target Scanning → Detailed Settings</p><div class="st-body"><p class="st-val"><b class="sv">Priority Ranking</b>、Hostile Playersを最優先</p><p class="st-why">PvP用：Tabでモンスターより先にプレイヤーを選ぶ。</p></div></div>
+      </div>
+<p class="st-label">Info Display <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> Combat</p>      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Aggro Range Display</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">モンスターが反応する範囲が見える。</p></div></div>
+        <div class="st-row"><p class="st-name">Display Boss Orientation Indicator</p><div class="st-body"><p class="st-val"><b class="sv">ALL</b></p><p class="st-why">ボスの背面の位置が見える。</p></div></div>
+      </div>
+<p class="st-label">Graphics <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> Optimize</p>      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Effect Quality</p><div class="st-body"><p class="st-val"><b class="sv">Very Low</b></p><p class="st-why">FPSの改善が最も大きく、画面のチカチカもかなり減る。</p></div></div>
+        <div class="st-row"><p class="st-name">Player Particle Effect Display</p><div class="st-body"><p class="st-val"><b class="sv">Self Only</b></p><p class="st-why">自分以外のスキルエフェクトを隠す。</p></div></div>
+        <div class="st-row"><p class="st-name">Identical Player Appearance, [Abyss] Display as Tier Icon</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">大規模PvPには必須。</p></div></div>
+      </div>
+<p class="st-label">Graphics <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> Camera / Direction</p>      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Teleport Effect Color</p><div class="st-body"><p class="st-val"><b class="sv">Dark</b></p><p class="st-why">テレポートのたびに画面が真っ白にならない。</p></div></div>
+        <div class="st-row"><p class="st-name">Camera Shake Effect During Combat</p><div class="st-body"><p class="st-val"><b class="sv sv-off">OFF</b></p><p class="st-why">戦闘中に画面が揺れない。</p></div></div>
+        <div class="st-row"><p class="st-name">World Map Transition Animation</p><div class="st-body"><p class="st-val"><b class="sv sv-off">OFF</b></p><p class="st-why">マップを開くたびのアニメーションがなくなる。</p></div></div>
+      </div>
+    </section>
+    <section class="pg-sec" id="controls" aria-labelledby="h-controls">
+      <h2 id="h-controls" class="section-title">Combat <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> Controls</h2>
+      <p class="pg-p"><strong>Control Mode：AION 2とAION 1のどちらにするか。</strong>AION 2はアクションモードで、照準が画面中央にあり、カメラがマウスに追従する。AION 1は従来型で、カーソルを自由に動かし、右クリックを押している間だけカメラが回る。好みの問題だが、マクロにはAION 2のほうが向いている。AION 1モードでは左右のマウスボタンを割り当て直せない。 <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=8s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 0:08</a></p>
+      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Control Mode</p><div class="st-body"><p class="st-val"><b class="sv">AION 2</b></p><p class="st-why">マウスボタンにマクロを置くならこちらが向いている。上を参照。</p></div></div>
+        <div class="st-row"><p class="st-name">Display Distance to Aimed Target</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">ネームプレートの上に対象までの距離が表示される。</p></div></div>
+        <div class="st-row"><p class="st-name">Adjust Aim Position</p><div class="st-body"><p class="st-val">好みで</p><p class="st-why">照準を画面の上下に動かす（動画では188px）。</p></div></div>
+        <div class="st-row"><p class="st-name">Select Aimable Target</p><div class="st-body"><p class="st-val"><b class="sv">Hostile Target</b></p><p class="st-why">そうしないと照準が味方も拾ってしまう。味方を対象にする場面はほとんどなく、攻撃中の相手に合わせたままのほうがいい。</p></div></div>
+        <div class="st-row"><p class="st-name">Pursue Targets with Skill Activation</p><div class="st-body"><p class="st-val">遠距離は<b class="sv sv-off">OFF</b>、近接はどちらでも</p><p class="st-why">ONだと、射程外でスキルを押したときに対象まで歩いてから発動する。OFFのほうが操作しやすい。</p></div></div>
+        <div class="st-row"><p class="st-name">Auto Target Upon Skill Use</p><div class="st-body"><p class="st-val">オープンワールドの周回は<b class="sv sv-on">ON</b>（初期値：OFF）</p><p class="st-why">対象を選んでいなくても、スキルが最も近い敵を自動で選ぶ。マクロを押しっぱなしで走り回ればモンスターからモンスターへ移れる。Grobsは周回のときは必ずONにしていて、特に遠距離クラスで有効。Whelpsは周回以外ではOFF。</p></div></div>
+        <div class="st-row"><p class="st-name">Set Main Target Upon Attack</p><div class="st-body"><p class="st-val">2通り、下を参照（初期値：ON、左右クリックともON）</p><p class="st-why">攻撃で対象を固定するかどうか。Whelps：ON、左クリックON、右クリックOFF。Grobs：近接ではOFF。</p></div></div>
+        <div class="st-row"><p class="st-name">Skill Queue</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">別のスキルの発動中に押したスキルが予約される。マクロと組み合わせると最も効果が高い。</p></div></div>
+      </div>
+<p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=50s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 0:50</a> <a class="pg-at" href="https://www.youtube.com/watch?v=5BoGBzDZdZI&t=100s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ Grobs 1:40</a></p>      <h3 class="pg-h">ソフトロックとハードロック</h3>
+      <p class="pg-p">敵に照準を合わせると周りに白い円が出る。これが<strong>ソフトロック</strong>で、スキルはその敵に向かうが、別の方向に照準を向けるとすぐ対象が変わる。HPバーに矢印が2つ付いていれば<strong>ハードロック</strong>で、変更するまで対象が維持される。初期状態では攻撃するとハードロックになり、<kbd>Tab</kbd>は常にハードロックになる。 <a class="pg-at" href="https://www.youtube.com/watch?v=5BoGBzDZdZI&t=39s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ Grobs 0:39</a></p>
+      <ul class="pg-list">
+<li><strong>Set Main Target Upon Attack → OFF</strong>（Grobs、近接）：攻撃で対象が固定されなくなり、止まらずに次々と対象を切り替えられる。モンスターの群れに向いている。ボスには<kbd>Tab</kbd>で固定する。</li><li><strong>ON、左クリックON、右クリックOFF</strong>（Whelps、レンジャー）：左ボタンで対象を選んで固定し、マクロを置いている右ボタンでは誤って対象が切り替わらない。</li>      </ul>
+    </section>
+    <section class="pg-sec" id="targeting" aria-labelledby="h-targeting">
+      <h2 id="h-targeting" class="section-title">Combat <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> Target Scanning</h2>
+      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Preferred Search Direction</p><div class="st-body"><p class="st-val"><b class="sv">Front of Camera</b>（初期値：None）</p><p class="st-why">Tabがカメラの向いている方向の対象を探すので、選ばれる対象を自分で決められる。</p></div></div>
+        <div class="st-row"><p class="st-name">Target Scanning Detailed Settings</p><div class="st-body"><p class="st-val"><b class="sv">Priority Ranking</b>（初期値：Closest First）</p><p class="st-why">PvPをするなら：距離順ではなく、自分で決めた優先順位で対象が選ばれる。アビスではモンスターとプレイヤーが入り混じるので、Tabでプレイヤーを選ばせたい。</p></div></div>
+      </div>
+<p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=136s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 2:16</a> <a class="pg-at" href="https://www.youtube.com/watch?v=5BoGBzDZdZI&t=133s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ Grobs 2:13</a></p>      <h3 class="pg-h">PvPの優先順位</h3>
+      <ul class="pg-list">
+<li><strong>1〜2位。</strong>Hostile Players、次にPlayers Attacking Me。グローバル版では初期の1位が「攻撃した、または照準した対象」で、プレイヤーは2位と3位に入っている。Hostile Playersを最上位に移すのが最低限で、Grobsはそれ以外を変えていない。 <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=154s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 2:34</a></li><li><strong>3〜8位。</strong>すでに攻撃した対象、続いてモンスターとNPCを初期の順で。</li><li><strong>9〜10位。</strong>プレイヤーの精霊（グローバル版クライアントでは使い魔）は最下位に置く。これはスピリットマスターの精霊のこと。グローバル版では初期状態で4位と6位にあり、モンスターより上なので、PvPでTabが精霊ばかり選んでしまう。</li>      </ul>
+      <div class="callout pg-tip" role="note"><p>2人の解説者とも、この2つは同じ設定にしている。PvEだけなら、Closest FirstでもTabで最も近い対象を選ぶだけなので問題ない。Front of Cameraは使う価値がある。</p></div>
+    </section>
+    <section class="pg-sec" id="autouse" aria-labelledby="h-autouse">
+      <h2 id="h-autouse" class="section-title">Combat <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> Looting and Auto-use</h2>
+      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Looting → Obtaining Gear / Obtaining Item</p><div class="st-body"><p class="st-val">すべて、またはフィルター</p><p class="st-why">装備のグレード（Common、Rareなど）やアイテムの種類（ポーション、シャード、製作素材）ごとに拾わない設定にできる。周回でバッグがいっぱいになるときに便利。</p></div></div>
+        <div class="st-row"><p class="st-name">Auto-use → Buff Auto-use Conditions</p><div class="st-body"><p class="st-val"><b class="sv">In Combat</b></p><p class="st-why">バフスクロールはたいてい自動使用に入れてある。「移動中」を選ぶと動いた瞬間に使われ、「常時」だとずっと使われる。どちらもスクロールの無駄になる。</p></div></div>
+        <div class="st-row"><p class="st-name">Auto-use → Life Potion</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b>、動画では83%</p><p class="st-why">設定したHPを下回ると自動でポーションを飲む。</p></div></div>
+      </div>
+<p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=167s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 2:47</a></p>      <div class="callout pg-tip" role="note"><p><strong>近接クラスは注意：</strong>近接クラスは対象がいなくても武器を振れるので、街で左クリックを1回しただけで戦闘扱いになり、スクロールが使われる。レンジャーは自動攻撃に対象が必要なので、これは起きない。</p></div>
+    </section>
+    <section class="pg-sec" id="keys" aria-labelledby="h-keys">
+      <h2 id="h-keys" class="section-title">Key Settings：割り当てておきたいキー</h2>
+<p class="pg-lead">キーは解説者本人のもの。自分の好きなキーでいい。大事なのは、これらの操作にキーが割り当たっていること。</p>      <div class="st-opts">
+        <div class="st-row"><p class="st-name">General → Separate Defiance Hotkey + Set Defiance Hotkey</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b>、キーは<kbd>`</kbd>（<kbd>1</kbd>の左）。初期値：OFF</p><p class="st-why">初期状態ではDefiance（拘束解除）がジャンプ・滑空と同じ<kbd>Space</kbd>に入っている。拘束中にSpaceを連打すると滑空が始まり、次の行動が台無しになる。ボスのギミックやPvPの戦闘を落とす原因になる。</p></div></div>
+        <div class="st-row"><p class="st-name">General → Fly Up, Fly Down</p><div class="st-body"><p class="st-val">Fly Upはマウスのサイドボタン。初期値：<kbd>Ctrl</kbd>+<kbd>R</kbd>と<kbd>Ctrl</kbd>+<kbd>F</kbd></p><p class="st-why">カメラを傾けずにまっすぐ上昇・下降できるので、PvPでもカメラが対象から外れない。どちらも常に使うのに、Ctrl+Rを押したい人はいない。最初のログインで割り当て直して慣れておこう。</p></div></div>
+        <div class="st-row"><p class="st-name">General → Macro</p><div class="st-body"><p class="st-val">右クリック。初期値：<b class="sv">キーなし</b></p><p class="st-why">キーがないとマクロはまったく動かない。戦闘中ずっと押しっぱなしにするので、最も押しやすいボタンに置く。ほとんどのプレイヤーは右クリック。</p></div></div>
+        <div class="st-row"><p class="st-name">General → Target Hostile Players</p><div class="st-body"><p class="st-val"><kbd>Caps</kbd>（Whelps）。例：マウスの中ボタン（Grobs）</p><p class="st-why">敵プレイヤーだけを対象にする。アビスではTabがモンスターを選びがちだが、このキーなら選ばない。Grobs本人は使っていない。Priority Rankingで足りるため。</p></div></div>
+        <div class="st-row"><p class="st-name">General → Switch Control Mode</p><div class="st-body"><p class="st-val"><kbd>/</kbd></p><p class="st-why">AION 2モードとAION 1モードをその場で切り替える。</p></div></div>
+        <div class="st-row"><p class="st-name">General → Combat Analysis</p><div class="st-body"><p class="st-val"><kbd>Ctrl</kbd>+<kbd>X</kbd></p><p class="st-why">内蔵のダメージメーターを開く。</p></div></div>
+        <div class="st-row"><p class="st-name">Menu → Display Cursor</p><div class="st-body"><p class="st-val"><kbd>Alt</kbd>（押している間）</p><p class="st-why">AION 2モードで、押している間カーソルが出てUIをクリックできる。</p></div></div>
+        <div class="st-row"><p class="st-name">Quickslot</p><div class="st-body"><p class="st-val">1スロットにつき2キー</p><p class="st-why">ホットバーの各スロットにメインと2つ目のキーを割り当てられる。</p></div></div>
+        <div class="st-row"><p class="st-name">Marker</p><div class="st-body"><p class="st-val">テンキーでマーカーを付け、<kbd>Ctrl</kbd>+<kbd>1</kbd>でマーカー1を選択</p><p class="st-why">ボイスチャットを使うパーティーPvP向け：リーダーが対象にマーカーを付け、全員がキー1つでそれを選ぶ。</p></div></div>
+      </div>
+<p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=210s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 3:30</a> <a class="pg-at" href="https://www.youtube.com/watch?v=5BoGBzDZdZI&t=352s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ Grobs 5:52</a></p>      <h3 class="pg-h">会話をより速く飛ばす</h3>
+      <div class="callout pg-tip" role="note"><p>Key Settingsの各操作には<strong>キー欄が2つ</strong>ある。<strong>Interact</strong>（初期値は<kbd>F</kbd>）の隣に<kbd>Z</kbd>などの2つ目のキーを割り当てて、2つを交互に連打すると、<kbd>F</kbd>を指1本で押すときの約2倍の速さでクエストの会話が進む。45までは会話がとても多いので、積み重なると大きい。</p></div>
+    </section>
+    <section class="pg-sec" id="display" aria-labelledby="h-display">
+      <h2 id="h-display" class="section-title">Info Display：画面に表示するもの</h2>
+      <div class="st-opts">
+        <div class="st-row"><p class="st-name">Combat → Aggro Range Display</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">モンスターを選ぶと青い円が見える。その中に入ると襲ってくる。</p></div></div>
+        <div class="st-row"><p class="st-name">Combat → Display Boss Orientation Indicator</p><div class="st-body"><p class="st-val"><b class="sv">ALL</b></p><p class="st-why">ボスの周りに弧が出る。青い部分が正面、黄色い部分が背面。背後に立つ助けになる。</p></div></div>
+        <div class="st-row"><p class="st-name">Combat → Display Skill Range</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">スキルの射程が表示される。</p></div></div>
+        <div class="st-row"><p class="st-name">Common → Performance → Display Network Status</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">画面の隅にpingの表示が出る。</p></div></div>
+        <div class="st-row"><p class="st-name">Common → Pets → Display Other Players' Pets</p><div class="st-body"><p class="st-val"><b class="sv sv-off">OFF</b></p><p class="st-why">自分のペットは残り、他人のペットは消える。処理が重くなるだけなので。</p></div></div>
+        <div class="st-row"><p class="st-name">Common → Nameplate</p><div class="st-body"><p class="st-val">好みで</p><p class="st-why">他のプレイヤー、その精霊、モンスターのネームプレートを隠すと画面がすっきりする。自分のネームプレートは隠せない。</p></div></div>
+        <div class="st-row"><p class="st-name">Floater → Combat Floater Display</p><div class="st-body"><p class="st-val">ON、UIは小さめ</p><p class="st-why">飛び出すダメージと回復の数字。すべて、または個別（被ダメージ、被回復、対象へのダメージなど）にオフにできるが、攻撃の手応えがなくなる。Grobsは表示したまま、<strong>UI Proportion</strong>で小さくしている。Graphicsを参照。</p></div></div>
+      </div>
+<p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=345s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 5:45</a> <a class="pg-at" href="https://www.youtube.com/watch?v=5BoGBzDZdZI&t=204s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ Grobs 3:24</a></p>    </section>
+    <section class="pg-sec" id="graphics" aria-labelledby="h-graphics">
+      <h2 id="h-graphics" class="section-title">Graphics <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> Optimize：FPSと大規模PvP</h2>
+<p class="pg-lead">画質のプリセットはPCの性能次第。ここにあるのは、環境に関係なく効く設定。</p>      <div class="st-opts">
+        <div class="st-row"><p class="st-name">UI Proportion</p><div class="st-body"><p class="st-val"><b class="sv">Small</b>（初期値：Medium）</p><p class="st-why">UIとダメージ数字がまとめて縮小される。UIを小さくすると数字も小さくなり、戦闘を覆い隠さなくなる。</p></div></div>
+        <div class="st-row"><p class="st-name">Effect Quality</p><div class="st-body"><p class="st-val"><b class="sv">Very Low</b></p><p class="st-why">FPSへの影響が何より大きく（Whelpsは他の項目をVery Highのままにしている）、パーティクルも大幅に減る。長時間のプレイでも目がずっと楽。</p></div></div>
+        <div class="st-row"><p class="st-name">Upscaler</p><div class="st-body"><p class="st-val"><b class="sv">DLSS</b></p><p class="st-why">NVIDIA製のグラフィックスカードの場合。</p></div></div>
+        <div class="st-row"><p class="st-name">Frame Generator</p><div class="st-body"><p class="st-val"><b class="sv">PvEではOFF</b>、大規模PvPではON</p><p class="st-why">フレーム生成は入力遅延を増やし、入力遅延はそのまま火力の損失になる。大規模戦では滑らかさのほうが重要。</p></div></div>
+        <div class="st-row"><p class="st-name">Player Particle Effect Display</p><div class="st-body"><p class="st-val"><b class="sv">Self Only</b>（Grobs）。Self and Party（Whelps）</p><p class="st-why">Self Onlyにすると、味方も含めて自分以外のスキルエフェクトが消える。画面がすっきりし、FPSも明らかに上がる。たまに見えなくて困ることはあるが、それだけの価値はある。</p></div></div>
+        <div class="st-row"><p class="st-name">NVIDIA Reflex</p><div class="st-body"><p class="st-val"><b class="sv">BOOST</b></p><p class="st-why">入力遅延が小さくなる。</p></div></div>
+        <div class="st-row"><p class="st-name">Volumetric Light Scattering, Volumetric Fog</p><div class="st-body"><p class="st-val">動画ではOFF</p><p class="st-why">解説者の画面での設定。これらについては触れていない。</p></div></div>
+        <div class="st-row"><p class="st-name">[Abyss] Display as Tier Icon</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">アビスでの敵のネームプレートが小さなランクアイコンになり、画面上の表示がかなり減る。</p></div></div>
+        <div class="st-row"><p class="st-name">Identical Player Appearance</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b></p><p class="st-why">他のプレイヤーがすべて同じ簡素な見た目になる。すぐに反映される。ゲームは攻城戦のような大規模戦に最適化されておらず、これがないとどんなPCでもほぼ遊べない。</p></div></div>
+      </div>
+<p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=410s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 6:50</a> <a class="pg-at" href="https://www.youtube.com/watch?v=5BoGBzDZdZI&t=233s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ Grobs 3:53</a></p>      <div class="callout pg-tip" role="note"><p>その隣に<strong>[Domination] Display as Tier Icon</strong>がある。Domination用の同じスイッチで、動画ではOFF。</p></div>
+    </section>
+    <section class="pg-sec" id="camera" aria-labelledby="h-camera">
+      <h2 id="h-camera" class="section-title">Graphics <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> Camera / Direction</h2>
+      <div class="st-opts">
+        <div class="st-row"><p class="st-name">World Map Transition Animation</p><div class="st-body"><p class="st-val"><b class="sv sv-off">OFF</b></p><p class="st-why">そうしないとマップを開くたびにアニメーションが流れ、目が回る。</p></div></div>
+        <div class="st-row"><p class="st-name">Teleport Effect Color</p><div class="st-body"><p class="st-val"><b class="sv">Dark</b>（初期値：Bright）</p><p class="st-why">Brightだと、テレポートのたびに目の前が真っ白になる。</p></div></div>
+        <div class="st-row"><p class="st-name">Camera Perspective</p><div class="st-body"><p class="st-val">Default、または肩越し</p><p class="st-why">後者はキャラクターが中央より少し左に寄る。</p></div></div>
+        <div class="st-row"><p class="st-name">Camera Shake Effect During Combat</p><div class="st-body"><p class="st-val"><b class="sv sv-off">OFF</b></p><p class="st-why">2人の解説者ともオフにしている。好みの問題で、揺れが好きな人もいる。</p></div></div>
+        <div class="st-row"><p class="st-name">Display Weapon Outside of Combat</p><div class="st-body"><p class="st-val"><b class="sv sv-on">ON</b>（初期値：OFF）</p><p class="st-why">見た目だけの設定。戦闘外でも武器が消えずに表示される。</p></div></div>
+        <div class="st-row"><p class="st-name">Display Equipped Title Effects on Nameplate</p><div class="st-body"><p class="st-val">好みで</p><p class="st-why">特別な称号が名前の周りに付ける枠。OFFにすると消える。「自分のネームプレートのみ」という選択肢もある。</p></div></div>
+      </div>
+<p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=474s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 7:54</a> <a class="pg-at" href="https://www.youtube.com/watch?v=5BoGBzDZdZI&t=389s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ Grobs 6:29</a></p>    </section>
+    <section class="pg-sec" id="other" aria-labelledby="h-other">
+      <h2 id="h-other" class="section-title">その他のタブ</h2>
+      <ul class="pg-list">
+<li><strong>Accessibility</strong>：フォントサイズ、チャットの色、字幕。 <a class="pg-at" href="https://www.youtube.com/watch?v=M5IeDf9CczU&t=523s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 8:43</a></li><li><strong>Notification</strong>：ゲームの通知とリクエスト。招待は自動で断れる。解説者はすべて初期設定のままにしている。</li><li><strong>Miscellaneous</strong>：インターフェースと音声の言語。<em>Account</em>の下にクーポンコードの入力欄がある。</li>      </ul>
+    </section>
+    <script type="application/json" id="sk-data">{"i:wings":{"n":"ディーヴァの最上級翼(刻印)","m":"","g":41,"d":"[ディーヴァの最上級翼(刻印)]を獲得します。\n\n[装着効果]\nHP：500\nMP：250\n貫通：500\nクリティカル：35\n[保有効果]\n飛行力：500\n貫通：100\n追加命中：20\n追加攻撃力：10","sp":[]},"i:bracelet":{"n":"覚醒のブレスレット","m":"アイテムレベル 51","g":41,"d":"防御力: 156\n攻撃力: 65","sp":[]},"i:trace":{"n":"神の痕跡：アルトガルド(刻印)","m":"","g":71,"d":"アルトガルドを守護する神たちの力が微かに残っている痕跡です。アルトガルドのモノリスに共鳴させることができます。","sp":[]},"i:dcrystal":{"n":"ディーヴァニオン結晶(刻印)","m":"","g":71,"d":"使用するとディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_ariel":{"n":"ディーヴァニオン結晶：アリエル(刻印)","m":"","g":71,"d":"使用するとアリエル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_azphel":{"n":"ディーヴァニオン結晶：アスフェル(刻印)","m":"","g":71,"d":"使用するとアスフェル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:wisdom":{"n":"知恵の石(刻印)","m":"","g":71,"d":"戦闘の記憶が宿る神秘的な石です。\n使用するとスキル ポイントを1獲得します。","sp":[]},"i:clashrune":{"n":"激突のルーン箱(刻印)","m":"","g":71,"d":"悪夢を克服した者だけが得られるルーンです。\n使用すると激突のルーン(刻印)とルーン強化スクロール(刻印)を獲得できます。","sp":[]},"i:beltscroll":{"n":"高潔のベルト強化スクロール(刻印)","m":"","g":11,"d":"古代の力が込められた強化スクロールです。\n高潔のベルトを強化できます。","sp":[]},"i:shugokey":{"n":"シューゴ フェスタ報酬の鍵(刻印)","m":"","g":71,"d":"シューゴ フェスタ報酬の鍵の回数を1回チャージします。","sp":[]},"i:bakarma":{"n":"ヴォカルマのプレート","m":"アイテムレベル 54","g":41,"d":"HP: 216\n防御力: 397","sp":[]},"i:voucher":{"n":"装備変更券：バクロンの空中島(刻印)","m":"","g":41,"d":"バクロンを倒して獲得した報酬です。\n物質変換の材料に使用すると、唯一級ガーダーまたは唯一級装備選択箱に変換できます。","sp":[]},"i:vakronguard":{"n":"バクロンのガーダー","m":"アイテムレベル 70","g":41,"d":"クリティカル: 50\n命中: 50\n攻撃力: 144","sp":[]},"i:mana_sup":{"n":"上級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_int":{"n":"中級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_less":{"n":"下級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:theostone":{"n":"神石：ユベントスの敏捷(刻印)","m":"","g":31,"d":"[神石：ユベントスの敏捷]を獲得します。\n獲得した神石は統合強化ウィンドウから確認できます。\n攻撃時に20%の確率で最大4体に広域風属性ダメージ250\n効果発動クールタイム：1秒\n同じ神石を複数着用時、1個の効果のみ適用されます。","sp":[]},"i:enhance":{"n":"強化石","m":"","g":11,"d":"装備の秘められた力を目覚めさせるのに使用されます。","sp":[]},"i:bell_green":{"n":"活力の鐘","m":"アイテムレベル 40 · セット: 太初の活力","g":21,"d":"Justice [ネザカン]: 12","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_green":{"n":"魔力の鏡","m":"アイテムレベル 40 · セット: 魔力鎧","g":21,"d":"Wisdom [ルミエル]: 12","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:compass_grey":{"n":"魔力のコンパス","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Death [トリニエル]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:chalice_grey":{"n":"魔力の聖杯","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Space [Israphel]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:mirror_gold":{"n":"活力の鏡","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Illusion [カイジネル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:transfer_w":{"n":"継承石：武器(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の武器に使用できます。","sp":[]},"i:transfer_a":{"n":"継承石：防具(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の防具に使用できます。","sp":[]},"i:stigmashard":{"n":"スティグマ シャード(刻印)","m":"","g":71,"d":"経験の精髄が封印された破片です。\n獲得時にスティグマ シャード ポイントの1ポイント獲得します。","sp":[]},"i:amplify":{"n":"突破石(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を引き出す神秘的な原石です。\n最大強化段階に達した唯一級の装備を突破する材料に使用されます。","sp":[]},"i:amplify_frag":{"n":"突破石の欠片(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を目覚めさせる時に使用する突破石の破片です。\n物質変換で突破石に変換できます。","sp":[]},"i:sync":{"n":"調律石(唯一)(刻印)","m":"","g":41,"d":"装備に宿る力を調律して、新しい可能性を目覚めさせる調律石です。\n[統合強化 - 魂刻印 - 調律]で装備に使用すると、オプションを調律できます。","sp":[]},"i:sapphire":{"n":"サファイアの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:ruby":{"n":"ルビーの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:odyle":{"n":"オード","m":"","g":11,"d":"アイテムにオードの力を吹き込むことができます。製作と物質変換の材料です。","sp":[]},"i:log":{"n":"ユグドラシルの木(刻印)","m":"","g":11,"d":"魔法の力が宿る木です。細工で木製武器を作る材料です。","sp":[]},"i:odyle_energy":{"n":"オード エネルギー(刻印)","m":"","g":71,"d":"オード エネルギーを40チャージします。\nオード エネルギーは遠征、超越、聖域の挑戦に成功した時に現れるオード エネルギー キューブを活性化するのに使用できます。","sp":[]},"i:ore":{"n":"オリハルコン鉱石","m":"","g":11,"d":"頑丈さを持つ鉱石です。鍛冶と防具製作の材料です。","sp":[]},"i:herb":{"n":"カレンドラ","m":"","g":11,"d":"薬草の葉です。錬金術でポーションを作る材料です。","sp":[]},"i:ingredient":{"n":"ククル","m":"","g":11,"d":"料理を作る材料です。","sp":[]},"i:parchment_vigor":{"n":"活力の羊皮紙","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Life [ユスティエル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:compass_vigor":{"n":"活力のコンパス","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:chalice_vigor":{"n":"活力の聖杯","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_magic_gold":{"n":"魔力の鏡","m":"アイテムレベル 80 · セット: 魔力鎧","g":41,"d":"Wisdom [ルミエル]: 20","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]}}</script>
+  </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <div>
+      <a class="brand brand-sm" href="../../ja/">AION 2 ガイド</a>
+      <p>NCSOFTとは無関係の非公式ファンサイト。AION 2とそのスキルアイコンの著作権はNCSOFTに帰属する。</p>
+      <p>最終確認: 2026-10-04 (グローバル版ローンチ前).</p>
+      <p><a href="../../ja/sources/">すべての出典と配信者</a> · <a href="../../ja/changelog/">更新履歴</a> · <button type="button" class="link-btn report-open">誤りを報告</button></p>
+    </div>
+  </div>
+</footer>
+<dialog class="search-dlg" aria-label="検索" data-index="../../ja/search.json" data-base="../../ja/" data-empty="見つからなかった"
+  data-kinds="{&#34;boss&#34;: &#34;\u30dc\u30b9&#34;, &#34;class&#34;: &#34;\u30af\u30e9\u30b9&#34;, &#34;page&#34;: &#34;\u30da\u30fc\u30b8&#34;, &#34;section&#34;: &#34;\u30bb\u30af\u30b7\u30e7\u30f3&#34;, &#34;skill&#34;: &#34;\u30b9\u30ad\u30eb&#34;}" data-root="../../">
+  <div class="search-in">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" class="search-q" placeholder="クラス、スキル、ボス、セクション…" aria-label="検索" autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="search-res" role="listbox"></ul>
+  </div>
+</dialog>
+<dialog class="whatsnew" data-id="2026-10-04" aria-labelledby="wn-title">
+  <form method="dialog" class="wn-in">
+    <div class="wn-head">
+      <h2 id="wn-title">更新情報</h2>
+      <button class="icon-btn wn-x" value="close" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <section class="wn-entry">
+      <time class="wn-date" datetime="2026-10-04">2026年10月4日</time>
+      <ul>
+        <li><span><strong>トルコ語版</strong>：サイト全体がトルコ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ウクライナ語ページと同じく、スキル名とアイテム名は英語のまま。翻訳はAIによるもので、誤りを見つけたら「誤りを報告」を使うかGitHubでissueを立ててほしい。</span></li>
+      </ul>
+    </section>
+    <button class="btn btn-primary wn-ok" value="close">閉じる</button>
+    <p class="wn-all"><a href="../../ja/changelog/">更新履歴をすべて見る →</a></p>
+  </form>
+</dialog>
+<dialog class="whatsnew feedback" aria-labelledby="fb-title" data-url="https://aion2-feedback.couga-ua.workers.dev/" data-page="ja/settings/" data-lang="ja">
+  <form class="wn-in fb-form" novalidate>
+    <div class="wn-head">
+      <h2 id="fb-title">誤りを報告</h2>
+      <button type="button" class="icon-btn fb-x" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="fb-hint">どこが間違っている、または古い？ 出典のリンクやスクリーンショットがあると助かる。</p>
+    <label class="fb-label" for="fb-text">メッセージ</label>
+    <textarea id="fb-text" class="fb-text" name="text" rows="6" maxlength="2000" required placeholder="例：グローバル版では炎爆発の3つ目の特化が違う…"></textarea>
+    <label class="fb-label" for="fb-contact">返信先の連絡先（任意）</label>
+    <input id="fb-contact" class="fb-contact" name="contact" type="text" maxlength="100" autocomplete="off" placeholder="DiscordまたはTelegram">
+    <input class="fb-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fb-meta">メッセージと一緒に送信される情報： <b class="fb-where"></b></p>
+    <p class="fb-status" role="status" data-sending="送信中…" data-ok="送信した。ありがとう！" data-err="送信できなかった。しばらくしてからもう一度試してほしい。" data-rate="連続送信が多すぎる。数分後にもう一度試してほしい。" data-short="まず少し書いてほしい。"></p>
+    <div class="fb-actions">
+      <button type="submit" class="btn btn-primary fb-send">送信</button>
+      <button type="button" class="btn btn-ghost fb-cancel">キャンセル</button>
+    </div>
+  </form>
+</dialog>
+<script src="../../assets/js/site.js?v=16a30350" defer></script>
+<script src="../../assets/js/fx.js?v=16a30350" defer></script>
+<div class="cel-banner" role="status" hidden data-at="2026-09-30T14:00:00Z" data-id="early">
+  <span class="cel-ico" aria-hidden="true">✦</span>
+  <div><p class="cel-h">先行アクセス開始！</p><p class="cel-p">ファウンダーパックのサーバーが稼働中。初日の健闘を祈る。クラスガイドは準備できている。</p></div>
+  <button type="button" class="cel-x" aria-label="閉じる">×</button>
+</div>
+<script src="../../assets/js/celebrate.js?v=16a30350" defer></script>
+</body>
+</html>

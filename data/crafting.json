@@ -59,13 +59,13 @@
     "en": "Essence Extraction: where the points go",
     "ru": "Извлечение эссенции: куда вкладывать очки",
     "uk": "Essence Extraction: куди вкладати очки",
-    "tr": "Essence Extraction: puanlar nereye gider"
+    "tr": "Essence Extraction: puanlar nereye gider", "ja": "精気抽出：ポイントの振り先"
    },
    "lead": {
     "en": "Gathering levels give two kinds of points: common skills on the left, branches on the right.",
     "ru": "Уровни сбора дают очки двух видов: общие умения слева и ветки справа.",
     "uk": "Рівні збору дають очки двох видів: загальні вміння зліва й гілки справа.",
-    "tr": "Toplama seviyeleri iki tür puan verir: solda ortak yetenekler, sağda dallar."
+    "tr": "Toplama seviyeleri iki tür puan verir: solda ortak yetenekler, sağda dallar.", "ja": "採集レベルでは2種類のポイントが手に入る。共通スキルは左、ブランチは右。"
    },
    "blocks": [
     {
@@ -78,20 +78,20 @@
         "en": "Proficient Handling",
         "ru": "Ловкость рук",
         "uk": "Proficient Handling",
-        "tr": "Proficient Handling"
+        "tr": "Proficient Handling", "ja": "Proficient Handling"
        },
        "note": {
         "en": "faster success gauge — max it",
         "ru": "быстрее растёт шкала успеха — до максимума",
         "uk": "швидше росте шкала успіху — до максимуму",
-        "tr": "daha hızlı başarı göstergesi — maksimuma çıkar"
+        "tr": "daha hızlı başarı göstergesi — maksimuma çıkar", "ja": "成功ゲージが速く溜まる。最大まで上げる"
        },
        "id": "proficient",
        "tip": {
         "en": "Common skill · max 10. Speeds up the Success Gauge while you gather, so a node fills before it fails. Max it together with Delicate Touch.",
         "ru": "Общее умение · максимум 10. Ускоряет рост шкалы успеха при сборе — узел заполняется раньше, чем сорвётся. Качай до максимума вместе с Изящным касанием.",
         "uk": "Загальне вміння · максимум 10. Пришвидшує ріст шкали успіху під час збору — вузол заповнюється раніше, ніж зірветься. Качай до максимуму разом із Delicate Touch.",
-        "tr": "Ortak yetenek · en fazla 10. Toplarken Success Gauge'u hızlandırır, böylece düğüm başarısız olmadan dolar. Delicate Touch ile birlikte maksimuma çıkar."
+        "tr": "Ortak yetenek · en fazla 10. Toplarken Success Gauge'u hızlandırır, böylece düğüm başarısız olmadan dolar. Delicate Touch ile birlikte maksimuma çıkar.", "ja": "共通スキル・最大10。採集中のSuccess Gaugeが速く溜まり、失敗する前にノードが埋まる。Delicate Touchと一緒に最大まで上げる。"
        }
       },
       {
@@ -101,20 +101,20 @@
         "en": "Delicate Touch",
         "ru": "Изящное касание",
         "uk": "Delicate Touch",
-        "tr": "Delicate Touch"
+        "tr": "Delicate Touch", "ja": "Delicate Touch"
        },
        "note": {
         "en": "fewer failures — max it, together with the first",
         "ru": "меньше неудач — до максимума, вместе с первым",
         "uk": "менше невдач — до максимуму, разом із першим",
-        "tr": "daha az başarısızlık — ilkiyle birlikte maksimuma çıkar"
+        "tr": "daha az başarısızlık — ilkiyle birlikte maksimuma çıkar", "ja": "失敗が減る。最大まで上げる（1つ目と一緒に）"
        },
        "id": "delicate",
        "tip": {
         "en": "Common skill · max 10. Lowers the chance of a failed gathering attempt. Max it in parallel with Proficient Handling.",
         "ru": "Общее умение · максимум 10. Снижает шанс неудачной попытки сбора. Качай параллельно с Ловкостью рук.",
         "uk": "Загальне вміння · максимум 10. Знижує шанс невдалої спроби збору. Качай паралельно з Proficient Handling.",
-        "tr": "Ortak yetenek · en fazla 10. Başarısız toplama denemesi şansını düşürür. Proficient Handling ile paralel olarak maksimuma çıkar."
+        "tr": "Ortak yetenek · en fazla 10. Başarısız toplama denemesi şansını düşürür. Proficient Handling ile paralel olarak maksimuma çıkar.", "ja": "共通スキル・最大10。採集の失敗率を下げる。Proficient Handlingと並行して最大まで上げる。"
        }
       },
       {
@@ -123,20 +123,20 @@
         "en": "Lady Luck",
         "ru": "Богиня удачи",
         "uk": "Lady Luck",
-        "tr": "Lady Luck"
+        "tr": "Lady Luck", "ja": "Lady Luck"
        },
        "note": {
         "en": "leftover points only",
         "ru": "только остаток очков",
         "uk": "лише залишок очок",
-        "tr": "yalnızca artan puanlar"
+        "tr": "yalnızca artan puanlar", "ja": "余ったポイントだけ"
        },
        "id": "luck",
        "tip": {
         "en": "Common skill. Works only once the Failure Gauge is at 50% or more: then it has a chance to multiply the Success Gauge (24% for ×2.5 at level 5). Gathering only — it doesn't raise the grade and doesn't affect crafting. Leftover points, 5 at most.",
         "ru": "Общее умение. Срабатывает только при шкале неудачи от 50%: тогда есть шанс умножить шкалу успеха (24% на ×2,5 на 5 уровне). Только сбор — не повышает качество и не влияет на крафт. Остаток очков, максимум 5.",
         "uk": "Загальне вміння. Спрацьовує лише при шкалі невдачі від 50%: тоді є шанс помножити шкалу успіху (24% на ×2,5 на 5 рівні). Лише збір — не підвищує якість і не впливає на крафт. Залишок очок, максимум 5.",
-        "tr": "Ortak yetenek. Yalnızca Failure Gauge %50 veya üstündeyken çalışır: o zaman Success Gauge'u katlama şansı vardır (5. seviyede ×2,5 için %24). Yalnızca toplama — kaliteyi yükseltmez ve üretimi etkilemez. Artan puanlar, en fazla 5."
+        "tr": "Ortak yetenek. Yalnızca Failure Gauge %50 veya üstündeyken çalışır: o zaman Success Gauge'u katlama şansı vardır (5. seviyede ×2,5 için %24). Yalnızca toplama — kaliteyi yükseltmez ve üretimi etkilemez. Artan puanlar, en fazla 5.", "ja": "共通スキル。Failure Gaugeが50%以上のときだけ働き、Success Gaugeを増やす効果が出ることがある（レベル5で24%の確率で×2.5）。採集専用で、グレードは上がらず、製作には影響しない。余ったポイントで、最大5まで。"
        }
       }
      ],
@@ -147,19 +147,19 @@
         "en": "Ore",
         "ru": "Руда",
         "uk": "Ore",
-        "tr": "Ore"
+        "tr": "Ore", "ja": "Ore"
        },
        "seeker": {
         "en": "Ore Seeker",
         "ru": "Поиск руды",
         "uk": "Ore Seeker",
-        "tr": "Ore Seeker"
+        "tr": "Ore Seeker", "ja": "Ore Seeker"
        },
        "appraiser": {
         "en": "Ore Appraiser",
         "ru": "Оценщик руды",
         "uk": "Ore Appraiser",
-        "tr": "Ore Appraiser"
+        "tr": "Ore Appraiser", "ja": "Ore Appraiser"
        }
       },
       {
@@ -168,19 +168,19 @@
         "en": "Gem",
         "ru": "Самоцветы",
         "uk": "Gem",
-        "tr": "Gem"
+        "tr": "Gem", "ja": "Gem"
        },
        "seeker": {
         "en": "Gem Seeker",
         "ru": "Поиск самоцветов",
         "uk": "Gem Seeker",
-        "tr": "Gem Seeker"
+        "tr": "Gem Seeker", "ja": "Gem Seeker"
        },
        "appraiser": {
         "en": "Gem Appraiser",
         "ru": "Оценщик самоцветов",
         "uk": "Gem Appraiser",
-        "tr": "Gem Appraiser"
+        "tr": "Gem Appraiser", "ja": "Gem Appraiser"
        }
       },
       {
@@ -189,19 +189,19 @@
         "en": "Log",
         "ru": "Древесина",
         "uk": "Log",
-        "tr": "Log"
+        "tr": "Log", "ja": "Log"
        },
        "seeker": {
         "en": "Log Seeker",
         "ru": "Поиск древесины",
         "uk": "Log Seeker",
-        "tr": "Log Seeker"
+        "tr": "Log Seeker", "ja": "Log Seeker"
        },
        "appraiser": {
         "en": "Log Appraiser",
         "ru": "Оценщик древесины",
         "uk": "Log Appraiser",
-        "tr": "Log Appraiser"
+        "tr": "Log Appraiser", "ja": "Log Appraiser"
        }
       },
       {
@@ -210,19 +210,19 @@
         "en": "Herb",
         "ru": "Травы",
         "uk": "Herb",
-        "tr": "Herb"
+        "tr": "Herb", "ja": "Herb"
        },
        "seeker": {
         "en": "Herb Seeker",
         "ru": "Поиск трав",
         "uk": "Herb Seeker",
-        "tr": "Herb Seeker"
+        "tr": "Herb Seeker", "ja": "Herb Seeker"
        },
        "appraiser": {
         "en": "Herb Appraiser",
         "ru": "Оценщик трав",
         "uk": "Herb Appraiser",
-        "tr": "Herb Appraiser"
+        "tr": "Herb Appraiser", "ja": "Herb Appraiser"
        }
       },
       {
@@ -231,19 +231,19 @@
         "en": "Ingredient",
         "ru": "Материалы кулинарии",
         "uk": "Ingredient",
-        "tr": "Ingredient"
+        "tr": "Ingredient", "ja": "Ingredient"
        },
        "seeker": {
         "en": "Cooking Ingredient Seeker",
         "ru": "Поиск материалов кулинарии",
         "uk": "Cooking Ingredient Seeker",
-        "tr": "Cooking Ingredient Seeker"
+        "tr": "Cooking Ingredient Seeker", "ja": "料理 Ingredient Seeker"
        },
        "appraiser": {
         "en": "Cooking Ingredient Appraiser",
         "ru": "Оценщик материалов кулинарии",
         "uk": "Cooking Ingredient Appraiser",
-        "tr": "Cooking Ingredient Appraiser"
+        "tr": "Cooking Ingredient Appraiser", "ja": "料理 Ingredient Appraiser"
        }
       },
       {
@@ -252,20 +252,20 @@
         "en": "Odyle",
         "ru": "Эфир",
         "uk": "Odyle",
-        "tr": "Odyle"
+        "tr": "Odyle", "ja": "オード"
        },
        "mark": "odyle",
        "seeker": {
         "en": "Odyle Seeker",
         "ru": "Поиск эфира",
         "uk": "Odyle Seeker",
-        "tr": "Odyle Seeker"
+        "tr": "Odyle Seeker", "ja": "Odyle Seeker"
        },
        "appraiser": {
         "en": "Odyle Appraiser",
         "ru": "Оценщик эфира",
         "uk": "Odyle Appraiser",
-        "tr": "Odyle Appraiser"
+        "tr": "Odyle Appraiser", "ja": "Odyle Appraiser"
        }
       }
      ],
@@ -274,14 +274,14 @@
        "en": "always max",
        "ru": "всегда до максимума",
        "uk": "завжди до максимуму",
-       "tr": "her zaman maksimum"
+       "tr": "her zaman maksimum", "ja": "常に最大"
       }
      },
      "legend": {
       "en": "Max two branches: Odyle and the resource of the item you craft first.",
       "ru": "До максимума — две ветки: Эфир и ресурс предмета, который крафтишь первым.",
       "uk": "До максимуму — дві гілки: Odyle і ресурс предмета, який крафтиш першим.",
-      "tr": "İki dalı maksimuma çıkar: Odyle ve ilk üreteceğin eşyanın kaynağı."
+      "tr": "İki dalı maksimuma çıkar: Odyle ve ilk üreteceğin eşyanın kaynağı.", "ja": "ブランチは2つまで最大にする。オードと、最初に作るアイテムの素材。"
      },
      "nodes": [
       {
@@ -291,13 +291,13 @@
         "en": "Seeker",
         "ru": "Поиск",
         "uk": "Seeker",
-        "tr": "Seeker"
+        "tr": "Seeker", "ja": "Seeker"
        },
        "tip": {
         "en": "1 point. Opens the branch and shows its resource nodes on the minimap.",
         "ru": "1 очко. Открывает ветку и показывает её узлы на миникарте.",
         "uk": "1 очко. Відкриває гілку й показує її вузли на мінікарті.",
-        "tr": "1 puan. Dalı açar ve kaynak düğümlerini mini haritada gösterir."
+        "tr": "1 puan. Dalı açar ve kaynak düğümlerini mini haritada gösterir.", "ja": "1ポイント。ブランチが開き、その素材のノードがミニマップに表示される。"
        }
       },
       {
@@ -307,13 +307,13 @@
         "en": "Plentiful Harvest",
         "ru": "Богатый урожай",
         "uk": "Plentiful Harvest",
-        "tr": "Plentiful Harvest"
+        "tr": "Plentiful Harvest", "ja": "Plentiful Harvest"
        },
        "tip": {
         "en": "3 points. A chance to gather twice as much (×2).",
         "ru": "3 очка. Шанс собрать вдвое больше (×2).",
         "uk": "3 очки. Шанс зібрати вдвічі більше (×2).",
-        "tr": "3 puan. İki kat toplama şansı (×2)."
+        "tr": "3 puan. İki kat toplama şansı (×2).", "ja": "3ポイント。2倍（×2）の量を採集できることがある。"
        }
       },
       {
@@ -323,13 +323,13 @@
         "en": "Appraiser",
         "ru": "Оценщик",
         "uk": "Appraiser",
-        "tr": "Appraiser"
+        "tr": "Appraiser", "ja": "Appraiser"
        },
        "tip": {
         "en": "3 points. A better chance to gather a higher-grade resource.",
         "ru": "3 очка. Выше шанс собрать ресурс лучшего качества.",
         "uk": "3 очки. Вищий шанс зібрати ресурс кращої якості.",
-        "tr": "3 puan. Daha yüksek kaliteli kaynak toplama şansı artar."
+        "tr": "3 puan. Daha yüksek kaliteli kaynak toplama şansı artar.", "ja": "3ポイント。より高いグレードの素材を採集できる確率が上がる。"
        }
       }
      ],
@@ -337,7 +337,7 @@
       "en": "Plentiful Harvest",
       "ru": "Богатый урожай",
       "uk": "Plentiful Harvest",
-      "tr": "Plentiful Harvest"
+      "tr": "Plentiful Harvest", "ja": "Plentiful Harvest"
      }
     },
     {
@@ -347,7 +347,7 @@
       "en": "Lady Luck only helps when the failure gauge is already high, and it doesn't raise the grade. trueeevil saw it proc about once in 50 nodes at level 10. The first point of a branch also shows its nodes on the minimap.",
       "ru": "Богиня удачи срабатывает только при высокой шкале неудачи и не повышает качество. У trueeevil на 10 уровне она сработала примерно раз на 50 узлов. Первое очко в ветке ещё и показывает её узлы на миникарте.",
       "uk": "Lady Luck спрацьовує лише при високій шкалі невдачі й не підвищує якість. У trueeevil на 10 рівні вона спрацювала приблизно раз на 50 вузлів. Перше очко в гілці ще й показує її вузли на мінікарті.",
-      "tr": "Lady Luck yalnızca başarısızlık göstergesi zaten yüksekken yardım eder ve kaliteyi yükseltmez. trueeevil 10. seviyede yaklaşık 50 düğümde bir tetiklendiğini gördü. Bir dalın ilk puanı ayrıca düğümlerini mini haritada gösterir."
+      "tr": "Lady Luck yalnızca başarısızlık göstergesi zaten yüksekken yardım eder ve kaliteyi yükseltmez. trueeevil 10. seviyede yaklaşık 50 düğümde bir tetiklendiğini gördü. Bir dalın ilk puanı ayrıca düğümlerini mini haritada gösterir.", "ja": "Lady Luckが効くのは失敗ゲージがすでに高いときだけで、グレードは上がらない。trueeevilはLv10で、50ノードに1回ほどしか発動しなかったという。ブランチの最初の1ポイントでも、そのノードがミニマップに出る。"
      }
     }
    ]
@@ -358,13 +358,13 @@
     "en": "Which second branch",
     "ru": "Какая вторая ветка",
     "uk": "Яка друга гілка",
-    "tr": "Hangi ikinci dal"
+    "tr": "Hangi ikinci dal", "ja": "2つ目のブランチの選び方"
    },
    "lead": {
     "en": "The resource of the item you want to craft first — usually your weapon.",
     "ru": "Ресурс предмета, который хочешь скрафтить первым, — обычно оружие.",
     "uk": "Ресурс предмета, який хочеш скрафтити першим, — зазвичай зброю.",
-    "tr": "İlk üretmek istediğin eşyanın kaynağı — genellikle silahın."
+    "tr": "İlk üretmek istediğin eşyanın kaynağı — genellikle silahın.", "ja": "最初に作りたいアイテムの素材。たいていは武器。"
    },
    "blocks": [
     {
@@ -376,13 +376,13 @@
         "en": "Ore",
         "ru": "Руда",
         "uk": "Ore",
-        "tr": "Ore"
+        "tr": "Ore", "ja": "Ore"
        },
        "text": {
         "en": "Armor, weapons and guards",
         "ru": "Броня, оружие и щиты",
         "uk": "Броня, зброя та щити",
-        "tr": "Zırh, silahlar ve korumalar"
+        "tr": "Zırh, silahlar ve korumalar", "ja": "防具、武器、ガーダー"
        }
       },
       {
@@ -391,13 +391,13 @@
         "en": "Gem",
         "ru": "Самоцветы",
         "uk": "Gem",
-        "tr": "Gem"
+        "tr": "Gem", "ja": "Gem"
        },
        "text": {
         "en": "Accessories (Handicrafting)",
         "ru": "Бижутерия (ремесло)",
         "uk": "Біжутерія (ремесло)",
-        "tr": "Aksesuarlar (Handicrafting)"
+        "tr": "Aksesuarlar (Handicrafting)", "ja": "アクセサリー（細工）"
        }
       },
       {
@@ -406,13 +406,13 @@
         "en": "Log",
         "ru": "Древесина",
         "uk": "Log",
-        "tr": "Log"
+        "tr": "Log", "ja": "Log"
        },
        "text": {
         "en": "Bows and staves (Handicrafting)",
         "ru": "Луки и посохи (ремесло)",
         "uk": "Луки й посохи (ремесло)",
-        "tr": "Yaylar ve asalar (Handicrafting)"
+        "tr": "Yaylar ve asalar (Handicrafting)", "ja": "ボウとワンド（細工）"
        }
       },
       {
@@ -421,13 +421,13 @@
         "en": "Herb",
         "ru": "Травы",
         "uk": "Herb",
-        "tr": "Herb"
+        "tr": "Herb", "ja": "Herb"
        },
        "text": {
         "en": "Alchemy: potions, orbs and spellbooks, manastones",
         "ru": "Алхимия: зелья, сферы и гримуары, камни маны",
         "uk": "Алхімія: зілля, сфери й гримуари, камені мани",
-        "tr": "Simya: iksirler, orb ve spellbook'lar, manastone'lar"
+        "tr": "Simya: iksirler, orb ve spellbook'lar, manastone'lar", "ja": "錬金：ポーション、オーブとマジックブック、魔石"
        }
       },
       {
@@ -436,13 +436,13 @@
         "en": "Ingredient",
         "ru": "Материалы кулинарии",
         "uk": "Ingredient",
-        "tr": "Ingredient"
+        "tr": "Ingredient", "ja": "Ingredient"
        },
        "text": {
         "en": "Cooking — can wait",
         "ru": "Кулинария — может подождать",
         "uk": "Кулінарія — може зачекати",
-        "tr": "Aşçılık — bekleyebilir"
+        "tr": "Aşçılık — bekleyebilir", "ja": "料理：後回しでよい"
        }
       },
       {
@@ -452,13 +452,13 @@
         "en": "Odyle",
         "ru": "Эфир",
         "uk": "Odyle",
-        "tr": "Odyle"
+        "tr": "Odyle", "ja": "オード"
        },
        "text": {
         "en": "Every craft, wings, Odyle Energy — and morphs into any other resource",
         "ru": "Любой крафт, крылья, энергия эфира — и морфится в любой другой ресурс",
         "uk": "Будь-який крафт, крила, Odyle Energy — і морфиться в будь-який інший ресурс",
-        "tr": "Her üretim, kanatlar, Odyle Energy — ve başka herhangi bir kaynağa dönüşür"
+        "tr": "Her üretim, kanatlar, Odyle Energy — ve başka herhangi bir kaynağa dönüşür", "ja": "すべての製作、翼、オード エネルギーに使い、さらに他のどの素材にも変化させられる"
        }
       }
      ]
@@ -471,7 +471,7 @@
     "en": "Odyle → any resource",
     "ru": "Эфир → любой ресурс",
     "uk": "Odyle → будь-який ресурс",
-    "tr": "Odyle → herhangi bir kaynak"
+    "tr": "Odyle → herhangi bir kaynak", "ja": "オード → どの素材にも"
    },
    "blocks": [
     {
@@ -488,13 +488,13 @@
       "en": "Odyle",
       "ru": "Эфир",
       "uk": "Odyle",
-      "tr": "Odyle"
+      "tr": "Odyle", "ja": "オード"
      },
      "label": {
       "en": "Substance Morph",
       "ru": "Преобразование веществ",
       "uk": "Substance Morph",
-      "tr": "Substance Morph"
+      "tr": "Substance Morph", "ja": "Substance Morph"
      }
     },
     {
@@ -507,13 +507,13 @@
         "en": "Same grade",
         "ru": "То же качество",
         "uk": "Та сама якість",
-        "tr": "Aynı kalite"
+        "tr": "Aynı kalite", "ja": "同じグレード"
        },
        "text": {
         "en": "White Odyle makes white resources, green makes green, up to gold.",
         "ru": "Белый эфир даёт белые ресурсы, зелёный — зелёные, и так до золотого.",
         "uk": "Білий Odyle дає білі ресурси, зелений — зелені, і так до золотого.",
-        "tr": "Beyaz Odyle beyaz kaynak yapar, yeşil yeşil, altına kadar."
+        "tr": "Beyaz Odyle beyaz kaynak yapar, yeşil yeşil, altına kadar.", "ja": "白のオードは白の素材に、緑は緑に、金まで同様に変わる。"
        }
       },
       {
@@ -522,13 +522,13 @@
         "en": "Compare prices",
         "ru": "Сравни цены",
         "uk": "Порівняй ціни",
-        "tr": "Fiyatları karşılaştır"
+        "tr": "Fiyatları karşılaştır", "ja": "価格を比べる"
        },
        "text": {
         "en": "If Odyle is cheaper on the market than the resource, buy Odyle and morph it — TitanTheF paid half for his logs this way.",
         "ru": "Если эфир на рынке дешевле ресурса, покупай эфир и морфь — TitanTheF так взял дерево вдвое дешевле.",
         "uk": "Якщо Odyle на ринку дешевший за ресурс, купуй Odyle й морфь — TitanTheF так узяв деревину вдвічі дешевше.",
-        "tr": "Pazarda Odyle kaynaktan ucuzsa Odyle al ve dönüştür — TitanTheF kütüklerine bu yolla yarı fiyat ödedi."
+        "tr": "Pazarda Odyle kaynaktan ucuzsa Odyle al ve dönüştür — TitanTheF kütüklerine bu yolla yarı fiyat ödedi.", "ja": "市場でオードが素材より安いなら、オードを買って変化させる。TitanTheFはこの方法で、丸太を半額で手に入れた。"
        }
       },
       {
@@ -537,13 +537,13 @@
         "en": "Free Odyle",
         "ru": "Бесплатный эфир",
         "uk": "Безкоштовний Odyle",
-        "tr": "Bedava Odyle"
+        "tr": "Bedava Odyle", "ja": "無料のオード"
        },
        "text": {
         "en": "Conquest dungeons leave Odyle nodes after the last boss — another reason to max the branch first.",
         "ru": "После последнего босса в подземельях завоевания стоят узлы эфира — ещё одна причина качать ветку первой.",
         "uk": "Після останнього боса в conquest-підземеллях стоять вузли Odyle — ще одна причина качати гілку першою.",
-        "tr": "Conquest zindanları son bosstan sonra Odyle düğümleri bırakır — dalı önce maksimuma çıkarmak için bir neden daha."
+        "tr": "Conquest zindanları son bosstan sonra Odyle düğümleri bırakır — dalı önce maksimuma çıkarmak için bir neden daha.", "ja": "制圧ダンジョンでは、最後のボスを倒したあとにオードのノードが残る。このブランチを最初に最大まで上げる理由がもう1つ増える。"
        }
       }
      ]
@@ -556,7 +556,7 @@
     "en": "The crafting chain",
     "ru": "Цепочка крафта",
     "uk": "Ланцюжок крафту",
-    "tr": "Üretim zinciri"
+    "tr": "Üretim zinciri", "ja": "製作の流れ"
    },
    "blocks": [
     {
@@ -568,7 +568,7 @@
         "en": "Grey",
         "ru": "Серый",
         "uk": "Сірий",
-        "tr": "Gri"
+        "tr": "Gri", "ja": "グレー"
        }
       },
       {
@@ -577,7 +577,7 @@
         "en": "Green",
         "ru": "Зелёный",
         "uk": "Зелений",
-        "tr": "Yeşil"
+        "tr": "Yeşil", "ja": "緑"
        }
       },
       {
@@ -586,7 +586,7 @@
         "en": "Blue",
         "ru": "Синий",
         "uk": "Синій",
-        "tr": "Mavi"
+        "tr": "Mavi", "ja": "青"
        }
       },
       {
@@ -595,7 +595,7 @@
         "en": "Gold blank",
         "ru": "Золотая болванка",
         "uk": "Золота заготовка",
-        "tr": "Altın taslak"
+        "tr": "Altın taslak", "ja": "金の素体"
        }
       },
       {
@@ -604,7 +604,7 @@
         "en": "Gold item",
         "ru": "Золотой предмет",
         "uk": "Золотий предмет",
-        "tr": "Altın eşya"
+        "tr": "Altın eşya", "ja": "金のアイテム"
        }
       }
      ],
@@ -613,32 +613,32 @@
        "en": "25% proc",
        "ru": "25% прок",
        "uk": "25% прок",
-       "tr": "%25 proc"
+       "tr": "%25 proc", "ja": "25%で成功"
       },
       {
        "en": "25% proc",
        "ru": "25% прок",
        "uk": "25% прок",
-       "tr": "%25 proc"
+       "tr": "%25 proc", "ja": "25%で成功"
       },
       {
        "en": "25% proc",
        "ru": "25% прок",
        "uk": "25% прок",
-       "tr": "%25 proc"
+       "tr": "%25 proc", "ja": "25%で成功"
       },
       {
        "en": "+ dungeon mats",
        "ru": "+ ресурсы с данжей",
        "uk": "+ ресурси з данжів",
-       "tr": "+ zindan malzemeleri"
+       "tr": "+ zindan malzemeleri", "ja": "+ ダンジョン素材"
       }
      ],
      "note": {
       "en": "Each craft can fail and the item breaks — more often the higher the grade. A proc gives the item one grade higher, which you need for the next step.",
       "ru": "Каждый крафт может сорваться, и предмет ломается — тем чаще, чем выше качество. Прок даёт предмет на качество выше — он нужен для следующего шага.",
       "uk": "Кожен крафт може зірватися, і предмет ламається — тим частіше, чим вища якість. Прок дає предмет на якість вищий — він потрібен для наступного кроку.",
-      "tr": "Her üretim başarısız olabilir ve eşya kırılır — kalite yükseldikçe daha sık. Proc, bir sonraki adım için gereken bir üst kalitede eşyayı verir."
+      "tr": "Her üretim başarısız olabilir ve eşya kırılır — kalite yükseldikçe daha sık. Proc, bir sonraki adım için gereken bir üst kalitede eşyayı verir.", "ja": "製作は失敗することがあり、そのときアイテムは壊れる。グレードが高いほど壊れやすい。成功するとアイテムのグレードが1つ上がり、これが次の段階に必要になる。"
      }
     },
     {
@@ -651,13 +651,13 @@
         "en": "5 stats, not 4",
         "ru": "5 статов, а не 4",
         "uk": "5 характеристик, а не 4",
-        "tr": "4 değil, 5 stat"
+        "tr": "4 değil, 5 stat", "ja": "ステータスは4つではなく5つ"
        },
        "text": {
         "en": "A crafted item rolls five stats, a dungeon item four; with a Philosopher's Stone — six against five.",
         "ru": "Крафтовый предмет имеет пять статов, предмет из подземелья — четыре; с философским камнем — шесть против пяти.",
         "uk": "Крафтовий предмет має п'ять характеристик, предмет із підземелля — чотири; з Philosopher's Stone — шість проти п'яти.",
-        "tr": "Üretilen eşya beş stat, zindan eşyası dört stat alır; Philosopher's Stone ile beşe karşı altı."
+        "tr": "Üretilen eşya beş stat, zindan eşyası dört stat alır; Philosopher's Stone ile beşe karşı altı.", "ja": "製作したアイテムはステータスが5つ付き、ダンジョンのアイテムは4つ。賢者の石を使えば、5つに対して6つになる。"
        }
       },
       {
@@ -666,13 +666,13 @@
         "en": "Inheritance 100%",
         "ru": "Наследование 100%",
         "uk": "Inheritance 100%",
-        "tr": "%100 aktarım"
+        "tr": "%100 aktarım", "ja": "継承100%"
        },
        "text": {
         "en": "The next tier is made from your item with a guaranteed success; enhancement and stats carry over.",
         "ru": "Следующий тир делается из твоего предмета с гарантированным успехом; заточка и статы переносятся.",
         "uk": "Наступний тир робиться з твого предмета з гарантованим успіхом; заточка й характеристики переносяться.",
-        "tr": "Bir sonraki kademe kendi eşyandan garantili başarıyla yapılır; güçlendirme ve statlar aktarılır."
+        "tr": "Bir sonraki kademe kendi eşyandan garantili başarıyla yapılır; güçlendirme ve statlar aktarılır.", "ja": "次の段階のアイテムは、手持ちのアイテムから確実に成功する形で作れる。強化とステータスは引き継がれる。"
        }
       },
       {
@@ -681,13 +681,13 @@
         "en": "Never replaced",
         "ru": "Не меняется",
         "uk": "Не міняється",
-        "tr": "Asla değiştirilmez"
+        "tr": "Asla değiştirilmez", "ja": "置き換えなし"
        },
        "text": {
         "en": "Craft once, then upgrade the same item patch after patch.",
         "ru": "Скрафтил один раз — дальше улучшаешь тот же предмет из патча в патч.",
         "uk": "Скрафтив один раз — далі покращуєш той самий предмет з патча в патч.",
-        "tr": "Bir kez üret, sonra aynı eşyayı yamadan yamaya yükselt."
+        "tr": "Bir kez üret, sonra aynı eşyayı yamadan yamaya yükselt.", "ja": "一度作れば、パッチが変わっても同じアイテムを強化し続けられる。"
        }
       }
      ]
@@ -700,7 +700,7 @@
     "en": "Before you craft",
     "ru": "Перед крафтом",
     "uk": "Перед крафтом",
-    "tr": "Üretmeden önce"
+    "tr": "Üretmeden önce", "ja": "製作を始める前に"
    },
    "blocks": [
     {
@@ -713,13 +713,13 @@
         "en": "Profession 30+",
         "ru": "Профессия 30+",
         "uk": "Професія 30+",
-        "tr": "Meslek 30+"
+        "tr": "Meslek 30+", "ja": "職業Lv30以上"
        },
        "text": {
         "en": "Level the profession on cheap recipes before blue and gold crafts.",
         "ru": "Прокачай профессию на дешёвых рецептах до синего и золотого крафта.",
         "uk": "Прокачай професію на дешевих рецептах до синього й золотого крафту.",
-        "tr": "Mavi ve altın üretimlerden önce mesleği ucuz tariflerle geliştir."
+        "tr": "Mavi ve altın üretimlerden önce mesleği ucuz tariflerle geliştir.", "ja": "青と金の製作に入る前に、安いレシピで職業レベルを上げておく。"
        }
       },
       {
@@ -728,13 +728,13 @@
         "en": "Real odds",
         "ru": "Настоящие шансы",
         "uk": "Справжні шанси",
-        "tr": "Gerçek oranlar"
+        "tr": "Gerçek oranlar", "ja": "本当の確率"
        },
        "text": {
         "en": "The \"+90%\" in the craft window is about +9% on top of the base chance (TitanTheF).",
         "ru": "«+90%» в окне крафта — это примерно +9% к базовому шансу (TitanTheF).",
         "uk": "«+90%» у вікні крафту — це приблизно +9% до базового шансу (TitanTheF).",
-        "tr": "Üretim penceresindeki \"+%90\", temel şansın üstüne yaklaşık +%9'dur (TitanTheF)."
+        "tr": "Üretim penceresindeki \"+%90\", temel şansın üstüne yaklaşık +%9'dur (TitanTheF).", "ja": "製作画面の「+90%」は、基本の成功率に対して実際には+9%ほど（TitanTheF）。"
        }
       },
       {
@@ -743,13 +743,13 @@
         "en": "Failed blanks",
         "ru": "Неудачные болванки",
         "uk": "Невдалі заготовки",
-        "tr": "Başarısız taslaklar"
+        "tr": "Başarısız taslaklar", "ja": "失敗した素体"
        },
        "text": {
         "en": "Turn them in to supply orders for Abyss points, sell them or break them down.",
         "ru": "Сдавай в поручения поставок за очки Бездны, продавай или распыляй.",
         "uk": "Здавай у доручення поставок за очки Безодні, продавай або розбирай.",
-        "tr": "Abyss puanı için tedarik siparişlerine teslim et, sat ya da parçala."
+        "tr": "Abyss puanı için tedarik siparişlerine teslim et, sat ya da parçala.", "ja": "アビス ポイントと交換できる納品依頼に出すか、売るか、分解する。"
        }
       }
      ]
@@ -762,7 +762,7 @@
     "en": "Level up fast",
     "ru": "Быстрая прокачка",
     "uk": "Швидка прокачка",
-    "tr": "Hızlı geliştir"
+    "tr": "Hızlı geliştir", "ja": "レベルを素早く上げる"
    },
    "blocks": [
     {
@@ -772,25 +772,25 @@
        "en": "Level gathering on {i:sapphire}: 40–60 veins take you to Novice 50, then the city NPC's green quest ({i:ruby}) opens Professional.",
        "ru": "Качай сбор на {i:sapphire}: 40–60 жил — и ты Новичок 50, потом зелёный квест у NPC в городе ({i:ruby}) открывает Профессионала.",
        "uk": "Качай збір на {i:sapphire}: 40–60 жил — і ти Новачок 50, потім зелений квест у NPC в місті ({i:ruby}) відкриває Професіонала.",
-       "tr": "Toplamayı {i:sapphire} ile geliştir: 40–60 damar seni Novice 50'ye çıkarır, sonra şehirdeki NPC'nin yeşil görevi ({i:ruby}) Professional'ı açar."
+       "tr": "Toplamayı {i:sapphire} ile geliştir: 40–60 damar seni Novice 50'ye çıkarır, sonra şehirdeki NPC'nin yeşil görevi ({i:ruby}) Professional'ı açar.", "ja": "採集レベルは{i:sapphire}で上げる。鉱脈40〜60個でNovice 50になり、次に街のNPCの緑のクエスト（{i:ruby}）でProfessionalが開く。"
       },
       {
        "en": "Craft the cheapest grey items until about Novice 20, then start the chain.",
        "ru": "Крафти самые дешёвые серые вещи примерно до Новичка 20, потом начинай цепочку.",
        "uk": "Крафти найдешевші сірі речі приблизно до Новачка 20, потім починай ланцюжок.",
-       "tr": "Yaklaşık Novice 20'ye kadar en ucuz gri eşyaları üret, sonra zincire başla."
+       "tr": "Yaklaşık Novice 20'ye kadar en ucuz gri eşyaları üret, sonra zincire başla.", "ja": "Novice 20あたりまでは、一番安いグレーのアイテムを作り続け、それから製作の流れに入る。"
       },
       {
        "en": "Farm pets while you gather — they drop Refining Stones and crafting materials.",
        "ru": "Фарми петов, пока собираешь, — с них падают камни очищения и материалы для крафта.",
        "uk": "Фарми петів, поки збираєш, — з них падають Refining Stone і матеріали для крафту.",
-       "tr": "Toplarken evcil hayvan farmla — Refining Stone ve üretim malzemesi düşürürler."
+       "tr": "Toplarken evcil hayvan farmla — Refining Stone ve üretim malzemesi düşürürler.", "ja": "採集しながらペットを育てる。Refining Stonesや製作素材を落とす。"
       },
       {
        "en": "Answer the anti-bot check when it appears during long gathering sessions.",
        "ru": "Отвечай на проверку от ботов, когда она появляется во время долгого сбора.",
        "uk": "Відповідай на перевірку від ботів, коли вона з'являється під час довгого збору.",
-       "tr": "Uzun toplama seanslarında çıkan bot kontrolünü yanıtla."
+       "tr": "Uzun toplama seanslarında çıkan bot kontrolünü yanıtla.", "ja": "長く採集していると出るBot対策の確認には、必ず答える。"
       }
      ]
     }
@@ -802,7 +802,7 @@
     "en": "Making kinah",
     "ru": "Заработок",
     "uk": "Заробіток",
-    "tr": "Kinah kazanmak"
+    "tr": "Kinah kazanmak", "ja": "ギーナを稼ぐ"
    },
    "src": "aragon",
    "blocks": [
@@ -813,19 +813,19 @@
        "en": "Gems sell well while everyone levels Handicrafting: Aragon saw about 2,000 kinah each in the morning, and evening prices run higher.",
        "ru": "Самоцветы хорошо продаются, пока все качают ремесло: Aragon видел около 2 000 кинара за штуку утром, а вечером цены выше.",
        "uk": "Самоцвіти добре продаються, поки всі качають ремесло: Aragon бачив близько 2 000 кіни за штуку зранку, а ввечері ціни вищі.",
-       "tr": "Herkes Handicrafting geliştirirken taşlar iyi satar: Aragon sabah tanesini yaklaşık 2.000 kinah gördü, akşam fiyatları daha yüksek."
+       "tr": "Herkes Handicrafting geliştirirken taşlar iyi satar: Aragon sabah tanesini yaklaşık 2.000 kinah gördü, akşam fiyatları daha yüksek.", "ja": "みんなが細工を上げている間は、Gemがよく売れる。Aragonは朝に1個およそ2,000ギーナで売れ、夕方はもっと高くなった。"
       },
       {
        "en": "For selling gems he maxes Lady Luck instead of Delicate Touch — a money build, not a crafting one.",
        "ru": "Для продажи самоцветов он качает Богиню удачи вместо Изящного касания — это билд на деньги, а не на крафт.",
        "uk": "Для продажу самоцвітів він качає Lady Luck замість Delicate Touch — це білд на гроші, а не на крафт.",
-       "tr": "Taş satmak için Delicate Touch yerine Lady Luck'ı maksimuma çıkarıyor — bu üretim değil, para buildi."
+       "tr": "Taş satmak için Delicate Touch yerine Lady Luck'ı maksimuma çıkarıyor — bu üretim değil, para buildi.", "ja": "Gemを売るために、彼はDelicate TouchではなくLady Luckを最大にしている。製作用ではなく、稼ぎ用のビルド。"
       },
       {
        "en": "Don't overpay for ready-made blanks: they still need the expensive materials.",
        "ru": "Не переплачивай за готовые болванки: им всё равно нужны дорогие материалы.",
        "uk": "Не переплачуй за готові заготовки: їм однаково потрібні дорогі матеріали.",
-       "tr": "Hazır taslaklara fazla ödeme: onlara hâlâ pahalı malzemeler gerekiyor."
+       "tr": "Hazır taslaklara fazla ödeme: onlara hâlâ pahalı malzemeler gerekiyor.", "ja": "出来合いの素体に払いすぎない。結局、高価な素材が必要になる。"
       }
      ]
     }

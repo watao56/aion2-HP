@@ -1,0 +1,212 @@
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+
+{# ============================== PvE ============================== #}
+{% call glance('pve') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('heart-gore', '16 → 20'), ('insignia-explosion', '16 → 20'), ('quick-slice', '16 → 20'), ('ambush', '16'), ('storm-rampage', '16')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('illusive-clone', 20), ('swift-contract', 15), ('savage-fang', 15), ('triniels-dagger', 10)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['rear-smite', 'exploit-weakness', 'assault-stance', 'determination']) }}
+{% endcall %}
+
+{% call section('intro', '概要', 'pve') %}
+  <p>アサシンはバフ頼みのダガー系バーストクラス。攻撃を当てると対象に<strong>紋様</strong>が刻まれ、{{ s('insignia-explosion') }}でそれを一気に爆発させる。{{ s('heart-gore') }}はクリティカルで発動し、次のクリティカルで自分の再使用時間がリセットされる。最大のダメージボーナスは対象の背後から当てることで得られるため、立ち位置の重要度はどのクラスよりも高い。</p>
+  <div class="callout accent">
+    <h3>ビルドを一言でまとめると</h3>
+    <p>ボスの背後に立ち、{{ s('quick-slice') }}を常に挟み、{{ s('insignia-explosion') }}は使えるようになった瞬間に、{{ s('heart-gore') }}はクリティカルのたびに押す。そして心臓突きの再使用時間が完全になくなる{{ s('illusive-clone') }}の20秒間に、持てる火力をすべて注ぎ込む。</p>
+  </div>
+  <div class="callout">
+    <h3>シーズン1で覚悟しておくこと</h3>
+    <ul>
+      <li><strong>バーストの後に空白がある。</strong>KR/TWでは幻影分身のLv25段階のおかげで、上手いプレイヤーは常時維持できる。グローバル版は20止まりなので、再使用時間1分30秒に対してバーストは約20秒。その合間はつなぎ技で戦い、心臓突きはクリティカルの運任せになる。</li>
+      <li><strong>バフの周期が揃わない。</strong>迅速の契約と猛獣の牙は1分、幻影分身は1分30秒で戻ってくる。待つか押すかを常に判断し続けることになる。</li>
+      <li><strong>背後を取れている時間がそのまま火力。</strong>木人相手なら100%だが、実戦では60〜80%と見ておこう。正面から当てた攻撃はすべて背後強打のボーナスを失う。</li>
+      <li><strong>打たれ弱い。</strong>ガードがなく防御力も低い。グラディエーターなら耐えられるミスでも死ぬ。</li>
+    </ul>
+    <p>Arthars の評価：楽しくて腕前が問われるクラスだが、グラディエーターやソーサラーと同じかそれ以下のダメージを出すのに何倍もの手間がかかる。数字目当てではなく、プレイスタイルが好きで選ぶクラスだ。</p>
+  </div>
+  <p class="note">PvEモードは、Arthars Gaming のグローバル版ローンチ向けアサシン動画(9月30日、台湾サーバーで収録)を1フレームずつ読み取ってまとめた。動画に字幕がないため、テキストは音声認識で音声から起こし、名前と数値はすべて画面と照合している。レベリングは TitanTheF のシートに基づく。</p>
+{% endcall %}
+
+{% call section('global', 'グローバル版シーズン1：変更点', 'pve pvp') %}
+  <p>グローバル版サーバーは<strong>2026年10月5日</strong>にオープンする(ファウンダー先行アクセスは9月30日から)。アサシンにとっての影響は次のとおり。</p>
+  <div class="callout">
+    <ul>
+      <li><strong>スティグマ枠は4つ、上限は20。</strong>4つともダメージ用に使う：幻影分身、迅速の契約、猛獣の牙、トリニエルの刃。</li>
+      <li><strong>幻影分身の常時維持はできない。</strong>背後クリティカルで再使用時間が短縮される段階はLv25で、グローバル版にはない。</li>
+      <li><strong>序盤は再使用時間減少が少ない。</strong>暴風乱舞を16まで上げ、トリニエルの刃をダメージ目的ではなく再使用時間短縮の道具として使うのはこのため。</li>
+      <li><strong>戦闘が長引く。</strong>台湾サーバーで30秒で倒れるボスも数分かかるはず。バーストのタイミングもその合間も何度も経験することになる。</li>
+      <li data-only="pvp"><strong>PvP：</strong>全員が同じ限られた装備からのスタートで、メタはまだ固まっていない。</li>
+    </ul>
+  </div>
+  <p class="note">アクティブスキルとパッシブはグローバル版とKR/TWのデータで同一。スティグマはLv25段階がなくなる。</p>
+{% endcall %}
+
+{% call section('skills', 'スキル', 'pve') %}
+  <p>重要なスキルLvは<strong>12、16、20</strong>の3つだけ。スキルポイントで10、ディーヴァニオンで+4、指輪2つで+2、残りはアルカナで上げる。まず主要5スキルを<strong>16</strong>にし、その後に心臓突きと紋様爆発を20まで伸ばす。</p>
+  <ul class="skill-grid">
+    {% call skill('heart-gore', 'must', '16 → 20', [0, 4]) %}最重要スキル。16が必須：クリティカルで再使用時間がリセットされ、出なければ5秒待つことになる。HP吸収で生存力を確保し、20で多段ヒットを足す。序盤にクリティカルが足りないなら、HP吸収の代わりにクリティカル+20%の特化を選ぶのもあり。{% endcall %}
+    {% call skill('insignia-explosion', 'must', '16 → 20', [2, 4]) %}火力のもう半分。再使用時間−3秒と、爆発後に紋様2重複を維持する特化を取る。スタックを待たず、使えるたびに押そう。20で多段ヒットを足す。{% endcall %}
+    {% call skill('quick-slice', 'must', '16 → 20', [3, 4]) %}すべての合間に挟む基本攻撃。確定クリティカルと、1ヒットごとに紋様爆発の再使用時間−1秒。20で開く3つ目の枠はお好みで、HP吸収か多段ヒット。{% endcall %}
+    {% call skill('ambush', 'must', '16', [0, 4]) %}心臓突きが使えないときの最優先のつなぎ技。16で連続発動+2回、背後から当てるたびに紋様2個。20まで上がったらHP吸収を足す。{% endcall %}
+    {% call skill('storm-rampage', 'must', '16', [3, 4]) %}他のクラスなら切ってもいいスキルだが、アサシンでは外せない。ボスがグロッキー中は1ヒットごとにすべての再使用時間が1秒短くなる。これでバフが早く戻り、バフなしではこのクラスは火力が出ない。{% endcall %}
+    {% call skill('defiance', 'opt', '12 → 16', [2, 3]) %}CC解除。12で回復と強靭さ+2秒、16で回復をダメージ耐性に入れ替える。{% endcall %}
+    {% call skill('savage-roar', 'opt', '12', [1, 3]) %}つなぎ技の最後尾。スキル速度が上がり、1ヒットごとに闇討の再使用時間を短縮する。12〜16より上げる価値はない。{% endcall %}
+    {% call skill('shadowstrike', 'opt', '12', [1]) %}対象の背後へテレポートし、5秒間クリティカル ダメージ+20%。バフであり、背後を取る一番の手段でもある。クールタイムが明けるたびに使わず、位置取り用に取っておこう。他の特化はPvP向け。{% endcall %}
+    {% call skill('flash-slice', 'opt', '12', [1, 3]) %}背後を取る2つ目の手段。射程10m、2回使える。{% endcall %}
+    {% call skill('infiltrate', 'opt', '12', [0, 1]) %}回避で対象の背後へ回り込み、使った行動力も戻ってくる。追加の連続スキルは絶対に取らない。{% endcall %}
+    {% call skill('whirlwind-slice', 'opt', '12', [0, 2]) %}遠距離からの間合い詰め。数値上は威力が高いがモーションが長く、ローテーションには入れない。{% endcall %}
+    {% call skill('shadow-fall', 'opt', '12', [0, 2]) %}PvP用スキル。PvEでは緊急用の10%回復でしかない。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('passives', 'パッシブ', 'pve') %}
+  <p>パッシブのほとんどはレベリング中にスキルポイントで最大になる。足りないのは装備のオプション枠で、このクラスは4つのパッシブを載せたいのに入るのは2〜3つだけ。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>パッシブ</th><th>装備での優先度</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>{{ s('rear-smite') }}</td><td>1</td><td>後方攻撃とPvEダメージ増幅。最強のパッシブで、正面からでもダメージが伸びる。</td></tr>
+      <tr><td>{{ s('exploit-weakness') }}</td><td>2</td><td>クリティカルと、戦闘中ほぼ常時かかっている攻撃力バフ。幻影分身で効果が倍増する。</td></tr>
+      <tr><td>{{ s('assault-stance') }}</td><td>2</td><td>クリティカル ダメージ増幅。迅速の契約で効果が倍増する。</td></tr>
+      <tr><td>{{ s('determination') }}</td><td>3</td><td>HPの減った対象への追加ダメージ。aLuckyRO はこれを最重要のひとつに数えている：どのボスも戦闘の終盤はこの状態で過ごすからだ。</td></tr>
+      <tr><td>{{ s('impact-hit') }}</td><td>4</td><td>強打。Lv10でもわずか3.3%で、PvEではほぼ無意味(aLuckyRO)。PvP用に取っておき、PvE装備では覚悟を優先する。</td></tr>
+      <tr><td>{{ s('ambush-stance') }}、{{ s('heightened-sixth-sense') }}</td><td>ポイントのみ</td><td>スキルポイントで最大になる。装備のオプション枠を使う価値はない。</td></tr>
+      <tr><td>{{ s('apply-poison') }}、{{ s('defense-break') }}</td><td>不要</td><td>毒はダメージ全体の1%未満、防御亀裂はPvP用パッシブ。{{ s('revitalization-contract') }}はポイントが余ったときだけ。</td></tr>
+    </tbody>
+  </table></div>
+{% endcall %}
+
+{% call section('gear', '装備とステータス', 'pve') %}
+  <div class="callout"><ul>
+    <li><strong>指輪：</strong>アクティブスキルを載せられる唯一の部位。{{ s('heart-gore') }}、{{ s('quick-slice') }}、{{ s('insignia-explosion') }}、{{ s('ambush') }}。これで主要スキルが14から16になる。</li>
+    <li><strong>武器とガーダー：</strong>スキルは絶対に載せない。ここのダメージ系オプションはスキル1レベル分より価値がある。</li>
+    <li><strong>その他の部位：</strong>背後強打が最優先。次の3つのパッシブはどれでもいい。シーズン1で完璧なセットを追い求めないこと。グローバル版の装備はオプションが1行少なく、そこに Might、Precision、戦闘速度も付く。</li>
+    <li><strong>クリティカル</strong>は他のクラスより重要：心臓突きはクリティカルでしかリセットされない。</li>
+    <li><strong>魔石：</strong>攻撃力、クリティカル、命中。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('arcana', 'アルカナ', 'pve') %}
+  <p>シーズン1のカードは5枚、セットは2種類。アサシンは鏡で Illusion(再使用時間)を<strong>必ず</strong>取る唯一のクラスなので、太初の活力4枚が自然なセットになる。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>カード</th><th>ステータス</th><th>セット</th><th>狙うスキル</th></tr></thead>
+    <tbody>
+      <tr><td>聖杯</td><td>Time(戦闘速度)</td><td>太初の活力</td><td>主要3スキルのうち、まだ20に届いていないもの</td></tr>
+      <tr><td>羊皮紙</td><td>Life</td><td>太初の活力</td><td>{{ s('quick-slice') }}、{{ s('heart-gore') }}、{{ s('insignia-explosion') }}の3つすべて</td></tr>
+      <tr><td>コンパス</td><td>Freedom(命中)</td><td>太初の活力</td><td>{{ s('storm-rampage') }}、{{ s('ambush') }}、{{ s('savage-roar') }}を16にするため</td></tr>
+      <tr><td>鏡</td><td>Illusion(再使用時間)</td><td>太初の活力</td><td>{{ s('rear-smite') }}、{{ s('exploit-weakness') }}；{{ s('impact-hit') }}</td></tr>
+      <tr><td>鐘</td><td>Destruction(攻撃力)</td><td>魔力鎧</td><td>{{ s('assault-stance') }}</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>厳選の本番は羊皮紙。</strong>20にしたい3スキルがすべてこの1枚に載っているのに、シーズン1のカードは4行のうち2行しか選べない。カードのレベルを上げるとランダムに+1が4回付く。1つに+4が偏るより、均等に散る(それぞれ+2)ほうがありがたい：足りない+2は聖杯で補える。うまくいかなければ、心臓突きと紋様爆発を20にして迅速斬りは16のままにする。</p>
+  <p class="note">コンパスと鐘は気楽でいい：どちらも20にする必要のあるスキルはない。これらのカードはどれも、シーズン2で新カードが来たら入れ替わる。</p>
+{% endcall %}
+
+{% call section('daevanion', 'ディーヴァニオン ボード', 'pve pvp') %}
+  <p>ディーヴァニオンはスキルを10から14に引き上げ、ステータスも伸ばす。青ノード1つで、そのスキルが<strong>+1レベル</strong>になる。</p>
+  <div class="callout"><ul>
+    <li data-only="pve"><strong>優先順位：</strong>{{ s('heart-gore') }}、{{ s('insignia-explosion') }}、{{ s('quick-slice') }}の青ノード、次に{{ s('ambush') }}と{{ s('storm-rampage') }}。その後にオレンジノード。</li>
+    <li data-only="pve"><strong>クリティカル ダメージは早めに：</strong>アサシンならバイゼルのオレンジノード(クリティカル ダメージ増幅)が最初から元を取れる。多くのクラスと違い、初日からクリティカルが出るからだ(aLuckyRO)。</li>
+    <li data-only="pvp"><strong>優先順位：</strong>{{ s('shadowstrike') }}、{{ s('flash-slice') }}、{{ s('defiance') }}の青ノード。</li>
+    <li data-only="pve"><strong>グローバル版にアリエルはない：</strong>ボードは5枚で、Lv45のアスフェルはPvPダメージ増幅と耐性しかくれない。PvEでは最初の4枚を仕上げよう。</li>
+    <li data-only="pvp"><strong>アスフェル</strong>(Lv45)はすべてPvPダメージ増幅と耐性。取ろう。トリニエルも早めに取る。</li>
+  </ul></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ボード</th><th>解放</th><th>オレンジノード</th></tr></thead>
+    <tbody>
+      <tr><td>ネザカン</td><td>Lv12</td><td>戦闘速度、再使用時間減少</td></tr>
+      <tr><td>ジケル</td><td>Lv20</td><td>ダメージ増幅、ダメージ耐性</td></tr>
+      <tr><td>バイゼル</td><td>Lv30</td><td>クリティカル ダメージ増幅、クリティカル ダメージ耐性</td></tr>
+      <tr><td>トリニエル</td><td>Lv40</td><td>多段ヒット的中、多段ヒット抵抗</td></tr>
+      <tr><td>アスフェル</td><td>Lv45</td><td>PvPダメージ増幅、PvPダメージ耐性。スキルノードなし</td></tr>
+    </tbody>
+  </table></div>
+  <h3>ボード上のルート</h3>
+  <p>ゲームデータから起こした実際のグローバル版ボード。金色は、開始地点からこのガイドで取るノード(優先スキルの青ノードとオレンジノード)までの最安ルート。ノードにカーソルを合わせると効果が見られる。</p>
+  <div data-only="pve">{{ dv_board('pve') }}</div>
+  <div data-only="pvp">{{ dv_board('pvp') }}</div>
+  <p class="note">ボードとコストはグローバル版クライアントのデータ(questlog.gg)による。ルートは計算で出したもので、動画から取ったものではない。ステータスの数値はローンチ時に変わる可能性があるので、ルートを最後まで決める前にゲーム内のボードで確認しよう。</p>
+{% endcall %}
+
+{% call section('stigmas', 'スティグマ', 'pve') %}
+  <p>4枠すべてバフ。まず幻影分身を20にする(スティグマ シャードの大半はこれに消える)。残りはその後。</p>
+  <ul class="skill-grid">
+    {% call skill('illusive-clone', 'must', 'Lv20', upto=20) %}バーストの要。20秒間、心臓突きの再使用時間がなくなり、与ダメージが20%増える。さらにクリティカル ダメージ+20%と隙突き×1.5も乗る。再使用時間は1分30秒。ダメージの大半はこの中で出るので、雑魚には使わずボスに使う。aLuckyRO によると、心臓突きが16になるまでは必須。クリティカルが十分あれば心臓突きは勝手にリセットされるので、しばらくは枠を入れ替えてもいい。ただし20になったら、ダメージ増加目当てで戻ってくる。{% endcall %}
+    {% call skill('swift-contract', 'must', 'Lv15 → 20', upto=15) %}持続中は戦闘速度+20%、背後強打と強襲姿勢の効果×1.5。最初は15で十分。20で戦闘速度がさらに10%増える。{% endcall %}
+    {% call skill('savage-fang', 'must', 'Lv15', upto=15) %}紋様を一度に5個刻み、グロッキー ダメージも大きい。15では10秒間PvEダメージ増幅+10%。迅速の契約と同じ1分の再使用時間なので、一緒に押そう。{% endcall %}
+    {% call skill('triniels-dagger', 'must', 'Lv10', upto=10) %}ダメージ目的ではない：10では、当てるとすべてのスキルの<em>残り</em>再使用時間が10%短くなる。再使用時間が最も長い、バフを使った直後に押そう。{% endcall %}
+    {% call skill('evasion-stance', 'opt', 'Lv5–10', upto=10) %}大技を確実に回避できる。5で2回使えるようになり、10で移動しながら使える。打たれ弱いクラスなので、戦闘を覚えるまではバフの1つと入れ替える安全策になる。{% endcall %}
+    {% call skill('throw-shadowblade', 'opt', '周回', upto=10) %}20mの投擲で、10では敵を倒すと再使用時間がリセットされる。オープンワールドの周回向けで、ボス用ではない。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('macro', 'マクロとローテーション', 'pve') %}
+  <p>AION 2には別々の仕組みが2つある。</p>
+  <ul>
+    <li><strong>ホットバーライン</strong>：<em>1つ</em>のホットバーボタンに複数のスキルを重ねたもの。押すと、使える中で優先度が最も高いスキルが発動する。AION 2では<strong>一番下のスロットが最優先</strong>。カードはゲーム内と同じく各ラインを上から下へ並べている。</li>
+    <li><strong>ゲーム内マクロ</strong>：キーを押している間、ホットバーのボタンを順番に押し、モーションの後隙をキャンセルする。再使用時間中のスキルは飛ばされる。</li>
+  </ul>
+
+  <h3>1. ホットバーライン</h3>
+  <div class="hotlines">
+    {% call hotline('E', 'ダメージライン', ['insignia-explosion', 'heart-gore', 'ambush', 'savage-roar']) %}紋様爆発は使えるようになるたびに、心臓突きはクリティカルのたびに発動する。どちらも使えなければラインはつなぎ技に落ちる：最初に奇襲、最後に猛獣の咆哮。{% endcall %}
+    {% call hotline('7', 'バフライン', ['illusive-clone', 'swift-contract', 'savage-fang', 'triniels-dagger']) %}Arthars は4つのスティグマをすべて1つのボタンにまとめ、手動で押している。マクロからは絶対に押さない。バフの発動がずれてしまうからだ。{% endcall %}
+  </div>
+
+  <h3>2. ゲーム内マクロ</h3>
+  <p>2ステップ、それぞれ<strong>10ms</strong>。押しっぱなしにできるキーに割り当てる。</p>
+  {{ macroseq([('ダメージライン', '10ms'), (skill_data('quick-slice')[lang].name, '10ms')]) }}
+  <p class="note">動画ではホットバーは映っているが、マクロ画面は映っていない。このマクロは Arthars のチャンターガイドの設定(メインライン、次に基本攻撃)にならったもの。ラインとキーは彼のホットバーから読み取った。</p>
+
+  <h3>3. 実際に押すもの</h3>
+  <ul class="presslist">
+    <li><span class="press-how">押しっぱなし</span><span class="press-what">マクロキー。さらに{{ s('quick-slice') }}を自分で連打する。1ヒットごとに紋様爆発の再使用時間が短くなる。</span></li>
+    <li><span class="press-how">バースト</span><span class="press-what">{{ s('illusive-clone') }}+{{ s('swift-contract') }}+{{ s('savage-fang') }}を同時に使い、すぐに{{ s('triniels-dagger') }}でそれらの再使用時間を削る。その後の20秒間は心臓突きを撃ち続ける。</span></li>
+    <li><span class="press-how">バーストの合間</span><span class="press-what">迅速の契約と猛獣の牙は幻影分身より先に戻ってくる。次の分身まで温存する(バーストが大きくなる)か、クールタイムごとに使う(ダメージが安定する)か。決まった答えはないが、短い戦闘なら温存しよう。</span></li>
+    <li><span class="press-how">グロッキー</span><span class="press-what">グロッキー中のボスに{{ s('storm-rampage') }}、合間に迅速斬りを挟む。すべての再使用時間が秒単位で縮む。</span></li>
+    <li><span class="press-how">位置取り</span><span class="press-what">{{ s('shadowstrike') }}、{{ s('flash-slice') }}、{{ s('infiltrate') }}はどれも対象の背後に回り込める。ダメージ用ではなく、背後に居続けるために使う。</span></li>
+  </ul>
+  <p class="note">Arthars の木人でのテストにおけるダメージ内訳：心臓突きが約30%、紋様爆発が約25%、それ以外はどれも6%以下。</p>
+{% endcall %}
+
+{% call section('recap', 'まとめ', 'pve') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>心臓突き、紋様爆発、迅速斬りは16 → 20。奇襲と暴風乱舞は16。残りは12。</li>
+    <li><strong>スティグマ：</strong>幻影分身20、迅速の契約15 → 20、猛獣の牙15、トリニエルの刃10。</li>
+    <li><strong>装備に載せるパッシブ：</strong>背後強打、次に隙突き、強襲姿勢、衝撃的中。</li>
+    <li><strong>立ち回り：</strong>ボスの背後に立ち、幻影分身の間にバースト、バフの直後にトリニエルの刃。</li>
+  </ul></div>
+{% endcall %}
+
+{# ============================ Leveling ============================ #}
+{% call section('fight-lvl', t.lvl_combat, 'lvl') %}
+  <div class="callout"><ul>
+    <li><strong>集団：</strong>{{ s('savage-fang') }}(紋様5個)→{{ s('insignia-explosion') }}→{{ s('whirlwind-slice') }}。{{ s('throw-shadowblade') }}は敵を倒すとリセットされるので、次の釣りに使える。</li>
+    <li><strong>強敵：</strong>背後を取る→{{ s('ambush') }}→{{ s('savage-roar') }}で紋様を重ねる→紋様爆発→クリティカルが出たら{{ s('heart-gore') }}。</li>
+    <li><strong>MP：</strong>{{ s('quick-slice') }}はMPを回復する。左クリックに置いておこう。</li>
+    <li><strong>HPが減ったら：</strong>{{ s('shadow-fall') }}でHPを吸収。追い込まれたら{{ s('defiance') }}で回復。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
+  <p>レベリング中、心臓突きが16になる前は、TitanTheF のもっとシンプルな設定がLv1から使える：紋様ラインをゲーム内マクロにしてホイールクリックに、迅速斬りを左クリック、心臓突きをQに置く。雑魚狩りでは暗器投擲(2)と右クリックを使う。Lv1〜45の序盤ビルド：迅速斬り、猛獣の咆哮、紋様爆発、心臓突きを12、それ以外は8。</p>
+  <div class="hotlines">
+    {{ hotline('ホイール', '紋様ライン', ['insignia-explosion', 'whirlwind-slice', 'ambush', 'savage-roar']) }}
+  </div>
+  <p><a href="https://aion2t.com/ru/simulator?job=5&amp;b=iUjpcy" target="_blank" rel="noopener">Lv1〜45の序盤ビルド(aion2t)→</a> · <a href="https://aion2t.com/ru/simulator?job=5&amp;b=MeyRht" target="_blank" rel="noopener">Lv45以降の目標ビルド→</a></p>
+{% endcall %}
+
+{# ============================ Sources ============================ #}
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">{{ t.sources }}</h2>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=UpvUVK1vnt8" target="_blank" rel="noopener">Arthars Gaming「The Brutal Truth About Assassin in Aion 2 Global Launch」</a>：PvEモード。スキルLvと特化、パッシブ、アルカナ、スティグマ、ホットバーライン、シーズン1でのクラスの動かし方</li>
+    <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml" target="_blank" rel="noopener">TitanTheF「AION 2 progression sheet」</a>(Assassin タブ)：ビルド、ホットバー、マクロ、ステータス</li>
+    <li><a href="https://aion2t.com/ru/simulator?job=5&amp;b=MeyRht" target="_blank" rel="noopener">aion2t.com</a>：TitanTheF の序盤ビルドとLv45以降のビルド(スキルLv、特化、スティグマ、パッシブ)</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/assassin" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルデータ</li>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs「AION 2 Macro Guide」</a>：ホットバーラインとゲーム内マクロの仕組み</li>
+    <li><a href="https://www.youtube.com/watch?v=DNfd1lZtQkI" target="_blank" rel="noopener">aLuckyRO「AION 2 Latest Assassin PVE Build for Global」</a>：序盤の特化(迅速斬りのMP、暴風乱舞の多段ヒット)、パッシブの優先順位、心臓突き16までの幻影分身、周回用の暗器投擲</li>
+  </ul>
+  <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
+</section>

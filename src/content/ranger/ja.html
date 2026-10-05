@@ -1,0 +1,218 @@
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+
+{# ============================== PvE ============================== #}
+{% call glance('pve') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('deadshot', '20'), ('gale-arrow', '20'), ('drill-dart', '16'), ('snipe', '16'), ('tempest-shot', '16')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('vaizels-authority', 20), ('bow-of-blessing', 10), ('supporting-fire', 10), ('griffon-arrow', 10)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['focused-eye', 'hunters-resolve', 'hunters-soul', 'concentrated-fire']) }}
+{% endcall %}
+
+{% call section('intro', '概要', 'pve') %}
+  <p>レンジャーはボウで戦うDPSで、ほぼすべてのスキルの射程である約<strong>20m</strong>の距離から攻撃する。火力はトップクラスだが、生存力と補助性能は低いので、立ち位置がすべてを左右する。</p>
+  <div class="callout accent">
+    <h3>ビルドを一言で</h3>
+    <p>バフをかけ、対象に{{ s('marking-shot') }}（精密：クリティカル+300、{{ s('deadshot', False) }}のダメージ+35%）を維持したら、あとは{{ s('snipe') }}、マクロ、チャージした{{ s('deadshot') }}の3ボタンを押し続ける。</p>
+  </div>
+  <p class="note">このガイドは、Whelps（韓国サーバーでCP 1Mのレンジャーメイン。グローバル版のテストもプレイ）がquestlogで公開しているシーズン1エンドゲームのPvEビルドに沿っている。</p>
+{% endcall %}
+
+{% call section('global', 'グローバル版シーズン1：変更点', 'pve pvp') %}
+  <p>グローバル版サーバーは<strong>2026年10月5日</strong>にオープンする（ファウンダー先行アクセスは9月30日から）。レンジャーへの影響は次のとおり。</p>
+  <div class="callout">
+    <ul>
+      <li><strong>Lv37の時点でスティグマは4つ。</strong>グローバル版のテストはLv37までだった。Lv45で5枠目が開く可能性は高いが未確認。開いたら{{ s('explosive-arrow') }}を入れる。</li>
+      <li><strong>20に届くスキルはごく一部。</strong>スキルポイントで上げられるのは10まで。ディーヴァニオンで+4、リングで+2、アルカナで最大+4が乗る。シーズン1では必中の矢と狂風の矢を20にする前提で考え、アルカナの引きがよければ3つ目も20にする。</li>
+      <li><strong>命中の上限は不明。</strong>韓国ではルドラ向けで約1,300だった。グローバル版の数値はリリース後に判明する。</li>
+      <li data-only="pvp"><strong>PvP：</strong>全員が同じ限られた装備からのスタートで、メタはまだ固まっていない。</li>
+    </ul>
+  </div>
+{% endcall %}
+
+{% call section('skills', 'スキル', 'pve') %}
+  <p>特化スロットは<strong>8</strong>、<strong>12</strong>、<strong>20</strong>で開く（16では新しいオプションが増えるだけで、スロットは増えない）。どのレベルも大きな強化ポイントになる。アクティブスキルを先に上げ、パッシブは後回し。</p>
+  <ul class="skill-grid">
+    {% call skill('deadshot', 'must', '20', [1, 2, 4]) %}チャージ型の大技。常にフルチャージで、常に精密状態で撃つ。20未満なら最初の2つを取る。チャージ中に動く必要がなければ、移動可能スキルの代わりに+50%ダメージの特化を取る。{% endcall %}
+    {% call skill('gale-arrow', 'must', '20', [2, 3, 4]) %}戦闘速度とダメージのバフ。20未満なら移動可能スキルと再使用時間10秒減少を取る（移動の代わりにダメージ系でもよい）。{% endcall %}
+    {% call skill('drill-dart', 'must', '16', [4, 2]) %}最低でも16。耐久が必要なボスでは、スキル速度の代わりにHP吸収を取る。{% endcall %}
+    {% call skill('snipe', 'must', '16', [3, 4]) %}基本攻撃。必中の矢の再使用時間を縮め、連続スキルの疾風の矢を追加する。20では多段ヒットも足す。{% endcall %}
+    {% call skill('tempest-shot', 'must', '16', [2, 4]) %}ダメージへの貢献はトップクラスだが、16で十分。どのみちクリティカルは上限に達する。PvPではノックバック目当てに20まで上げる人もいる。{% endcall %}
+    {% call skill('snare-shot', 'opt', '12', [1, 2]) %}12まではディーヴァニオン ボードでほぼタダで届く。{% endcall %}
+    {% call skill('marking-shot', 'opt', '12', [0, 2]) %}完璧+5%、持続時間+5秒。{% endcall %}
+    {% call skill('burst-arrow', 'opt', '12', [2, 3]) %}20では最後の特化も取る。{% endcall %}
+    {% call skill('explosion-trap', 'opt', '12', [0, 2]) %}雑魚をまとめるときだけ使う（超越の周回など）。{% endcall %}
+    {% call skill('suppressing-arrow', 'opt', '12', [0, 2]) %}気絶目当てでのみ使う。レベリング中は便利だが、エンドゲームのPvEでは使わない。{% endcall %}
+    {% call skill('defiance', 'opt', '12', [2, 1]) %}16では3番目と5番目の特化。{% endcall %}
+    {% call skill('arrow-scattershot', 'opt', '序盤12', [2, 3]) %}グロッキー状態のボスにしか使えない。Whelpsは上げていない。彼のエンドゲームのローテーションでは、ほかのスキルのほうがダメージが出るからだ。aLuckyROとLordRobsonは初日に12まで上げ、グロッキー中の多段ヒットを狙っている。ポイントが安いうちはそれでいいが、後で真っ先に外すスキルになる。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('passives', 'パッシブ', 'pve') %}
+  <p>本当に重要なのは{{ s('focused-eye') }}（ダメージ増加）と{{ s('hunters-resolve') }}（クリティカル ダメージ）だけ。3番目が{{ s('hunters-soul') }}。</p>
+  <div class="callout"><ul>
+    <li>次に攻撃系：{{ s('concentrated-fire') }}、{{ s('rooting-eye') }}、{{ s('melee-fire') }}。</li>
+    <li>その次に{{ s('vigilant-eye') }}（最大HP）と{{ s('revitalization-contract') }}（HP10%で回復）。</li>
+    <li>{{ s('unyielding-resolve') }}と{{ s('wind-vigor') }}はほぼ役に立たない。余ったポイントで上げる。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('gear', '装備と魂刻印', 'pve') %}
+  <p>装備選びはシンプルで、アイテムレベルが一番高いものを使う。エンドゲームでは製作の武器・ガーダー・アクセサリー、ルドラのブレスレット、ダンジョンの防具になる。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>部位</th><th>必須の魂刻印</th></tr></thead>
+    <tbody>
+      <tr><td>武器、ガーダー</td><td>戦闘速度、武器ダメージ増幅、ダメージ増幅、Might（製作品なら+多段ヒット）</td></tr>
+      <tr><td>兜、マント</td><td>強打、攻撃力増加</td></tr>
+      <tr><td>肩</td><td>強打、クリティカル ダメージ増幅</td></tr>
+      <tr><td>胴</td><td>ダメージ増幅</td></tr>
+      <tr><td>脚</td><td>攻撃力増加、ダメージ耐性</td></tr>
+      <tr><td>手袋 / 靴</td><td>戦闘速度 / 移動速度</td></tr>
+      <tr><td>イヤリング / ネックレス</td><td>移動速度 + Might / 戦闘速度 + Might</td></tr>
+      <tr><td>リング</td><td>{{ s('deadshot') }}と{{ s('gale-arrow') }}のスキルLv（次点で鋭穿の矢か狙撃）。なければMight</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><ul>
+    <li><strong>命中は2番目に大事なステータス。</strong>武器ガードされた攻撃はダメージが半分以上減るうえ、レンジャーはいつも背後から撃てるわけではない。約1,100～1,200を目指す（サポート職がいれば+100）。</li>
+    <li>残りの枠は攻撃力、クリティカル、集中の眼のどれか。先に付いたものを残せばいい。レンジャーはクリティカルを上限まで上げやすい（標的の矢で+300）。</li>
+    <li><strong>魔石：</strong>シーズン1は黄色の攻撃力1行で十分。正面攻撃・背面攻撃のセットは追わなくていい。</li>
+    <li>魂刻印を回すのは、必須オプションがすでに1つ付いている防具だけにする。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('arcana', 'アルカナ', 'pve') %}
+  <p>スキルを16より上に上げる手段がアルカナ。目標は<strong>{{ s('deadshot') }}と{{ s('gale-arrow') }}に+4</strong>。{{ s('snipe') }}で+4を引ければ、3つ目のスキルを20にできる。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>カード</th><th>タイプ</th><th>狙うオプション</th></tr></thead>
+    <tbody>
+      <tr><td>聖杯</td><td>活力</td><td>必中の矢、狂風の矢（ワイルドカード：何でも付く可能性がある）</td></tr>
+      <tr><td>羊皮紙</td><td>活力</td><td>狙撃、速射（つなぎに鋭穿の矢、破裂の矢）</td></tr>
+      <tr><td>コンパス</td><td>Death または Freedom</td><td>必中の矢、狂風の矢</td></tr>
+      <tr><td>鐘</td><td>Destruction</td><td>ハンターの決意</td></tr>
+      <tr><td>鏡</td><td>Wisdom</td><td>集中の眼</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">アルカナは超越の4段階で手に入り、完全に運次第。気にしすぎなくていい。シーズン2で仕組みが変わる可能性が高い。</p>
+{% endcall %}
+
+{% call section('daevanion', 'ディーヴァニオン ボード', 'pve pvp') %}
+  <p>いずれはほぼすべてのボードを埋めることになるので、細かく計画しすぎなくていい。青いノードはどれも、対応するスキルを<strong>スキルLv+1</strong>する。</p>
+  <div class="callout"><ul>
+    <li data-only="pve"><strong>1.</strong> アクティブスキルを12に上げる青ノード（2つ目の特化が開く）：{{ s('deadshot') }}、{{ s('snipe') }}、{{ s('gale-arrow') }}、{{ s('drill-dart') }}、{{ s('burst-arrow') }}。</li>
+    <li data-only="pve"><strong>2.</strong> ボードの角にある攻撃系のオレンジノード（戦闘速度、再使用時間減少）。最短ルートで向かい、途中にあるスキルも拾っていく。</li>
+    <li data-only="pve"><strong>3.</strong> 攻撃力、クリティカル、{{ s('focused-eye') }}、{{ s('hunters-resolve') }}のノード。その後で残り（防御系：防御力、HP、クリティカル抵抗）。</li>
+    <li data-only="pve">最後の最後に、MP+50のノードを避けるルートに組み直す。ボードのリセットは安い。</li>
+    <li data-only="pvp"><strong>優先：</strong>{{ s('deadshot') }}、{{ s('snare-shot') }}、{{ s('suppressing-arrow') }}、{{ s('marking-shot') }}、{{ s('defiance') }}の青ノード。</li>
+    <li data-only="pve"><strong>グローバル版にアリエルはない：</strong>ボードは5枚で、Lv45のアスフェルはPvPダメージ増幅とPvPダメージ耐性だけ。PvEでは最初の4枚を埋める。</li>
+    <li data-only="pvp"><strong>アスフェル</strong>（Lv45）はすべてPvPダメージ増幅とPvPダメージ耐性。これを取り、その前にトリニエルも取る。</li>
+  </ul></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ボード</th><th>解放</th><th>オレンジノード</th></tr></thead>
+    <tbody>
+      <tr><td>ネザカン</td><td>Lv12</td><td>戦闘速度、再使用時間減少</td></tr>
+      <tr><td>ジケル</td><td>Lv20</td><td>ダメージ増幅、ダメージ耐性</td></tr>
+      <tr><td>バイゼル</td><td>Lv30</td><td>クリティカル ダメージ増幅、クリティカル ダメージ耐性</td></tr>
+      <tr><td>トリニエル</td><td>Lv40</td><td>多段ヒット的中、多段ヒット抵抗</td></tr>
+      <tr><td>アスフェル</td><td>Lv45</td><td>PvPダメージ増幅、PvPダメージ耐性（スキルノードなし）</td></tr>
+    </tbody>
+  </table></div>
+  <h3>ボード上のルート</h3>
+  <p>ゲームデータから起こした、グローバル版の実際のボード。金色は、開始ノードからこのガイドが取るノード（優先スキルの青ノードとオレンジノード）までの最安ルート。ノードにカーソルを合わせると効果が表示される。</p>
+  <div data-only="pve">{{ dv_board('pve') }}</div>
+  <div data-only="pvp">{{ dv_board('pvp') }}</div>
+  <p class="note">ボードとコストはグローバル版クライアントのデータ（questlog.gg）による。ルートは動画から取ったものではなく、計算で出している。ステータスの数値はリリース時に変わる可能性があるので、ルートを全部振る前にゲーム内のボードで確認しよう。</p>
+{% endcall %}
+
+{% call section('stigmas', 'スティグマ', 'pve') %}
+  <p>最初は各段階の効果を取るために均等に上げる（5 / 5 / 5、次に10）。<strong>バイゼルの権能20</strong>に足りるポイントが貯まったら、リセットして真っ先にそこへ振る。レンジャーが一気に強くなるのはここからだ。その後、祝福のボウ、支援射撃、グリフォンの矢を順に20にする。</p>
+  <ul class="skill-grid">
+    {% call skill('vaizels-authority', 'must', 'Lv20', upto=20) %}集中の眼とハンターの魂の効果が1.5倍。20ではクリティカルのたびに50%の確率で<em>すべての</em>再使用時間が1秒減り、DPSが大きく跳ね上がる。{% endcall %}
+    {% call skill('bow-of-blessing', 'must', 'Lv10 → 20', upto=20) %}多段ヒット、クリティカルに比例した攻撃力、クリティカル ダメージ、強打。{% endcall %}
+    {% call skill('supporting-fire', 'must', 'Lv10 → 20', upto=20) %}一緒に射撃してくれる球体を呼び出す。バイゼルの権能と再使用時間が同じなので、1つのボタンにまとめられる。{% endcall %}
+    {% call skill('griffon-arrow', 'must', 'Lv10 → 20', upto=20) %}紅炎の持続ダメージ。マクロの最初のラインを担う。{% endcall %}
+    {% call skill('explosive-arrow', 'opt', '代替 · 4枠目', upto=10) %}グリフォンの矢と同格の選択肢。LordRobsonは両者のダメージをほぼ同じと評価しており、aLuckyROは初日にグリフォンの矢の代わりに爆発の矢を5（再使用時間15秒減少）で使っている。Lv45で5枠目が開いたら両方取る。{% endcall %}
+    {% call skill('arrow-storm', 'opt', 'レベリング', upto=5) %}レベリング中に群れを狩る範囲攻撃。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('macro', 'ローテーションとマクロ', 'pve') %}
+  <p>AION 2には別々の仕組みが2つあり、このビルドは両方を使う。</p>
+  <ul>
+    <li><strong>ホットバーのライン</strong>：<em>1つ</em>のホットバーボタンに複数のスキルを重ねたもの。押すと使用可能なスキルのうち優先度が最も高いものが発動し、AION 2では<strong>一番下のスロットが最優先</strong>になる。カードは各ラインをゲーム内と同じく上から下の順に表示している。</li>
+    <li><strong>ゲーム内マクロ</strong>：キーを押している間、ホットバーのラインを順番に押し、モーションの後隙をキャンセルする。再使用時間中のスキルは飛ばされる。</li>
+  </ul>
+
+  <h3>1. ホットバーのライン</h3>
+  <p>重要なのはこの2本だけ。ホットバーのどのスロットに置いてもいい。</p>
+  <div class="hotlines">
+    {% call hotline('1', 'グリフォンライン', ['griffon-arrow', 'snare-shot', 'burst-arrow']) %}捕縛の矢で対象を鈍化させ、破裂の矢が当たるようにする。{% endcall %}
+    {% call hotline('2', '狂風ライン', ['gale-arrow', 'drill-dart', 'tempest-shot']) %}速射が隙間をすべて埋める。{% endcall %}
+  </div>
+
+  <h3>2. ゲーム内マクロ</h3>
+  <p>スキルウィンドウ → <strong>Macro</strong>で、グリフォンライン、狂風ラインの順に追加し、それぞれ<strong>10ms</strong>にする（10～20msの間にちょうどいい値を見つける人もいるので、試してみよう）。マクロはSettings → Key Settings → General → Macroで<span class="key">右クリック</span>に割り当てる。</p>
+  {{ macroseq([('グリフォンライン', '1 · 10ms'), ('狂風ライン', '2 · 10ms')]) }}
+  <div class="callout"><ul>
+    <li>操作モードは<strong>AION 2 control mode</strong>を使う。AION 1 modeではゲーム内マクロに制限がかかる。</li>
+    <li>戦闘操作の設定で<strong>skill queueをON</strong>にする。</li>
+    <li>Key Settings → Quick Slotで、{{ s('deadshot') }}に2つ目のキー（マウスのサイドボタン）を割り当てる。</li>
+  </ul></div>
+
+  <h3>3. 実際に押すもの</h3>
+  <ul class="presslist">
+    <li><span class="press-how">開幕</span><span class="press-what">バフは手動で：{{ s('bow-of-blessing') }}、{{ s('supporting-fire') }} + {{ s('vaizels-authority') }}（1ボタン、再使用時間が同じ）。その後に{{ s('marking-shot') }}とフルチャージの{{ s('deadshot') }}。</span></li>
+    <li><span class="press-how">長押し</span><span class="press-what">{{ s('snipe') }}を<span class="key">左クリック</span>、マクロを<span class="key">右クリック</span>、{{ s('deadshot') }}をサイドボタンで、3つ同時に押し続ける。</span></li>
+    <li><span class="press-how">維持</span><span class="press-what">{{ s('marking-shot') }}：精密の残りが約3秒を切ったらかけ直す（バフバーを見る）。精密：完璧+5%、クリティカル+300、必中の矢のダメージ+35%。</span></li>
+    <li><span class="press-how">クールタイムごと</span><span class="press-what">バフをかけ直す。</span></li>
+  </ul>
+{% endcall %}
+
+{% call section('recap', 'まとめ', 'pve') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>必中の矢と狂風の矢は20、鋭穿の矢・狙撃・速射は16、残りは12。矢乱射は上げない。</li>
+    <li><strong>スティグマ：</strong>まずバイゼルの権能を20、次に祝福のボウ、支援射撃、グリフォンの矢。5枠目が開いたら爆発の矢。</li>
+    <li><strong>パッシブ：</strong>集中の眼、ハンターの決意、その次にハンターの魂。</li>
+    <li><strong>ステータス：</strong>命中を上限まで、その後は攻撃力 / クリティカル。</li>
+    <li><strong>アルカナ：</strong>必中の矢と狂風の矢に+4。</li>
+  </ul></div>
+{% endcall %}
+
+{# ============================ Leveling ============================ #}
+{% call section('fight-lvl', t.lvl_combat, 'lvl') %}
+  <div class="callout"><ul>
+    <li><strong>群れ：</strong>足元に{{ s('explosion-trap') }} → {{ s('snare-shot') }} → {{ s('drill-dart') }} + {{ s('tempest-shot') }}。敵は自分から罠に入ってくる。</li>
+    <li><strong>エリート：</strong>{{ s('marking-shot') }}（精密） → {{ s('snare-shot') }} → {{ s('burst-arrow') }} → チャージした{{ s('deadshot') }}。正面で受けずにカイトする。</li>
+    <li><strong>HPが減ったら：</strong>鋭穿の矢と破裂の矢はHPを吸収する。回復する前に、一歩下がって近接の間合いから出よう。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
+  <p>レベリング中とカンスト直後の数日向けの、簡単な構成。Grobsの序盤用マクロが元になっている。入れるのは連打するスキルだけで、バフ、スティグマの瞬間火力、間合いを詰めるスキルはそれぞれ別のキーに置く。</p>
+  <div class="hotlines">
+    {{ hotline('1', 'ライン1', ['griffon-arrow', 'explosive-arrow'], []) }}
+    {{ hotline('2', 'ライン2', ['drill-dart', 'gale-arrow', 'tempest-shot'], []) }}
+  </div>
+  <p>ゲーム内マクロ：ライン1 → ライン2、それぞれ10msのディレイ。基本攻撃の{{ s('snipe') }}を左クリックで押しながら、<strong>同時に</strong>マクロのキーも押し続ける。</p>
+  <p class="note">スキルが12～16に上がり、特化で再使用時間が変わってきたら、PvEタブのフル構成に切り替えよう。</p>
+{% endcall %}
+
+{# ============================ Sources ============================ #}
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">{{ t.sources }}</h2>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=wKOm6yKuu_I" target="_blank" rel="noopener">Whelps — AION 2 Ranger guide</a>と<a href="https://questlog.gg/aion-2/en/character-builder/AelonCommandAndTheSharpMerchant?build-id=8655" target="_blank" rel="noopener">questlogのS1エンドゲームPvEビルド</a>：このガイドが沿っているビルド（スキル、スティグマ、マクロ、装備、アルカナ）</li>
+    <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml" target="_blank" rel="noopener">TitanTheF — AION 2 progression sheet</a>（Rangerタブ）と<a href="https://aion2t.com/ru/simulator?job=4&amp;b=8QbCF0" target="_blank" rel="noopener">aion2tの45+ビルド</a>：グローバル版の以前のビルド（スキルLv、レベリング）</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/ranger" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルとスティグマのデータ</li>
+    <li><a href="https://7mmo.com/threads/guide-ranger-aion-2-build-pve-complet-sorts-stigmas-stuff.5771/" target="_blank" rel="noopener">7MMO</a>：韓国版のPvEビルド一式（スキル、スティグマ、マクロ）</li>
+    <li><a href="https://vortexgaming.io/postdetail/722757" target="_blank" rel="noopener">Vortex Gaming</a>：韓国版のパッチ後のスティグマ構成</li>
+    <li><a href="https://game8.co/games/Aion-2/archives/613085" target="_blank" rel="noopener">Game8</a>：スキルの解放レベル、ローテーションの基本</li>
+    <li><a href="https://gamerstogether.cz/en/aion-2-ranger-build-guide/" target="_blank" rel="noopener">Gamers Together</a>：PvPの考え方</li>
+    <li>DCInside AION 2 ギャラリー：現在のメタとスティグマについての韓国プレイヤーの投稿（投稿者は匿名で、まとめたリンクはない）</li>
+    <li><a href="https://nemobek.github.io/aion2-guide/" target="_blank" rel="noopener">nemobek.github.io/aion2-guide</a>（TitanTheFの表）：レベリングルート</li>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs — AION 2 Macro Guide</a>：ホットバーのラインとゲーム内マクロの仕組み</li>
+    <li><a href="https://www.youtube.com/watch?v=UOuiJT9E1xA" target="_blank" rel="noopener">aLuckyRO — AION 2 Latest Ranger PVE Build for Global</a>：序盤の特化、グリフォンの矢の代わりに爆発の矢、標的の矢 → 狂風の矢 → 必中の矢のコンボ</li>
+    <li><a href="https://www.youtube.com/watch?v=fGABxC3QKd8" target="_blank" rel="noopener">LordRobson — Aion 2 Ranger - Build, Skills, Stigmas and Macros</a>：スティグマ（4つ目はグリフォンの矢か爆発の矢）、必中の矢を先に16へ上げること、標的の矢の持続時間の裏付け</li>
+  </ul>
+  <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
+</section>

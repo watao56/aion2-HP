@@ -1,0 +1,204 @@
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+
+{# ============================== PvE ============================== #}
+{% call glance('pve') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('hellfire', '16'), ('firestorm', '16'), ('bittercold-wind', '16'), ('blaze', '16'), ('wish-of-concentration', '16')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('element-enhancement', 20), ('cold-storm', 10), ('fire-wall', 10), ('delayed-explosion', 10)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['robe-of-flame', 'fire-mark', 'robe-of-earth', 'grace-of-enhancement']) }}
+{% endcall %}
+
+{% call section('intro', '概要', 'pve') %}
+  <p>ソーサラーは火と氷を操る遠距離の紙装甲アタッカー。ダメージ源は火で、{{ s('fire-mark') }}で対象に印を付け、{{ s('blaze') }}でそれを消費して大ダメージを出す。氷は鈍化・束縛・氷結で敵を近づけない役割。ダメージボーナスの半分はMP次第で、MPが50%以上ならクリティカルが上がり、25%以上ならダメージが20%増える。</p>
+  <div class="callout accent">
+    <h3>ビルドをひと言で</h3>
+    <p>マクロを1つ押しっぱなしにして{{ s('element-enhancement') }}と{{ s('wish-of-concentration') }}を維持しつつ、{{ s('flame-arrow') }}と火・氷のラインを交互に撃ってMPを半分以上に保つ。{{ s('hellfire') }}だけは手動で撃つ。</p>
+  </div>
+  <div class="callout"><ul>
+    <li><strong>ターゲットモードで遊ぶ。</strong>ターゲットを固定していれば、通常攻撃の{{ s('flame-arrow') }}がスキルを使うたびに自動で再開し、MPも回復する。アクションモードではスキルのたびに止まるので、そのつどクリックし直す必要がある。</li>
+    <li><strong>段階は2つ。</strong>Lv45になった最初の数日はスキルが8〜10で、特化は1つずつ。カードに書いたMPとスピード系の特化を取る。カードのレベルとハイライトされた2つの特化は後の目標（16）で、EUTOPIAのグローバル版構成と韓国のガイドに基づく。</li>
+  </ul></div>
+  <p class="note">序盤の構成とマクロはaLuckyROのソーサラー初心者ガイド（動画、9月15日、台湾クライアント）と10月2日のグローバル版向けアップデートに、スキルの優先度とLv16の特化はEUTOPIAのグローバル版ビルド（Lv45、アイテムレベル1,260、10月3日）に従う。EUTOPIAは自分のパーティーでダメージ1位を取っているプレイヤー。スキル名とデータはグローバル版クライアントのもの。</p>
+{% endcall %}
+
+{% call section('global', 'グローバル版シーズン1：変更点', 'pve pvp') %}
+  <p>グローバル版サーバーは<strong>2026年10月5日</strong>オープン（ファウンダー先行アクセスは9月30日から）。ソーサラーにとっての影響は次のとおり。</p>
+  <div class="callout">
+    <ul>
+      <li><strong>スティグマ枠は4つ、上限は20。</strong>台湾と韓国は6枠。ここで残した4つは、どちらのソースも最初に上げているもの。</li>
+      <li><strong>スキルは20ではなく16。</strong>スキルを16より上に押し上げるのはアルカナと指輪で、どちらも入手に時間がかかる。</li>
+      <li><strong>序盤はMPが苦しい。</strong>MPは約3,000で再使用時間減少もない。序盤の特化はダメージではなく、MPとスキル速度のために取る。</li>
+      <li data-only="pvp"><strong>PvP：</strong>全員が同じ限られた装備から始まり、メタはまだ固まっていない。</li>
+    </ul>
+  </div>
+{% endcall %}
+
+{% call section('skills', 'スキル', 'pve') %}
+  <p>最終的には7つのスキルを<strong>16</strong>まで上げ（最優先は{{ s('hellfire') }}）、残りは<strong>12</strong>止まりかホットバーから外す。スキルがまだ8〜10のうちに取る1つの特化は、各カードに書いてある。</p>
+  <ul class="skill-grid">
+    {% call skill('hellfire', 'must', '16', [0, 4]) %}最大火力の一撃でビルドの中心。EUTOPIAの優先度1位。フルチャージして手動で撃つ。16までは「スキル速度30%増加」と火属性持続ダメージの特化（aLuckyRO）。16で持続ダメージを「再使用時間15秒減少」に替える。20で開く3枠目は「ガードと回避を無視して多段ヒットで的中」。{% endcall %}
+    {% call skill('firestorm', 'must', '16', [0, 3]) %}再使用時間5秒でMP消費が重い。まず「MP消耗50%減少」を取る。12からは槍1本ごとに地獄の火炎の再使用時間が2秒減るので、2つはセットで使う。20では槍ごとのダメージ15%増加を足す。{% endcall %}
+    {% call skill('bittercold-wind', 'must', '16', [0, 3]) %}束縛の領域スキル。持続時間1秒増加、12で「ガードと回避を無視してクリティカルで的中」（EUTOPIA）。Lv16の特化は氷結の再使用時間を縮めるだけなので、氷結をホットバーから外したら不要。{% endcall %}
+    {% call skill('blaze', 'must', '16', [2, 3]) %}火の印状態の対象へのメインダメージで、MPも回復する。パーティーでは遅延ダメージと多段ヒット。ソロで硬いボスを相手にするときは、遅延ダメージをHP吸収に替える（aLuckyRO）。20では集中の祈願の再使用時間を減らす特化を足す。{% endcall %}
+    {% call skill('wish-of-concentration', 'must', '16', [1, 3]) %}「攻撃力10%追加増加」と「戦闘速度10%増加」。どちらのソースもこの2つを取る。20では「すべてのスキル再使用時間10秒減少」を足す。{% endcall %}
+    {% call skill('winters-shackles', 'must', '16', [2, 4]) %}的中時に5秒間PvEダメージ増幅が20%上がる。このスキルを上げる理由はこれ。16で再使用時間15秒減少。EUTOPIAは代わりに連続スキル追加の特化を取る。{% endcall %}
+    {% call skill('flame-arrow', 'must', '16', [3, 4]) %}通常攻撃で、MP供給の要。最初の数日は「MP回復20%増加」、MPが持つようになったら多段ヒット50%増加。12で炎の矢自体が火の印を付与するようになり、16で炎爆発の再使用時間を初期化する。{% endcall %}
+    {% call skill('ice-chain', 'opt', '12', [1, 3]) %}EUTOPIAは氷鎖、氷結、氷結爆発をホットバーから外している。挟み込むのに時間がかかるわりにダメージが伸びないため。aLuckyROは氷鎖を12で残す。1ヒットごとに冬の束縛の再使用時間が1秒減る。特化はスキル速度20%増加、MPが足りなければMP消耗量20%減少。{% endcall %}
+    {% call skill('flame-scattershot', 'opt', '12', [2, 3]) %}グロッキー状態の対象にしか使えないので、マクロに入れておいてよい。移動可能になる特化を取り、12で多段ヒットを足す。{% endcall %}
+    {% call skill('frost', 'opt', 'レベリング', [0, 2]) %}MPを200回復する。MPが足りないレベリング中は便利だが、グローバル版のエンドコンテンツ構成ではホットバーから外す。{% endcall %}
+    {% call skill('defiance', 'opt', '12', [2, 3]) %}CC解除。解除時にHPが20%回復する。{% endcall %}
+    {% call skill('frost-burst', 'skip', '不要') %}氷結状態の対象にしか使えない。グローバル版の構成には入らない。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('passives', 'パッシブ', 'pve') %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>パッシブ</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>{{ s('robe-of-flame') }}</td><td>命中、PvEダメージ増幅、強打。最初に最大まで上げるパッシブ。</td></tr>
+      <tr><td>{{ s('fire-mark') }}</td><td>炎爆発に必要な火の印を付与し、対象を燃やす。最大まで上げる。</td></tr>
+      <tr><td>{{ s('robe-of-earth') }}</td><td>最大MPと、MPが50%以上のときのクリティカル。最大まで上げる。</td></tr>
+      <tr><td>{{ s('grace-of-enhancement') }}</td><td>MPが25%以上のときPvEダメージ増幅20%、さらに追加ダメージ。</td></tr>
+      <tr><td>{{ s('vitality-evaporation') }}</td><td>対象のHPが70%を超えている間は追加ダメージ。戦闘が短い序盤に強い。</td></tr>
+      <tr><td>{{ s('cold-snap') }}</td><td>鈍化状態の対象に追加ダメージ。氷鎖で鈍化を維持できる。</td></tr>
+      <tr><td>{{ s('robe-of-cold') }}</td><td>防御力と、攻撃してきた相手への鈍化。レイド向け。</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">大地のローブと強化の恩恵はMPが減ると効果が切れる。MP10〜20%で戦い続けるのは絶対に避けよう。</p>
+{% endcall %}
+
+{% call section('gear', '装備とステータス', 'pve') %}
+  <div class="callout"><ul>
+    <li><strong>魔石：</strong>攻撃力、クリティカル、命中。</li>
+    <li>ローテーションでMPが枯れなくなるまでは、<strong>最大MP</strong>とMP自然回復を意識する。</li>
+    <li>どの段階の装備を目指すかは、グローバル版のローンチまではまだ決まっていない。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('daevanion', 'ディーヴァニオン ボード', 'pve pvp') %}
+  <p>ディーヴァニオンでスキルが10から14まで上がり、ステータスも伸びる。青いノード1つで、そのスキルが<strong>+1レベル</strong>になる。</p>
+  <div class="callout"><ul>
+    <li data-only="pve"><strong>優先度：</strong>オレンジの戦闘速度と再使用時間減少、次に攻撃力とダメージ増幅、その次にクリティカル ダメージ増幅。その後は{{ s('hellfire') }}、{{ s('firestorm') }}、{{ s('bittercold-wind') }}、{{ s('blaze') }}、{{ s('wish-of-concentration') }}の青ノードと、緑の{{ s('robe-of-earth') }}。</li>
+    <li data-only="pve">多段ヒットと防御系のオレンジノードは<strong>取らない</strong>。ソーサラーが欲しいのは素のダメージ。命中は後から拾えばいい。</li>
+    <li data-only="pvp"><strong>優先度：</strong>{{ s('frost') }}、{{ s('winters-shackles') }}、{{ s('firestorm') }}の青ノード。</li>
+    <li data-only="pve"><strong>グローバル版にアリエルはない：</strong>ボードは5枚で、Lv45のアスフェルはPvPダメージ増幅と耐性しかくれない。PvEでは最初の4枚を埋める。</li>
+    <li data-only="pvp"><strong>アスフェル</strong>（Lv45）はすべてPvPダメージ増幅と耐性。取ろう。</li>
+  </ul></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ボード</th><th>解放</th><th>オレンジノード</th></tr></thead>
+    <tbody>
+      <tr><td>ネザカン</td><td>Lv12</td><td>戦闘速度、再使用時間減少</td></tr>
+      <tr><td>ジケル</td><td>Lv20</td><td>ダメージ増幅、ダメージ耐性</td></tr>
+      <tr><td>バイゼル</td><td>Lv30</td><td>クリティカル ダメージ増幅と耐性</td></tr>
+      <tr><td>トリニエル</td><td>Lv40</td><td>多段ヒット的中と抵抗</td></tr>
+      <tr><td>アスフェル</td><td>Lv45</td><td>PvPダメージ増幅と耐性（スキルノードなし）</td></tr>
+    </tbody>
+  </table></div>
+  <h3>ボード上のルート</h3>
+  <p>ゲームデータから作った実際のグローバル版ボード。金色は、開始地点からこのガイドで取るノード（優先スキルの青ノードと攻撃系のオレンジノード。多段ヒットと耐性は除く）までの最安ルート。ノードにカーソルを合わせると効果が見られる。</p>
+  <div data-only="pve">{{ dv_board('pve') }}</div>
+  <div data-only="pvp">{{ dv_board('pvp') }}</div>
+  <p class="note">ボードとコストはグローバル版クライアントのデータ（questlog.gg）から取得。ルートは計算で出したもので、動画から取ったものではない。ステータスの数値はローンチ時に変わる可能性があるので、ルートを最後まで決める前にゲーム内のボードを確認しよう。</p>
+{% endcall %}
+
+{% call section('stigmas', 'スティグマ', 'pve') %}
+  <p>上げる順番は元素強化 → 冷気暴風 → 火の障壁 → 遅延爆発。新キャラではおよそ5 / 5 / 5 / 1から始まる。</p>
+  <ul class="skill-grid">
+    {% call skill('element-enhancement', 'must', 'Lv20', upto=20) %}火属性と水属性の攻撃力が20%増加（20でさらに10%追加）。メインのバフで、使えるようになるたびに使う。最初に最大まで上げる。{% endcall %}
+    {% call skill('cold-storm', 'must', 'Lv10', upto=10) %}凍傷付きの水属性持続ダメージ領域。領域内で攻撃を当てるたびに追加ダメージが入る。{% endcall %}
+    {% call skill('fire-wall', 'must', 'Lv10', upto=10) %}火属性の持続ダメージ領域。残火で攻撃のたびに追加ダメージが入る。ボスが動かないときや、敵の群れが通り抜けるときに最も強い。{% endcall %}
+    {% call skill('delayed-explosion', 'must', 'Lv10', upto=10) %}4秒間、対象が自分から受けるダメージが15%増加。Lv10で再使用時間が短くなる。最初は1ポイントで十分。{% endcall %}
+    {% call skill('glacial-smite', 'opt', '代替', upto=10) %}即発の大きな範囲攻撃で、群れ相手ほど強い。短い戦闘や周回で冷気暴風と入れ替える。{% endcall %}
+    {% call skill('divine-burst', 'opt', '代替', upto=10) %}当てると自分が対象から後方へ飛び退く攻撃。10でHP吸収が付く。シャードに余裕が出てからの保険。{% endcall %}
+    {% call skill('steel-barrier', 'opt', '代替', upto=10) %}最大HPの16%分のバリア。ソロのレベリング中は入れておき、何度も倒されるボス相手では冷気暴風と入れ替える（EUTOPIA）。{% endcall %}
+  </ul>
+  <p class="note">aLuckyROの台湾版構成はスティグマ6枠で、この4つに氷河強打と神聖爆発を加えている。EUTOPIAはグローバル版でちょうどこの4つを使い、パーティーがグロッキーチェックを落とすときは神聖爆発に入れ替える。</p>
+{% endcall %}
+
+{% call section('macro', 'マクロとローテーション', 'pve') %}
+  <p>AION 2には別々の仕組みが2つある。</p>
+  <ul>
+    <li><strong>ホットバーライン</strong>：<em>1つ</em>のホットバーボタンに複数のスキルを重ねたもの。押すと、使えるスキルのうち優先度が最も高いものが発動する。AION 2では<strong>一番下のスロットが最優先</strong>。カードでは各ラインをゲーム内と同じく上から下へ並べている。</li>
+    <li><strong>ゲーム内マクロ</strong>：キーを押している間、ホットバーのボタンを順番に押し、モーションの後隙をキャンセルする。再使用時間中のスキルは飛ばされる。</li>
+  </ul>
+
+  <h3>1. ホットバーライン</h3>
+  <div class="hotlines">
+    {% call hotline('4', 'バフライン', ['element-enhancement', 'bittercold-wind', 'delayed-explosion']) %}元素強化は使えるようになり次第発動。その次に束縛の領域と、ダメージ+15%のデバフ。{% endcall %}
+    {% call hotline('5', '集中ライン', ['wish-of-concentration', 'cold-storm', 'fire-wall']) %}まず2つ目のバフ、次に対象の足元へ2つの領域。{% endcall %}
+    {% call hotline('1', '火ライン', ['blaze', 'firestorm']) %}対象に火の印があれば炎爆発、炎の槍は再使用時間5秒ごとに。{% endcall %}
+    {% call hotline('T', '氷ライン', ['winters-shackles', 'ice-chain']) %}ダメージバフのために冬の束縛。氷鎖を残しているなら残りの時間を埋める。外しているならこのラインは冬の束縛だけ。{% endcall %}
+  </div>
+  <p>{{ s('flame-arrow') }}は単独で<span class="key">R</span>、{{ s('hellfire') }}は<span class="key">2</span>、{{ s('flame-scattershot') }}は<span class="key">3</span>に置く。</p>
+
+  <h3>2. ゲーム内マクロ</h3>
+  <p>マクロキーはSettings → Key settings → Gameplay → Macroで設定する。全ステップを同じディレイにする。</p>
+  {{ macroseq([('バフライン', '4'), ('集中ライン', '5'), (skill_data('flame-arrow')[lang].name, 'R'), ('火ライン', '1'), (skill_data('flame-arrow')[lang].name, 'R'), ('氷ライン', 'T'), (skill_data('flame-scattershot')[lang].name, '3')]) }}
+  <ul>
+    <li><strong>ディレイ：</strong>Pingが50未満なら10ms、Pingが80〜100以上なら40〜50ms。</li>
+    <li><strong>確認方法：</strong>マクロ実行中に自キャラを見る。後ろに残像（「影」）が出ていればモーションがキャンセルできていて、ディレイは適切。</li>
+    <li><strong>炎の矢が2回ある理由：</strong>重いスキルの合間にMPを補給して50%以上を保ち、MP条件のパッシブを2つとも有効にしておくため。</li>
+  </ul>
+  <p class="note">ステップはaLuckyROのマクロ画面（9月15日、台湾クライアント）から取り、EUTOPIAのグローバル版構成に合わせて氷結と氷結爆発を外した。最後のステップを火炎乱射にしたのはaLuckyROの説明による（グロッキー状態のボスには勝手に発動する）。</p>
+
+  <h3>3. 実際に押すもの</h3>
+  <ul class="presslist">
+    <li><span class="press-how">押しっぱなし</span><span class="press-what">マクロキー。ほかには何も押さない。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">{{ s('hellfire') }}：止まってフルチャージし、マクロに戻る。</span></li>
+    <li><span class="press-how">MP不足</span><span class="press-what">それでもMPが減るなら、マクロを離して{{ s('flame-arrow') }}を何発か撃ってから再開する。</span></li>
+  </ul>
+
+  <h3>4. 後半：手動でバースト</h3>
+  <p>装備に再使用時間減少が付いてきたら、韓国のプレイヤーはバフをマクロから外し、手動でバーストのタイミングを作っている。</p>
+  <ol>
+    <li>タンクが釣る直前に{{ s('delayed-explosion') }}。</li>
+    <li>{{ s('element-enhancement') }}と{{ s('wish-of-concentration') }}。</li>
+    <li>ボスの足元に{{ s('fire-wall') }} + {{ s('cold-storm') }}。</li>
+    <li>{{ s('bittercold-wind') }}、続けて{{ s('winters-shackles') }}でダメージ増幅+20%。</li>
+    <li>{{ s('hellfire') }}を3段階までチャージし、その後マクロ。</li>
+  </ol>
+{% endcall %}
+
+{% call section('recap', 'まとめ', 'pve') %}
+  <div class="callout accent"><ul>
+    <li><strong>最初の数日：</strong>スキルは8〜10でMPとスピード系の特化。バフ入りのマクロ1つ。ターゲットモード。</li>
+    <li><strong>後半：</strong>地獄の火炎、炎の槍、極寒の風、炎爆発、集中の祈願、冬の束縛、炎の矢を16。氷鎖は12かホットバーから外す。</li>
+    <li><strong>スティグマ：</strong>元素強化20、冷気暴風10、火の障壁10、遅延爆発10。</li>
+    <li><strong>MP：</strong>50%以上を保つ。快適さのためではなく、それ自体がダメージになる。</li>
+  </ul></div>
+{% endcall %}
+
+{# ============================ Leveling ============================ #}
+{% call section('fight-lvl', t.lvl_combat, 'lvl') %}
+  <div class="callout"><ul>
+    <li><strong>敵の群れ：</strong>{{ s('bittercold-wind') }}（束縛 + 引き寄せ）→ {{ s('hellfire') }} → 倒れるまで{{ s('ice-chain') }}。</li>
+    <li><strong>エリート：</strong>{{ s('flame-arrow') }}で火の印 → {{ s('blaze') }} → {{ s('firestorm') }}。{{ s('ice-chain') }}の鈍化でカイトしながら戦う。</li>
+    <li><strong>MP：</strong>ターゲットモードで通常攻撃を回し続け、炎の矢を挟む。</li>
+    <li><strong>HPが減ったら：</strong>{{ s('steel-barrier') }}を張って距離を取る。ソーサラーに回復スキルはない。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
+  <p>序盤はラインが2つあれば足りる。火ラインをMB5、氷ラインを右クリックに置く。極寒の風とスティグマがそろったらゲーム内マクロを足す。</p>
+  <div class="hotlines">
+    {{ hotline('MB5', '火ライン', ['blaze', 'firestorm', 'flame-arrow']) }}
+    {{ hotline('右クリック', '氷ライン', ['frost', 'ice-chain']) }}
+  </div>
+{% endcall %}
+
+{# ============================ Sources ============================ #}
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">{{ t.sources }}</h2>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=s-pYR_fmMDk" target="_blank" rel="noopener">aLuckyRO：AION 2 Sorcerer Guide For Skills &amp; Stigmas | Macros &amp; Daevanion Setup</a>：Lv45での序盤構成。最初の特化、ホットバーラインとマクロ、MP管理、ターゲットモード、ディーヴァニオンの順番</li>
+    <li><a href="https://www.youtube.com/watch?v=fsS86mITLsk" target="_blank" rel="noopener">EUTOPIA：AION 2 Sorcerer Build Guide - Best PvE Skills, Macro &amp; Rotation</a>：グローバル版Lv45の構成。スキル優先度（地獄の火炎が最優先）、特化、スティグマと入れ替え候補、ディーヴァニオンの順番</li>
+    <li><a href="https://www.youtube.com/watch?v=C6-9zLLRiDE" target="_blank" rel="noopener">aLuckyRO：AION 2 Latest Sorcerer PVE Build for Global</a>：序盤の特化、炎の槍 → 地獄の火炎と氷鎖 → 冬の束縛のコンボ、スティグマの順番</li>
+    <li><a href="https://vortexgaming.io/en/postdetail/724101" target="_blank" rel="noopener">Vortex Gaming：バランス調整後のソーサラーPvEガイド</a>：スキルレベル、特化、スティグマ、開幕とマクロ（韓国サーバー）</li>
+    <li><a href="https://mmo-codex.com/articles/aion-2-sorcerer-guide/" target="_blank" rel="noopener">MMO Codex：Aion 2 Sorcerer guide</a>：スティグマの優先度、マクロの順番、ターゲットモードでのレベリング</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/sorcerer" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルデータと名前</li>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs：AION 2 Macro Guide</a>：ホットバーラインとゲーム内マクロの仕組み</li>
+  </ul>
+  <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
+</section>

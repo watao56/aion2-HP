@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="ja" data-mode="pve">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>更新履歴 — AION 2 ガイド</title>
+<meta name="description" content="サイトの変更点を新しい順にまとめている。">
+<link rel="canonical" href="https://couga54.github.io/aion2-guides/ja/changelog/">
+<link rel="alternate" hreflang="en" href="https://couga54.github.io/aion2-guides/en/changelog/">
+<link rel="alternate" hreflang="ru" href="https://couga54.github.io/aion2-guides/ru/changelog/">
+<link rel="alternate" hreflang="uk" href="https://couga54.github.io/aion2-guides/uk/changelog/">
+<link rel="alternate" hreflang="tr" href="https://couga54.github.io/aion2-guides/tr/changelog/">
+<link rel="alternate" hreflang="ja" href="https://couga54.github.io/aion2-guides/ja/changelog/">
+<link rel="alternate" hreflang="x-default" href="https://couga54.github.io/aion2-guides/en/changelog/">
+<meta name="theme-color" content="#0b0e14">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AION 2 ガイド">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="更新履歴 — AION 2 ガイド">
+<meta property="og:description" content="サイトの変更点を新しい順にまとめている。">
+<meta property="og:url" content="https://couga54.github.io/aion2-guides/ja/changelog/">
+<meta property="og:image" content="https://couga54.github.io/aion2-guides/assets/og/changelog-ja.jpg?v=16a30350">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&display=swap&subset=cyrillic">
+<script>
+  // Theme + guide mode before first paint (no flash).
+  (function (r) {
+    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') r.dataset.theme = t; } catch (e) {}
+    var off = (r.getAttribute('data-off') || '').split(' ');
+    var modes = ['pve', 'pvp', 'lvl'].filter(function (x) { return off.indexOf(x) < 0; });
+    var m = new URLSearchParams(location.search).get('mode');
+    if (modes.indexOf(m) < 0) { try { m = localStorage.getItem('mode'); } catch (e) {} }
+    if (modes.indexOf(m) >= 0) r.dataset.mode = m;
+    else if (modes.indexOf(r.dataset.mode) < 0) r.dataset.mode = modes[0];
+  })(document.documentElement);
+</script>
+<script>
+  // Google Analytics (site.json "ga"). Not loaded on local previews. A visitor who came through the root
+  // language redirect keeps the site they came from (root.html saves it in sessionStorage).
+  if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6WYEWLG4B5';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      var ref = null;
+      try { ref = sessionStorage.getItem('ref'); sessionStorage.removeItem('ref'); } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-6WYEWLG4B5', ref ? { page_referrer: ref } : {});
+    })();
+  }
+</script>
+<link rel="stylesheet" href="../../assets/css/site.css?v=16a30350">
+</head>
+<body class="page-changelog">
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="../../ja/">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg>
+      <span>AION 2 ガイド</span>
+    </a>
+    <details class="class-menu">
+      <summary class="class-menu-btn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg><span>クラス</span>        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <nav class="class-menu-panel" aria-label="クラス">
+        <a href="../../ja/gladiator/" class="cm-item accent-crimson">
+          <img src="../../assets/classes/gladiator.webp" width="44" height="44" alt=""><span class="cm-name">グラディエーター</span><span class="cm-role">近接DPS · ブルーザー</span>
+        </a>
+        <a href="../../ja/ranger/" class="cm-item accent-emerald">
+          <img src="../../assets/classes/ranger.webp" width="44" height="44" alt=""><span class="cm-name">レンジャー</span><span class="cm-role">遠距離DPS · カイター</span>
+        </a>
+        <a href="../../ja/templar/" class="cm-item accent-sapphire">
+          <img src="../../assets/classes/templar.webp" width="44" height="44" alt=""><span class="cm-name">テンプラー</span><span class="cm-role">タンク · パーティーバッファー</span>
+        </a>
+        <a href="../../ja/assassin/" class="cm-item accent-violet">
+          <img src="../../assets/classes/assassin.webp" width="44" height="44" alt=""><span class="cm-name">アサシン</span><span class="cm-role">近接DPS · バースト</span>
+        </a>
+        <a href="../../ja/sorcerer/" class="cm-item accent-frost">
+          <img src="../../assets/classes/sorcerer.webp" width="44" height="44" alt=""><span class="cm-name">ソーサラー</span><span class="cm-role">遠距離魔法DPS</span>
+        </a>
+        <a href="../../ja/elementalist/" class="cm-item accent-spirit">
+          <img src="../../assets/classes/elementalist.webp" width="44" height="44" alt=""><span class="cm-name">スピリットマスター</span><span class="cm-role">召喚士 · 魔法DPS</span>
+        </a>
+        <a href="../../ja/cleric/" class="cm-item accent-sunlight">
+          <img src="../../assets/classes/cleric.webp" width="44" height="44" alt=""><span class="cm-name">クレリック</span><span class="cm-role">ヒーラー · 大地と雷の攻撃</span>
+        </a>
+        <a href="../../ja/chanter/" class="cm-item accent-amber">
+          <img src="../../assets/classes/chanter.webp" width="44" height="44" alt=""><span class="cm-name">チャンター</span><span class="cm-role">近接サポート · バッファー</span>
+        </a>
+      </nav>
+    </details>
+    <div class="topbar-tools">      <span class="rift-timer" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="亀裂が開放中" title="亀裂：敵対エリアへのポータル。3時間ごとに開き、入口は10分間開いたままで、中には約1時間滞在できる。次回">
+        <svg class="rt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="7.5" ry="10.5"/><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/><g transform="rotate(180 12 12)"><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/></g></svg><span class="rt-name">Rift</span><b class="rt-time">--:--</b>
+      </span>
+      <a class="wr-chip" href="../../ja/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="日,時間,分,秒" title="週間リセットまで">
+        <svg class="wr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="wr-name">リセット</span><b class="wr-time">--</b>
+      </a>
+      <a class="top-timer" href="../../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-09-28T13:00:00Z", "n": "\u30d7\u30ea\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9", "o": ""}, {"at": "2026-09-30T14:00:00Z", "n": "\u5148\u884c\u30a2\u30af\u30bb\u30b9", "o": "\u5148\u884c\u30a2\u30af\u30bb\u30b9\u958b\u59cb"}, {"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
+        <span class="tt-dot" aria-hidden="true"></span><span class="tt-name"></span><b class="tt-time">--:--:--</b>
+      </a>
+      <details class="class-menu nav-menu">
+        <summary class="class-menu-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>ガイド</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <nav class="nav-menu-panel" aria-label="ガイド">
+          <div class="nm-col">
+            <p class="nm-group">進行</p>
+            <a href="../../ja/week-1/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
+              <span class="nm-name">1週目</span><span class="nm-desc">最初のリセットまでに終えること</span>
+            </a>
+            <a href="../../ja/progression/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h4v-6H3zM10 20h4V9h-4zM17 20h4V4h-4z"/></svg>
+              <span class="nm-name">45以降</span><span class="nm-desc">レイドまでのアイテムレベルルート</span>
+            </a>
+            <a href="../../ja/crafting/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 1.3-1.3a4 4 0 0 0-5-5L3 10l3-3 3 3 1.3-1.3a4 4 0 0 1 4.4-2.4z"/></svg>
+              <span class="nm-name">採集と製作</span><span class="nm-desc">生産スキルとゴールドの素体</span>
+            </a>
+            <a href="../../ja/settings/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+              <span class="nm-name">ゲーム設定</span><span class="nm-desc">操作、キー、FPS、大規模PvP</span>
+            </a>
+          </div>
+          <div class="nm-col">
+            <p class="nm-group">トラッカー</p>
+            <a href="../../ja/weekly/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8.5 15l2 2 4-4"/></svg>
+              <span class="nm-name">週間</span><span class="nm-desc">週間入場回数とエネルギー</span>
+            </a>
+            <a href="../../ja/bosses/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4.4 0-8 3.1-8 7.5 0 2.6 1.3 4.4 3 5.5V20h2v-2h2v2h2v-2h2v2h2v-4c1.7-1.1 3-2.9 3-5.5C20 6.1 16.4 3 12 3z"/><circle cx="9" cy="11" r="1.5"/><circle cx="15" cy="11" r="1.5"/></svg>
+              <span class="nm-name">ボス</span><span class="nm-desc">討伐トラッカーとタイマー</span>
+            </a>
+          </div>
+          <div class="nm-foot">
+            <a href="../../ja/sources/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h6M8 11h6"/></svg>
+              <span class="nm-name">出典とクレジット</span><span class="nm-desc">このサイトの土台になった人たち</span>
+            </a>
+          </div>
+        </nav>
+      </details>      <details class="lang-menu">
+        <summary class="lang-switch" title="言語"><span aria-hidden="true">JA</span><span class="sr-only">言語</span></summary>
+        <nav class="lang-panel" aria-label="言語">
+<a href="../../en/changelog/" hreflang="en" lang="en" data-keep-query><b>EN</b>English</a><a href="../../ru/changelog/" hreflang="ru" lang="ru" data-keep-query><b>RU</b>Русский</a><a href="../../uk/changelog/" hreflang="uk" lang="uk" data-keep-query><b>UA</b>Українська</a><a href="../../tr/changelog/" hreflang="tr" lang="tr" data-keep-query><b>TR</b>Türkçe</a><a href="../../ja/changelog/" hreflang="ja" lang="ja" aria-current="true" data-keep-query><b>JA</b>日本語</a>        </nav>
+      </details>
+      <button class="icon-btn search-open" type="button" aria-label="検索 (Ctrl+K)" title="検索 (Ctrl+K)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+<a class="icon-btn wn-top" href="../../ja/changelog/" aria-current="page" aria-label="更新履歴" title="更新履歴">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.9"/><path d="M12 17h.01"/></svg>
+      </a>      <button class="icon-btn theme-toggle" type="button" aria-label="ダークモード切替" title="ダークモード切替">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" data-changelog-seen="2026-10-04">
+  <section class="page-hero has-art" style="--hero-art:url('../../assets/art/hero-changelog.webp');--hero-pos:50% 45%">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../ja/">全クラス</a><span aria-hidden="true">/</span><span>更新履歴</span></nav>
+      <h1>更新履歴</h1>
+      <p class="lead">サイトの変更点を新しい順にまとめている。</p>
+    </div>
+  </section>
+  <div class="wrap cl-page">
+    <section class="wn-entry cl-entry" aria-label="2026年10月4日">
+      <time class="wn-date" datetime="2026-10-04">2026年10月4日</time>
+      <ul>
+        <li><span><strong>トルコ語版</strong>：サイト全体がトルコ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ウクライナ語ページと同じく、スキル名とアイテム名は英語のまま。翻訳はAIによるもので、誤りを見つけたら「誤りを報告」を使うかGitHubでissueを立ててほしい。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年10月3日">
+      <time class="wn-date" datetime="2026-10-03">2026年10月3日</time>
+      <ul>
+        <li><span><strong>採集と製作</strong>：ページをグローバル版向けに書き直し、図で見られるようにした。精気抽出のスキルツリー（Proficient HandlingとDelicate Touchは10まで、Lady Luckは最大5、オードと武器の素材）、各ブランチの役割、オードをどの素材にも変化させる方法、グレーから金までの製作の流れを載せている。</span></li>
+        <li><span><strong>スピリットマスター：PvEとPvP</strong>：シーズン1向けにPvEとPvPの両モードが揃った。Evripidesのグローバル版Spirit Masterガイド（aion2sm.com）を土台に、DankRNGとaLuckyROの内容で照合している。スキルと特化、スティグマ、パッシブ、召喚前にバフをかけるルール、ローテーション、マクロ、対戦相手別の立ち回り、ディーヴァニオンのルートを収録。</span></li>
+        <li><span><strong>ワールドボス</strong>：ベルテロンとアルトガルドのフィールドボス全48体を、再出現タイマー付きで掲載。討伐を記録すると復活時刻がページに出て、通知がオンなら知らせてくれる。各ボスの出現場所も表示するようになった。</span></li>
+        <li><span><strong>ソーサラー</strong>：グローバル版のLv45ソーサラー（EUTOPIA）をもとにスキル優先度を作り直した。地獄の火炎と炎の槍が必須になり、氷鎖は任意、氷結と氷結爆発はバーから外れる。</span></li>
+        <li><span><strong>チャンター</strong>：グローバル版のチャンター使い2人（notXeon、WallyJTV）の情報を反映。快癒の呪文は12で十分、疾風の権能は必須スティグマ、鼓舞の呪文は優先度が上がった。岩撃砕16の前に入れるマクロのコツも追加。</span></li>
+        <li><span><strong>グラディエーター、レンジャー、テンプラー、アサシン、クレリック</strong>：最初のグローバル版ガイド（aLuckyRO、Sen、LordRobson、trueeevil）と照合。初日の選択肢と代替案を追加した。ボス戦での鋭利な一撃と空中結縛、同格の4つ目のスティグマとしての爆発の矢、ソロのテンプラー向けの処刑の剣、衝撃的中より覚悟、クレリックの序盤パッシブ。</span></li>
+        <li><span><strong>レベリングのチェックリスト</strong>：スティグマスロットはLv22、27、32、37で1つずつ開放される。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年10月1日">
+      <time class="wn-date" datetime="2026-10-01">2026年10月1日</time>
+      <ul>
+        <li><span><strong>ウクライナ語版</strong>：サイト全体がウクライナ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ゲームデータにウクライナ語がないため、スキル名とアイテム名は英語のまま。言語は上部バーのボタンで切り替える。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><a href="../../ja/settings/"><strong>新ページ：ゲーム設定</strong>：初日に変えておく設定をWhelpsとGrobsの動画からまとめた。操作モードとターゲット、マクロキー（初期状態では未設定）、衝撃解除専用のキー、バフスクロールは戦闘中のみ、ボスの向きとヘイト範囲、FPS、大規模PvP向けのオプションなど。ガイドメニューにある。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><a href="../../ja/sorcerer/"><strong>ソーサラーPvEを書き直し</strong>：aLuckyROの動画をもとに、Lv45での最初の数日向けの構成にした。スキルLv8〜10でどの特化を取るか、ホットバー4行、MPを50%以上に保つマクロ1つ、ターゲットモード、ディーヴァニオンの順番。ガイドの作成中表示は外した。</a></li>
+        <li><span><strong>ビルドの出どころ</strong>：各クラスガイドの概要に、はっきり書くようにした。ガイドは台湾サーバー（パッチ：TW）のクリエイターの動画が元で、グローバル版シーズン1向けに絞り込んでいる。全ガイドから「作成中」の表示は消えた。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><a href="../../ja/assassin/"><strong>アサシンPvEをArthars Gamingの動画で作り直し</strong>：シーズン1でのクラスの見通し、新しいスキルレベル（暴風乱舞は16、猛獣の咆哮はつなぎ用のみ）、スティグマはすべてバフ系（幻影分身、迅速の契約、猛獣の牙、トリニエルの刃）、ダメージ行は1つ、バーストの順番。</a></li>
+        <li><a href="../../ja/assassin/"><strong>アサシン：アルカナとパッシブ</strong>：アルカナの項目を新設（Illusion on the Mirrorは必須）、装備向けのパッシブ優先度も追加。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><span><strong>特化スロットを修正</strong>：スキルの特化スロットはLv12から2つで、3つ目は20になってから。グラディエーター、テンプラー、ソーサラー、クレリックのカードでLv16に3つ選択肢を出さないようにし、20で3つ目に何を取るかは各カードに書いた。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><a href="../../ja/chanter/"><strong>チャンターPvEをArthars Gamingの動画ガイドで作り直し</strong>：岩撃砕から入る開幕、新しいホットバー行と2段階マクロ、スキルレベルと特化、4スロット分のスティグマ（マルクタンの怒り1、集中防御5）、パッシブ優先度。</a></li>
+        <li><a href="../../ja/chanter/"><strong>チャンター：アルカナ</strong>：項目を新設。5枚のカードそれぞれで狙うステータス、セット、スキルを載せた。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><a href="../../ja/cleric/"><strong>クレリックPvE：マクロを全文掲載</strong>：Kaeriaの動画をフレーム単位で読み取り、ホットバー3行とゲーム内マクロの手順を載せた。押し続けるキーやグロッキー時の対応も含む。ガイドの作成中表示は外した。</a></li>
+        <li><a href="../../ja/cleric/"><strong>クレリック：ディーヴァニオンとアルカナ</strong>：ボードのルートはPvEで効果のないオレンジのノードを飛ばすようにした。アルカナのセット効果、追加ステータスとしてのDeath、治癒への入れ替え候補としての生命の権能、破滅の声の修正も反映。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><span><strong>5つのガイドにディーヴァニオン ボードを追加</strong>：レンジャー、アサシン、チャンター、ソーサラー、クレリックで、グローバル版の実際のボードを表示。ガイドが取るノードまでのルートと、各ノードのツールチップ付き。</span></li>
+        <li><span><strong>PvPガイドをPvEと同じ並びに</strong>：グラディエーターとテンプラーのPvPは、ビルドの概要から始まるようにした。ディーヴァニオン ボードは装備とスティグマの間に置いた。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><a href="../../ja/templar/"><strong>テンプラーガイドをSolAshurの動画でフレーム単位に再確認</strong>：連続乱打の特化を修正、ソロPvE用とダンジョン用のスティグマセット、PvP終盤の入れ替え候補として強襲猛撃。</a></li>
+        <li><a href="../../ja/templar/"><strong>テンプラー：ペットと装備</strong>：9つのペットスロットそれぞれで何を狙うか、装備ルート上の武器のアイテムレベルと攻撃力、翼の数値、PvP装備の注意点。</a></li>
+        <li><a href="../../ja/templar/"><strong>テンプラー：ディーヴァニオン ボード</strong>：グローバル版の実際のボードと、PvE・PvP用のルート、各ノードのツールチップ。</a></li>
+        <li><span><strong>全ガイドのディーヴァニオン</strong>：グローバル版に合わせて修正。ボードは5つでアリエルはなし。Lv45のボード、アスフェルが与えるのはPvPダメージ増幅とPvPダメージ耐性のみ。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><a href="../../ja/gladiator/"><strong>グラディエーター：ディーヴァニオン ボード</strong>：グローバル版の実際のボードと、PvE・PvP・レベリング用のルート（Grobsの65ポイントルート）。グローバル版にアリエルのボードはなく、あるのはアスフェル（PvP）だけなので、ガイドを修正した。</a></li>
+        <li><a href="../../ja/gladiator/"><strong>ボードのツールチップ</strong>：ディーヴァニオン ボードの任意のノードにカーソルを合わせる（タップでもよい）と、与えるステータスとコストが見られる。スキルと同じ表示。</a></li>
+        <li><a href="../../ja/gladiator/"><strong>グラディエーターガイドを更新</strong>：ボス戦の開幕、ボスの向きの設定、集中ガードのチャージ、剣気乱舞、レベリングの優先度、ツールチップ付きのアルカナカード。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月30日">
+      <time class="wn-date" datetime="2026-09-30">2026年9月30日</time>
+      <ul>
+        <li><span><strong>新しい上部メニュー</strong>：全ページを右側の<strong>ガイド</strong>メニューにまとめた。クラス選択にはクラス名がフルで出る。</span></li>
+        <li><span>クラスページに<strong>注目の配信者・プレイヤー</strong>を追加：ガイドの情報源のうち、そのクラスを使っているプレイヤーと配信者を、表示言語に合わせて紹介する。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月29日">
+      <time class="wn-date" datetime="2026-09-29">2026年9月29日</time>
+      <ul>
+        <li><a href="../../ja/progression/#titan"><strong>Lv45以降：TitanTheFのルート</strong>：アビス周回、製作したT1武器、経済重視のルートとサブキャラ。あわせて<strong>装備強化のしくみ</strong>（強化の上限、魔石、神石、魂刻印、称号、シーズン）も載せた。</a></li>
+        <li><a href="../../ja/crafting/"><strong>新ページ：採集と製作</strong>：どの職業を選ぶか、サファイアとオードでのレベリング、金の素体と必要な量。</a></li>
+        <li><a href="../../ja/week-1/"><strong>最初の1週間</strong>：Lv45でのシューゴ、ワールドボスを1回ずつ、サブキャラの助言。<strong>情報源</strong>：クラスごとの注目の配信者。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月29日">
+      <time class="wn-date" datetime="2026-09-29">2026年9月29日</time>
+      <ul>
+        <li><a href="../../ja/progression/"><strong>新ページ：Lv45以降</strong>：Lv45から2,800のドラゴンレイドまでのアイテムレベルのルート。グローバル版の変更点、シューゴ、ナイトメア、ドラウプニル、バクロン、超越、ハードコア向けのルート、デイリー契約のコツ。各ブロックから動画の該当箇所へ飛べる。</a></li>
+        <li><a href="../../ja/progression/"><strong>アイテムのツールチップ</strong>：そのページでアイテムにカーソルを合わせると、説明、アイテムレベル、ステータス、アルカナのセット効果が見られる。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月29日">
+      <time class="wn-date" datetime="2026-09-29">2026年9月29日</time>
+      <ul>
+        <li><a href="../../ja/week-1/#h-w1-route"><strong>45以降：アイテムレベルのルート</strong>：最初の1週間のページに、45から2,800レイドまでを段階ごとに掲載（シューゴ、ナイトメア、Drupnir、バクロン、超越）。グローバル版のデータマイニングが元なので、確認が取れるまでその旨を表示している。</a></li>
+        <li><a href="../../ja/week-1/"><strong>最初の1週間を更新</strong>：敵側の亀裂と羽は、グローバル版では優先しなくてよくなった。シューゴの通貨、ナイトメア、デイリー契約、パスの箱について新しいコツを追加。</a></li>
+        <li><a href="../../ja/bosses/"><strong>ボスごとの通知</strong>：各ワールドボスの横のベルで、そのボスの通知をオンオフできる。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月29日">
+      <time class="wn-date" datetime="2026-09-29">2026年9月29日</time>
+      <ul>
+        <li><a href="../../ja/templar/"><strong>テンプラーをSolAshurのグローバル版ビルドで作り直し</strong>：審判・懲罰・連続乱打の3本柱、プロファイルごとのスティグマ、マクロ、装備ルート、ステータス、ペット、パンテオン、アルカナ。作成中表示は外した。</a></li>
+        <li><a href="../../ja/cleric/"><strong>クレリックPvE（作成中）</strong>：Kaeriaのガイドから。ダメージも出せるヒーラー、大地の懲罰と断罪、スティグマ、アルカナ。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月28日">
+      <time class="wn-date" datetime="2026-09-28">2026年9月28日</time>
+      <ul>
+        <li><a href="../../ja/cleric/"><strong>クレリックとスピリットマスター（作成中）</strong>：Grobsの序盤マクロを使ったレベリングガイド。PvEとPvPは、グローバル版の確かな情報源が出てから。</a></li>
+        <li><span><strong>検索</strong>：Ctrl+K（または/）で、クラス、スキル、ボス、ガイドの項目を探せる。</span></li>
+        <li><span><strong>スキルのツールチップ</strong>：ガイド内のスキルにカーソルを合わせると、説明、再使用時間、すべての特化が見られる。</span></li>
+        <li><a href="../../ja/weekly/"><strong>通知</strong>：週間トラッカーとボスページが、エネルギーが満タンのときやボスが出ているかもしれないときに知らせてくれる（タブを開いている間）。</a></li>
+        <li><span><strong>日付付きの情報源とエラー報告</strong>：各ガイドのモードに、情報の出どころと確認した日付を表示。「誤りを報告」でGitHubのissueが開く。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月28日">
+      <time class="wn-date" datetime="2026-09-28">2026年9月28日</time>
+      <ul>
+        <li><span><strong>より活気のあるサイトに</strong>：ホームの背景がゆっくり流れ、エーテルの火花が舞い上がる。クラスページにはそれぞれ属性のパーティクル、呼吸する立ち絵、クラスカラーの輝きがあり、ガイドのブロックはスクロールに合わせてフェードインする。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月28日">
+      <time class="wn-date" datetime="2026-09-28">2026年9月28日</time>
+      <ul>
+        <li><a href="../../ja/bosses/"><strong>ワールドボス</strong>：グローバル版シーズン1のフィールドボス（ベルテロン、アルトガルド、エレシュランタ下層）と討伐トラッカー。再出現タイマーはサービス開始後に追加する。</a></li>
+        <li><a href="../../ja/ranger/"><strong>レンジャーPvEをWhelpsのガイドで作り直し</strong>：必中の矢と狂風の矢は20まで、バイゼルの権能を最優先、2行マクロ、魂刻印、命中、アルカナ。</a></li>
+        <li><span><strong>情報源のあるガイドだけに</strong>：レンジャー、アサシン、チャンター、ソーサラーのPvPは、信頼できる情報源が出るまでサービス開始まで非表示にした。韓国データが元のモードには作成中の注記を付けた。</span></li>
+        <li><span><strong>よりなめらかなサイトに</strong>：モードの切り替えはフェード、ヘッダーはなめらかに折りたたまれ、クラスメニューはアニメーションし、カーソルを合わせるとクラスの立ち絵がカードから前に出る。テーマボタンは太陽か月で表示する。</span></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月28日">
+      <time class="wn-date" datetime="2026-09-28">2026年9月28日</time>
+      <ul>
+        <li><a href="../../ja/sorcerer/"><strong>ソーサラーガイド（作成中）</strong>：炎と氷のビルド、スティグマ、マクロ、レベリング。まともなグローバル版ビルドが出るまで、韓国のガイドをもとにまとめた。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月27日">
+      <time class="wn-date" datetime="2026-09-27">2026年9月27日</time>
+      <ul>
+        <li><a href="../../ja/chanter/"><strong>チャンターガイド</strong>：TitanTheFのグローバル版ビルド。スキル、スティグマ、マントラ、シンプルな開始用マクロ。</a></li>
+        <li><a href="../../ja/assassin/"><strong>アサシンガイド</strong>：紋様、心臓突き、幻影分身のバースト時間。TitanTheFのグローバル版ビルド付き。</a></li>
+        <li><a href="../../ja/ranger/"><strong>レンジャーをグローバル版向けに見直し</strong>：現実的なスキルレベル（16）、グローバル版のスティグマセット、韓国の終盤ビルドの代わりにアルカナの目標を載せた。</a></li>
+        <li><a href="../../ja/gladiator/"><strong>マクロを修正</strong>：ホットバー行の一番下のスロットが最優先になる。全クラスのレベリング用マクロを追加（Grobs）。</a></li>
+      </ul>
+    </section>
+    <section class="wn-entry cl-entry" aria-label="2026年9月27日">
+      <time class="wn-date" datetime="2026-09-27">2026年9月27日</time>
+      <ul>
+        <li><a href="../../ja/templar/"><strong>テンプラーガイド</strong>：PvE、PvP、レベリング。スキル、グローバル版の4スロット向けスティグマ、マクロの組み方。</a></li>
+        <li><a href="../../ja/week-1/"><strong>最初の1週間</strong>：最初の週間リセットまでに終わらせること、見落としやすい一度きりの目標。</a></li>
+        <li><a href="../../ja/weekly/"><strong>週間トラッカー</strong>：全キャラクター分の週間項目とオードのエネルギーを、リセットタイマー付きで管理できる。チェックリストは毎週自動でリセットされる。</a></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <div>
+      <a class="brand brand-sm" href="../../ja/">AION 2 ガイド</a>
+      <p>NCSOFTとは無関係の非公式ファンサイト。AION 2とそのスキルアイコンの著作権はNCSOFTに帰属する。</p>
+      <p>最終確認: 2026-10-04 (グローバル版ローンチ前).</p>
+      <p><a href="../../ja/sources/">すべての出典と配信者</a> · <a href="../../ja/changelog/">更新履歴</a> · <button type="button" class="link-btn report-open">誤りを報告</button></p>
+    </div>
+  </div>
+</footer>
+<dialog class="search-dlg" aria-label="検索" data-index="../../ja/search.json" data-base="../../ja/" data-empty="見つからなかった"
+  data-kinds="{&#34;boss&#34;: &#34;\u30dc\u30b9&#34;, &#34;class&#34;: &#34;\u30af\u30e9\u30b9&#34;, &#34;page&#34;: &#34;\u30da\u30fc\u30b8&#34;, &#34;section&#34;: &#34;\u30bb\u30af\u30b7\u30e7\u30f3&#34;, &#34;skill&#34;: &#34;\u30b9\u30ad\u30eb&#34;}" data-root="../../">
+  <div class="search-in">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" class="search-q" placeholder="クラス、スキル、ボス、セクション…" aria-label="検索" autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="search-res" role="listbox"></ul>
+  </div>
+</dialog>
+<dialog class="whatsnew" data-id="2026-10-04" aria-labelledby="wn-title">
+  <form method="dialog" class="wn-in">
+    <div class="wn-head">
+      <h2 id="wn-title">更新情報</h2>
+      <button class="icon-btn wn-x" value="close" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <section class="wn-entry">
+      <time class="wn-date" datetime="2026-10-04">2026年10月4日</time>
+      <ul>
+        <li><span><strong>トルコ語版</strong>：サイト全体がトルコ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ウクライナ語ページと同じく、スキル名とアイテム名は英語のまま。翻訳はAIによるもので、誤りを見つけたら「誤りを報告」を使うかGitHubでissueを立ててほしい。</span></li>
+      </ul>
+    </section>
+    <button class="btn btn-primary wn-ok" value="close">閉じる</button>
+    <p class="wn-all"><a href="../../ja/changelog/">更新履歴をすべて見る →</a></p>
+  </form>
+</dialog>
+<dialog class="whatsnew feedback" aria-labelledby="fb-title" data-url="https://aion2-feedback.couga-ua.workers.dev/" data-page="ja/changelog/" data-lang="ja">
+  <form class="wn-in fb-form" novalidate>
+    <div class="wn-head">
+      <h2 id="fb-title">誤りを報告</h2>
+      <button type="button" class="icon-btn fb-x" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="fb-hint">どこが間違っている、または古い？ 出典のリンクやスクリーンショットがあると助かる。</p>
+    <label class="fb-label" for="fb-text">メッセージ</label>
+    <textarea id="fb-text" class="fb-text" name="text" rows="6" maxlength="2000" required placeholder="例：グローバル版では炎爆発の3つ目の特化が違う…"></textarea>
+    <label class="fb-label" for="fb-contact">返信先の連絡先（任意）</label>
+    <input id="fb-contact" class="fb-contact" name="contact" type="text" maxlength="100" autocomplete="off" placeholder="DiscordまたはTelegram">
+    <input class="fb-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fb-meta">メッセージと一緒に送信される情報： <b class="fb-where"></b></p>
+    <p class="fb-status" role="status" data-sending="送信中…" data-ok="送信した。ありがとう！" data-err="送信できなかった。しばらくしてからもう一度試してほしい。" data-rate="連続送信が多すぎる。数分後にもう一度試してほしい。" data-short="まず少し書いてほしい。"></p>
+    <div class="fb-actions">
+      <button type="submit" class="btn btn-primary fb-send">送信</button>
+      <button type="button" class="btn btn-ghost fb-cancel">キャンセル</button>
+    </div>
+  </form>
+</dialog>
+<script src="../../assets/js/site.js?v=16a30350" defer></script>
+<script src="../../assets/js/fx.js?v=16a30350" defer></script>
+<div class="cel-banner" role="status" hidden data-at="2026-09-30T14:00:00Z" data-id="early">
+  <span class="cel-ico" aria-hidden="true">✦</span>
+  <div><p class="cel-h">先行アクセス開始！</p><p class="cel-p">ファウンダーパックのサーバーが稼働中。初日の健闘を祈る。クラスガイドは準備できている。</p></div>
+  <button type="button" class="cel-x" aria-label="閉じる">×</button>
+</div>
+<script src="../../assets/js/celebrate.js?v=16a30350" defer></script>
+</body>
+</html>

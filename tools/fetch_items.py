@@ -1,11 +1,11 @@
-"""Download the items used on the progression page (EN + RU names, grade, icon) from questlog.gg.
+"""Download the items used on the progression page (EN + RU + JA names, grade, icon) from questlog.gg.
 
   python tools/fetch_items.py            fetch everything listed in "items" of data/progression.json and data/crafting.json
                                          (a key is "Exact Name" or {"name": ..., "grade": ...})
   python tools/fetch_items.py --find X   print questlog search results for X (to pick the exact name)
 
 Writes:
-  data/items.json                         {key: {id, grade, cat, icon, en, ru, tip_en, tip_ru}} (tip = hover tooltip)
+  data/items.json                         {key: {id, grade, cat, icon, en, ru, ja, tip_en, tip_ru, tip_ja}} (tip = hover tooltip)
   src/assets/icons/items/<key>.webp       64x64 icons
 """
 import io
@@ -49,7 +49,7 @@ def main():
         it = hits[0]
         out[key] = {"id": it["id"], "grade": it["grade"], "cat": it.get("subCategory") or it.get("mainCategory") or "",
                     "icon": f"{key}.webp"}
-        for lang in ("en", "ru"):
+        for lang in ("en", "ru", "ja"):
             d = trpc("getItem", {"id": it["id"], "language": lang})
             out[key][lang] = d.get("name") or it["name"]
             # tooltip: description, item level, base stats, arcana set bonuses

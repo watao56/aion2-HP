@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ja" data-mode="pve">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>採集と製作：生産スキルの育て方 — AION 2 ガイド</title>
+<meta name="description" content="AION 2の採集と製作。どの生産スキルを選ぶか、サファイアとオードでのレベル上げ、Lv60のゴールド素体、必要な素材の量、買ったほうが早い場面。">
+<link rel="canonical" href="https://couga54.github.io/aion2-guides/ja/crafting/">
+<link rel="alternate" hreflang="en" href="https://couga54.github.io/aion2-guides/en/crafting/">
+<link rel="alternate" hreflang="ru" href="https://couga54.github.io/aion2-guides/ru/crafting/">
+<link rel="alternate" hreflang="uk" href="https://couga54.github.io/aion2-guides/uk/crafting/">
+<link rel="alternate" hreflang="tr" href="https://couga54.github.io/aion2-guides/tr/crafting/">
+<link rel="alternate" hreflang="ja" href="https://couga54.github.io/aion2-guides/ja/crafting/">
+<link rel="alternate" hreflang="x-default" href="https://couga54.github.io/aion2-guides/en/crafting/">
+<meta name="theme-color" content="#0b0e14">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AION 2 ガイド">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="採集と製作：生産スキルの育て方 — AION 2 ガイド">
+<meta property="og:description" content="AION 2の採集と製作。どの生産スキルを選ぶか、サファイアとオードでのレベル上げ、Lv60のゴールド素体、必要な素材の量、買ったほうが早い場面。">
+<meta property="og:url" content="https://couga54.github.io/aion2-guides/ja/crafting/">
+<meta property="og:image" content="https://couga54.github.io/aion2-guides/assets/og/crafting-ja.jpg?v=16a30350">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&display=swap&subset=cyrillic">
+<script>
+  // Theme + guide mode before first paint (no flash).
+  (function (r) {
+    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') r.dataset.theme = t; } catch (e) {}
+    var off = (r.getAttribute('data-off') || '').split(' ');
+    var modes = ['pve', 'pvp', 'lvl'].filter(function (x) { return off.indexOf(x) < 0; });
+    var m = new URLSearchParams(location.search).get('mode');
+    if (modes.indexOf(m) < 0) { try { m = localStorage.getItem('mode'); } catch (e) {} }
+    if (modes.indexOf(m) >= 0) r.dataset.mode = m;
+    else if (modes.indexOf(r.dataset.mode) < 0) r.dataset.mode = modes[0];
+  })(document.documentElement);
+</script>
+<script>
+  // Google Analytics (site.json "ga"). Not loaded on local previews. A visitor who came through the root
+  // language redirect keeps the site they came from (root.html saves it in sessionStorage).
+  if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6WYEWLG4B5';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      var ref = null;
+      try { ref = sessionStorage.getItem('ref'); sessionStorage.removeItem('ref'); } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-6WYEWLG4B5', ref ? { page_referrer: ref } : {});
+    })();
+  }
+</script>
+<link rel="stylesheet" href="../../assets/css/site.css?v=16a30350">
+</head>
+<body class="page-guide page-crafting">
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="../../ja/">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg>
+      <span>AION 2 ガイド</span>
+    </a>
+    <details class="class-menu">
+      <summary class="class-menu-btn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg><span>クラス</span>        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <nav class="class-menu-panel" aria-label="クラス">
+        <a href="../../ja/gladiator/" class="cm-item accent-crimson">
+          <img src="../../assets/classes/gladiator.webp" width="44" height="44" alt=""><span class="cm-name">グラディエーター</span><span class="cm-role">近接DPS · ブルーザー</span>
+        </a>
+        <a href="../../ja/ranger/" class="cm-item accent-emerald">
+          <img src="../../assets/classes/ranger.webp" width="44" height="44" alt=""><span class="cm-name">レンジャー</span><span class="cm-role">遠距離DPS · カイター</span>
+        </a>
+        <a href="../../ja/templar/" class="cm-item accent-sapphire">
+          <img src="../../assets/classes/templar.webp" width="44" height="44" alt=""><span class="cm-name">テンプラー</span><span class="cm-role">タンク · パーティーバッファー</span>
+        </a>
+        <a href="../../ja/assassin/" class="cm-item accent-violet">
+          <img src="../../assets/classes/assassin.webp" width="44" height="44" alt=""><span class="cm-name">アサシン</span><span class="cm-role">近接DPS · バースト</span>
+        </a>
+        <a href="../../ja/sorcerer/" class="cm-item accent-frost">
+          <img src="../../assets/classes/sorcerer.webp" width="44" height="44" alt=""><span class="cm-name">ソーサラー</span><span class="cm-role">遠距離魔法DPS</span>
+        </a>
+        <a href="../../ja/elementalist/" class="cm-item accent-spirit">
+          <img src="../../assets/classes/elementalist.webp" width="44" height="44" alt=""><span class="cm-name">スピリットマスター</span><span class="cm-role">召喚士 · 魔法DPS</span>
+        </a>
+        <a href="../../ja/cleric/" class="cm-item accent-sunlight">
+          <img src="../../assets/classes/cleric.webp" width="44" height="44" alt=""><span class="cm-name">クレリック</span><span class="cm-role">ヒーラー · 大地と雷の攻撃</span>
+        </a>
+        <a href="../../ja/chanter/" class="cm-item accent-amber">
+          <img src="../../assets/classes/chanter.webp" width="44" height="44" alt=""><span class="cm-name">チャンター</span><span class="cm-role">近接サポート · バッファー</span>
+        </a>
+      </nav>
+    </details>
+    <div class="topbar-tools">      <span class="rift-timer" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="亀裂が開放中" title="亀裂：敵対エリアへのポータル。3時間ごとに開き、入口は10分間開いたままで、中には約1時間滞在できる。次回">
+        <svg class="rt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="7.5" ry="10.5"/><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/><g transform="rotate(180 12 12)"><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/></g></svg><span class="rt-name">Rift</span><b class="rt-time">--:--</b>
+      </span>
+      <a class="wr-chip" href="../../ja/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="日,時間,分,秒" title="週間リセットまで">
+        <svg class="wr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="wr-name">リセット</span><b class="wr-time">--</b>
+      </a>
+      <a class="top-timer" href="../../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-09-28T13:00:00Z", "n": "\u30d7\u30ea\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9", "o": ""}, {"at": "2026-09-30T14:00:00Z", "n": "\u5148\u884c\u30a2\u30af\u30bb\u30b9", "o": "\u5148\u884c\u30a2\u30af\u30bb\u30b9\u958b\u59cb"}, {"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
+        <span class="tt-dot" aria-hidden="true"></span><span class="tt-name"></span><b class="tt-time">--:--:--</b>
+      </a>
+      <details class="class-menu nav-menu">
+        <summary class="class-menu-btn is-here">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>ガイド</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <nav class="nav-menu-panel" aria-label="ガイド">
+          <div class="nm-col">
+            <p class="nm-group">進行</p>
+            <a href="../../ja/week-1/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
+              <span class="nm-name">1週目</span><span class="nm-desc">最初のリセットまでに終えること</span>
+            </a>
+            <a href="../../ja/progression/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h4v-6H3zM10 20h4V9h-4zM17 20h4V4h-4z"/></svg>
+              <span class="nm-name">45以降</span><span class="nm-desc">レイドまでのアイテムレベルルート</span>
+            </a>
+            <a href="../../ja/crafting/" class="nm-item" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 1.3-1.3a4 4 0 0 0-5-5L3 10l3-3 3 3 1.3-1.3a4 4 0 0 1 4.4-2.4z"/></svg>
+              <span class="nm-name">採集と製作</span><span class="nm-desc">生産スキルとゴールドの素体</span>
+            </a>
+            <a href="../../ja/settings/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+              <span class="nm-name">ゲーム設定</span><span class="nm-desc">操作、キー、FPS、大規模PvP</span>
+            </a>
+          </div>
+          <div class="nm-col">
+            <p class="nm-group">トラッカー</p>
+            <a href="../../ja/weekly/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8.5 15l2 2 4-4"/></svg>
+              <span class="nm-name">週間</span><span class="nm-desc">週間入場回数とエネルギー</span>
+            </a>
+            <a href="../../ja/bosses/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4.4 0-8 3.1-8 7.5 0 2.6 1.3 4.4 3 5.5V20h2v-2h2v2h2v-2h2v2h2v-4c1.7-1.1 3-2.9 3-5.5C20 6.1 16.4 3 12 3z"/><circle cx="9" cy="11" r="1.5"/><circle cx="15" cy="11" r="1.5"/></svg>
+              <span class="nm-name">ボス</span><span class="nm-desc">討伐トラッカーとタイマー</span>
+            </a>
+          </div>
+          <div class="nm-foot">
+            <a href="../../ja/sources/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h6M8 11h6"/></svg>
+              <span class="nm-name">出典とクレジット</span><span class="nm-desc">このサイトの土台になった人たち</span>
+            </a>
+          </div>
+        </nav>
+      </details>      <details class="lang-menu">
+        <summary class="lang-switch" title="言語"><span aria-hidden="true">JA</span><span class="sr-only">言語</span></summary>
+        <nav class="lang-panel" aria-label="言語">
+<a href="../../en/crafting/" hreflang="en" lang="en" data-keep-query><b>EN</b>English</a><a href="../../ru/crafting/" hreflang="ru" lang="ru" data-keep-query><b>RU</b>Русский</a><a href="../../uk/crafting/" hreflang="uk" lang="uk" data-keep-query><b>UA</b>Українська</a><a href="../../tr/crafting/" hreflang="tr" lang="tr" data-keep-query><b>TR</b>Türkçe</a><a href="../../ja/crafting/" hreflang="ja" lang="ja" aria-current="true" data-keep-query><b>JA</b>日本語</a>        </nav>
+      </details>
+      <button class="icon-btn search-open" type="button" aria-label="検索 (Ctrl+K)" title="検索 (Ctrl+K)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+<a class="icon-btn wn-top" href="../../ja/changelog/" aria-label="更新履歴" title="更新履歴">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.9"/><path d="M12 17h.01"/></svg>
+      </a>      <button class="icon-btn theme-toggle" type="button" aria-label="ダークモード切替" title="ダークモード切替">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero has-art" style="--hero-art:url('../../assets/art/hero-crafting.webp');--hero-pos:50% 45%">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../ja/">全クラス</a><span aria-hidden="true">/</span><span>採集と製作</span></nav>
+      <h1>採集と製作</h1>
+      <p class="lead">採集ポイントの振り先、上げ切る2つの系統、製作チェーンのしくみ。</p>
+    </div>
+  </section>
+
+  <div class="wrap guide-layout pg-layout"><aside class="toc-side pg-side" aria-label="このページの内容">
+    <p class="toc-title">このページの内容</p>
+    <nav class="toc-list">
+<a href="#tree">精気抽出：ポイントの振り先</a><a href="#branches">2つ目のブランチの選び方</a><a href="#odyle">オード → どの素材にも</a><a href="#chain">製作の流れ</a><a href="#before">製作を始める前に</a><a href="#leveling">レベルを素早く上げる</a><a href="#money">ギーナを稼ぐ</a>    </nav>
+  </aside>
+  <div class="pg-page">
+    <p class="pg-note">グローバル版クライアントのデータをもとに、trueeevil、Silvias、TitanTheF、Aragonの内容と照らして確認した（10月2〜3日）。
+<a class="w1-src" href="https://www.youtube.com/watch?v=Iqi6pR8r6FY" target="_blank" rel="noopener" title="trueeevil — Beginner Aion 2 Crafting Guide">trueeevil</a><a class="w1-src" href="https://www.youtube.com/watch?v=8T12po8Myqk" target="_blank" rel="noopener" title="Silvias — ГАЙД НА ПРОФЕССИИ">Silvias</a><a class="w1-src" href="https://www.youtube.com/watch?v=hUk7jO3jUdw" target="_blank" rel="noopener" title="TitanTheF (video) — Day 2: progression and why craft the weapon">TitanTheF (video)</a><a class="w1-src" href="https://www.youtube.com/watch?v=C70IXgdByFM" target="_blank" rel="noopener" title="Aragon — Make MILLIONS Of Kina Without Energy">Aragon</a><a class="w1-src" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml#gid=683322434" target="_blank" rel="noopener" title="TitanTheF (sheet) — AION 2 progression sheet">TitanTheF (sheet)</a></p>
+
+    <ol class="pg-toc" aria-label="ステップ">
+      <li><a href="#tree"><span>精気抽出：ポイントの振り先</span></a></li>
+      <li><a href="#branches"><span>2つ目のブランチの選び方</span></a></li>
+      <li><a href="#odyle"><span>オード → どの素材にも</span></a></li>
+      <li><a href="#chain"><span>製作の流れ</span></a></li>
+      <li><a href="#before"><span>製作を始める前に</span></a></li>
+      <li><a href="#leveling"><span>レベルを素早く上げる</span></a></li>
+      <li><a href="#money"><span>ギーナを稼ぐ</span></a></li>
+    </ol>
+
+    <section class="pg-sec" id="tree" aria-labelledby="h-tree">
+      <h2 id="h-tree" class="section-title">精気抽出：ポイントの振り先</h2>
+<p class="pg-lead">採集レベルでは2種類のポイントが手に入る。共通スキルは左、ブランチは右。</p><div class="ct-tree">
+        <div class="ct-common">
+          <span class="ct-ring" aria-hidden="true"></span>
+          <div class="ct-skill ct-s1 is-hi" data-sk="g:proficient" tabindex="0">
+            <span class="ct-lvl">10</span><span class="ct-sname">Proficient Handling</span><span class="ct-snote">成功ゲージが速く溜まる。最大まで上げる</span>
+          </div>
+          <div class="ct-skill ct-s2 is-hi" data-sk="g:delicate" tabindex="0">
+            <span class="ct-lvl">10</span><span class="ct-sname">Delicate Touch</span><span class="ct-snote">失敗が減る。最大まで上げる（1つ目と一緒に）</span>
+          </div>
+          <div class="ct-skill ct-s3" data-sk="g:luck" tabindex="0">
+            <span class="ct-lvl">≤ 5</span><span class="ct-sname">Lady Luck</span><span class="ct-snote">余ったポイントだけ</span>
+          </div>
+        </div>
+        <div class="ct-branches">
+<div class="ct-branch">
+            <p class="ct-bname"><span aria-hidden="true">✦</span> Ore</p>
+            <div class="ct-nodes">
+              <div class="ct-node" data-sk="g:seeker">
+                <span class="ct-ico"><img src="../../assets/icons/items/ore.webp" width="40" height="40" alt=""><i>1</i></span>
+                <span class="ct-nlabel">Ore Seeker</span>
+              </div>
+              <div class="ct-node" data-sk="g:harvest">
+                <span class="ct-ico"><img src="../../assets/icons/items/ore.webp" width="40" height="40" alt=""><b>×2</b><i>3</i></span>
+                <span class="ct-nlabel">Plentiful Harvest</span>
+              </div>
+              <div class="ct-node" data-sk="g:appraiser">
+                <span class="ct-ico"><img src="../../assets/icons/items/ore.webp" width="40" height="40" alt=""><i>3</i></span>
+                <span class="ct-nlabel">Ore Appraiser</span>
+              </div>
+            </div>
+          </div>
+<div class="ct-branch">
+            <p class="ct-bname"><span aria-hidden="true">✦</span> Gem</p>
+            <div class="ct-nodes">
+              <div class="ct-node" data-sk="g:seeker">
+                <span class="ct-ico"><img src="../../assets/icons/items/sapphire.webp" width="40" height="40" alt=""><i>1</i></span>
+                <span class="ct-nlabel">Gem Seeker</span>
+              </div>
+              <div class="ct-node" data-sk="g:harvest">
+                <span class="ct-ico"><img src="../../assets/icons/items/sapphire.webp" width="40" height="40" alt=""><b>×2</b><i>3</i></span>
+                <span class="ct-nlabel">Plentiful Harvest</span>
+              </div>
+              <div class="ct-node" data-sk="g:appraiser">
+                <span class="ct-ico"><img src="../../assets/icons/items/sapphire.webp" width="40" height="40" alt=""><i>3</i></span>
+                <span class="ct-nlabel">Gem Appraiser</span>
+              </div>
+            </div>
+          </div>
+<div class="ct-branch">
+            <p class="ct-bname"><span aria-hidden="true">✦</span> Log</p>
+            <div class="ct-nodes">
+              <div class="ct-node" data-sk="g:seeker">
+                <span class="ct-ico"><img src="../../assets/icons/items/log.webp" width="40" height="40" alt=""><i>1</i></span>
+                <span class="ct-nlabel">Log Seeker</span>
+              </div>
+              <div class="ct-node" data-sk="g:harvest">
+                <span class="ct-ico"><img src="../../assets/icons/items/log.webp" width="40" height="40" alt=""><b>×2</b><i>3</i></span>
+                <span class="ct-nlabel">Plentiful Harvest</span>
+              </div>
+              <div class="ct-node" data-sk="g:appraiser">
+                <span class="ct-ico"><img src="../../assets/icons/items/log.webp" width="40" height="40" alt=""><i>3</i></span>
+                <span class="ct-nlabel">Log Appraiser</span>
+              </div>
+            </div>
+          </div>
+<div class="ct-branch">
+            <p class="ct-bname"><span aria-hidden="true">✦</span> Herb</p>
+            <div class="ct-nodes">
+              <div class="ct-node" data-sk="g:seeker">
+                <span class="ct-ico"><img src="../../assets/icons/items/herb.webp" width="40" height="40" alt=""><i>1</i></span>
+                <span class="ct-nlabel">Herb Seeker</span>
+              </div>
+              <div class="ct-node" data-sk="g:harvest">
+                <span class="ct-ico"><img src="../../assets/icons/items/herb.webp" width="40" height="40" alt=""><b>×2</b><i>3</i></span>
+                <span class="ct-nlabel">Plentiful Harvest</span>
+              </div>
+              <div class="ct-node" data-sk="g:appraiser">
+                <span class="ct-ico"><img src="../../assets/icons/items/herb.webp" width="40" height="40" alt=""><i>3</i></span>
+                <span class="ct-nlabel">Herb Appraiser</span>
+              </div>
+            </div>
+          </div>
+<div class="ct-branch">
+            <p class="ct-bname"><span aria-hidden="true">✦</span> Ingredient</p>
+            <div class="ct-nodes">
+              <div class="ct-node" data-sk="g:seeker">
+                <span class="ct-ico"><img src="../../assets/icons/items/ingredient.webp" width="40" height="40" alt=""><i>1</i></span>
+                <span class="ct-nlabel">料理 Ingredient Seeker</span>
+              </div>
+              <div class="ct-node" data-sk="g:harvest">
+                <span class="ct-ico"><img src="../../assets/icons/items/ingredient.webp" width="40" height="40" alt=""><b>×2</b><i>3</i></span>
+                <span class="ct-nlabel">Plentiful Harvest</span>
+              </div>
+              <div class="ct-node" data-sk="g:appraiser">
+                <span class="ct-ico"><img src="../../assets/icons/items/ingredient.webp" width="40" height="40" alt=""><i>3</i></span>
+                <span class="ct-nlabel">料理 Ingredient Appraiser</span>
+              </div>
+            </div>
+          </div>
+<div class="ct-branch is-on is-odyle">
+            <p class="ct-bname"><span aria-hidden="true">✦</span> オード <em>常に最大</em></p>
+            <div class="ct-nodes">
+              <div class="ct-node" data-sk="g:seeker">
+                <span class="ct-ico"><img src="../../assets/icons/items/odyle.webp" width="40" height="40" alt=""><i>1</i></span>
+                <span class="ct-nlabel">Odyle Seeker</span>
+              </div>
+              <div class="ct-node" data-sk="g:harvest">
+                <span class="ct-ico"><img src="../../assets/icons/items/odyle.webp" width="40" height="40" alt=""><b>×2</b><i>3</i></span>
+                <span class="ct-nlabel">Plentiful Harvest</span>
+              </div>
+              <div class="ct-node" data-sk="g:appraiser">
+                <span class="ct-ico"><img src="../../assets/icons/items/odyle.webp" width="40" height="40" alt=""><i>3</i></span>
+                <span class="ct-nlabel">Odyle Appraiser</span>
+              </div>
+            </div>
+          </div>
+          <p class="ct-legend">ブランチは2つまで最大にする。オードと、最初に作るアイテムの素材。</p>
+        </div>
+      </div>
+      <div class="callout pg-tip" role="note"><p>Lady Luckが効くのは失敗ゲージがすでに高いときだけで、グレードは上がらない。trueeevilはLv10で、50ノードに1回ほどしか発動しなかったという。ブランチの最初の1ポイントでも、そのノードがミニマップに出る。</p></div>
+    </section>
+    <section class="pg-sec" id="branches" aria-labelledby="h-branches">
+      <h2 id="h-branches" class="section-title">2つ目のブランチの選び方</h2>
+<p class="pg-lead">最初に作りたいアイテムの素材。たいていは武器。</p>      <div class="ct-cards">
+        <div class="ct-card">
+<img src="../../assets/icons/items/ore.webp" width="40" height="40" alt="">          <div><p class="ct-ctitle">Ore</p><p class="ct-ctext">防具、武器、ガーダー</p></div>
+        </div>
+        <div class="ct-card">
+<img src="../../assets/icons/items/sapphire.webp" width="40" height="40" alt="">          <div><p class="ct-ctitle">Gem</p><p class="ct-ctext">アクセサリー（細工）</p></div>
+        </div>
+        <div class="ct-card">
+<img src="../../assets/icons/items/log.webp" width="40" height="40" alt="">          <div><p class="ct-ctitle">Log</p><p class="ct-ctext">ボウとワンド（細工）</p></div>
+        </div>
+        <div class="ct-card">
+<img src="../../assets/icons/items/herb.webp" width="40" height="40" alt="">          <div><p class="ct-ctitle">Herb</p><p class="ct-ctext">錬金：ポーション、オーブとマジックブック、魔石</p></div>
+        </div>
+        <div class="ct-card">
+<img src="../../assets/icons/items/ingredient.webp" width="40" height="40" alt="">          <div><p class="ct-ctitle">Ingredient</p><p class="ct-ctext">料理：後回しでよい</p></div>
+        </div>
+        <div class="ct-card is-hi">
+<img src="../../assets/icons/items/odyle.webp" width="40" height="40" alt="">          <div><p class="ct-ctitle">オード</p><p class="ct-ctext">すべての製作、翼、オード エネルギーに使い、さらに他のどの素材にも変化させられる</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="pg-sec" id="odyle" aria-labelledby="h-odyle">
+      <h2 id="h-odyle" class="section-title">オード <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> どの素材にも</h2>
+      <div class="ct-morph">
+        <div class="ct-from"><img src="../../assets/icons/items/odyle.webp" width="52" height="52" alt=""><span>オード</span></div>
+        <div class="ct-arrow"><span>Substance Morph</span><svg viewBox="0 0 24 10" aria-hidden="true"><path d="M1 5h20M17 1l4 4-4 4"/></svg></div>
+        <div class="ct-to"><img src="../../assets/icons/items/ore.webp" width="40" height="40" alt=""><img src="../../assets/icons/items/sapphire.webp" width="40" height="40" alt=""><img src="../../assets/icons/items/log.webp" width="40" height="40" alt=""><img src="../../assets/icons/items/herb.webp" width="40" height="40" alt=""><img src="../../assets/icons/items/ingredient.webp" width="40" height="40" alt=""></div>
+      </div>
+      <div class="ct-cards cols-3">
+        <div class="ct-card">
+<span class="ct-sym">=</span>          <div><p class="ct-ctitle">同じグレード</p><p class="ct-ctext">白のオードは白の素材に、緑は緑に、金まで同様に変わる。</p></div>
+        </div>
+        <div class="ct-card">
+<span class="ct-sym">₭</span>          <div><p class="ct-ctitle">価格を比べる</p><p class="ct-ctext">市場でオードが素材より安いなら、オードを買って変化させる。TitanTheFはこの方法で、丸太を半額で手に入れた。</p></div>
+        </div>
+        <div class="ct-card">
+<span class="ct-sym">✦</span>          <div><p class="ct-ctitle">無料のオード</p><p class="ct-ctext">制圧ダンジョンでは、最後のボスを倒したあとにオードのノードが残る。このブランチを最初に最大まで上げる理由がもう1つ増える。</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="pg-sec" id="chain" aria-labelledby="h-chain">
+      <h2 id="h-chain" class="section-title">製作の流れ</h2>
+<div class="ct-chain">
+        <div class="ct-tile g11"><span>グレー</span></div>
+<div class="ct-arrow"><span>25%で成功</span><svg viewBox="0 0 24 10" aria-hidden="true"><path d="M1 5h20M17 1l4 4-4 4"/></svg></div>        <div class="ct-tile g21"><span>緑</span></div>
+<div class="ct-arrow"><span>25%で成功</span><svg viewBox="0 0 24 10" aria-hidden="true"><path d="M1 5h20M17 1l4 4-4 4"/></svg></div>        <div class="ct-tile g31"><span>青</span></div>
+<div class="ct-arrow"><span>25%で成功</span><svg viewBox="0 0 24 10" aria-hidden="true"><path d="M1 5h20M17 1l4 4-4 4"/></svg></div>        <div class="ct-tile g41"><span>金の素体</span></div>
+<div class="ct-arrow"><span>+ ダンジョン素材</span><svg viewBox="0 0 24 10" aria-hidden="true"><path d="M1 5h20M17 1l4 4-4 4"/></svg></div>        <div class="ct-tile g41"><span>金のアイテム</span></div>
+      </div>
+<p class="ct-cnote">製作は失敗することがあり、そのときアイテムは壊れる。グレードが高いほど壊れやすい。成功するとアイテムのグレードが1つ上がり、これが次の段階に必要になる。</p>      <div class="ct-cards cols-3">
+        <div class="ct-card">
+<span class="ct-sym">5</span>          <div><p class="ct-ctitle">ステータスは4つではなく5つ</p><p class="ct-ctext">製作したアイテムはステータスが5つ付き、ダンジョンのアイテムは4つ。賢者の石を使えば、5つに対して6つになる。</p></div>
+        </div>
+        <div class="ct-card">
+<span class="ct-sym">↑</span>          <div><p class="ct-ctitle">継承100%</p><p class="ct-ctext">次の段階のアイテムは、手持ちのアイテムから確実に成功する形で作れる。強化とステータスは引き継がれる。</p></div>
+        </div>
+        <div class="ct-card">
+<span class="ct-sym">∞</span>          <div><p class="ct-ctitle">置き換えなし</p><p class="ct-ctext">一度作れば、パッチが変わっても同じアイテムを強化し続けられる。</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="pg-sec" id="before" aria-labelledby="h-before">
+      <h2 id="h-before" class="section-title">製作を始める前に</h2>
+      <div class="ct-cards cols-3">
+        <div class="ct-card">
+<span class="ct-sym">30</span>          <div><p class="ct-ctitle">職業Lv30以上</p><p class="ct-ctext">青と金の製作に入る前に、安いレシピで職業レベルを上げておく。</p></div>
+        </div>
+        <div class="ct-card">
+<span class="ct-sym">%</span>          <div><p class="ct-ctitle">本当の確率</p><p class="ct-ctext">製作画面の「+90%」は、基本の成功率に対して実際には+9%ほど（TitanTheF）。</p></div>
+        </div>
+        <div class="ct-card">
+<span class="ct-sym">♻</span>          <div><p class="ct-ctitle">失敗した素体</p><p class="ct-ctext">アビス ポイントと交換できる納品依頼に出すか、売るか、分解する。</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="pg-sec" id="leveling" aria-labelledby="h-leveling">
+      <h2 id="h-leveling" class="section-title">レベルを素早く上げる</h2>
+      <ul class="pg-list">
+<li>採集レベルは<span class="it g11" data-sk="i:sapphire"><img src="../../assets/icons/items/sapphire.webp" width="20" height="20" alt="" loading="lazy">サファイアの原石</span>で上げる。鉱脈40〜60個でNovice 50になり、次に街のNPCの緑のクエスト（<span class="it g11" data-sk="i:ruby"><img src="../../assets/icons/items/ruby.webp" width="20" height="20" alt="" loading="lazy">ルビーの原石</span>）でProfessionalが開く。</li><li>Novice 20あたりまでは、一番安いグレーのアイテムを作り続け、それから製作の流れに入る。</li><li>採集しながらペットを育てる。Refining Stonesや製作素材を落とす。</li><li>長く採集していると出るBot対策の確認には、必ず答える。</li>      </ul>
+    </section>
+    <section class="pg-sec" id="money" aria-labelledby="h-money">
+      <h2 id="h-money" class="section-title">ギーナを稼ぐ</h2>
+<p class="pg-sec-src">出典: <a class="pg-at" href="https://www.youtube.com/watch?v=C70IXgdByFM" target="_blank" rel="noopener" title="Aragon — Make MILLIONS Of Kina Without Energy">Aragon</a></p>      <ul class="pg-list">
+<li>みんなが細工を上げている間は、Gemがよく売れる。Aragonは朝に1個およそ2,000ギーナで売れ、夕方はもっと高くなった。</li><li>Gemを売るために、彼はDelicate TouchではなくLady Luckを最大にしている。製作用ではなく、稼ぎ用のビルド。</li><li>出来合いの素体に払いすぎない。結局、高価な素材が必要になる。</li>      </ul>
+    </section>
+    <script type="application/json" id="sk-data">{"i:wings":{"n":"ディーヴァの最上級翼(刻印)","m":"","g":41,"d":"[ディーヴァの最上級翼(刻印)]を獲得します。\n\n[装着効果]\nHP：500\nMP：250\n貫通：500\nクリティカル：35\n[保有効果]\n飛行力：500\n貫通：100\n追加命中：20\n追加攻撃力：10","sp":[]},"i:bracelet":{"n":"覚醒のブレスレット","m":"アイテムレベル 51","g":41,"d":"防御力: 156\n攻撃力: 65","sp":[]},"i:trace":{"n":"神の痕跡：アルトガルド(刻印)","m":"","g":71,"d":"アルトガルドを守護する神たちの力が微かに残っている痕跡です。アルトガルドのモノリスに共鳴させることができます。","sp":[]},"i:dcrystal":{"n":"ディーヴァニオン結晶(刻印)","m":"","g":71,"d":"使用するとディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_ariel":{"n":"ディーヴァニオン結晶：アリエル(刻印)","m":"","g":71,"d":"使用するとアリエル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_azphel":{"n":"ディーヴァニオン結晶：アスフェル(刻印)","m":"","g":71,"d":"使用するとアスフェル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:wisdom":{"n":"知恵の石(刻印)","m":"","g":71,"d":"戦闘の記憶が宿る神秘的な石です。\n使用するとスキル ポイントを1獲得します。","sp":[]},"i:clashrune":{"n":"激突のルーン箱(刻印)","m":"","g":71,"d":"悪夢を克服した者だけが得られるルーンです。\n使用すると激突のルーン(刻印)とルーン強化スクロール(刻印)を獲得できます。","sp":[]},"i:beltscroll":{"n":"高潔のベルト強化スクロール(刻印)","m":"","g":11,"d":"古代の力が込められた強化スクロールです。\n高潔のベルトを強化できます。","sp":[]},"i:shugokey":{"n":"シューゴ フェスタ報酬の鍵(刻印)","m":"","g":71,"d":"シューゴ フェスタ報酬の鍵の回数を1回チャージします。","sp":[]},"i:bakarma":{"n":"ヴォカルマのプレート","m":"アイテムレベル 54","g":41,"d":"HP: 216\n防御力: 397","sp":[]},"i:voucher":{"n":"装備変更券：バクロンの空中島(刻印)","m":"","g":41,"d":"バクロンを倒して獲得した報酬です。\n物質変換の材料に使用すると、唯一級ガーダーまたは唯一級装備選択箱に変換できます。","sp":[]},"i:vakronguard":{"n":"バクロンのガーダー","m":"アイテムレベル 70","g":41,"d":"クリティカル: 50\n命中: 50\n攻撃力: 144","sp":[]},"i:mana_sup":{"n":"上級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_int":{"n":"中級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_less":{"n":"下級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:theostone":{"n":"神石：ユベントスの敏捷(刻印)","m":"","g":31,"d":"[神石：ユベントスの敏捷]を獲得します。\n獲得した神石は統合強化ウィンドウから確認できます。\n攻撃時に20%の確率で最大4体に広域風属性ダメージ250\n効果発動クールタイム：1秒\n同じ神石を複数着用時、1個の効果のみ適用されます。","sp":[]},"i:enhance":{"n":"強化石","m":"","g":11,"d":"装備の秘められた力を目覚めさせるのに使用されます。","sp":[]},"i:bell_green":{"n":"活力の鐘","m":"アイテムレベル 40 · セット: 太初の活力","g":21,"d":"Justice [ネザカン]: 12","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_green":{"n":"魔力の鏡","m":"アイテムレベル 40 · セット: 魔力鎧","g":21,"d":"Wisdom [ルミエル]: 12","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:compass_grey":{"n":"魔力のコンパス","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Death [トリニエル]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:chalice_grey":{"n":"魔力の聖杯","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Space [Israphel]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:mirror_gold":{"n":"活力の鏡","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Illusion [カイジネル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:transfer_w":{"n":"継承石：武器(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の武器に使用できます。","sp":[]},"i:transfer_a":{"n":"継承石：防具(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の防具に使用できます。","sp":[]},"i:stigmashard":{"n":"スティグマ シャード(刻印)","m":"","g":71,"d":"経験の精髄が封印された破片です。\n獲得時にスティグマ シャード ポイントの1ポイント獲得します。","sp":[]},"i:amplify":{"n":"突破石(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を引き出す神秘的な原石です。\n最大強化段階に達した唯一級の装備を突破する材料に使用されます。","sp":[]},"i:amplify_frag":{"n":"突破石の欠片(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を目覚めさせる時に使用する突破石の破片です。\n物質変換で突破石に変換できます。","sp":[]},"i:sync":{"n":"調律石(唯一)(刻印)","m":"","g":41,"d":"装備に宿る力を調律して、新しい可能性を目覚めさせる調律石です。\n[統合強化 - 魂刻印 - 調律]で装備に使用すると、オプションを調律できます。","sp":[]},"i:sapphire":{"n":"サファイアの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:ruby":{"n":"ルビーの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:odyle":{"n":"オード","m":"","g":11,"d":"アイテムにオードの力を吹き込むことができます。製作と物質変換の材料です。","sp":[]},"i:log":{"n":"ユグドラシルの木(刻印)","m":"","g":11,"d":"魔法の力が宿る木です。細工で木製武器を作る材料です。","sp":[]},"i:odyle_energy":{"n":"オード エネルギー(刻印)","m":"","g":71,"d":"オード エネルギーを40チャージします。\nオード エネルギーは遠征、超越、聖域の挑戦に成功した時に現れるオード エネルギー キューブを活性化するのに使用できます。","sp":[]},"i:ore":{"n":"オリハルコン鉱石","m":"","g":11,"d":"頑丈さを持つ鉱石です。鍛冶と防具製作の材料です。","sp":[]},"i:herb":{"n":"カレンドラ","m":"","g":11,"d":"薬草の葉です。錬金術でポーションを作る材料です。","sp":[]},"i:ingredient":{"n":"ククル","m":"","g":11,"d":"料理を作る材料です。","sp":[]},"i:parchment_vigor":{"n":"活力の羊皮紙","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Life [ユスティエル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:compass_vigor":{"n":"活力のコンパス","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:chalice_vigor":{"n":"活力の聖杯","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_magic_gold":{"n":"魔力の鏡","m":"アイテムレベル 80 · セット: 魔力鎧","g":41,"d":"Wisdom [ルミエル]: 20","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"g:proficient":{"n":"Proficient Handling","m":"","d":"共通スキル・最大10。採集中のSuccess Gaugeが速く溜まり、失敗する前にノードが埋まる。Delicate Touchと一緒に最大まで上げる。","sp":[]},"g:delicate":{"n":"Delicate Touch","m":"","d":"共通スキル・最大10。採集の失敗率を下げる。Proficient Handlingと並行して最大まで上げる。","sp":[]},"g:luck":{"n":"Lady Luck","m":"","d":"共通スキル。Failure Gaugeが50%以上のときだけ働き、Success Gaugeを増やす効果が出ることがある（レベル5で24%の確率で×2.5）。採集専用で、グレードは上がらず、製作には影響しない。余ったポイントで、最大5まで。","sp":[]},"g:seeker":{"n":"Seeker","m":"","d":"1ポイント。ブランチが開き、その素材のノードがミニマップに表示される。","sp":[]},"g:harvest":{"n":"Plentiful Harvest","m":"","d":"3ポイント。2倍（×2）の量を採集できることがある。","sp":[]},"g:appraiser":{"n":"Appraiser","m":"","d":"3ポイント。より高いグレードの素材を採集できる確率が上がる。","sp":[]}}</script>
+<p class="w1-cta"><a class="btn btn-primary" href="../../ja/progression/">45以降のルートを開く →</a></p>  </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <div>
+      <a class="brand brand-sm" href="../../ja/">AION 2 ガイド</a>
+      <p>NCSOFTとは無関係の非公式ファンサイト。AION 2とそのスキルアイコンの著作権はNCSOFTに帰属する。</p>
+      <p>最終確認: 2026-10-04 (グローバル版ローンチ前).</p>
+      <p><a href="../../ja/sources/">すべての出典と配信者</a> · <a href="../../ja/changelog/">更新履歴</a> · <button type="button" class="link-btn report-open">誤りを報告</button></p>
+    </div>
+  </div>
+</footer>
+<dialog class="search-dlg" aria-label="検索" data-index="../../ja/search.json" data-base="../../ja/" data-empty="見つからなかった"
+  data-kinds="{&#34;boss&#34;: &#34;\u30dc\u30b9&#34;, &#34;class&#34;: &#34;\u30af\u30e9\u30b9&#34;, &#34;page&#34;: &#34;\u30da\u30fc\u30b8&#34;, &#34;section&#34;: &#34;\u30bb\u30af\u30b7\u30e7\u30f3&#34;, &#34;skill&#34;: &#34;\u30b9\u30ad\u30eb&#34;}" data-root="../../">
+  <div class="search-in">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" class="search-q" placeholder="クラス、スキル、ボス、セクション…" aria-label="検索" autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="search-res" role="listbox"></ul>
+  </div>
+</dialog>
+<dialog class="whatsnew" data-id="2026-10-04" aria-labelledby="wn-title">
+  <form method="dialog" class="wn-in">
+    <div class="wn-head">
+      <h2 id="wn-title">更新情報</h2>
+      <button class="icon-btn wn-x" value="close" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <section class="wn-entry">
+      <time class="wn-date" datetime="2026-10-04">2026年10月4日</time>
+      <ul>
+        <li><span><strong>トルコ語版</strong>：サイト全体がトルコ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ウクライナ語ページと同じく、スキル名とアイテム名は英語のまま。翻訳はAIによるもので、誤りを見つけたら「誤りを報告」を使うかGitHubでissueを立ててほしい。</span></li>
+      </ul>
+    </section>
+    <button class="btn btn-primary wn-ok" value="close">閉じる</button>
+    <p class="wn-all"><a href="../../ja/changelog/">更新履歴をすべて見る →</a></p>
+  </form>
+</dialog>
+<dialog class="whatsnew feedback" aria-labelledby="fb-title" data-url="https://aion2-feedback.couga-ua.workers.dev/" data-page="ja/crafting/" data-lang="ja">
+  <form class="wn-in fb-form" novalidate>
+    <div class="wn-head">
+      <h2 id="fb-title">誤りを報告</h2>
+      <button type="button" class="icon-btn fb-x" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="fb-hint">どこが間違っている、または古い？ 出典のリンクやスクリーンショットがあると助かる。</p>
+    <label class="fb-label" for="fb-text">メッセージ</label>
+    <textarea id="fb-text" class="fb-text" name="text" rows="6" maxlength="2000" required placeholder="例：グローバル版では炎爆発の3つ目の特化が違う…"></textarea>
+    <label class="fb-label" for="fb-contact">返信先の連絡先（任意）</label>
+    <input id="fb-contact" class="fb-contact" name="contact" type="text" maxlength="100" autocomplete="off" placeholder="DiscordまたはTelegram">
+    <input class="fb-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fb-meta">メッセージと一緒に送信される情報： <b class="fb-where"></b></p>
+    <p class="fb-status" role="status" data-sending="送信中…" data-ok="送信した。ありがとう！" data-err="送信できなかった。しばらくしてからもう一度試してほしい。" data-rate="連続送信が多すぎる。数分後にもう一度試してほしい。" data-short="まず少し書いてほしい。"></p>
+    <div class="fb-actions">
+      <button type="submit" class="btn btn-primary fb-send">送信</button>
+      <button type="button" class="btn btn-ghost fb-cancel">キャンセル</button>
+    </div>
+  </form>
+</dialog>
+<script src="../../assets/js/site.js?v=16a30350" defer></script>
+<script src="../../assets/js/fx.js?v=16a30350" defer></script>
+<div class="cel-banner" role="status" hidden data-at="2026-09-30T14:00:00Z" data-id="early">
+  <span class="cel-ico" aria-hidden="true">✦</span>
+  <div><p class="cel-h">先行アクセス開始！</p><p class="cel-p">ファウンダーパックのサーバーが稼働中。初日の健闘を祈る。クラスガイドは準備できている。</p></div>
+  <button type="button" class="cel-x" aria-label="閉じる">×</button>
+</div>
+<script src="../../assets/js/celebrate.js?v=16a30350" defer></script>
+</body>
+</html>

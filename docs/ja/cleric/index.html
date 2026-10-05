@@ -1,0 +1,1371 @@
+<!doctype html>
+<html lang="ja" data-mode="pve" data-class="cleric" data-off="pvp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>クレリック — AION 2 ガイド (PvE, レベリング)</title>
+<meta name="description" content="殴ってレベルを上げるヒーラー。苦痛の連鎖で対象に印を付け、断罪で罰し、ヒットのたびにパーティーを回復する。">
+<link rel="canonical" href="https://couga54.github.io/aion2-guides/ja/cleric/">
+<link rel="alternate" hreflang="en" href="https://couga54.github.io/aion2-guides/en/cleric/">
+<link rel="alternate" hreflang="ru" href="https://couga54.github.io/aion2-guides/ru/cleric/">
+<link rel="alternate" hreflang="uk" href="https://couga54.github.io/aion2-guides/uk/cleric/">
+<link rel="alternate" hreflang="tr" href="https://couga54.github.io/aion2-guides/tr/cleric/">
+<link rel="alternate" hreflang="ja" href="https://couga54.github.io/aion2-guides/ja/cleric/">
+<link rel="alternate" hreflang="x-default" href="https://couga54.github.io/aion2-guides/en/cleric/">
+<meta name="theme-color" content="#0b0e14">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AION 2 ガイド">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="クレリック — AION 2 ガイド (PvE, レベリング)">
+<meta property="og:description" content="殴ってレベルを上げるヒーラー。苦痛の連鎖で対象に印を付け、断罪で罰し、ヒットのたびにパーティーを回復する。">
+<meta property="og:url" content="https://couga54.github.io/aion2-guides/ja/cleric/">
+<meta property="og:image" content="https://couga54.github.io/aion2-guides/assets/og/cleric-ja.jpg?v=16a30350">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&display=swap&subset=cyrillic">
+<script>
+  // Theme + guide mode before first paint (no flash).
+  (function (r) {
+    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') r.dataset.theme = t; } catch (e) {}
+    var off = (r.getAttribute('data-off') || '').split(' ');
+    var modes = ['pve', 'pvp', 'lvl'].filter(function (x) { return off.indexOf(x) < 0; });
+    var m = new URLSearchParams(location.search).get('mode');
+    if (modes.indexOf(m) < 0) { try { m = localStorage.getItem('mode'); } catch (e) {} }
+    if (modes.indexOf(m) >= 0) r.dataset.mode = m;
+    else if (modes.indexOf(r.dataset.mode) < 0) r.dataset.mode = modes[0];
+  })(document.documentElement);
+</script>
+<script>
+  // Google Analytics (site.json "ga"). Not loaded on local previews. A visitor who came through the root
+  // language redirect keeps the site they came from (root.html saves it in sessionStorage).
+  if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6WYEWLG4B5';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      var ref = null;
+      try { ref = sessionStorage.getItem('ref'); sessionStorage.removeItem('ref'); } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-6WYEWLG4B5', ref ? { page_referrer: ref } : {});
+    })();
+  }
+</script>
+<link rel="stylesheet" href="../../assets/css/site.css?v=16a30350">
+</head>
+<body class="page-class accent-sunlight">
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="../../ja/">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg>
+      <span>AION 2 ガイド</span>
+    </a>
+    <details class="class-menu">
+      <summary class="class-menu-btn accent-sunlight">
+<img src="../../assets/classes/cleric.webp" width="24" height="24" alt=""><span>クレリック</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <nav class="class-menu-panel" aria-label="クラス">
+        <a href="../../ja/gladiator/" class="cm-item accent-crimson">
+          <img src="../../assets/classes/gladiator.webp" width="44" height="44" alt=""><span class="cm-name">グラディエーター</span><span class="cm-role">近接DPS · ブルーザー</span>
+        </a>
+        <a href="../../ja/ranger/" class="cm-item accent-emerald">
+          <img src="../../assets/classes/ranger.webp" width="44" height="44" alt=""><span class="cm-name">レンジャー</span><span class="cm-role">遠距離DPS · カイター</span>
+        </a>
+        <a href="../../ja/templar/" class="cm-item accent-sapphire">
+          <img src="../../assets/classes/templar.webp" width="44" height="44" alt=""><span class="cm-name">テンプラー</span><span class="cm-role">タンク · パーティーバッファー</span>
+        </a>
+        <a href="../../ja/assassin/" class="cm-item accent-violet">
+          <img src="../../assets/classes/assassin.webp" width="44" height="44" alt=""><span class="cm-name">アサシン</span><span class="cm-role">近接DPS · バースト</span>
+        </a>
+        <a href="../../ja/sorcerer/" class="cm-item accent-frost">
+          <img src="../../assets/classes/sorcerer.webp" width="44" height="44" alt=""><span class="cm-name">ソーサラー</span><span class="cm-role">遠距離魔法DPS</span>
+        </a>
+        <a href="../../ja/elementalist/" class="cm-item accent-spirit">
+          <img src="../../assets/classes/elementalist.webp" width="44" height="44" alt=""><span class="cm-name">スピリットマスター</span><span class="cm-role">召喚士 · 魔法DPS</span>
+        </a>
+        <a href="../../ja/cleric/" class="cm-item accent-sunlight" aria-current="page">
+          <img src="../../assets/classes/cleric.webp" width="44" height="44" alt=""><span class="cm-name">クレリック</span><span class="cm-role">ヒーラー · 大地と雷の攻撃</span>
+        </a>
+        <a href="../../ja/chanter/" class="cm-item accent-amber">
+          <img src="../../assets/classes/chanter.webp" width="44" height="44" alt=""><span class="cm-name">チャンター</span><span class="cm-role">近接サポート · バッファー</span>
+        </a>
+      </nav>
+    </details>
+    <div class="topbar-tools">      <span class="rift-timer" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="亀裂が開放中" title="亀裂：敵対エリアへのポータル。3時間ごとに開き、入口は10分間開いたままで、中には約1時間滞在できる。次回">
+        <svg class="rt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="7.5" ry="10.5"/><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/><g transform="rotate(180 12 12)"><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/></g></svg><span class="rt-name">Rift</span><b class="rt-time">--:--</b>
+      </span>
+      <a class="wr-chip" href="../../ja/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="日,時間,分,秒" title="週間リセットまで">
+        <svg class="wr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="wr-name">リセット</span><b class="wr-time">--</b>
+      </a>
+      <a class="top-timer" href="../../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-09-28T13:00:00Z", "n": "\u30d7\u30ea\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9", "o": ""}, {"at": "2026-09-30T14:00:00Z", "n": "\u5148\u884c\u30a2\u30af\u30bb\u30b9", "o": "\u5148\u884c\u30a2\u30af\u30bb\u30b9\u958b\u59cb"}, {"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
+        <span class="tt-dot" aria-hidden="true"></span><span class="tt-name"></span><b class="tt-time">--:--:--</b>
+      </a>
+      <details class="class-menu nav-menu">
+        <summary class="class-menu-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>ガイド</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <nav class="nav-menu-panel" aria-label="ガイド">
+          <div class="nm-col">
+            <p class="nm-group">進行</p>
+            <a href="../../ja/week-1/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
+              <span class="nm-name">1週目</span><span class="nm-desc">最初のリセットまでに終えること</span>
+            </a>
+            <a href="../../ja/progression/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h4v-6H3zM10 20h4V9h-4zM17 20h4V4h-4z"/></svg>
+              <span class="nm-name">45以降</span><span class="nm-desc">レイドまでのアイテムレベルルート</span>
+            </a>
+            <a href="../../ja/crafting/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 1.3-1.3a4 4 0 0 0-5-5L3 10l3-3 3 3 1.3-1.3a4 4 0 0 1 4.4-2.4z"/></svg>
+              <span class="nm-name">採集と製作</span><span class="nm-desc">生産スキルとゴールドの素体</span>
+            </a>
+            <a href="../../ja/settings/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+              <span class="nm-name">ゲーム設定</span><span class="nm-desc">操作、キー、FPS、大規模PvP</span>
+            </a>
+          </div>
+          <div class="nm-col">
+            <p class="nm-group">トラッカー</p>
+            <a href="../../ja/weekly/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8.5 15l2 2 4-4"/></svg>
+              <span class="nm-name">週間</span><span class="nm-desc">週間入場回数とエネルギー</span>
+            </a>
+            <a href="../../ja/bosses/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4.4 0-8 3.1-8 7.5 0 2.6 1.3 4.4 3 5.5V20h2v-2h2v2h2v-2h2v2h2v-4c1.7-1.1 3-2.9 3-5.5C20 6.1 16.4 3 12 3z"/><circle cx="9" cy="11" r="1.5"/><circle cx="15" cy="11" r="1.5"/></svg>
+              <span class="nm-name">ボス</span><span class="nm-desc">討伐トラッカーとタイマー</span>
+            </a>
+          </div>
+          <div class="nm-foot">
+            <a href="../../ja/sources/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h6M8 11h6"/></svg>
+              <span class="nm-name">出典とクレジット</span><span class="nm-desc">このサイトの土台になった人たち</span>
+            </a>
+          </div>
+        </nav>
+      </details>      <details class="lang-menu">
+        <summary class="lang-switch" title="言語"><span aria-hidden="true">JA</span><span class="sr-only">言語</span></summary>
+        <nav class="lang-panel" aria-label="言語">
+<a href="../../en/cleric/" hreflang="en" lang="en" data-keep-query><b>EN</b>English</a><a href="../../ru/cleric/" hreflang="ru" lang="ru" data-keep-query><b>RU</b>Русский</a><a href="../../uk/cleric/" hreflang="uk" lang="uk" data-keep-query><b>UA</b>Українська</a><a href="../../tr/cleric/" hreflang="tr" lang="tr" data-keep-query><b>TR</b>Türkçe</a><a href="../../ja/cleric/" hreflang="ja" lang="ja" aria-current="true" data-keep-query><b>JA</b>日本語</a>        </nav>
+      </details>
+      <button class="icon-btn search-open" type="button" aria-label="検索 (Ctrl+K)" title="検索 (Ctrl+K)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+<a class="icon-btn wn-top" href="../../ja/changelog/" aria-label="更新履歴" title="更新履歴">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.9"/><path d="M12 17h.01"/></svg>
+      </a>      <button class="icon-btn theme-toggle" type="button" aria-label="ダークモード切替" title="ダークモード切替">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="class-backdrop" aria-hidden="true" style="--art:url('../../assets/art/cleric.webp')"></div>
+<section class="class-hero" data-fx="cleric">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <img class="class-hero-art" src="../../assets/art/cleric.webp" alt="" aria-hidden="true" fetchpriority="high">
+  <div class="wrap class-hero-in">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../ja/">全クラス</a><span aria-hidden="true">/</span><span>クレリック</span></nav>
+    <div class="class-hero-main">
+      <img class="class-hero-emblem" src="../../assets/classes/cleric.webp" width="96" height="96" alt="">
+      <div>
+        <p class="kicker"><span data-only="pve">PvE</span><span data-only="pvp">PvP</span><span data-only="lvl">レベリング</span> · グローバル版シーズン1</p>
+        <h1>クレリック</h1>
+        <p class="class-hero-pitch">殴ってレベルを上げるヒーラー。苦痛の連鎖で対象に印を付け、断罪で罰し、ヒットのたびにパーティーを回復する。</p>
+        <p class="guide-ver"><span>更新: <time datetime="2026-10-03">2026年10月3日</time></span><span>パッチ: <b>シーズン1</b></span></p>
+<p class="guide-src"><span data-only="pve">出典: <b>Kaeria (TW client) · aLuckyRO</b></span><span data-only="lvl">出典: <b>Grobs · MMO Codex · Kaeria</b></span></p>      </div>
+    </div>
+    <dl class="class-facts">
+      <div><dt>役割</dt><dd>ヒーラー · 大地と雷の攻撃</dd></div>
+      <div><dt>武器</dt><dd>メイス</dd></div>
+      <div><dt>難易度</dt><dd class="diff"><i class="on"></i><i class="on"></i><i class=""></i><span>普通</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="guidebar">
+  <div class="wrap guidebar-in">
+    <div class="mode-switch" role="radiogroup" aria-label="ガイドモード">
+      <button type="button" role="radio" data-set-mode="pve" aria-checked="false">PvE</button>
+      <button type="button" role="radio" data-set-mode="pvp" aria-checked="false" class="is-off" aria-disabled="true" disabled>PvP</button>
+      <button type="button" role="radio" data-set-mode="lvl" aria-checked="false">レベリング</button>
+    </div>
+    <nav class="toc-mobile" aria-label="このページの内容"></nav>
+  </div>
+</div>
+
+<div class="wrap guide-layout">
+  <aside class="toc-side" aria-label="このページの内容">
+    <p class="toc-title">このページの内容</p>
+    <nav class="toc-list"></nav>
+  </aside>
+
+  <main id="main" class="guide">
+    <section id="progress" class="g-section tracker" data-only="lvl" data-class="cleric" aria-labelledby="h-progress">
+      <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-progress">レベリング進捗</h2></div>
+      <div class="tracker-bar">
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="23" aria-valuenow="0" aria-label="レベリング進捗"><span></span></div>
+        <span class="progress-text"><b class="progress-count">0</b>/23 完了</span>
+        <button type="button" class="btn btn-ghost btn-sm tracker-reset" data-confirm="このクラスのチェックをすべて外す？">進捗をリセット</button>
+      </div>
+      <p class="note">手順を終えるごとにチェックを付ける。進捗はこのブラウザにクラスごとに保存される。</p>
+      <ol class="steps">
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-story">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">開始</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              <strong>黄色(メインストーリー)のクエストだけ</strong>を進める。サブコンテンツはレベルに合わせてスケールするので、後回しでも損はない。
+            </span>
+          </label>
+        </li>
+        <li class="step step-class">
+          <label>
+            <input type="checkbox" data-step="cleric-clicks">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv1</span>
+            <span class="step-text">
+              <span class="step-tag">クラス</span>
+<img src="../../assets/icons/cleric/earths-retribution.webp" width="22" height="22" alt="" loading="lazy" data-sk="earths-retribution"><img src="../../assets/icons/cleric/judgment-thunder.webp" width="22" height="22" alt="" loading="lazy" data-sk="judgment-thunder">              まず再使用時間のない2つの攻撃を上げる：<strong>大地の裁き</strong>(MP回復)と<strong>審判の雷</strong>。<strong>ターゲットモード</strong>でプレイする。スキルの合間も通常攻撃が続き、それがMPになる。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-feathers">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">プロローグ後</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              <strong>羽根40個</strong>(120シャード)を集めて、早めにアミュレットを強化する。
+            </span>
+          </label>
+        </li>
+        <li class="step step-class">
+          <label>
+            <input type="checkbox" data-step="cleric-chain">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv~6</span>
+            <span class="step-text">
+              <span class="step-tag">クラス</span>
+<img src="../../assets/icons/cleric/chain-of-torment.webp" width="22" height="22" alt="" loading="lazy" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/condemnation.webp" width="22" height="22" alt="" loading="lazy" data-sk="condemnation">              <strong>苦痛の連鎖</strong>が対象に印を付け、<strong>断罪</strong>は苦痛の連鎖が付いた対象にしか当たらない。同じホットバーの列に、連鎖を一番下にして置く。
+            </span>
+          </label>
+        </li>
+        <li class="step step-class">
+          <label>
+            <input type="checkbox" data-step="cleric-spec">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv8</span>
+            <span class="step-text">
+              <span class="step-tag">クラス</span>
+<img src="../../assets/icons/cleric/earths-retribution.webp" width="22" height="22" alt="" loading="lazy" data-sk="earths-retribution"><img src="../../assets/icons/cleric/judgment-thunder.webp" width="22" height="22" alt="" loading="lazy" data-sk="judgment-thunder"><img src="../../assets/icons/cleric/chain-of-torment.webp" width="22" height="22" alt="" loading="lazy" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/debilitating-mark.webp" width="22" height="22" alt="" loading="lazy" data-sk="debilitating-mark">              最初の特化：<em>[放電]連続スキル活性化確率20%増加</em>、<em>的中した対象が少ないほどダメージ量が最大12%増加</em>、<em>持続ダメージ3秒増加</em>、<em>持続ダメージ中は対象の防御力15%減少</em>。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-daevanion">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv12</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              <strong>ディーヴァニオン</strong>解放(ネザカンのボード)。青ノード = スキルLv+1。クラス別の手順を参照。
+            </span>
+          </label>
+        </li>
+        <li class="step step-class">
+          <label>
+            <input type="checkbox" data-step="cleric-bolt">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv9–18</span>
+            <span class="step-text">
+              <span class="step-tag">クラス</span>
+<img src="../../assets/icons/cleric/bolt.webp" width="22" height="22" alt="" loading="lazy" data-sk="bolt"><img src="../../assets/icons/cleric/healing-light.webp" width="22" height="22" alt="" loading="lazy" data-sk="healing-light">              バーストとグロッキー用に<strong>霹靂</strong>(<em>スキル速度30%増加</em>を選ぶ)、自分用に<strong>治癒の光</strong>。上げるのは攻撃スキルで、回復ではない。回復重視のクレリックはレベリングが遅い。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-hideouts">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv15 / 20 / 25</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              進行ルート上の隠れ家をクリアする。初回クリアで強化石とディーヴァニオン結晶が出る。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-amulet">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">~Lv17</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              <strong>アミュレット+10</strong>にして、Morphで青にする。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-weapon">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">いつでも</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              武器を<strong>~+10</strong>まで。レベリング中で最大の火力アップ。上限まではそれ以上上げない。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-zikel">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv20</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              ジケルのボード解放。ノードの優先順位は同じ。
+            </span>
+          </label>
+        </li>
+        <li class="step step-class">
+          <label>
+            <input type="checkbox" data-step="cleric-grace">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv21</span>
+            <span class="step-text">
+              <span class="step-tag">クラス</span>
+<img src="../../assets/icons/cleric/earths-grace.webp" width="22" height="22" alt="" loading="lazy" data-sk="earths-grace">              パッシブ<strong>大地の恩恵</strong>(クリティカル ダメージと命中)：覚えたらすぐ10まで。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-stigma">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv~22</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              覚醒 → <strong>スティグマ解放</strong>(グローバル版シーズン1では4スロット)。スロットは<strong>Lv22、27、32、37</strong>で1つずつ開く。覚えられる数は増えるが、バーに置けるのはその数だけ。何を置くかはクラス別の手順を参照。
+            </span>
+          </label>
+        </li>
+        <li class="step step-class">
+          <label>
+            <input type="checkbox" data-step="cleric-stigmas">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv22</span>
+            <span class="step-text">
+              <span class="step-tag">クラス</span>
+<img src="../../assets/icons/cleric/summon-resurrection.webp" width="22" height="22" alt="" loading="lazy" data-sk="summon-resurrection"><img src="../../assets/icons/cleric/noble-aura.webp" width="22" height="22" alt="" loading="lazy" data-sk="noble-aura"><img src="../../assets/icons/cleric/earth-punishment.webp" width="22" height="22" alt="" loading="lazy" data-sk="earth-punishment"><img src="../../assets/icons/cleric/benevolence.webp" width="22" height="22" alt="" loading="lazy" data-sk="benevolence">              スティグマ：<strong>召喚復活</strong>に1ポイント、次に<strong>高潔な気</strong>、<strong>大地の懲罰</strong>、<strong>生命の権能</strong>、<strong>免罪</strong>を5に。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-acts23">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">第2〜3幕</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              ストーリーのみ。マップに寄り道しない。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-vaizel">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv30</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              バイゼルのボード解放(クリティカル ダメージ)。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-act4">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">第4幕</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              サブクエストとソロダンジョンをここで再びやる価値がある。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-triniel">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv40</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              トリニエルのボード解放(多段ヒット。ほぼPvP向けなので後回しでよい)。クラオ洞窟は Gear Score 約1000が目安。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-ariel">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">Lv45</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              <strong>アスフェルのボード解放</strong>。PvPダメージ増幅とダメージ耐性のみで、スキルノードはない。PvEでは最初の4つのボードを埋め続ける。グローバル版にアリエルのボードはない。
+            </span>
+          </label>
+        </li>
+        <li class="step step-class">
+          <label>
+            <input type="checkbox" data-step="cleric-cap">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">上限</span>
+            <span class="step-text">
+              <span class="step-tag">クラス</span>
+<img src="../../assets/icons/cleric/earths-retribution.webp" width="22" height="22" alt="" loading="lazy" data-sk="earths-retribution"><img src="../../assets/icons/cleric/condemnation.webp" width="22" height="22" alt="" loading="lazy" data-sk="condemnation"><img src="../../assets/icons/cleric/healing-light.webp" width="22" height="22" alt="" loading="lazy" data-sk="healing-light">              Lv25までに左右クリックの2つを10に。その後<strong>断罪</strong>、<strong>霹靂</strong>、<strong>治癒の光</strong>。グループダンジョンの前に治癒の光を16に。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-cap-shugo">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">上限</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              シューゴの活動でレベル上限の全報酬(金装備、素材)。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-cap-map">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">上限</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              マップを掃除する：?マーク、かがり火、緑のクエスト、隠しキューブ、羽根。羽根を納める。祭壇Lv30で称号。
+            </span>
+          </label>
+        </li>
+        <li class="step step-route">
+          <label>
+            <input type="checkbox" data-step="route-cap-daily">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-when">デイリー</span>
+            <span class="step-text">
+              <span class="step-tag">ルート</span>
+              悪夢に挑戦、Gear Scoreが足りる範囲でTransformationの階層、ダンジョンはT3の前にT2(エネルギーに注意)。
+            </span>
+          </label>
+        </li>
+      </ol>
+    </section>
+
+
+
+<aside class="glance" data-only="pve" aria-label="ビルド概要">
+  <p class="glance-title">ビルド概要</p>
+    <h3>主力スキル</h3>
+  <ul class="core-row">
+  <li data-sk="condemnation">
+    <img src="../../assets/icons/cleric/condemnation.webp" width="52" height="52" alt="断罪" loading="lazy">
+    <span class="core-lv is-range">16<svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg>20</span>
+    <span class="core-name">断罪</span>
+  </li>
+  <li data-sk="divine-aura">
+    <img src="../../assets/icons/cleric/divine-aura.webp" width="52" height="52" alt="神聖な気" loading="lazy">
+    <span class="core-lv is-range">16<svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg>20</span>
+    <span class="core-name">神聖な気</span>
+  </li>
+  <li data-sk="bolt">
+    <img src="../../assets/icons/cleric/bolt.webp" width="52" height="52" alt="霹靂" loading="lazy">
+    <span class="core-lv is-range">16<svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg>20</span>
+    <span class="core-name">霹靂</span>
+  </li>
+  <li data-sk="judgment-thunder">
+    <img src="../../assets/icons/cleric/judgment-thunder.webp" width="52" height="52" alt="審判の雷" loading="lazy">
+    <span class="core-lv">16</span>
+    <span class="core-name">審判の雷</span>
+  </li>
+  <li data-sk="lightning-strike-scattershot">
+    <img src="../../assets/icons/cleric/lightning-strike-scattershot.webp" width="52" height="52" alt="稲妻乱射" loading="lazy">
+    <span class="core-lv">16</span>
+    <span class="core-name">稲妻乱射</span>
+  </li>
+</ul>
+  <h3>スティグマ構成</h3>
+  <ol class="loadout">
+  <li class="slot" data-sk="earth-punishment">
+    <img src="../../assets/icons/cleric/earth-punishment.webp" width="56" height="56" alt="大地の懲罰" loading="lazy">
+    <span class="slot-lv">Lv 20</span>
+    <span class="slot-name">大地の懲罰</span>
+  </li>
+  <li class="slot" data-sk="light-of-protection">
+    <img src="../../assets/icons/cleric/light-of-protection.webp" width="56" height="56" alt="保護の光" loading="lazy">
+    <span class="slot-lv">Lv 20</span>
+    <span class="slot-name">保護の光</span>
+  </li>
+  <li class="slot" data-sk="prayer-of-amplification">
+    <img src="../../assets/icons/cleric/prayer-of-amplification.webp" width="56" height="56" alt="増幅の祈り" loading="lazy">
+    <span class="slot-lv">Lv 10</span>
+    <span class="slot-name">増幅の祈り</span>
+  </li>
+  <li class="slot" data-sk="noble-aura">
+    <img src="../../assets/icons/cleric/noble-aura.webp" width="56" height="56" alt="高潔な気" loading="lazy">
+    <span class="slot-lv">Lv 10</span>
+    <span class="slot-name">高潔な気</span>
+  </li>
+</ol>
+  <h3>重要パッシブ</h3>
+  <ul class="passive-row">
+<li data-sk="empyrean-lords-grace"><img src="../../assets/icons/cleric/empyrean-lords-grace.webp" width="24" height="24" alt="" loading="lazy">神の恩恵</li><li data-sk="earths-grace"><img src="../../assets/icons/cleric/earths-grace.webp" width="24" height="24" alt="" loading="lazy">大地の恩恵</li><li data-sk="healing-enhancement"><img src="../../assets/icons/cleric/healing-enhancement.webp" width="24" height="24" alt="" loading="lazy">治癒力強化</li><li data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" width="24" height="24" alt="" loading="lazy">煌めく加護</li></ul>
+
+</aside>
+<section id="intro" class="g-section" data-only="pve" aria-labelledby="h-intro">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-intro">概要</h2></div>
+    <p>AION 2のダンジョンでは、クレリックは<strong>火力も出さなければならない</strong>ヒーラーだ。報酬は貢献度で決まるため、回復しかしないクレリックは何ももらえずに終わることもある。パーティー メンバーは自前の回避や無敵を十分に持っている。被弾した人だけを回復し、それ以外はすべて火力に回そう。</p>
+  <div class="callout accent">
+    <h3>ビルドを一言で</h3>
+    <p><span class="sk" data-sk="earth-punishment"><img src="../../assets/icons/cleric/earth-punishment.webp" width="18" height="18" alt="" loading="lazy">大地の懲罰</span>で<span class="sk" data-sk="condemnation"><img src="../../assets/icons/cleric/condemnation.webp" width="18" height="18" alt="" loading="lazy">断罪</span>が必ずクリティカルになり、クリティカルで断罪の再使用時間が初期化される。つまり断罪はクールタイムなしで撃ち続けられ、そこに<span class="sk" data-sk="divine-aura"><img src="../../assets/icons/cleric/divine-aura.webp" width="18" height="18" alt="" loading="lazy">神聖な気</span>、<span class="sk" data-sk="bolt"><img src="../../assets/icons/cleric/bolt.webp" width="18" height="18" alt="" loading="lazy">霹靂</span>、<span class="sk" data-sk="noble-aura"><img src="../../assets/icons/cleric/noble-aura.webp" width="18" height="18" alt="" loading="lazy">高潔な気</span>の火力が上乗せされる。</p>
+  </div>
+  <p class="note">このモードはKaeriaのクレリックPvE動画ガイド（ロシア語。9月28日に台湾版クライアントで収録され、本人はグローバル版にも当てはまると話している）に基づき、9月30日に動画のフレームと照合した。スキルの特化はいつでも無料で振り直せる。資源を消費するのはアルカナだけだ。</p>
+
+<p class="guide-origin"><b>パッチ シーズン1.</b> ビルドはグローバルサーバーのガイドと照らして確認済み：スティグマ4つ、上限20。</p></section>
+<section id="global" class="g-section" data-only="pve pvp" aria-labelledby="h-global">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-global">グローバル版シーズン1：変更点</h2></div>
+    <p>グローバル版のサーバーは<strong>2026年10月5日</strong>にオープンする（ファウンダー先行アクセスは9月30日から）。クレリックにとっての変更点は次のとおり。</p>
+  <div class="callout">
+    <ul>
+      <li><strong>スティグマ枠は4つ、上限は20。</strong>Kaeriaの台湾版のバーにはもっと多く並んでいるが、このガイドの4つは本人がグローバル版向けに選んだもの。スティグマLv25の効果（保護の光の強打など）はグローバル版には存在しない。</li>
+      <li><strong>報酬は火力で決まる。</strong>ダンジョンの報酬は貢献度次第なので、回復しかしないクレリックは何ももらえずに終わることもある。このビルドは、回復を片手間にこなしながら火力を出すことに徹している。</li>
+      <li><strong>大人数のパーティー</strong>（5人の遠征、10人の聖域）：チャンターがいると、こちらのマントラはチャンターのマントラと重複しない。その場合は保護の光を外そう。</li>
+      <li><strong>台湾版よりPingが低い：</strong>モーションキャンセルが効きやすくなり、マクロに通常攻撃を多めに挟める。</li>
+    </ul>
+  </div>
+  <p class="note">アクティブスキルとパッシブは、グローバル版とKR/TWのデータで同一。スティグマはLv25の効果がなくなる。元の動画は、スキル名が英語表示の台湾版クライアントで収録されている。</p>
+
+</section>
+<section id="skills" class="g-section" data-only="pve" aria-labelledby="h-skills">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-skills">スキル</h2></div>
+    <p>ほぼすべてを火力に振る。重要な回復スキルは治癒の光と快癒の光輝で、どちらも16が必要。</p>
+  <ul class="skill-grid">
+<li class="skill" data-sk-card="condemnation">
+  <img class="skill-icon" data-sk="condemnation" src="../../assets/icons/cleric/condemnation.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">断罪 <span class="badge must">16 <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> 20</span></div>
+    <div class="skill-desc">バーで最も重要なスキル。単体へのダメージ+12%と、クリティカル時の再使用時間初期化を取る。20ではMPが足りなければMP回復、足りていれば多段ヒットを追加。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>的中した対象が少ないほど最大12%ダメージ増加</li><li><span class="spec-lv">12</span>[断罪]クリティカル的中時に[断罪]の再使用時間初期化</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>的中時にMP100回復</li>
+        <li class="on"><span class="spec-lv">8</span>的中した対象が少ないほど最大12%ダメージ増加</li>
+        <li class=""><span class="spec-lv">8</span>20%の確率で3s間、束縛を付与</li>
+        <li class="on"><span class="spec-lv">12</span>[断罪]クリティカル的中時に[断罪]の再使用時間初期化</li>
+        <li class=""><span class="spec-lv">16</span>的中時に必ず多段ヒット</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="divine-aura">
+  <img class="skill-icon" data-sk="divine-aura" src="../../assets/icons/cleric/divine-aura.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">神聖な気 <span class="badge must">16 <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> 20</span></div>
+    <div class="skill-desc">過小評価されがちなスキル。自分と並行してダメージを出すので、出ている時間が長いほど強い。16では持続時間+3秒と再使用時間−10秒、20では気の発射速度を追加。周回ではaLuckyROは+3秒の代わりに広域化（最大4体）を取っている。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">12</span>[神聖な気]持続時間3秒増加</li><li><span class="spec-lv">16</span>再使用時間10秒減少</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>気を中心に4m内の最大4体の敵の移動速度を3s間、40%減少</li>
+        <li class=""><span class="spec-lv">8</span>広域スキルに変更</li>
+        <li class=""><span class="spec-lv">8</span>[神聖な気]発射速度50%増加</li>
+        <li class="on"><span class="spec-lv">12</span>[神聖な気]持続時間3秒増加</li>
+        <li class="on"><span class="spec-lv">16</span>再使用時間10秒減少</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="bolt">
+  <img class="skill-icon" data-sk="bolt" src="../../assets/icons/cleric/bolt.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">霹靂 <span class="badge must">16 <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> 20</span></div>
+    <div class="skill-desc">最大の一撃。必ずフルチャージで撃つ。スキル速度+30%、単体へのダメージ+20%。20では確定クリティカルを追加。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>スキル速度30%増加</li><li><span class="spec-lv">12</span>的中した対象が少ないほど最大20%ダメージ増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>最大チャージ時に30%の確率で3s間、気絶を付与</li>
+        <li class=""><span class="spec-lv">8</span>スキル命中300増加</li>
+        <li class="on"><span class="spec-lv">8</span>スキル速度30%増加</li>
+        <li class="on"><span class="spec-lv">12</span>的中した対象が少ないほど最大20%ダメージ増加</li>
+        <li class=""><span class="spec-lv">16</span>的中時に確定クリティカル</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="judgment-thunder">
+  <img class="skill-icon" data-sk="judgment-thunder" src="../../assets/icons/cleric/judgment-thunder.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">審判の雷 <span class="badge must">16</span></div>
+    <div class="skill-desc">絶え間なくダメージを出せ、モーションキャンセルにも使える。天罰の特化を取るとダメージがほぼ倍増する。20ではMP消耗−20%を追加。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>的中した対象が少ないほどダメージ量が最大12%増加</li><li><span class="spec-lv">16</span>[天罰]1回追加発動</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>MP消耗20%減少</li>
+        <li class="on"><span class="spec-lv">8</span>的中した対象が少ないほどダメージ量が最大12%増加</li>
+        <li class=""><span class="spec-lv">8</span>[天罰]的中時に5s間、戦闘速度10%減少を付与</li>
+        <li class=""><span class="spec-lv">12</span>[天罰]的中時に10%の確率で2s間、束縛を付与</li>
+        <li class="on"><span class="spec-lv">16</span>[天罰]1回追加発動</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="lightning-strike-scattershot">
+  <img class="skill-icon" data-sk="lightning-strike-scattershot" src="../../assets/icons/cleric/lightning-strike-scattershot.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">稲妻乱射 <span class="badge must">16</span></div>
+    <div class="skill-desc">グロッキー中しか使えないが、1ヒットごとにすべてのスキルの再使用時間が1秒短くなる。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">12</span>的中時に必ず多段ヒット</li><li><span class="spec-lv">16</span>的中時にすべてのスキル再使用時間1s減少</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>HP5%吸収</li>
+        <li class=""><span class="spec-lv">8</span>MP120回復</li>
+        <li class=""><span class="spec-lv">8</span>移動可能スキルに変更</li>
+        <li class="on"><span class="spec-lv">12</span>的中時に必ず多段ヒット</li>
+        <li class="on"><span class="spec-lv">16</span>的中時にすべてのスキル再使用時間1s減少</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="healing-light">
+  <img class="skill-icon" data-sk="healing-light" src="../../assets/icons/cleric/healing-light.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">治癒の光 <span class="badge must">16</span></div>
+    <div class="skill-desc">ほぼクールタイムなしで使える即効回復。連続発動+2回とHP+2%（治癒増幅で伸びる）を取る。20では再使用時間−2秒を追加。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>連続発動+2回</li><li><span class="spec-lv">12</span>HP2%追加回復</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">8</span>連続発動+2回</li>
+        <li class=""><span class="spec-lv">8</span>HP50%以下の時に回復量20%増加</li>
+        <li class=""><span class="spec-lv">8</span>50%の確率でデバフを1個解除</li>
+        <li class="on"><span class="spec-lv">12</span>HP2%追加回復</li>
+        <li class=""><span class="spec-lv">16</span>再使用時間2秒減少</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="radiant-recovery">
+  <img class="skill-icon" data-sk="radiant-recovery" src="../../assets/icons/cleric/radiant-recovery.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">快癒の光輝 <span class="badge must">16</span></div>
+    <div class="skill-desc">スティグマを除けば最も強力な回復で、デバフも解除する。20では再使用時間−3秒を追加。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">16</span>HP5%追加回復</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>デバフ最大2個解除</li>
+        <li class=""><span class="spec-lv">8</span>連続発動+1回</li>
+        <li class=""><span class="spec-lv">8</span>再使用時間3秒減少</li>
+        <li class=""><span class="spec-lv">12</span>10s間、受ける治癒量10%増加</li>
+        <li class="on"><span class="spec-lv">16</span>HP5%追加回復</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="earths-retribution">
+  <img class="skill-icon" data-sk="earths-retribution" src="../../assets/icons/cleric/earths-retribution.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">大地の裁き <span class="badge opt">12 <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> 16</span></div>
+    <div class="skill-desc">モーションキャンセルに使う通常攻撃。放電の発動確率と、放電的中時の霹靂の再使用時間−7秒を取る。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>[放電]連続スキル活性化確率20%増加</li><li><span class="spec-lv">12</span>[放電]的中時に[霹靂]の再使用時間7s減少</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>MP回復20%増加</li>
+        <li class="on"><span class="spec-lv">8</span>[放電]連続スキル活性化確率20%増加</li>
+        <li class=""><span class="spec-lv">8</span>的中時に多段ヒット50%増加</li>
+        <li class="on"><span class="spec-lv">12</span>[放電]的中時に[霹靂]の再使用時間7s減少</li>
+        <li class=""><span class="spec-lv">16</span>ガードと回避を無視して的中</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="debilitating-mark">
+  <img class="skill-icon" data-sk="debilitating-mark" src="../../assets/icons/cleric/debilitating-mark.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">弱化の烙印 <span class="badge opt">12</span></div>
+    <div class="skill-desc">ボスの防御力−15%と、ボスから受けるダメージの軽減。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>持続ダメージ中は対象の防御力15%減少</li><li><span class="spec-lv">12</span>PvEダメージ増幅10%、PvPダメージ増幅5%追加減少</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>MP消耗削除とMP150回復</li>
+        <li class="on"><span class="spec-lv">8</span>持続ダメージ中は対象の防御力15%減少</li>
+        <li class=""><span class="spec-lv">8</span>20%の確率で3s間、対象を気絶</li>
+        <li class="on"><span class="spec-lv">12</span>PvEダメージ増幅10%、PvPダメージ増幅5%追加減少</li>
+        <li class=""><span class="spec-lv">16</span>ガードと回避を無視して的中と持続ダメージ間隔50%減少</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="chain-of-torment">
+  <img class="skill-icon" data-sk="chain-of-torment" src="../../assets/icons/cleric/chain-of-torment.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">苦痛の連鎖 <span class="badge opt">14</span></div>
+    <div class="skill-desc">断罪を使えるようにするためのスキル。ボスのPvEダメージ耐性を−10%。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>持続ダメージ3秒増加</li><li><span class="spec-lv">12</span>PvEダメージ耐性10%、PvPダメージ耐性5%追加減少</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>5s間、対象を鈍化</li>
+        <li class="on"><span class="spec-lv">8</span>持続ダメージ3秒増加</li>
+        <li class=""><span class="spec-lv">8</span>20%の確率で3s間、対象を転倒</li>
+        <li class="on"><span class="spec-lv">12</span>PvEダメージ耐性10%、PvPダメージ耐性5%追加減少</li>
+        <li class=""><span class="spec-lv">16</span>ガードと回避を無視して的中と持続ダメージ間隔50%減少</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="light-of-regeneration">
+  <img class="skill-icon" data-sk="light-of-regeneration" src="../../assets/icons/cleric/light-of-regeneration.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">再生の光 <span class="badge opt">12–16</span></div>
+    <div class="skill-desc">クールタイムごとにかけ直す。16ではダメージ耐性5%の特化を取る。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>回復中は防御力5%増加</li><li><span class="spec-lv">16</span>回復中はPvEダメージ耐性5%、PvPダメージ耐性2.5%増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">8</span>回復中は防御力5%増加</li>
+        <li class=""><span class="spec-lv">8</span>HP50%以下の時に回復量20%増加</li>
+        <li class=""><span class="spec-lv">8</span>回復中は受ける治癒量5%増加</li>
+        <li class=""><span class="spec-lv">12</span>回復中は移動速度5%増加</li>
+        <li class="on"><span class="spec-lv">16</span>回復中はPvEダメージ耐性5%、PvPダメージ耐性2.5%増加</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="defiance">
+  <img class="skill-icon" data-sk="defiance" src="../../assets/icons/cleric/defiance.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">衝撃解除 <span class="badge opt">12</span></div>
+    <div class="skill-desc">CC解除。HP10%回復と免疫時間+2秒。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">8</span>[衝撃解除]発動時にHP10%回復</li><li><span class="spec-lv">12</span>強靭さの持続時間2秒増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">8</span>2番連続スキル[再生の祝福]追加</li>
+        <li class=""><span class="spec-lv">8</span>[衝撃解除]発動時に行動力1000回復</li>
+        <li class="on"><span class="spec-lv">8</span>[衝撃解除]発動時にHP10%回復</li>
+        <li class="on"><span class="spec-lv">12</span>強靭さの持続時間2秒増加</li>
+        <li class=""><span class="spec-lv">16</span>強靭さの持続時間中はPvEダメージ耐性50%、PvPダメージ耐性25%増加</li>
+      </ul>
+    </details>
+  </div>
+</li>  </ul>
+
+</section>
+<section id="passives" class="g-section" data-only="pve" aria-labelledby="h-passives">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-passives">パッシブ</h2></div>
+    <div class="callout"><ul>
+    <li><span class="sk" data-sk="empyrean-lords-grace"><img src="../../assets/icons/cleric/empyrean-lords-grace.webp" width="18" height="18" alt="" loading="lazy">神の恩恵</span>：最も重要なパッシブ。クリティカル ダメージ、強打、全ヒットへの追加ダメージ。できるだけ高く上げる。</li>
+    <li><span class="sk" data-sk="earths-grace"><img src="../../assets/icons/cleric/earths-grace.webp" width="18" height="18" alt="" loading="lazy">大地の恩恵</span>：以前はパーティーへのバフだったが、今は自分だけ。それでも上げる価値はある。</li>
+    <li><span class="sk" data-sk="healing-enhancement"><img src="../../assets/icons/cleric/healing-enhancement.webp" width="18" height="18" alt="" loading="lazy">治癒力強化</span>：回復を多用するなら、治癒増幅のために取る。</li>
+    <li><span class="sk" data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" width="18" height="18" alt="" loading="lazy">煌めく加護</span>：攻撃するたびに周囲の味方を回復する。火力に全振りするなら取る。</li>
+    <li><span class="sk" data-sk="warm-benediction"><img src="../../assets/icons/cleric/warm-benediction.webp" width="18" height="18" alt="" loading="lazy">暖かな加護</span>と<span class="sk" data-sk="immortal-veil"><img src="../../assets/icons/cleric/immortal-veil.webp" width="18" height="18" alt="" loading="lazy">不死の帳</span>はあってもよい。<span class="sk" data-sk="empyrean-lords-benediction"><img src="../../assets/icons/cleric/empyrean-lords-benediction.webp" width="18" height="18" alt="" loading="lazy">神の加護</span>はPvP用。</li>
+  </ul></div>
+  <p class="note">最初の数日（aLuckyRO）：まず<span class="sk" data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" width="18" height="18" alt="" loading="lazy">煌めく加護</span>（パーティーが攻撃している間、数秒ごとにパーティー全体を回復する）と<span class="sk" data-sk="healing-enhancement"><img src="../../assets/icons/cleric/healing-enhancement.webp" width="18" height="18" alt="" loading="lazy">治癒力強化</span>を上げる。クリティカル系のパッシブは、装備でクリティカルが付いてから効いてくる。それまではほとんどクリティカルが出ない。</p>
+
+</section>
+<section id="gear" class="g-section" data-only="pve" aria-labelledby="h-gear">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-gear">装備とステータス</h2></div>
+    <div class="callout"><ul>
+    <li><strong>装備のオプション：</strong>Might（攻撃と回復）、戦闘速度、ダメージ増幅。武器ダメージ増幅とPrecisionも強い。PvEでは状態異常抵抗、回避、防御系のオプションは不要。</li>
+    <li><strong>指輪：</strong>できるだけ早く製作しよう。製作した指輪はアクティブスキルのオプションが1つ多い。</li>
+    <li><strong>ステータス：</strong>Destruction、Wisdom（強打）、Illusion（再使用時間）、Time（戦闘速度）、Freedom（命中）、さらにDeath（クリティカル）。DeathはKaeria独自の選択で、クレリックは常にクリティカルが不足しがち。ほかにMight、Precision、Constitution。</li>
+  </ul></div>
+
+</section>
+<section id="arcana" class="g-section" data-only="pve" aria-labelledby="h-arcana">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-arcana">アルカナ</h2></div>
+    <div class="table-wrap"><table>
+    <thead><tr><th>アルカナ</th><th>セット／ステータス</th><th>狙うスキル</th></tr></thead>
+    <tbody>
+      <tr><td>聖杯</td><td>活力（戦闘速度）</td><td>主要スキルを16 → 20に上げられるものなら何でも</td></tr>
+      <tr><td>羊皮紙</td><td>DestinyまたはLife</td><td>断罪、快癒の光輝、大地の裁き、霹靂</td></tr>
+      <tr><td>コンパス</td><td>DeathまたはFreedom</td><td>稲妻乱射、治癒の光、神聖な気、審判の雷</td></tr>
+      <tr><td>鐘</td><td>Destruction</td><td>神の恩恵（生存意志は避ける）</td></tr>
+      <tr><td>鏡</td><td>Wisdom（火力）またはIllusion（再使用時間）</td><td>大地の恩恵、治癒力強化</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>セット効果：</strong>2 + 2で揃えるか、太初の活力のカードを4枚集める（HPが70%以上の間、2枚でPvE攻撃力+60、4枚で+150）。序盤は正しいセットのカードより、正しいスキルが付いたカードのほうが強い。セットは後から整えればよい。</p>
+
+</section>
+<section id="daevanion" class="g-section" data-only="pve pvp" aria-labelledby="h-daevanion">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-daevanion">ディーヴァニオン ボード</h2></div>
+    <p>ディーヴァニオンはスキルを10から14まで引き上げ、ステータスも追加する。青いノードはそれぞれ、対応するスキルを<strong>Lv+1</strong>する。</p>
+  <div class="callout"><ul>
+    <li><strong>優先度：</strong>まずオレンジの再使用時間と戦闘速度のノード、次に攻撃力とクリティカル、次に青いスキルノード、次に防御系のオレンジノード、パッシブは最後。</li>
+    <li>クリティカル ダメージ耐性と多段ヒット抵抗はPvEでは役に立たない。ボスはクリティカルも多段ヒットも出さない。</li>
+    <li>ボードのリセットは安く、何度も組み直すことになる。</li>
+    <li><strong>グローバル版にアリエルはない：</strong>ボードは5枚で、Lv45のアスフェルはPvPダメージ増幅と耐性しか付かない。PvEでは最初の4枚を完成させよう。</li>
+  </ul></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ボード</th><th>解放</th><th>オレンジノード</th></tr></thead>
+    <tbody>
+      <tr><td>ネザカン</td><td>Lv12</td><td>戦闘速度、再使用時間減少</td></tr>
+      <tr><td>ジケル</td><td>Lv20</td><td>ダメージ増幅、ダメージ耐性</td></tr>
+      <tr><td>バイゼル</td><td>Lv30</td><td>クリティカル ダメージ増幅と耐性</td></tr>
+      <tr><td>トリニエル</td><td>Lv40</td><td>多段ヒット的中と抵抗</td></tr>
+      <tr><td>アスフェル</td><td>Lv45</td><td>PvPダメージ増幅と耐性（スキルノードなし）</td></tr>
+    </tbody>
+  </table></div>
+  <h3>ボード上のルート</h3>
+  <p>ゲームデータから取ったグローバル版の実際のボード。金色は、開始地点からこのガイドが取るノードまでの最も安いルート。対象は優先スキルの青いノードと、PvEで重要なオレンジノード（クリティカル ダメージ耐性と多段ヒット抵抗を除く）。ノードにカーソルを合わせると効果を確認できる。</p>
+  <div class="dvb" data-dvb>
+  <div class="dvb-tabs" role="tablist" aria-label="ディーヴァニオン ボード">
+<button type="button" role="tab" class="dvb-tab" id="dvt-pve-71" aria-controls="dvp-pve-71" aria-selected="true"><b>ネザカン</b><span>Lv 12 · <i>63 pt</i></span></button><button type="button" role="tab" class="dvb-tab" id="dvt-pve-72" aria-controls="dvp-pve-72" aria-selected="false" tabindex="-1"><b>ジケル</b><span>Lv 20 · <i>62 pt</i></span></button><button type="button" role="tab" class="dvb-tab" id="dvt-pve-73" aria-controls="dvp-pve-73" aria-selected="false" tabindex="-1"><b>バイゼル</b><span>Lv 30 · <i>44 pt</i></span></button><button type="button" role="tab" class="dvb-tab" id="dvt-pve-74" aria-controls="dvp-pve-74" aria-selected="false" tabindex="-1"><b>トリニエル</b><span>Lv 40 · <i>60 pt</i></span></button><button type="button" role="tab" class="dvb-tab" id="dvt-pve-76" aria-controls="dvp-pve-76" aria-selected="false" tabindex="-1"><b>アスフェル</b><span>Lv 45 · <i>0 pt</i></span></button>  </div>
+  <div class="dvb-panel" role="tabpanel" id="dvp-pve-71" aria-labelledby="dvt-pve-71">
+    <div class="dvb-frame"><div class="dvb-stage" style="aspect-ratio:11 / 11">
+      <svg class="dvb-svg" viewBox="0 0 11 11" preserveAspectRatio="none" aria-hidden="true"><line x1="0.5" y1="0.5" x2="1.5" y2="0.5" class="on"/><line x1="0.5" y1="0.5" x2="0.5" y2="1.5"/><line x1="1.5" y1="0.5" x2="2.5" y2="0.5" class="on"/><line x1="2.5" y1="0.5" x2="2.5" y2="1.5" class="on"/><line x1="4.5" y1="0.5" x2="5.5" y2="0.5"/><line x1="4.5" y1="0.5" x2="4.5" y2="1.5"/><line x1="5.5" y1="0.5" x2="6.5" y2="0.5"/><line x1="6.5" y1="0.5" x2="6.5" y2="1.5"/><line x1="8.5" y1="0.5" x2="9.5" y2="0.5" class="on"/><line x1="8.5" y1="0.5" x2="8.5" y2="1.5" class="on"/><line x1="9.5" y1="0.5" x2="10.5" y2="0.5" class="on"/><line x1="10.5" y1="0.5" x2="10.5" y2="1.5"/><line x1="0.5" y1="1.5" x2="0.5" y2="2.5"/><line x1="2.5" y1="1.5" x2="3.5" y2="1.5" class="on"/><line x1="2.5" y1="1.5" x2="2.5" y2="2.5"/><line x1="3.5" y1="1.5" x2="4.5" y2="1.5" class="on"/><line x1="4.5" y1="1.5" x2="4.5" y2="2.5" class="on"/><line x1="6.5" y1="1.5" x2="7.5" y2="1.5"/><line x1="6.5" y1="1.5" x2="6.5" y2="2.5"/><line x1="7.5" y1="1.5" x2="8.5" y2="1.5"/><line x1="8.5" y1="1.5" x2="8.5" y2="2.5" class="on"/><line x1="10.5" y1="1.5" x2="10.5" y2="2.5"/><line x1="0.5" y1="2.5" x2="1.5" y2="2.5"/><line x1="1.5" y1="2.5" x2="2.5" y2="2.5"/><line x1="1.5" y1="2.5" x2="1.5" y2="3.5"/><line x1="4.5" y1="2.5" x2="5.5" y2="2.5"/><line x1="4.5" y1="2.5" x2="4.5" y2="3.5" class="on"/><line x1="5.5" y1="2.5" x2="6.5" y2="2.5"/><line x1="6.5" y1="2.5" x2="6.5" y2="3.5"/><line x1="8.5" y1="2.5" x2="9.5" y2="2.5"/><line x1="8.5" y1="2.5" x2="8.5" y2="3.5" class="on"/><line x1="9.5" y1="2.5" x2="10.5" y2="2.5"/><line x1="10.5" y1="2.5" x2="10.5" y2="3.5"/><line x1="1.5" y1="3.5" x2="1.5" y2="4.5"/><line x1="4.5" y1="3.5" x2="4.5" y2="4.5" class="on"/><line x1="6.5" y1="3.5" x2="6.5" y2="4.5"/><line x1="8.5" y1="3.5" x2="8.5" y2="4.5" class="on"/><line x1="10.5" y1="3.5" x2="10.5" y2="4.5"/><line x1="0.5" y1="4.5" x2="1.5" y2="4.5"/><line x1="0.5" y1="4.5" x2="0.5" y2="5.5"/><line x1="1.5" y1="4.5" x2="2.5" y2="4.5"/><line x1="2.5" y1="4.5" x2="3.5" y2="4.5"/><line x1="3.5" y1="4.5" x2="4.5" y2="4.5"/><line x1="3.5" y1="4.5" x2="3.5" y2="5.5"/><line x1="4.5" y1="4.5" x2="5.5" y2="4.5" class="on"/><line x1="5.5" y1="4.5" x2="6.5" y2="4.5" class="on"/><line x1="5.5" y1="4.5" x2="5.5" y2="5.5" class="on"/><line x1="6.5" y1="4.5" x2="7.5" y2="4.5" class="on"/><line x1="7.5" y1="4.5" x2="8.5" y2="4.5" class="on"/><line x1="7.5" y1="4.5" x2="7.5" y2="5.5"/><line x1="8.5" y1="4.5" x2="9.5" y2="4.5"/><line x1="9.5" y1="4.5" x2="10.5" y2="4.5"/><line x1="10.5" y1="4.5" x2="10.5" y2="5.5"/><line x1="0.5" y1="5.5" x2="0.5" y2="6.5"/><line x1="3.5" y1="5.5" x2="3.5" y2="6.5"/><line x1="5.5" y1="5.5" x2="5.5" y2="6.5" class="on"/><line x1="7.5" y1="5.5" x2="7.5" y2="6.5"/><line x1="10.5" y1="5.5" x2="10.5" y2="6.5"/><line x1="0.5" y1="6.5" x2="1.5" y2="6.5"/><line x1="0.5" y1="6.5" x2="0.5" y2="7.5"/><line x1="1.5" y1="6.5" x2="2.5" y2="6.5"/><line x1="2.5" y1="6.5" x2="3.5" y2="6.5"/><line x1="2.5" y1="6.5" x2="2.5" y2="7.5"/><line x1="3.5" y1="6.5" x2="4.5" y2="6.5"/><line x1="4.5" y1="6.5" x2="5.5" y2="6.5" class="on"/><line x1="4.5" y1="6.5" x2="4.5" y2="7.5" class="on"/><line x1="5.5" y1="6.5" x2="6.5" y2="6.5"/><line x1="6.5" y1="6.5" x2="7.5" y2="6.5"/><line x1="6.5" y1="6.5" x2="6.5" y2="7.5"/><line x1="7.5" y1="6.5" x2="8.5" y2="6.5"/><line x1="8.5" y1="6.5" x2="9.5" y2="6.5"/><line x1="9.5" y1="6.5" x2="10.5" y2="6.5"/><line x1="9.5" y1="6.5" x2="9.5" y2="7.5"/><line x1="0.5" y1="7.5" x2="0.5" y2="8.5"/><line x1="2.5" y1="7.5" x2="2.5" y2="8.5"/><line x1="4.5" y1="7.5" x2="4.5" y2="8.5" class="on"/><line x1="6.5" y1="7.5" x2="6.5" y2="8.5"/><line x1="9.5" y1="7.5" x2="9.5" y2="8.5"/><line x1="0.5" y1="8.5" x2="1.5" y2="8.5"/><line x1="0.5" y1="8.5" x2="0.5" y2="9.5"/><line x1="1.5" y1="8.5" x2="2.5" y2="8.5"/><line x1="2.5" y1="8.5" x2="2.5" y2="9.5"/><line x1="4.5" y1="8.5" x2="5.5" y2="8.5" class="on"/><line x1="4.5" y1="8.5" x2="4.5" y2="9.5" class="on"/><line x1="5.5" y1="8.5" x2="6.5" y2="8.5" class="on"/><line x1="6.5" y1="8.5" x2="6.5" y2="9.5" class="on"/><line x1="8.5" y1="8.5" x2="9.5" y2="8.5"/><line x1="8.5" y1="8.5" x2="8.5" y2="9.5"/><line x1="9.5" y1="8.5" x2="10.5" y2="8.5"/><line x1="10.5" y1="8.5" x2="10.5" y2="9.5"/><line x1="0.5" y1="9.5" x2="0.5" y2="10.5"/><line x1="2.5" y1="9.5" x2="3.5" y2="9.5" class="on"/><line x1="2.5" y1="9.5" x2="2.5" y2="10.5" class="on"/><line x1="3.5" y1="9.5" x2="4.5" y2="9.5" class="on"/><line x1="4.5" y1="9.5" x2="4.5" y2="10.5" class="on"/><line x1="6.5" y1="9.5" x2="7.5" y2="9.5" class="on"/><line x1="6.5" y1="9.5" x2="6.5" y2="10.5"/><line x1="7.5" y1="9.5" x2="8.5" y2="9.5" class="on"/><line x1="8.5" y1="9.5" x2="8.5" y2="10.5" class="on"/><line x1="10.5" y1="9.5" x2="10.5" y2="10.5"/><line x1="0.5" y1="10.5" x2="1.5" y2="10.5" class="on"/><line x1="1.5" y1="10.5" x2="2.5" y2="10.5" class="on"/><line x1="4.5" y1="10.5" x2="5.5" y2="10.5"/><line x1="5.5" y1="10.5" x2="6.5" y2="10.5"/><line x1="8.5" y1="10.5" x2="9.5" y2="10.5" class="on"/><line x1="9.5" y1="10.5" x2="10.5" y2="10.5" class="on"/></svg>
+<span class="dvb-n g41 on st" style="left:4.55%;top:4.55%" data-sk="dv:combatspeed:4:"></span><span class="dvb-n g11 on st" style="left:13.64%;top:4.55%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:22.73%;top:4.55%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g21" style="left:40.91%;top:4.55%" data-sk="empyrean-lords-benediction"><img src="../../assets/icons/cleric/empyrean-lords-benediction.webp" alt="神の加護" loading="lazy"></span><span class="dvb-n g11 st" style="left:50.00%;top:4.55%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g31" style="left:59.09%;top:4.55%" data-sk="radiant-recovery"><img src="../../assets/icons/cleric/radiant-recovery.webp" alt="快癒の光輝" loading="lazy"></span><span class="dvb-n g21 on" style="left:77.27%;top:4.55%" data-sk="empyrean-lords-grace"><img src="../../assets/icons/cleric/empyrean-lords-grace.webp" alt="神の恩恵" loading="lazy"></span><span class="dvb-n g11 on st" style="left:86.36%;top:4.55%" data-sk="dv:critical:1:"></span><span class="dvb-n g41 on st" style="left:95.45%;top:4.55%" data-sk="dv:cooltimedecrease:4:"></span><span class="dvb-n g11 st" style="left:4.55%;top:13.64%" data-sk="dv:critical:1:"></span><span class="dvb-n g31 on" style="left:22.73%;top:13.64%" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/chain-of-torment.webp" alt="苦痛の連鎖" loading="lazy"></span><span class="dvb-n g11 on st" style="left:31.82%;top:13.64%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:13.64%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:59.09%;top:13.64%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:68.18%;top:13.64%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:77.27%;top:13.64%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:13.64%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21" style="left:4.55%;top:22.73%" data-sk="warm-benediction"><img src="../../assets/icons/cleric/warm-benediction.webp" alt="暖かな加護" loading="lazy"></span><span class="dvb-n g11 st" style="left:13.64%;top:22.73%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:22.73%;top:22.73%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:22.73%" data-sk="dv:critical:1:"></span><span class="dvb-n g31" style="left:50.00%;top:22.73%" data-sk="debilitating-mark"><img src="../../assets/icons/cleric/debilitating-mark.webp" alt="弱化の烙印" loading="lazy"></span><span class="dvb-n g11 st" style="left:59.09%;top:22.73%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g31 on" style="left:77.27%;top:22.73%" data-sk="condemnation"><img src="../../assets/icons/cleric/condemnation.webp" alt="断罪" loading="lazy"></span><span class="dvb-n g11 st" style="left:86.36%;top:22.73%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g21" style="left:95.45%;top:22.73%" data-sk="healing-enhancement"><img src="../../assets/icons/cleric/healing-enhancement.webp" alt="治癒力強化" loading="lazy"></span><span class="dvb-n g11 st" style="left:13.64%;top:31.82%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:31.82%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:59.09%;top:31.82%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:77.27%;top:31.82%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:31.82%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:4.55%;top:40.91%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:13.64%;top:40.91%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g31" style="left:22.73%;top:40.91%" data-sk="judgment-thunder"><img src="../../assets/icons/cleric/judgment-thunder.webp" alt="審判の雷" loading="lazy"></span><span class="dvb-n g11 st" style="left:31.82%;top:40.91%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:40.91%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 on st" style="left:50.00%;top:40.91%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:59.09%;top:40.91%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g21 on" style="left:68.18%;top:40.91%" data-sk="immortal-veil"><img src="../../assets/icons/cleric/immortal-veil.webp" alt="不死の帳" loading="lazy"></span><span class="dvb-n g11 on st" style="left:77.27%;top:40.91%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:40.91%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:40.91%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g31" style="left:4.55%;top:50.00%" data-sk="defiance"><img src="../../assets/icons/cleric/defiance.webp" alt="衝撃解除" loading="lazy"></span><span class="dvb-n g11 st" style="left:31.82%;top:50.00%" data-sk="dv:defense:1:"></span><span class="dvb-n g0 on start" style="left:50.00%;top:50.00%" data-sk="dv::0:710113"></span><span class="dvb-n g11 st" style="left:68.18%;top:50.00%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g31" style="left:95.45%;top:50.00%" data-sk="lightning-strike-scattershot"><img src="../../assets/icons/cleric/lightning-strike-scattershot.webp" alt="稲妻乱射" loading="lazy"></span><span class="dvb-n g11 st" style="left:4.55%;top:59.09%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:13.64%;top:59.09%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:22.73%;top:59.09%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g21" style="left:31.82%;top:59.09%" data-sk="healing-enhancement"><img src="../../assets/icons/cleric/healing-enhancement.webp" alt="治癒力強化" loading="lazy"></span><span class="dvb-n g11 on st" style="left:40.91%;top:59.09%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:50.00%;top:59.09%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:59.09%;top:59.09%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:68.18%;top:59.09%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31" style="left:77.27%;top:59.09%" data-sk="earths-retribution"><img src="../../assets/icons/cleric/earths-retribution.webp" alt="大地の裁き" loading="lazy"></span><span class="dvb-n g11 st" style="left:86.36%;top:59.09%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:59.09%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:4.55%;top:68.18%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:22.73%;top:68.18%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:68.18%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:59.09%;top:68.18%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:68.18%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21" style="left:4.55%;top:77.27%" data-sk="immortal-veil"><img src="../../assets/icons/cleric/immortal-veil.webp" alt="不死の帳" loading="lazy"></span><span class="dvb-n g11 st" style="left:13.64%;top:77.27%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31" style="left:22.73%;top:77.27%" data-sk="healing-light"><img src="../../assets/icons/cleric/healing-light.webp" alt="治癒の光" loading="lazy"></span><span class="dvb-n g11 on st" style="left:40.91%;top:77.27%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31 on" style="left:50.00%;top:77.27%" data-sk="divine-aura"><img src="../../assets/icons/cleric/divine-aura.webp" alt="神聖な気" loading="lazy"></span><span class="dvb-n g11 on st" style="left:59.09%;top:77.27%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:77.27%;top:77.27%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:77.27%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g21" style="left:95.45%;top:77.27%" data-sk="empyrean-lords-benediction"><img src="../../assets/icons/cleric/empyrean-lords-benediction.webp" alt="神の加護" loading="lazy"></span><span class="dvb-n g11 st" style="left:4.55%;top:86.36%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:22.73%;top:86.36%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:31.82%;top:86.36%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:86.36%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:59.09%;top:86.36%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:68.18%;top:86.36%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g31 on" style="left:77.27%;top:86.36%" data-sk="light-of-regeneration"><img src="../../assets/icons/cleric/light-of-regeneration.webp" alt="再生の光" loading="lazy"></span><span class="dvb-n g11 st" style="left:95.45%;top:86.36%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g41 on st" style="left:4.55%;top:95.45%" data-sk="dv:cooltimedecrease:4:"></span><span class="dvb-n g11 on st" style="left:13.64%;top:95.45%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g21 on" style="left:22.73%;top:95.45%" data-sk="empyrean-lords-grace"><img src="../../assets/icons/cleric/empyrean-lords-grace.webp" alt="神の恩恵" loading="lazy"></span><span class="dvb-n g31 on" style="left:40.91%;top:95.45%" data-sk="bolt"><img src="../../assets/icons/cleric/bolt.webp" alt="霹靂" loading="lazy"></span><span class="dvb-n g11 st" style="left:50.00%;top:95.45%" data-sk="dv:critical:1:"></span><span class="dvb-n g21" style="left:59.09%;top:95.45%" data-sk="warm-benediction"><img src="../../assets/icons/cleric/warm-benediction.webp" alt="暖かな加護" loading="lazy"></span><span class="dvb-n g11 on st" style="left:77.27%;top:95.45%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:86.36%;top:95.45%" data-sk="dv:defense:1:"></span><span class="dvb-n g41 on st" style="left:95.45%;top:95.45%" data-sk="dv:combatspeed:4:"></span>    </div></div>
+  </div>
+  <div class="dvb-panel" role="tabpanel" id="dvp-pve-72" aria-labelledby="dvt-pve-72" hidden>
+    <div class="dvb-frame"><div class="dvb-stage" style="aspect-ratio:11 / 11">
+      <svg class="dvb-svg" viewBox="0 0 11 11" preserveAspectRatio="none" aria-hidden="true"><line x1="0.5" y1="0.5" x2="1.5" y2="0.5" class="on"/><line x1="0.5" y1="0.5" x2="0.5" y2="1.5"/><line x1="1.5" y1="0.5" x2="2.5" y2="0.5" class="on"/><line x1="2.5" y1="0.5" x2="3.5" y2="0.5" class="on"/><line x1="2.5" y1="0.5" x2="2.5" y2="1.5" class="on"/><line x1="3.5" y1="0.5" x2="4.5" y2="0.5" class="on"/><line x1="4.5" y1="0.5" x2="5.5" y2="0.5" class="on"/><line x1="4.5" y1="0.5" x2="4.5" y2="1.5"/><line x1="5.5" y1="0.5" x2="6.5" y2="0.5" class="on"/><line x1="6.5" y1="0.5" x2="7.5" y2="0.5" class="on"/><line x1="7.5" y1="0.5" x2="8.5" y2="0.5" class="on"/><line x1="7.5" y1="0.5" x2="7.5" y2="1.5"/><line x1="8.5" y1="0.5" x2="9.5" y2="0.5" class="on"/><line x1="9.5" y1="0.5" x2="10.5" y2="0.5" class="on"/><line x1="10.5" y1="0.5" x2="10.5" y2="1.5"/><line x1="0.5" y1="1.5" x2="0.5" y2="2.5"/><line x1="2.5" y1="1.5" x2="2.5" y2="2.5" class="on"/><line x1="4.5" y1="1.5" x2="4.5" y2="2.5"/><line x1="7.5" y1="1.5" x2="7.5" y2="2.5"/><line x1="10.5" y1="1.5" x2="10.5" y2="2.5"/><line x1="0.5" y1="2.5" x2="1.5" y2="2.5"/><line x1="0.5" y1="2.5" x2="0.5" y2="3.5"/><line x1="1.5" y1="2.5" x2="2.5" y2="2.5"/><line x1="2.5" y1="2.5" x2="2.5" y2="3.5" class="on"/><line x1="4.5" y1="2.5" x2="5.5" y2="2.5"/><line x1="4.5" y1="2.5" x2="4.5" y2="3.5"/><line x1="5.5" y1="2.5" x2="6.5" y2="2.5"/><line x1="6.5" y1="2.5" x2="7.5" y2="2.5"/><line x1="6.5" y1="2.5" x2="6.5" y2="3.5"/><line x1="7.5" y1="2.5" x2="8.5" y2="2.5"/><line x1="8.5" y1="2.5" x2="9.5" y2="2.5"/><line x1="8.5" y1="2.5" x2="8.5" y2="3.5"/><line x1="9.5" y1="2.5" x2="10.5" y2="2.5"/><line x1="10.5" y1="2.5" x2="10.5" y2="3.5"/><line x1="0.5" y1="3.5" x2="0.5" y2="4.5"/><line x1="2.5" y1="3.5" x2="3.5" y2="3.5"/><line x1="2.5" y1="3.5" x2="2.5" y2="4.5" class="on"/><line x1="3.5" y1="3.5" x2="4.5" y2="3.5"/><line x1="4.5" y1="3.5" x2="4.5" y2="4.5"/><line x1="6.5" y1="3.5" x2="6.5" y2="4.5"/><line x1="8.5" y1="3.5" x2="8.5" y2="4.5"/><line x1="10.5" y1="3.5" x2="10.5" y2="4.5"/><line x1="0.5" y1="4.5" x2="1.5" y2="4.5"/><line x1="1.5" y1="4.5" x2="2.5" y2="4.5" class="on"/><line x1="1.5" y1="4.5" x2="1.5" y2="5.5" class="on"/><line x1="4.5" y1="4.5" x2="4.5" y2="5.5"/><line x1="6.5" y1="4.5" x2="7.5" y2="4.5"/><line x1="6.5" y1="4.5" x2="6.5" y2="5.5"/><line x1="7.5" y1="4.5" x2="8.5" y2="4.5"/><line x1="8.5" y1="4.5" x2="9.5" y2="4.5"/><line x1="9.5" y1="4.5" x2="10.5" y2="4.5"/><line x1="9.5" y1="4.5" x2="9.5" y2="5.5"/><line x1="1.5" y1="5.5" x2="1.5" y2="6.5" class="on"/><line x1="4.5" y1="5.5" x2="5.5" y2="5.5" class="on"/><line x1="4.5" y1="5.5" x2="4.5" y2="6.5" class="on"/><line x1="5.5" y1="5.5" x2="6.5" y2="5.5" class="on"/><line x1="6.5" y1="5.5" x2="6.5" y2="6.5" class="on"/><line x1="9.5" y1="5.5" x2="9.5" y2="6.5"/><line x1="0.5" y1="6.5" x2="1.5" y2="6.5" class="on"/><line x1="0.5" y1="6.5" x2="0.5" y2="7.5" class="on"/><line x1="1.5" y1="6.5" x2="2.5" y2="6.5" class="on"/><line x1="2.5" y1="6.5" x2="3.5" y2="6.5" class="on"/><line x1="2.5" y1="6.5" x2="2.5" y2="7.5"/><line x1="3.5" y1="6.5" x2="4.5" y2="6.5" class="on"/><line x1="4.5" y1="6.5" x2="4.5" y2="7.5"/><line x1="6.5" y1="6.5" x2="6.5" y2="7.5" class="on"/><line x1="8.5" y1="6.5" x2="9.5" y2="6.5"/><line x1="8.5" y1="6.5" x2="8.5" y2="7.5"/><line x1="9.5" y1="6.5" x2="10.5" y2="6.5"/><line x1="10.5" y1="6.5" x2="10.5" y2="7.5"/><line x1="0.5" y1="7.5" x2="0.5" y2="8.5" class="on"/><line x1="2.5" y1="7.5" x2="2.5" y2="8.5"/><line x1="4.5" y1="7.5" x2="4.5" y2="8.5"/><line x1="6.5" y1="7.5" x2="7.5" y2="7.5" class="on"/><line x1="6.5" y1="7.5" x2="6.5" y2="8.5"/><line x1="7.5" y1="7.5" x2="8.5" y2="7.5" class="on"/><line x1="8.5" y1="7.5" x2="8.5" y2="8.5" class="on"/><line x1="10.5" y1="7.5" x2="10.5" y2="8.5"/><line x1="0.5" y1="8.5" x2="1.5" y2="8.5"/><line x1="0.5" y1="8.5" x2="0.5" y2="9.5" class="on"/><line x1="1.5" y1="8.5" x2="2.5" y2="8.5"/><line x1="2.5" y1="8.5" x2="3.5" y2="8.5"/><line x1="3.5" y1="8.5" x2="4.5" y2="8.5"/><line x1="3.5" y1="8.5" x2="3.5" y2="9.5"/><line x1="4.5" y1="8.5" x2="5.5" y2="8.5"/><line x1="5.5" y1="8.5" x2="6.5" y2="8.5"/><line x1="6.5" y1="8.5" x2="6.5" y2="9.5"/><line x1="8.5" y1="8.5" x2="9.5" y2="8.5"/><line x1="8.5" y1="8.5" x2="8.5" y2="9.5" class="on"/><line x1="9.5" y1="8.5" x2="10.5" y2="8.5"/><line x1="10.5" y1="8.5" x2="10.5" y2="9.5"/><line x1="0.5" y1="9.5" x2="0.5" y2="10.5" class="on"/><line x1="3.5" y1="9.5" x2="3.5" y2="10.5"/><line x1="6.5" y1="9.5" x2="6.5" y2="10.5"/><line x1="8.5" y1="9.5" x2="8.5" y2="10.5" class="on"/><line x1="10.5" y1="9.5" x2="10.5" y2="10.5"/><line x1="0.5" y1="10.5" x2="1.5" y2="10.5"/><line x1="1.5" y1="10.5" x2="2.5" y2="10.5"/><line x1="2.5" y1="10.5" x2="3.5" y2="10.5"/><line x1="3.5" y1="10.5" x2="4.5" y2="10.5"/><line x1="4.5" y1="10.5" x2="5.5" y2="10.5"/><line x1="5.5" y1="10.5" x2="6.5" y2="10.5"/><line x1="6.5" y1="10.5" x2="7.5" y2="10.5"/><line x1="7.5" y1="10.5" x2="8.5" y2="10.5"/><line x1="8.5" y1="10.5" x2="9.5" y2="10.5" class="on"/><line x1="9.5" y1="10.5" x2="10.5" y2="10.5" class="on"/></svg>
+<span class="dvb-n g41 on st" style="left:4.55%;top:4.55%" data-sk="dv:decreasedamage:4:"></span><span class="dvb-n g11 on st" style="left:13.64%;top:4.55%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:22.73%;top:4.55%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 on st" style="left:31.82%;top:4.55%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g31 on" style="left:40.91%;top:4.55%" data-sk="lightning-strike-scattershot"><img src="../../assets/icons/cleric/lightning-strike-scattershot.webp" alt="稲妻乱射" loading="lazy"></span><span class="dvb-n g11 on st" style="left:50.00%;top:4.55%" data-sk="dv:defense:1:"></span><span class="dvb-n g21 on" style="left:59.09%;top:4.55%" data-sk="heal-block"><img src="../../assets/icons/cleric/heal-block.webp" alt="回復遮断" loading="lazy"></span><span class="dvb-n g11 on st" style="left:68.18%;top:4.55%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g31 on" style="left:77.27%;top:4.55%" data-sk="bolt"><img src="../../assets/icons/cleric/bolt.webp" alt="霹靂" loading="lazy"></span><span class="dvb-n g11 on st" style="left:86.36%;top:4.55%" data-sk="dv:defense:1:"></span><span class="dvb-n g41 on st" style="left:95.45%;top:4.55%" data-sk="dv:amplifyalldamage:4:"></span><span class="dvb-n g11 st" style="left:4.55%;top:13.64%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g21 on" style="left:22.73%;top:13.64%" data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" alt="煌めく加護" loading="lazy"></span><span class="dvb-n g11 st" style="left:40.91%;top:13.64%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:68.18%;top:13.64%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:13.64%" data-sk="dv:critical:1:"></span><span class="dvb-n g31" style="left:4.55%;top:22.73%" data-sk="earths-retribution"><img src="../../assets/icons/cleric/earths-retribution.webp" alt="大地の裁き" loading="lazy"></span><span class="dvb-n g11 st" style="left:13.64%;top:22.73%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:22.73%;top:22.73%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:40.91%;top:22.73%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:22.73%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31" style="left:59.09%;top:22.73%" data-sk="debilitating-mark"><img src="../../assets/icons/cleric/debilitating-mark.webp" alt="弱化の烙印" loading="lazy"></span><span class="dvb-n g11 st" style="left:68.18%;top:22.73%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:77.27%;top:22.73%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21" style="left:86.36%;top:22.73%" data-sk="survival-willpower"><img src="../../assets/icons/cleric/survival-willpower.webp" alt="生存意志" loading="lazy"></span><span class="dvb-n g11 st" style="left:95.45%;top:22.73%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:4.55%;top:31.82%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:22.73%;top:31.82%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:31.82%;top:31.82%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g21" style="left:40.91%;top:31.82%" data-sk="earths-grace"><img src="../../assets/icons/cleric/earths-grace.webp" alt="大地の恩恵" loading="lazy"></span><span class="dvb-n g11 st" style="left:59.09%;top:31.82%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:77.27%;top:31.82%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:31.82%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:4.55%;top:40.91%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:13.64%;top:40.91%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g31 on" style="left:22.73%;top:40.91%" data-sk="divine-aura"><img src="../../assets/icons/cleric/divine-aura.webp" alt="神聖な気" loading="lazy"></span><span class="dvb-n g11 st" style="left:40.91%;top:40.91%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:59.09%;top:40.91%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21" style="left:68.18%;top:40.91%" data-sk="prayer-of-concentration"><img src="../../assets/icons/cleric/prayer-of-concentration.webp" alt="集中の祈り" loading="lazy"></span><span class="dvb-n g11 st" style="left:77.27%;top:40.91%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:40.91%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g31" style="left:95.45%;top:40.91%" data-sk="judgment-thunder"><img src="../../assets/icons/cleric/judgment-thunder.webp" alt="審判の雷" loading="lazy"></span><span class="dvb-n g11 on st" style="left:13.64%;top:50.00%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:50.00%" data-sk="dv:defense:1:"></span><span class="dvb-n g0 on start" style="left:50.00%;top:50.00%" data-sk="dv::0:720113"></span><span class="dvb-n g11 on st" style="left:59.09%;top:50.00%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:50.00%" data-sk="dv:defense:1:"></span><span class="dvb-n g31 on" style="left:4.55%;top:59.09%" data-sk="condemnation"><img src="../../assets/icons/cleric/condemnation.webp" alt="断罪" loading="lazy"></span><span class="dvb-n g11 on st" style="left:13.64%;top:59.09%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:22.73%;top:59.09%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21 on" style="left:31.82%;top:59.09%" data-sk="survival-willpower"><img src="../../assets/icons/cleric/survival-willpower.webp" alt="生存意志" loading="lazy"></span><span class="dvb-n g11 on st" style="left:40.91%;top:59.09%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:59.09%;top:59.09%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g31" style="left:77.27%;top:59.09%" data-sk="radiant-recovery"><img src="../../assets/icons/cleric/radiant-recovery.webp" alt="快癒の光輝" loading="lazy"></span><span class="dvb-n g11 st" style="left:86.36%;top:59.09%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:59.09%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:4.55%;top:68.18%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:22.73%;top:68.18%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:40.91%;top:68.18%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g21 on" style="left:59.09%;top:68.18%" data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" alt="煌めく加護" loading="lazy"></span><span class="dvb-n g11 on st" style="left:68.18%;top:68.18%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:77.27%;top:68.18%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:68.18%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 on st" style="left:4.55%;top:77.27%" data-sk="dv:defense:1:"></span><span class="dvb-n g21" style="left:13.64%;top:77.27%" data-sk="prayer-of-concentration"><img src="../../assets/icons/cleric/prayer-of-concentration.webp" alt="集中の祈り" loading="lazy"></span><span class="dvb-n g11 st" style="left:22.73%;top:77.27%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:31.82%;top:77.27%" data-sk="dv:critical:1:"></span><span class="dvb-n g31" style="left:40.91%;top:77.27%" data-sk="healing-light"><img src="../../assets/icons/cleric/healing-light.webp" alt="治癒の光" loading="lazy"></span><span class="dvb-n g11 st" style="left:50.00%;top:77.27%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:59.09%;top:77.27%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:77.27%;top:77.27%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:77.27%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31" style="left:95.45%;top:77.27%" data-sk="light-of-regeneration"><img src="../../assets/icons/cleric/light-of-regeneration.webp" alt="再生の光" loading="lazy"></span><span class="dvb-n g11 on st" style="left:4.55%;top:86.36%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:31.82%;top:86.36%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:59.09%;top:86.36%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21 on" style="left:77.27%;top:86.36%" data-sk="earths-grace"><img src="../../assets/icons/cleric/earths-grace.webp" alt="大地の恩恵" loading="lazy"></span><span class="dvb-n g11 st" style="left:95.45%;top:86.36%" data-sk="dv:defense:1:"></span><span class="dvb-n g41 on st" style="left:4.55%;top:95.45%" data-sk="dv:amplifyalldamage:4:"></span><span class="dvb-n g11 st" style="left:13.64%;top:95.45%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g31" style="left:22.73%;top:95.45%" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/chain-of-torment.webp" alt="苦痛の連鎖" loading="lazy"></span><span class="dvb-n g11 st" style="left:31.82%;top:95.45%" data-sk="dv:defense:1:"></span><span class="dvb-n g21" style="left:40.91%;top:95.45%" data-sk="heal-block"><img src="../../assets/icons/cleric/heal-block.webp" alt="回復遮断" loading="lazy"></span><span class="dvb-n g11 st" style="left:50.00%;top:95.45%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g31" style="left:59.09%;top:95.45%" data-sk="defiance"><img src="../../assets/icons/cleric/defiance.webp" alt="衝撃解除" loading="lazy"></span><span class="dvb-n g11 st" style="left:68.18%;top:95.45%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:77.27%;top:95.45%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:86.36%;top:95.45%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g41 on st" style="left:95.45%;top:95.45%" data-sk="dv:decreasedamage:4:"></span>    </div></div>
+  </div>
+  <div class="dvb-panel" role="tabpanel" id="dvp-pve-73" aria-labelledby="dvt-pve-73" hidden>
+    <div class="dvb-frame"><div class="dvb-stage" style="aspect-ratio:11 / 11">
+      <svg class="dvb-svg" viewBox="0 0 11 11" preserveAspectRatio="none" aria-hidden="true"><line x1="0.5" y1="0.5" x2="1.5" y2="0.5" class="on"/><line x1="0.5" y1="0.5" x2="0.5" y2="1.5"/><line x1="1.5" y1="0.5" x2="2.5" y2="0.5" class="on"/><line x1="2.5" y1="0.5" x2="2.5" y2="1.5" class="on"/><line x1="4.5" y1="0.5" x2="5.5" y2="0.5"/><line x1="4.5" y1="0.5" x2="4.5" y2="1.5"/><line x1="5.5" y1="0.5" x2="6.5" y2="0.5"/><line x1="6.5" y1="0.5" x2="7.5" y2="0.5"/><line x1="6.5" y1="0.5" x2="6.5" y2="1.5"/><line x1="7.5" y1="0.5" x2="8.5" y2="0.5"/><line x1="8.5" y1="0.5" x2="9.5" y2="0.5"/><line x1="8.5" y1="0.5" x2="8.5" y2="1.5"/><line x1="9.5" y1="0.5" x2="10.5" y2="0.5"/><line x1="10.5" y1="0.5" x2="10.5" y2="1.5"/><line x1="0.5" y1="1.5" x2="0.5" y2="2.5"/><line x1="2.5" y1="1.5" x2="3.5" y2="1.5" class="on"/><line x1="2.5" y1="1.5" x2="2.5" y2="2.5"/><line x1="3.5" y1="1.5" x2="4.5" y2="1.5" class="on"/><line x1="4.5" y1="1.5" x2="4.5" y2="2.5" class="on"/><line x1="6.5" y1="1.5" x2="6.5" y2="2.5"/><line x1="8.5" y1="1.5" x2="8.5" y2="2.5"/><line x1="10.5" y1="1.5" x2="10.5" y2="2.5"/><line x1="0.5" y1="2.5" x2="1.5" y2="2.5"/><line x1="1.5" y1="2.5" x2="2.5" y2="2.5"/><line x1="1.5" y1="2.5" x2="1.5" y2="3.5"/><line x1="4.5" y1="2.5" x2="5.5" y2="2.5" class="on"/><line x1="4.5" y1="2.5" x2="4.5" y2="3.5"/><line x1="5.5" y1="2.5" x2="6.5" y2="2.5" class="on"/><line x1="6.5" y1="2.5" x2="7.5" y2="2.5" class="on"/><line x1="6.5" y1="2.5" x2="6.5" y2="3.5" class="on"/><line x1="7.5" y1="2.5" x2="8.5" y2="2.5" class="on"/><line x1="8.5" y1="2.5" x2="9.5" y2="2.5"/><line x1="9.5" y1="2.5" x2="10.5" y2="2.5"/><line x1="9.5" y1="2.5" x2="9.5" y2="3.5"/><line x1="1.5" y1="3.5" x2="1.5" y2="4.5"/><line x1="4.5" y1="3.5" x2="4.5" y2="4.5"/><line x1="6.5" y1="3.5" x2="6.5" y2="4.5" class="on"/><line x1="9.5" y1="3.5" x2="9.5" y2="4.5"/><line x1="0.5" y1="4.5" x2="1.5" y2="4.5"/><line x1="0.5" y1="4.5" x2="0.5" y2="5.5"/><line x1="1.5" y1="4.5" x2="2.5" y2="4.5"/><line x1="2.5" y1="4.5" x2="3.5" y2="4.5"/><line x1="3.5" y1="4.5" x2="4.5" y2="4.5"/><line x1="3.5" y1="4.5" x2="3.5" y2="5.5"/><line x1="4.5" y1="4.5" x2="5.5" y2="4.5"/><line x1="5.5" y1="4.5" x2="6.5" y2="4.5" class="on"/><line x1="5.5" y1="4.5" x2="5.5" y2="5.5" class="on"/><line x1="6.5" y1="4.5" x2="7.5" y2="4.5"/><line x1="7.5" y1="4.5" x2="8.5" y2="4.5"/><line x1="7.5" y1="4.5" x2="7.5" y2="5.5"/><line x1="8.5" y1="4.5" x2="9.5" y2="4.5"/><line x1="9.5" y1="4.5" x2="10.5" y2="4.5"/><line x1="10.5" y1="4.5" x2="10.5" y2="5.5"/><line x1="0.5" y1="5.5" x2="0.5" y2="6.5"/><line x1="3.5" y1="5.5" x2="3.5" y2="6.5"/><line x1="5.5" y1="5.5" x2="5.5" y2="6.5" class="on"/><line x1="7.5" y1="5.5" x2="7.5" y2="6.5"/><line x1="10.5" y1="5.5" x2="10.5" y2="6.5"/><line x1="0.5" y1="6.5" x2="1.5" y2="6.5"/><line x1="1.5" y1="6.5" x2="2.5" y2="6.5"/><line x1="1.5" y1="6.5" x2="1.5" y2="7.5"/><line x1="2.5" y1="6.5" x2="3.5" y2="6.5" class="on"/><line x1="3.5" y1="6.5" x2="4.5" y2="6.5" class="on"/><line x1="4.5" y1="6.5" x2="5.5" y2="6.5" class="on"/><line x1="4.5" y1="6.5" x2="4.5" y2="7.5"/><line x1="5.5" y1="6.5" x2="6.5" y2="6.5" class="on"/><line x1="6.5" y1="6.5" x2="7.5" y2="6.5"/><line x1="6.5" y1="6.5" x2="6.5" y2="7.5" class="on"/><line x1="7.5" y1="6.5" x2="8.5" y2="6.5"/><line x1="8.5" y1="6.5" x2="9.5" y2="6.5"/><line x1="9.5" y1="6.5" x2="10.5" y2="6.5"/><line x1="9.5" y1="6.5" x2="9.5" y2="7.5"/><line x1="1.5" y1="7.5" x2="1.5" y2="8.5"/><line x1="4.5" y1="7.5" x2="4.5" y2="8.5"/><line x1="6.5" y1="7.5" x2="6.5" y2="8.5" class="on"/><line x1="9.5" y1="7.5" x2="9.5" y2="8.5"/><line x1="0.5" y1="8.5" x2="1.5" y2="8.5"/><line x1="0.5" y1="8.5" x2="0.5" y2="9.5"/><line x1="1.5" y1="8.5" x2="2.5" y2="8.5"/><line x1="2.5" y1="8.5" x2="3.5" y2="8.5"/><line x1="2.5" y1="8.5" x2="2.5" y2="9.5"/><line x1="3.5" y1="8.5" x2="4.5" y2="8.5"/><line x1="4.5" y1="8.5" x2="5.5" y2="8.5"/><line x1="4.5" y1="8.5" x2="4.5" y2="9.5"/><line x1="5.5" y1="8.5" x2="6.5" y2="8.5"/><line x1="6.5" y1="8.5" x2="6.5" y2="9.5" class="on"/><line x1="8.5" y1="8.5" x2="9.5" y2="8.5"/><line x1="8.5" y1="8.5" x2="8.5" y2="9.5"/><line x1="9.5" y1="8.5" x2="10.5" y2="8.5"/><line x1="10.5" y1="8.5" x2="10.5" y2="9.5"/><line x1="0.5" y1="9.5" x2="0.5" y2="10.5"/><line x1="2.5" y1="9.5" x2="2.5" y2="10.5"/><line x1="4.5" y1="9.5" x2="4.5" y2="10.5"/><line x1="6.5" y1="9.5" x2="7.5" y2="9.5" class="on"/><line x1="6.5" y1="9.5" x2="6.5" y2="10.5"/><line x1="7.5" y1="9.5" x2="8.5" y2="9.5" class="on"/><line x1="8.5" y1="9.5" x2="8.5" y2="10.5" class="on"/><line x1="10.5" y1="9.5" x2="10.5" y2="10.5"/><line x1="0.5" y1="10.5" x2="1.5" y2="10.5"/><line x1="1.5" y1="10.5" x2="2.5" y2="10.5"/><line x1="2.5" y1="10.5" x2="3.5" y2="10.5"/><line x1="3.5" y1="10.5" x2="4.5" y2="10.5"/><line x1="4.5" y1="10.5" x2="5.5" y2="10.5"/><line x1="5.5" y1="10.5" x2="6.5" y2="10.5"/><line x1="8.5" y1="10.5" x2="9.5" y2="10.5" class="on"/><line x1="9.5" y1="10.5" x2="10.5" y2="10.5" class="on"/></svg>
+<span class="dvb-n g41 on st" style="left:4.55%;top:4.55%" data-sk="dv:amplifycriticaldamage:4:"></span><span class="dvb-n g11 on st" style="left:13.64%;top:4.55%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g21 on" style="left:22.73%;top:4.55%" data-sk="warm-benediction"><img src="../../assets/icons/cleric/warm-benediction.webp" alt="暖かな加護" loading="lazy"></span><span class="dvb-n g11 st" style="left:40.91%;top:4.55%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g31" style="left:50.00%;top:4.55%" data-sk="lightning-strike-scattershot"><img src="../../assets/icons/cleric/lightning-strike-scattershot.webp" alt="稲妻乱射" loading="lazy"></span><span class="dvb-n g11 st" style="left:59.09%;top:4.55%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g21" style="left:68.18%;top:4.55%" data-sk="empyrean-lords-grace"><img src="../../assets/icons/cleric/empyrean-lords-grace.webp" alt="神の恩恵" loading="lazy"></span><span class="dvb-n g11 st" style="left:77.27%;top:4.55%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:4.55%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g41 st" style="left:95.45%;top:4.55%" data-sk="dv:decreasecriticaldamage:4:"></span><span class="dvb-n g11 st" style="left:4.55%;top:13.64%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:22.73%;top:13.64%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:31.82%;top:13.64%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:13.64%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:59.09%;top:13.64%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:77.27%;top:13.64%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:13.64%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:4.55%;top:22.73%" data-sk="dv:defense:1:"></span><span class="dvb-n g31" style="left:13.64%;top:22.73%" data-sk="debilitating-mark"><img src="../../assets/icons/cleric/debilitating-mark.webp" alt="弱化の烙印" loading="lazy"></span><span class="dvb-n g11 st" style="left:22.73%;top:22.73%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g31 on" style="left:40.91%;top:22.73%" data-sk="radiant-recovery"><img src="../../assets/icons/cleric/radiant-recovery.webp" alt="快癒の光輝" loading="lazy"></span><span class="dvb-n g11 on st" style="left:50.00%;top:22.73%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:59.09%;top:22.73%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 on st" style="left:68.18%;top:22.73%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g31 on" style="left:77.27%;top:22.73%" data-sk="condemnation"><img src="../../assets/icons/cleric/condemnation.webp" alt="断罪" loading="lazy"></span><span class="dvb-n g11 st" style="left:86.36%;top:22.73%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g21" style="left:95.45%;top:22.73%" data-sk="immortal-veil"><img src="../../assets/icons/cleric/immortal-veil.webp" alt="不死の帳" loading="lazy"></span><span class="dvb-n g11 st" style="left:13.64%;top:31.82%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:40.91%;top:31.82%" data-sk="dv:critical:1:"></span><span class="dvb-n g21 on" style="left:59.09%;top:31.82%" data-sk="earths-grace"><img src="../../assets/icons/cleric/earths-grace.webp" alt="大地の恩恵" loading="lazy"></span><span class="dvb-n g11 st" style="left:86.36%;top:31.82%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:4.55%;top:40.91%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:13.64%;top:40.91%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:22.73%;top:40.91%" data-sk="dv:defense:1:"></span><span class="dvb-n g21" style="left:31.82%;top:40.91%" data-sk="survival-willpower"><img src="../../assets/icons/cleric/survival-willpower.webp" alt="生存意志" loading="lazy"></span><span class="dvb-n g11 st" style="left:40.91%;top:40.91%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:50.00%;top:40.91%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:59.09%;top:40.91%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:68.18%;top:40.91%" data-sk="dv:defense:1:"></span><span class="dvb-n g31" style="left:77.27%;top:40.91%" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/chain-of-torment.webp" alt="苦痛の連鎖" loading="lazy"></span><span class="dvb-n g11 st" style="left:86.36%;top:40.91%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:40.91%" data-sk="dv:critical:1:"></span><span class="dvb-n g31" style="left:4.55%;top:50.00%" data-sk="light-of-regeneration"><img src="../../assets/icons/cleric/light-of-regeneration.webp" alt="再生の光" loading="lazy"></span><span class="dvb-n g11 st" style="left:31.82%;top:50.00%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g0 on start" style="left:50.00%;top:50.00%" data-sk="dv::0:730113"></span><span class="dvb-n g11 st" style="left:68.18%;top:50.00%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g31" style="left:95.45%;top:50.00%" data-sk="earths-retribution"><img src="../../assets/icons/cleric/earths-retribution.webp" alt="大地の裁き" loading="lazy"></span><span class="dvb-n g11 st" style="left:4.55%;top:59.09%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:13.64%;top:59.09%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31 on" style="left:22.73%;top:59.09%" data-sk="bolt"><img src="../../assets/icons/cleric/bolt.webp" alt="霹靂" loading="lazy"></span><span class="dvb-n g11 on st" style="left:31.82%;top:59.09%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:40.91%;top:59.09%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:50.00%;top:59.09%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:59.09%;top:59.09%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21" style="left:68.18%;top:59.09%" data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" alt="煌めく加護" loading="lazy"></span><span class="dvb-n g11 st" style="left:77.27%;top:59.09%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:59.09%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:59.09%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:13.64%;top:68.18%" data-sk="dv:critical:1:"></span><span class="dvb-n g21" style="left:40.91%;top:68.18%" data-sk="heal-block"><img src="../../assets/icons/cleric/heal-block.webp" alt="回復遮断" loading="lazy"></span><span class="dvb-n g11 on st" style="left:59.09%;top:68.18%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:86.36%;top:68.18%" data-sk="dv:critical:1:"></span><span class="dvb-n g21" style="left:4.55%;top:77.27%" data-sk="prayer-of-concentration"><img src="../../assets/icons/cleric/prayer-of-concentration.webp" alt="集中の祈り" loading="lazy"></span><span class="dvb-n g11 st" style="left:13.64%;top:77.27%" data-sk="dv:defense:1:"></span><span class="dvb-n g31" style="left:22.73%;top:77.27%" data-sk="judgment-thunder"><img src="../../assets/icons/cleric/judgment-thunder.webp" alt="審判の雷" loading="lazy"></span><span class="dvb-n g11 st" style="left:31.82%;top:77.27%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:40.91%;top:77.27%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:77.27%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31 on" style="left:59.09%;top:77.27%" data-sk="divine-aura"><img src="../../assets/icons/cleric/divine-aura.webp" alt="神聖な気" loading="lazy"></span><span class="dvb-n g11 st" style="left:77.27%;top:77.27%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31" style="left:86.36%;top:77.27%" data-sk="healing-light"><img src="../../assets/icons/cleric/healing-light.webp" alt="治癒の光" loading="lazy"></span><span class="dvb-n g11 st" style="left:95.45%;top:77.27%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:4.55%;top:86.36%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:22.73%;top:86.36%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:40.91%;top:86.36%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:59.09%;top:86.36%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:68.18%;top:86.36%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 on st" style="left:77.27%;top:86.36%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:95.45%;top:86.36%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g41 st" style="left:4.55%;top:95.45%" data-sk="dv:decreasecriticaldamage:4:"></span><span class="dvb-n g11 st" style="left:13.64%;top:95.45%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:22.73%;top:95.45%" data-sk="dv:critical:1:"></span><span class="dvb-n g21" style="left:31.82%;top:95.45%" data-sk="healing-enhancement"><img src="../../assets/icons/cleric/healing-enhancement.webp" alt="治癒力強化" loading="lazy"></span><span class="dvb-n g11 st" style="left:40.91%;top:95.45%" data-sk="dv:defense:1:"></span><span class="dvb-n g31" style="left:50.00%;top:95.45%" data-sk="defiance"><img src="../../assets/icons/cleric/defiance.webp" alt="衝撃解除" loading="lazy"></span><span class="dvb-n g11 st" style="left:59.09%;top:95.45%" data-sk="dv:critical:1:"></span><span class="dvb-n g21 on" style="left:77.27%;top:95.45%" data-sk="empyrean-lords-benediction"><img src="../../assets/icons/cleric/empyrean-lords-benediction.webp" alt="神の加護" loading="lazy"></span><span class="dvb-n g11 on st" style="left:86.36%;top:95.45%" data-sk="dv:critical:1:"></span><span class="dvb-n g41 on st" style="left:95.45%;top:95.45%" data-sk="dv:amplifycriticaldamage:4:"></span>    </div></div>
+  </div>
+  <div class="dvb-panel" role="tabpanel" id="dvp-pve-74" aria-labelledby="dvt-pve-74" hidden>
+    <div class="dvb-frame"><div class="dvb-stage" style="aspect-ratio:13 / 13">
+      <svg class="dvb-svg" viewBox="0 0 13 13" preserveAspectRatio="none" aria-hidden="true"><line x1="0.5" y1="0.5" x2="1.5" y2="0.5"/><line x1="0.5" y1="0.5" x2="0.5" y2="1.5"/><line x1="1.5" y1="0.5" x2="2.5" y2="0.5"/><line x1="2.5" y1="0.5" x2="2.5" y2="1.5"/><line x1="5.5" y1="0.5" x2="6.5" y2="0.5" class="on"/><line x1="5.5" y1="0.5" x2="5.5" y2="1.5" class="on"/><line x1="6.5" y1="0.5" x2="7.5" y2="0.5"/><line x1="7.5" y1="0.5" x2="7.5" y2="1.5"/><line x1="10.5" y1="0.5" x2="11.5" y2="0.5"/><line x1="10.5" y1="0.5" x2="10.5" y2="1.5"/><line x1="11.5" y1="0.5" x2="12.5" y2="0.5"/><line x1="12.5" y1="0.5" x2="12.5" y2="1.5"/><line x1="0.5" y1="1.5" x2="0.5" y2="2.5"/><line x1="2.5" y1="1.5" x2="3.5" y2="1.5" class="on"/><line x1="2.5" y1="1.5" x2="2.5" y2="2.5" class="on"/><line x1="3.5" y1="1.5" x2="4.5" y2="1.5" class="on"/><line x1="4.5" y1="1.5" x2="5.5" y2="1.5" class="on"/><line x1="5.5" y1="1.5" x2="5.5" y2="2.5"/><line x1="7.5" y1="1.5" x2="8.5" y2="1.5"/><line x1="7.5" y1="1.5" x2="7.5" y2="2.5"/><line x1="8.5" y1="1.5" x2="9.5" y2="1.5"/><line x1="9.5" y1="1.5" x2="10.5" y2="1.5"/><line x1="10.5" y1="1.5" x2="10.5" y2="2.5"/><line x1="12.5" y1="1.5" x2="12.5" y2="2.5"/><line x1="0.5" y1="2.5" x2="0.5" y2="3.5"/><line x1="2.5" y1="2.5" x2="2.5" y2="3.5" class="on"/><line x1="5.5" y1="2.5" x2="6.5" y2="2.5"/><line x1="5.5" y1="2.5" x2="5.5" y2="3.5"/><line x1="6.5" y1="2.5" x2="7.5" y2="2.5"/><line x1="7.5" y1="2.5" x2="7.5" y2="3.5"/><line x1="10.5" y1="2.5" x2="10.5" y2="3.5"/><line x1="12.5" y1="2.5" x2="12.5" y2="3.5"/><line x1="0.5" y1="3.5" x2="1.5" y2="3.5"/><line x1="1.5" y1="3.5" x2="2.5" y2="3.5"/><line x1="2.5" y1="3.5" x2="3.5" y2="3.5"/><line x1="2.5" y1="3.5" x2="2.5" y2="4.5" class="on"/><line x1="3.5" y1="3.5" x2="4.5" y2="3.5"/><line x1="4.5" y1="3.5" x2="5.5" y2="3.5"/><line x1="4.5" y1="3.5" x2="4.5" y2="4.5"/><line x1="7.5" y1="3.5" x2="8.5" y2="3.5"/><line x1="8.5" y1="3.5" x2="9.5" y2="3.5"/><line x1="8.5" y1="3.5" x2="8.5" y2="4.5"/><line x1="9.5" y1="3.5" x2="10.5" y2="3.5"/><line x1="10.5" y1="3.5" x2="11.5" y2="3.5"/><line x1="11.5" y1="3.5" x2="12.5" y2="3.5"/><line x1="11.5" y1="3.5" x2="11.5" y2="4.5"/><line x1="2.5" y1="4.5" x2="2.5" y2="5.5" class="on"/><line x1="4.5" y1="4.5" x2="4.5" y2="5.5"/><line x1="8.5" y1="4.5" x2="8.5" y2="5.5"/><line x1="11.5" y1="4.5" x2="11.5" y2="5.5"/><line x1="0.5" y1="5.5" x2="1.5" y2="5.5"/><line x1="0.5" y1="5.5" x2="0.5" y2="6.5"/><line x1="1.5" y1="5.5" x2="2.5" y2="5.5"/><line x1="2.5" y1="5.5" x2="3.5" y2="5.5" class="on"/><line x1="2.5" y1="5.5" x2="2.5" y2="6.5" class="on"/><line x1="3.5" y1="5.5" x2="4.5" y2="5.5" class="on"/><line x1="4.5" y1="5.5" x2="5.5" y2="5.5" class="on"/><line x1="4.5" y1="5.5" x2="4.5" y2="6.5"/><line x1="5.5" y1="5.5" x2="6.5" y2="5.5" class="on"/><line x1="6.5" y1="5.5" x2="7.5" y2="5.5" class="on"/><line x1="6.5" y1="5.5" x2="6.5" y2="6.5" class="on"/><line x1="7.5" y1="5.5" x2="8.5" y2="5.5" class="on"/><line x1="8.5" y1="5.5" x2="9.5" y2="5.5" class="on"/><line x1="8.5" y1="5.5" x2="8.5" y2="6.5"/><line x1="9.5" y1="5.5" x2="10.5" y2="5.5" class="on"/><line x1="10.5" y1="5.5" x2="11.5" y2="5.5" class="on"/><line x1="10.5" y1="5.5" x2="10.5" y2="6.5" class="on"/><line x1="11.5" y1="5.5" x2="12.5" y2="5.5" class="on"/><line x1="12.5" y1="5.5" x2="12.5" y2="6.5" class="on"/><line x1="0.5" y1="6.5" x2="0.5" y2="7.5"/><line x1="2.5" y1="6.5" x2="2.5" y2="7.5" class="on"/><line x1="4.5" y1="6.5" x2="4.5" y2="7.5"/><line x1="6.5" y1="6.5" x2="6.5" y2="7.5"/><line x1="8.5" y1="6.5" x2="8.5" y2="7.5"/><line x1="10.5" y1="6.5" x2="10.5" y2="7.5" class="on"/><line x1="12.5" y1="6.5" x2="12.5" y2="7.5"/><line x1="0.5" y1="7.5" x2="1.5" y2="7.5"/><line x1="1.5" y1="7.5" x2="2.5" y2="7.5" class="on"/><line x1="1.5" y1="7.5" x2="1.5" y2="8.5" class="on"/><line x1="2.5" y1="7.5" x2="3.5" y2="7.5"/><line x1="3.5" y1="7.5" x2="4.5" y2="7.5"/><line x1="4.5" y1="7.5" x2="5.5" y2="7.5"/><line x1="4.5" y1="7.5" x2="4.5" y2="8.5"/><line x1="5.5" y1="7.5" x2="6.5" y2="7.5"/><line x1="6.5" y1="7.5" x2="7.5" y2="7.5"/><line x1="7.5" y1="7.5" x2="8.5" y2="7.5"/><line x1="8.5" y1="7.5" x2="9.5" y2="7.5"/><line x1="8.5" y1="7.5" x2="8.5" y2="8.5"/><line x1="9.5" y1="7.5" x2="10.5" y2="7.5"/><line x1="10.5" y1="7.5" x2="11.5" y2="7.5"/><line x1="10.5" y1="7.5" x2="10.5" y2="8.5" class="on"/><line x1="11.5" y1="7.5" x2="12.5" y2="7.5"/><line x1="1.5" y1="8.5" x2="1.5" y2="9.5" class="on"/><line x1="4.5" y1="8.5" x2="4.5" y2="9.5"/><line x1="8.5" y1="8.5" x2="8.5" y2="9.5"/><line x1="10.5" y1="8.5" x2="10.5" y2="9.5" class="on"/><line x1="0.5" y1="9.5" x2="1.5" y2="9.5" class="on"/><line x1="0.5" y1="9.5" x2="0.5" y2="10.5" class="on"/><line x1="1.5" y1="9.5" x2="2.5" y2="9.5"/><line x1="2.5" y1="9.5" x2="3.5" y2="9.5"/><line x1="2.5" y1="9.5" x2="2.5" y2="10.5"/><line x1="3.5" y1="9.5" x2="4.5" y2="9.5"/><line x1="4.5" y1="9.5" x2="5.5" y2="9.5"/><line x1="5.5" y1="9.5" x2="5.5" y2="10.5"/><line x1="7.5" y1="9.5" x2="8.5" y2="9.5"/><line x1="7.5" y1="9.5" x2="7.5" y2="10.5"/><line x1="8.5" y1="9.5" x2="9.5" y2="9.5"/><line x1="9.5" y1="9.5" x2="10.5" y2="9.5"/><line x1="10.5" y1="9.5" x2="11.5" y2="9.5" class="on"/><line x1="10.5" y1="9.5" x2="10.5" y2="10.5"/><line x1="11.5" y1="9.5" x2="12.5" y2="9.5" class="on"/><line x1="12.5" y1="9.5" x2="12.5" y2="10.5" class="on"/><line x1="0.5" y1="10.5" x2="0.5" y2="11.5" class="on"/><line x1="2.5" y1="10.5" x2="2.5" y2="11.5"/><line x1="5.5" y1="10.5" x2="6.5" y2="10.5"/><line x1="5.5" y1="10.5" x2="5.5" y2="11.5"/><line x1="6.5" y1="10.5" x2="7.5" y2="10.5"/><line x1="7.5" y1="10.5" x2="7.5" y2="11.5"/><line x1="10.5" y1="10.5" x2="10.5" y2="11.5"/><line x1="12.5" y1="10.5" x2="12.5" y2="11.5" class="on"/><line x1="0.5" y1="11.5" x2="0.5" y2="12.5" class="on"/><line x1="2.5" y1="11.5" x2="3.5" y2="11.5"/><line x1="2.5" y1="11.5" x2="2.5" y2="12.5"/><line x1="3.5" y1="11.5" x2="4.5" y2="11.5"/><line x1="4.5" y1="11.5" x2="5.5" y2="11.5"/><line x1="5.5" y1="11.5" x2="5.5" y2="12.5"/><line x1="7.5" y1="11.5" x2="8.5" y2="11.5"/><line x1="7.5" y1="11.5" x2="7.5" y2="12.5"/><line x1="8.5" y1="11.5" x2="9.5" y2="11.5"/><line x1="9.5" y1="11.5" x2="10.5" y2="11.5"/><line x1="10.5" y1="11.5" x2="10.5" y2="12.5"/><line x1="12.5" y1="11.5" x2="12.5" y2="12.5" class="on"/><line x1="0.5" y1="12.5" x2="1.5" y2="12.5"/><line x1="1.5" y1="12.5" x2="2.5" y2="12.5"/><line x1="5.5" y1="12.5" x2="6.5" y2="12.5"/><line x1="6.5" y1="12.5" x2="7.5" y2="12.5"/><line x1="10.5" y1="12.5" x2="11.5" y2="12.5"/><line x1="11.5" y1="12.5" x2="12.5" y2="12.5"/></svg>
+<span class="dvb-n g41 st" style="left:3.85%;top:3.85%" data-sk="dv:additionalhitresistrate:4:"></span><span class="dvb-n g11 st" style="left:11.54%;top:3.85%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:19.23%;top:3.85%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:42.31%;top:3.85%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g41 on st" style="left:50.00%;top:3.85%" data-sk="dv:additionalhitrate:4:"></span><span class="dvb-n g11 st" style="left:57.69%;top:3.85%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:80.77%;top:3.85%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:88.46%;top:3.85%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g41 st" style="left:96.15%;top:3.85%" data-sk="dv:additionalhitresistrate:4:"></span><span class="dvb-n g11 st" style="left:3.85%;top:11.54%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31 on" style="left:19.23%;top:11.54%" data-sk="divine-aura"><img src="../../assets/icons/cleric/divine-aura.webp" alt="神聖な気" loading="lazy"></span><span class="dvb-n g11 on st" style="left:26.92%;top:11.54%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 on st" style="left:34.62%;top:11.54%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g21 on" style="left:42.31%;top:11.54%" data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" alt="煌めく加護" loading="lazy"></span><span class="dvb-n g21" style="left:57.69%;top:11.54%" data-sk="heal-block"><img src="../../assets/icons/cleric/heal-block.webp" alt="回復遮断" loading="lazy"></span><span class="dvb-n g11 st" style="left:65.38%;top:11.54%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:73.08%;top:11.54%" data-sk="dv:critical:1:"></span><span class="dvb-n g31" style="left:80.77%;top:11.54%" data-sk="judgment-thunder"><img src="../../assets/icons/cleric/judgment-thunder.webp" alt="審判の雷" loading="lazy"></span><span class="dvb-n g11 st" style="left:96.15%;top:11.54%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:3.85%;top:19.23%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:19.23%;top:19.23%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:42.31%;top:19.23%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:19.23%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:57.69%;top:19.23%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:80.77%;top:19.23%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:96.15%;top:19.23%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g31" style="left:3.85%;top:26.92%" data-sk="lightning-strike-scattershot"><img src="../../assets/icons/cleric/lightning-strike-scattershot.webp" alt="稲妻乱射" loading="lazy"></span><span class="dvb-n g11 st" style="left:11.54%;top:26.92%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 on st" style="left:19.23%;top:26.92%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21" style="left:26.92%;top:26.92%" data-sk="empyrean-lords-benediction"><img src="../../assets/icons/cleric/empyrean-lords-benediction.webp" alt="神の加護" loading="lazy"></span><span class="dvb-n g11 st" style="left:34.62%;top:26.92%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:42.31%;top:26.92%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:57.69%;top:26.92%" data-sk="dv:defense:1:"></span><span class="dvb-n g31" style="left:65.38%;top:26.92%" data-sk="healing-light"><img src="../../assets/icons/cleric/healing-light.webp" alt="治癒の光" loading="lazy"></span><span class="dvb-n g11 st" style="left:73.08%;top:26.92%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:80.77%;top:26.92%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:88.46%;top:26.92%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21" style="left:96.15%;top:26.92%" data-sk="healing-enhancement"><img src="../../assets/icons/cleric/healing-enhancement.webp" alt="治癒力強化" loading="lazy"></span><span class="dvb-n g11 on st" style="left:19.23%;top:34.62%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:34.62%;top:34.62%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:65.38%;top:34.62%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:88.46%;top:34.62%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:3.85%;top:42.31%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:11.54%;top:42.31%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:19.23%;top:42.31%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:26.92%;top:42.31%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g31 on" style="left:34.62%;top:42.31%" data-sk="condemnation"><img src="../../assets/icons/cleric/condemnation.webp" alt="断罪" loading="lazy"></span><span class="dvb-n g11 on st" style="left:42.31%;top:42.31%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 on st" style="left:50.00%;top:42.31%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:57.69%;top:42.31%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 on st" style="left:65.38%;top:42.31%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 on st" style="left:73.08%;top:42.31%" data-sk="dv:critical:1:"></span><span class="dvb-n g21 on" style="left:80.77%;top:42.31%" data-sk="prayer-of-concentration"><img src="../../assets/icons/cleric/prayer-of-concentration.webp" alt="集中の祈り" loading="lazy"></span><span class="dvb-n g11 on st" style="left:88.46%;top:42.31%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:96.15%;top:42.31%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g31" style="left:3.85%;top:50.00%" data-sk="radiant-recovery"><img src="../../assets/icons/cleric/radiant-recovery.webp" alt="快癒の光輝" loading="lazy"></span><span class="dvb-n g11 on st" style="left:19.23%;top:50.00%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:34.62%;top:50.00%" data-sk="dv:defense:1:"></span><span class="dvb-n g0 on start" style="left:50.00%;top:50.00%" data-sk="dv::0:740113"></span><span class="dvb-n g11 st" style="left:65.38%;top:50.00%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 on st" style="left:80.77%;top:50.00%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g31 on" style="left:96.15%;top:50.00%" data-sk="bolt"><img src="../../assets/icons/cleric/bolt.webp" alt="霹靂" loading="lazy"></span><span class="dvb-n g11 st" style="left:3.85%;top:57.69%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:11.54%;top:57.69%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g21 on" style="left:19.23%;top:57.69%" data-sk="immortal-veil"><img src="../../assets/icons/cleric/immortal-veil.webp" alt="不死の帳" loading="lazy"></span><span class="dvb-n g11 st" style="left:26.92%;top:57.69%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:34.62%;top:57.69%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:42.31%;top:57.69%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:57.69%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:57.69%;top:57.69%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g31" style="left:65.38%;top:57.69%" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/chain-of-torment.webp" alt="苦痛の連鎖" loading="lazy"></span><span class="dvb-n g11 st" style="left:73.08%;top:57.69%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 on st" style="left:80.77%;top:57.69%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:88.46%;top:57.69%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:96.15%;top:57.69%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 on st" style="left:11.54%;top:65.38%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:34.62%;top:65.38%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:65.38%;top:65.38%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 on st" style="left:80.77%;top:65.38%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g21 on" style="left:3.85%;top:73.08%" data-sk="empyrean-lords-grace"><img src="../../assets/icons/cleric/empyrean-lords-grace.webp" alt="神の恩恵" loading="lazy"></span><span class="dvb-n g11 on st" style="left:11.54%;top:73.08%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:19.23%;top:73.08%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:26.92%;top:73.08%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g31" style="left:34.62%;top:73.08%" data-sk="light-of-regeneration"><img src="../../assets/icons/cleric/light-of-regeneration.webp" alt="再生の光" loading="lazy"></span><span class="dvb-n g11 st" style="left:42.31%;top:73.08%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:57.69%;top:73.08%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:65.38%;top:73.08%" data-sk="dv:critical:1:"></span><span class="dvb-n g21" style="left:73.08%;top:73.08%" data-sk="warm-benediction"><img src="../../assets/icons/cleric/warm-benediction.webp" alt="暖かな加護" loading="lazy"></span><span class="dvb-n g11 on st" style="left:80.77%;top:73.08%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 on st" style="left:88.46%;top:73.08%" data-sk="dv:critical:1:"></span><span class="dvb-n g31 on" style="left:96.15%;top:73.08%" data-sk="defiance"><img src="../../assets/icons/cleric/defiance.webp" alt="衝撃解除" loading="lazy"></span><span class="dvb-n g11 on st" style="left:3.85%;top:80.77%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:19.23%;top:80.77%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:42.31%;top:80.77%" data-sk="dv:critical:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:80.77%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:57.69%;top:80.77%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:80.77%;top:80.77%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 on st" style="left:96.15%;top:80.77%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 on st" style="left:3.85%;top:88.46%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g31" style="left:19.23%;top:88.46%" data-sk="debilitating-mark"><img src="../../assets/icons/cleric/debilitating-mark.webp" alt="弱化の烙印" loading="lazy"></span><span class="dvb-n g11 st" style="left:26.92%;top:88.46%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:34.62%;top:88.46%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g21" style="left:42.31%;top:88.46%" data-sk="earths-grace"><img src="../../assets/icons/cleric/earths-grace.webp" alt="大地の恩恵" loading="lazy"></span><span class="dvb-n g21" style="left:57.69%;top:88.46%" data-sk="survival-willpower"><img src="../../assets/icons/cleric/survival-willpower.webp" alt="生存意志" loading="lazy"></span><span class="dvb-n g11 st" style="left:65.38%;top:88.46%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:73.08%;top:88.46%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g31" style="left:80.77%;top:88.46%" data-sk="earths-retribution"><img src="../../assets/icons/cleric/earths-retribution.webp" alt="大地の裁き" loading="lazy"></span><span class="dvb-n g11 on st" style="left:96.15%;top:88.46%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g41 on st" style="left:3.85%;top:96.15%" data-sk="dv:additionalhitrate:4:"></span><span class="dvb-n g11 st" style="left:11.54%;top:96.15%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:19.23%;top:96.15%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g11 st" style="left:42.31%;top:96.15%" data-sk="dv:fixingdamage:1:"></span><span class="dvb-n g41 st" style="left:50.00%;top:96.15%" data-sk="dv:additionalhitresistrate:4:"></span><span class="dvb-n g11 st" style="left:57.69%;top:96.15%" data-sk="dv:defense:1:"></span><span class="dvb-n g11 st" style="left:80.77%;top:96.15%" data-sk="dv:criticalresist:1:"></span><span class="dvb-n g11 st" style="left:88.46%;top:96.15%" data-sk="dv:defense:1:"></span><span class="dvb-n g41 on st" style="left:96.15%;top:96.15%" data-sk="dv:additionalhitrate:4:"></span>    </div></div>
+  </div>
+  <div class="dvb-panel" role="tabpanel" id="dvp-pve-76" aria-labelledby="dvt-pve-76" hidden>
+    <div class="dvb-frame"><div class="dvb-stage" style="aspect-ratio:15 / 15">
+      <svg class="dvb-svg" viewBox="0 0 15 15" preserveAspectRatio="none" aria-hidden="true"><line x1="0.5" y1="0.5" x2="1.5" y2="0.5"/><line x1="0.5" y1="0.5" x2="0.5" y2="1.5"/><line x1="1.5" y1="0.5" x2="2.5" y2="0.5"/><line x1="2.5" y1="0.5" x2="3.5" y2="0.5"/><line x1="3.5" y1="0.5" x2="3.5" y2="1.5"/><line x1="5.5" y1="0.5" x2="6.5" y2="0.5"/><line x1="5.5" y1="0.5" x2="5.5" y2="1.5"/><line x1="6.5" y1="0.5" x2="7.5" y2="0.5"/><line x1="7.5" y1="0.5" x2="7.5" y2="1.5"/><line x1="9.5" y1="0.5" x2="10.5" y2="0.5"/><line x1="9.5" y1="0.5" x2="9.5" y2="1.5"/><line x1="10.5" y1="0.5" x2="11.5" y2="0.5"/><line x1="11.5" y1="0.5" x2="12.5" y2="0.5"/><line x1="12.5" y1="0.5" x2="13.5" y2="0.5"/><line x1="12.5" y1="0.5" x2="12.5" y2="1.5"/><line x1="13.5" y1="0.5" x2="14.5" y2="0.5"/><line x1="14.5" y1="0.5" x2="14.5" y2="1.5"/><line x1="0.5" y1="1.5" x2="0.5" y2="2.5"/><line x1="3.5" y1="1.5" x2="4.5" y2="1.5"/><line x1="3.5" y1="1.5" x2="3.5" y2="2.5"/><line x1="4.5" y1="1.5" x2="5.5" y2="1.5"/><line x1="5.5" y1="1.5" x2="5.5" y2="2.5"/><line x1="7.5" y1="1.5" x2="7.5" y2="2.5"/><line x1="9.5" y1="1.5" x2="9.5" y2="2.5"/><line x1="12.5" y1="1.5" x2="12.5" y2="2.5"/><line x1="14.5" y1="1.5" x2="14.5" y2="2.5"/><line x1="0.5" y1="2.5" x2="1.5" y2="2.5"/><line x1="1.5" y1="2.5" x2="2.5" y2="2.5"/><line x1="2.5" y1="2.5" x2="3.5" y2="2.5"/><line x1="2.5" y1="2.5" x2="2.5" y2="3.5"/><line x1="5.5" y1="2.5" x2="6.5" y2="2.5"/><line x1="6.5" y1="2.5" x2="7.5" y2="2.5"/><line x1="6.5" y1="2.5" x2="6.5" y2="3.5"/><line x1="7.5" y1="2.5" x2="8.5" y2="2.5"/><line x1="8.5" y1="2.5" x2="9.5" y2="2.5"/><line x1="8.5" y1="2.5" x2="8.5" y2="3.5"/><line x1="9.5" y1="2.5" x2="10.5" y2="2.5"/><line x1="10.5" y1="2.5" x2="11.5" y2="2.5"/><line x1="10.5" y1="2.5" x2="10.5" y2="3.5"/><line x1="11.5" y1="2.5" x2="12.5" y2="2.5"/><line x1="12.5" y1="2.5" x2="13.5" y2="2.5"/><line x1="12.5" y1="2.5" x2="12.5" y2="3.5"/><line x1="13.5" y1="2.5" x2="14.5" y2="2.5"/><line x1="2.5" y1="3.5" x2="2.5" y2="4.5"/><line x1="6.5" y1="3.5" x2="6.5" y2="4.5"/><line x1="8.5" y1="3.5" x2="8.5" y2="4.5"/><line x1="10.5" y1="3.5" x2="10.5" y2="4.5"/><line x1="12.5" y1="3.5" x2="12.5" y2="4.5"/><line x1="0.5" y1="4.5" x2="1.5" y2="4.5"/><line x1="0.5" y1="4.5" x2="0.5" y2="5.5"/><line x1="1.5" y1="4.5" x2="2.5" y2="4.5"/><line x1="2.5" y1="4.5" x2="2.5" y2="5.5"/><line x1="4.5" y1="4.5" x2="5.5" y2="4.5"/><line x1="4.5" y1="4.5" x2="4.5" y2="5.5"/><line x1="5.5" y1="4.5" x2="6.5" y2="4.5"/><line x1="6.5" y1="4.5" x2="7.5" y2="4.5"/><line x1="6.5" y1="4.5" x2="6.5" y2="5.5"/><line x1="7.5" y1="4.5" x2="8.5" y2="4.5"/><line x1="8.5" y1="4.5" x2="9.5" y2="4.5"/><line x1="9.5" y1="4.5" x2="10.5" y2="4.5"/><line x1="9.5" y1="4.5" x2="9.5" y2="5.5"/><line x1="10.5" y1="4.5" x2="11.5" y2="4.5"/><line x1="11.5" y1="4.5" x2="12.5" y2="4.5"/><line x1="12.5" y1="4.5" x2="12.5" y2="5.5"/><line x1="0.5" y1="5.5" x2="0.5" y2="6.5"/><line x1="2.5" y1="5.5" x2="3.5" y2="5.5"/><line x1="3.5" y1="5.5" x2="4.5" y2="5.5"/><line x1="4.5" y1="5.5" x2="4.5" y2="6.5"/><line x1="6.5" y1="5.5" x2="6.5" y2="6.5"/><line x1="9.5" y1="5.5" x2="9.5" y2="6.5"/><line x1="12.5" y1="5.5" x2="13.5" y2="5.5"/><line x1="12.5" y1="5.5" x2="12.5" y2="6.5"/><line x1="13.5" y1="5.5" x2="14.5" y2="5.5"/><line x1="14.5" y1="5.5" x2="14.5" y2="6.5"/><line x1="0.5" y1="6.5" x2="0.5" y2="7.5"/><line x1="4.5" y1="6.5" x2="5.5" y2="6.5"/><line x1="5.5" y1="6.5" x2="6.5" y2="6.5"/><line x1="5.5" y1="6.5" x2="5.5" y2="7.5"/><line x1="6.5" y1="6.5" x2="7.5" y2="6.5"/><line x1="7.5" y1="6.5" x2="8.5" y2="6.5"/><line x1="7.5" y1="6.5" x2="7.5" y2="7.5"/><line x1="8.5" y1="6.5" x2="9.5" y2="6.5"/><line x1="9.5" y1="6.5" x2="10.5" y2="6.5"/><line x1="9.5" y1="6.5" x2="9.5" y2="7.5"/><line x1="10.5" y1="6.5" x2="11.5" y2="6.5"/><line x1="11.5" y1="6.5" x2="12.5" y2="6.5"/><line x1="12.5" y1="6.5" x2="12.5" y2="7.5"/><line x1="14.5" y1="6.5" x2="14.5" y2="7.5"/><line x1="0.5" y1="7.5" x2="1.5" y2="7.5"/><line x1="0.5" y1="7.5" x2="0.5" y2="8.5"/><line x1="1.5" y1="7.5" x2="2.5" y2="7.5"/><line x1="2.5" y1="7.5" x2="2.5" y2="8.5"/><line x1="5.5" y1="7.5" x2="5.5" y2="8.5"/><line x1="7.5" y1="7.5" x2="7.5" y2="8.5"/><line x1="9.5" y1="7.5" x2="9.5" y2="8.5"/><line x1="12.5" y1="7.5" x2="13.5" y2="7.5"/><line x1="13.5" y1="7.5" x2="14.5" y2="7.5"/><line x1="14.5" y1="7.5" x2="14.5" y2="8.5"/><line x1="0.5" y1="8.5" x2="0.5" y2="9.5"/><line x1="2.5" y1="8.5" x2="3.5" y2="8.5"/><line x1="2.5" y1="8.5" x2="2.5" y2="9.5"/><line x1="3.5" y1="8.5" x2="4.5" y2="8.5"/><line x1="4.5" y1="8.5" x2="5.5" y2="8.5"/><line x1="5.5" y1="8.5" x2="6.5" y2="8.5"/><line x1="5.5" y1="8.5" x2="5.5" y2="9.5"/><line x1="6.5" y1="8.5" x2="7.5" y2="8.5"/><line x1="7.5" y1="8.5" x2="8.5" y2="8.5"/><line x1="8.5" y1="8.5" x2="9.5" y2="8.5"/><line x1="8.5" y1="8.5" x2="8.5" y2="9.5"/><line x1="9.5" y1="8.5" x2="10.5" y2="8.5"/><line x1="10.5" y1="8.5" x2="10.5" y2="9.5"/><line x1="14.5" y1="8.5" x2="14.5" y2="9.5"/><line x1="0.5" y1="9.5" x2="1.5" y2="9.5"/><line x1="1.5" y1="9.5" x2="2.5" y2="9.5"/><line x1="2.5" y1="9.5" x2="2.5" y2="10.5"/><line x1="5.5" y1="9.5" x2="5.5" y2="10.5"/><line x1="8.5" y1="9.5" x2="8.5" y2="10.5"/><line x1="10.5" y1="9.5" x2="11.5" y2="9.5"/><line x1="10.5" y1="9.5" x2="10.5" y2="10.5"/><line x1="11.5" y1="9.5" x2="12.5" y2="9.5"/><line x1="12.5" y1="9.5" x2="12.5" y2="10.5"/><line x1="14.5" y1="9.5" x2="14.5" y2="10.5"/><line x1="2.5" y1="10.5" x2="3.5" y2="10.5"/><line x1="2.5" y1="10.5" x2="2.5" y2="11.5"/><line x1="3.5" y1="10.5" x2="4.5" y2="10.5"/><line x1="4.5" y1="10.5" x2="5.5" y2="10.5"/><line x1="4.5" y1="10.5" x2="4.5" y2="11.5"/><line x1="5.5" y1="10.5" x2="6.5" y2="10.5"/><line x1="6.5" y1="10.5" x2="7.5" y2="10.5"/><line x1="6.5" y1="10.5" x2="6.5" y2="11.5"/><line x1="7.5" y1="10.5" x2="8.5" y2="10.5"/><line x1="8.5" y1="10.5" x2="9.5" y2="10.5"/><line x1="8.5" y1="10.5" x2="8.5" y2="11.5"/><line x1="9.5" y1="10.5" x2="10.5" y2="10.5"/><line x1="12.5" y1="10.5" x2="13.5" y2="10.5"/><line x1="12.5" y1="10.5" x2="12.5" y2="11.5"/><line x1="13.5" y1="10.5" x2="14.5" y2="10.5"/><line x1="2.5" y1="11.5" x2="2.5" y2="12.5"/><line x1="4.5" y1="11.5" x2="4.5" y2="12.5"/><line x1="6.5" y1="11.5" x2="6.5" y2="12.5"/><line x1="8.5" y1="11.5" x2="8.5" y2="12.5"/><line x1="12.5" y1="11.5" x2="12.5" y2="12.5"/><line x1="0.5" y1="12.5" x2="1.5" y2="12.5"/><line x1="0.5" y1="12.5" x2="0.5" y2="13.5"/><line x1="1.5" y1="12.5" x2="2.5" y2="12.5"/><line x1="2.5" y1="12.5" x2="3.5" y2="12.5"/><line x1="2.5" y1="12.5" x2="2.5" y2="13.5"/><line x1="3.5" y1="12.5" x2="4.5" y2="12.5"/><line x1="4.5" y1="12.5" x2="5.5" y2="12.5"/><line x1="5.5" y1="12.5" x2="6.5" y2="12.5"/><line x1="5.5" y1="12.5" x2="5.5" y2="13.5"/><line x1="6.5" y1="12.5" x2="7.5" y2="12.5"/><line x1="7.5" y1="12.5" x2="8.5" y2="12.5"/><line x1="7.5" y1="12.5" x2="7.5" y2="13.5"/><line x1="8.5" y1="12.5" x2="9.5" y2="12.5"/><line x1="9.5" y1="12.5" x2="9.5" y2="13.5"/><line x1="11.5" y1="12.5" x2="12.5" y2="12.5"/><line x1="11.5" y1="12.5" x2="11.5" y2="13.5"/><line x1="12.5" y1="12.5" x2="13.5" y2="12.5"/><line x1="13.5" y1="12.5" x2="14.5" y2="12.5"/><line x1="14.5" y1="12.5" x2="14.5" y2="13.5"/><line x1="0.5" y1="13.5" x2="0.5" y2="14.5"/><line x1="2.5" y1="13.5" x2="2.5" y2="14.5"/><line x1="5.5" y1="13.5" x2="5.5" y2="14.5"/><line x1="7.5" y1="13.5" x2="7.5" y2="14.5"/><line x1="9.5" y1="13.5" x2="10.5" y2="13.5"/><line x1="9.5" y1="13.5" x2="9.5" y2="14.5"/><line x1="10.5" y1="13.5" x2="11.5" y2="13.5"/><line x1="11.5" y1="13.5" x2="11.5" y2="14.5"/><line x1="14.5" y1="13.5" x2="14.5" y2="14.5"/><line x1="0.5" y1="14.5" x2="1.5" y2="14.5"/><line x1="1.5" y1="14.5" x2="2.5" y2="14.5"/><line x1="2.5" y1="14.5" x2="3.5" y2="14.5"/><line x1="3.5" y1="14.5" x2="4.5" y2="14.5"/><line x1="4.5" y1="14.5" x2="5.5" y2="14.5"/><line x1="7.5" y1="14.5" x2="8.5" y2="14.5"/><line x1="8.5" y1="14.5" x2="9.5" y2="14.5"/><line x1="11.5" y1="14.5" x2="12.5" y2="14.5"/><line x1="12.5" y1="14.5" x2="13.5" y2="14.5"/><line x1="13.5" y1="14.5" x2="14.5" y2="14.5"/></svg>
+<span class="dvb-n g41 st" style="left:3.33%;top:3.33%" data-sk="dv:pvpdecreasedamage:4:"></span><span class="dvb-n g11 st" style="left:10.00%;top:3.33%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:16.67%;top:3.33%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g31 st" style="left:23.33%;top:3.33%" data-sk="dv:abnormalaccuracy:3:"></span><span class="dvb-n g21 st" style="left:36.67%;top:3.33%" data-sk="dv:pvpcritical+pvpcriticalresist:2:"></span><span class="dvb-n g11 st" style="left:43.33%;top:3.33%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g41 st" style="left:50.00%;top:3.33%" data-sk="dv:pvpdecreasedamage:4:"></span><span class="dvb-n g21 st" style="left:63.33%;top:3.33%" data-sk="dv:pvpcritical+pvpcriticalresist:2:"></span><span class="dvb-n g11 st" style="left:70.00%;top:3.33%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g31 st" style="left:76.67%;top:3.33%" data-sk="dv:abnormalresistance:3:"></span><span class="dvb-n g11 st" style="left:83.33%;top:3.33%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g11 st" style="left:90.00%;top:3.33%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g41 st" style="left:96.67%;top:3.33%" data-sk="dv:pvpamplifydamage:4:"></span><span class="dvb-n g11 st" style="left:3.33%;top:10.00%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:23.33%;top:10.00%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:30.00%;top:10.00%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:36.67%;top:10.00%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:10.00%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:63.33%;top:10.00%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:83.33%;top:10.00%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:96.67%;top:10.00%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g21 st" style="left:3.33%;top:16.67%" data-sk="dv:pvpaccuracy+pvpevasion:2:"></span><span class="dvb-n g11 st" style="left:10.00%;top:16.67%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g11 st" style="left:16.67%;top:16.67%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g21 st" style="left:23.33%;top:16.67%" data-sk="dv:pvpadddamage+pvpdamagedefense:2:"></span><span class="dvb-n g11 st" style="left:36.67%;top:16.67%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g21 st" style="left:43.33%;top:16.67%" data-sk="dv:pvpaccuracy+pvpevasion:2:"></span><span class="dvb-n g11 st" style="left:50.00%;top:16.67%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:56.67%;top:16.67%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g31 st" style="left:63.33%;top:16.67%" data-sk="dv:abnormalaccuracy:3:"></span><span class="dvb-n g11 st" style="left:70.00%;top:16.67%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:76.67%;top:16.67%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g21 st" style="left:83.33%;top:16.67%" data-sk="dv:pvpaccuracy+pvpevasion:2:"></span><span class="dvb-n g11 st" style="left:90.00%;top:16.67%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g21 st" style="left:96.67%;top:16.67%" data-sk="dv:pvpadddamage+pvpdamagedefense:2:"></span><span class="dvb-n g11 st" style="left:16.67%;top:23.33%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:43.33%;top:23.33%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:56.67%;top:23.33%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:70.00%;top:23.33%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:83.33%;top:23.33%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g31 st" style="left:3.33%;top:30.00%" data-sk="dv:abnormalaccuracy:3:"></span><span class="dvb-n g11 st" style="left:10.00%;top:30.00%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:16.67%;top:30.00%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g31 st" style="left:30.00%;top:30.00%" data-sk="dv:abnormalresistance:3:"></span><span class="dvb-n g11 st" style="left:36.67%;top:30.00%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g11 st" style="left:43.33%;top:30.00%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g31 st" style="left:50.00%;top:30.00%" data-sk="dv:abnormalaccuracy:3:"></span><span class="dvb-n g11 st" style="left:56.67%;top:30.00%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g21 st" style="left:63.33%;top:30.00%" data-sk="dv:pvpadddamage+pvpdamagedefense:2:"></span><span class="dvb-n g11 st" style="left:70.00%;top:30.00%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:76.67%;top:30.00%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g31 st" style="left:83.33%;top:30.00%" data-sk="dv:abnormalresistance:3:"></span><span class="dvb-n g11 st" style="left:3.33%;top:36.67%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g21 st" style="left:16.67%;top:36.67%" data-sk="dv:pvpcritical+pvpcriticalresist:2:"></span><span class="dvb-n g11 st" style="left:23.33%;top:36.67%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:30.00%;top:36.67%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:43.33%;top:36.67%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:63.33%;top:36.67%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:83.33%;top:36.67%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:90.00%;top:36.67%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g21 st" style="left:96.67%;top:36.67%" data-sk="dv:pvpcritical+pvpcriticalresist:2:"></span><span class="dvb-n g11 st" style="left:3.33%;top:43.33%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:30.00%;top:43.33%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:36.67%;top:43.33%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g21 st" style="left:43.33%;top:43.33%" data-sk="dv:pvpadddamage+pvpdamagedefense:2:"></span><span class="dvb-n g11 st" style="left:50.00%;top:43.33%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:56.67%;top:43.33%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g31 st" style="left:63.33%;top:43.33%" data-sk="dv:abnormalresistance:3:"></span><span class="dvb-n g11 st" style="left:70.00%;top:43.33%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:76.67%;top:43.33%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21 st" style="left:83.33%;top:43.33%" data-sk="dv:pvpaccuracy+pvpevasion:2:"></span><span class="dvb-n g11 st" style="left:96.67%;top:43.33%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g41 st" style="left:3.33%;top:50.00%" data-sk="dv:pvpamplifydamage:4:"></span><span class="dvb-n g11 st" style="left:10.00%;top:50.00%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:16.67%;top:50.00%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g11 st" style="left:36.67%;top:50.00%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g0 on start" style="left:50.00%;top:50.00%" data-sk="dv::0:760113"></span><span class="dvb-n g11 st" style="left:63.33%;top:50.00%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:83.33%;top:50.00%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g11 st" style="left:90.00%;top:50.00%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g41 st" style="left:96.67%;top:50.00%" data-sk="dv:pvpamplifydamage:4:"></span><span class="dvb-n g11 st" style="left:3.33%;top:56.67%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g21 st" style="left:16.67%;top:56.67%" data-sk="dv:pvpaccuracy+pvpevasion:2:"></span><span class="dvb-n g11 st" style="left:23.33%;top:56.67%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g11 st" style="left:30.00%;top:56.67%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g31 st" style="left:36.67%;top:56.67%" data-sk="dv:abnormalresistance:3:"></span><span class="dvb-n g11 st" style="left:43.33%;top:56.67%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:56.67%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g21 st" style="left:56.67%;top:56.67%" data-sk="dv:pvpcritical+pvpcriticalresist:2:"></span><span class="dvb-n g11 st" style="left:63.33%;top:56.67%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:70.00%;top:56.67%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:96.67%;top:56.67%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g21 st" style="left:3.33%;top:63.33%" data-sk="dv:pvpcritical+pvpcriticalresist:2:"></span><span class="dvb-n g11 st" style="left:10.00%;top:63.33%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:16.67%;top:63.33%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:36.67%;top:63.33%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:56.67%;top:63.33%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:70.00%;top:63.33%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:76.67%;top:63.33%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g21 st" style="left:83.33%;top:63.33%" data-sk="dv:pvpadddamage+pvpdamagedefense:2:"></span><span class="dvb-n g11 st" style="left:96.67%;top:63.33%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g31 st" style="left:16.67%;top:70.00%" data-sk="dv:abnormalresistance:3:"></span><span class="dvb-n g11 st" style="left:23.33%;top:70.00%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:30.00%;top:70.00%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g21 st" style="left:36.67%;top:70.00%" data-sk="dv:pvpadddamage+pvpdamagedefense:2:"></span><span class="dvb-n g11 st" style="left:43.33%;top:70.00%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g31 st" style="left:50.00%;top:70.00%" data-sk="dv:abnormalaccuracy:3:"></span><span class="dvb-n g11 st" style="left:56.67%;top:70.00%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:63.33%;top:70.00%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g31 st" style="left:70.00%;top:70.00%" data-sk="dv:abnormalresistance:3:"></span><span class="dvb-n g11 st" style="left:83.33%;top:70.00%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:90.00%;top:70.00%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g31 st" style="left:96.67%;top:70.00%" data-sk="dv:abnormalaccuracy:3:"></span><span class="dvb-n g11 st" style="left:16.67%;top:76.67%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g11 st" style="left:30.00%;top:76.67%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:43.33%;top:76.67%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:56.67%;top:76.67%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g11 st" style="left:83.33%;top:76.67%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g21 st" style="left:3.33%;top:83.33%" data-sk="dv:pvpadddamage+pvpdamagedefense:2:"></span><span class="dvb-n g11 st" style="left:10.00%;top:83.33%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g21 st" style="left:16.67%;top:83.33%" data-sk="dv:pvpaccuracy+pvpevasion:2:"></span><span class="dvb-n g11 st" style="left:23.33%;top:83.33%" data-sk="dv:mpmax:1:"></span><span class="dvb-n g11 st" style="left:30.00%;top:83.33%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g31 st" style="left:36.67%;top:83.33%" data-sk="dv:abnormalaccuracy:3:"></span><span class="dvb-n g11 st" style="left:43.33%;top:83.33%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:83.33%" data-sk="dv:hpmax:1:"></span><span class="dvb-n g21 st" style="left:56.67%;top:83.33%" data-sk="dv:pvpaccuracy+pvpevasion:2:"></span><span class="dvb-n g11 st" style="left:63.33%;top:83.33%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g21 st" style="left:76.67%;top:83.33%" data-sk="dv:pvpcritical+pvpcriticalresist:2:"></span><span class="dvb-n g11 st" style="left:83.33%;top:83.33%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:90.00%;top:83.33%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g21 st" style="left:96.67%;top:83.33%" data-sk="dv:pvpaccuracy+pvpevasion:2:"></span><span class="dvb-n g11 st" style="left:3.33%;top:90.00%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:16.67%;top:90.00%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:36.67%;top:90.00%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g11 st" style="left:50.00%;top:90.00%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:63.33%;top:90.00%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:70.00%;top:90.00%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:76.67%;top:90.00%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g11 st" style="left:96.67%;top:90.00%" data-sk="dv:pvpcritical:1:"></span><span class="dvb-n g41 st" style="left:3.33%;top:96.67%" data-sk="dv:pvpamplifydamage:4:"></span><span class="dvb-n g11 st" style="left:10.00%;top:96.67%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g11 st" style="left:16.67%;top:96.67%" data-sk="dv:pvpcriticalresist:1:"></span><span class="dvb-n g31 st" style="left:23.33%;top:96.67%" data-sk="dv:abnormalresistance:3:"></span><span class="dvb-n g11 st" style="left:30.00%;top:96.67%" data-sk="dv:pvpevasion:1:"></span><span class="dvb-n g21 st" style="left:36.67%;top:96.67%" data-sk="dv:pvpcritical+pvpcriticalresist:2:"></span><span class="dvb-n g41 st" style="left:50.00%;top:96.67%" data-sk="dv:pvpdecreasedamage:4:"></span><span class="dvb-n g11 st" style="left:56.67%;top:96.67%" data-sk="dv:pvpaccuracy:1:"></span><span class="dvb-n g21 st" style="left:63.33%;top:96.67%" data-sk="dv:pvpadddamage+pvpdamagedefense:2:"></span><span class="dvb-n g31 st" style="left:76.67%;top:96.67%" data-sk="dv:abnormalaccuracy:3:"></span><span class="dvb-n g11 st" style="left:83.33%;top:96.67%" data-sk="dv:pvpdamagedefense:1:"></span><span class="dvb-n g11 st" style="left:90.00%;top:96.67%" data-sk="dv:pvpadddamage:1:"></span><span class="dvb-n g41 st" style="left:96.67%;top:96.67%" data-sk="dv:pvpdecreasedamage:4:"></span>    </div></div>
+  </div>
+  <details class="dvb-sum">
+    <summary><b>229</b> ポイント合計 <span>スキルLv</span></summary>
+<p class="dvb-lvs"><span class="dvb-lv" data-sk="condemnation">断罪 <b>+4</b></span><span class="dvb-lv" data-sk="divine-aura">神聖な気 <b>+4</b></span><span class="dvb-lv" data-sk="bolt">霹靂 <b>+4</b></span></p><p class="dvb-lvs dvb-other"><span>経路上:</span><span class="dvb-lv" data-sk="empyrean-lords-grace">神の恩恵 +3</span><span class="dvb-lv" data-sk="radiant-benediction">煌めく加護 +3</span><span class="dvb-lv" data-sk="immortal-veil">不死の帳 +2</span><span class="dvb-lv" data-sk="earths-grace">大地の恩恵 +2</span><span class="dvb-lv" data-sk="chain-of-torment">苦痛の連鎖 +1</span><span class="dvb-lv" data-sk="light-of-regeneration">再生の光 +1</span><span class="dvb-lv" data-sk="lightning-strike-scattershot">稲妻乱射 +1</span><span class="dvb-lv" data-sk="heal-block">回復遮断 +1</span><span class="dvb-lv" data-sk="survival-willpower">生存意志 +1</span><span class="dvb-lv" data-sk="warm-benediction">暖かな加護 +1</span><span class="dvb-lv" data-sk="radiant-recovery">快癒の光輝 +1</span><span class="dvb-lv" data-sk="empyrean-lords-benediction">神の加護 +1</span><span class="dvb-lv" data-sk="prayer-of-concentration">集中の祈り +1</span><span class="dvb-lv" data-sk="defiance">衝撃解除 +1</span></p>  </details>
+  <p class="dvb-legend"><span class="dvb-key g11"></span>ステータス · 1 <span class="dvb-key g21"></span>パッシブ · 2 <span class="dvb-key g31"></span>スキル · 3 <span class="dvb-key g41"></span>特殊 · 4 <span class="dvb-key st g21"></span><span class="dvb-key st g31"></span>ステータス · 2–3 <span class="dvb-key on"></span>経路</p>
+</div>
+
+  <p class="note">ボードとコストはグローバル版クライアントのデータ（questlog.gg）によるもの。ルートは計算で求めたもので、動画から取ったものではない。ステータスの数値はリリース時に変わる可能性がある。ルートを最後まで振る前に、ゲーム内のボードを確認しよう。</p>
+
+</section>
+<section id="stigmas" class="g-section" data-only="pve" aria-labelledby="h-stigmas">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-stigmas">スティグマ</h2></div>
+    <ul class="skill-grid">
+<li class="skill" data-sk-card="earth-punishment">
+  <img class="skill-icon" data-sk="earth-punishment" src="../../assets/icons/cleric/earth-punishment.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">大地の懲罰 <span class="badge must">Lv15 <svg class="arr" viewBox="0 0 12 8" aria-label="→"><path d="M1 4h9M7 1l3 3-3 3"/></svg> 20</span></div>
+    <div class="skill-desc">断罪が必ずクリティカルになり（つまり断罪の再使用時間がなくなる）、パーティーは防御力、攻撃力、強打を得る。最も重要なスキルの一つ。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>[大地の懲罰]の効果中の対象は[断罪]スキルが確定クリティカルで的中</li><li><span class="spec-lv">10</span>[大地の祝福]自分の強打10%、パーティー メンバーの強打5%増加</li><li><span class="spec-lv">15</span>[大地の祝福]自分の攻撃力と防御力が10%、パーティー メンバーの攻撃力と防御力が5%増加</li><li><span class="spec-lv">20</span>[大地の懲罰]と[大地の祝福]の持続時間10秒増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>[大地の懲罰]の効果中の対象は[断罪]スキルが確定クリティカルで的中</li>
+        <li class="on"><span class="spec-lv">10</span>[大地の祝福]自分の強打10%、パーティー メンバーの強打5%増加</li>
+        <li class="on"><span class="spec-lv">15</span>[大地の祝福]自分の攻撃力と防御力が10%、パーティー メンバーの攻撃力と防御力が5%増加</li>
+        <li class="on"><span class="spec-lv">20</span>[大地の懲罰]と[大地の祝福]の持続時間10秒増加</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="light-of-protection">
+  <img class="skill-icon" data-sk="light-of-protection" src="../../assets/icons/cleric/light-of-protection.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">保護の光 <span class="badge must">Lv20</span></div>
+    <div class="skill-desc">自分のマントラ。受ける治癒量、命中、最大HP+10%、完璧が上がり、再使用時間はない。チャンターのマントラとは重複しないので、チャンターがいるパーティーでは外す。切り替え式のスキルなので、一度オンにしたらホットバーのラインにもマクロにも入れないこと。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>受ける治癒量10%増加</li><li><span class="spec-lv">10</span>命中100増加</li><li><span class="spec-lv">15</span>最大HP10%増加</li><li><span class="spec-lv">20</span>完璧10%増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>受ける治癒量10%増加</li>
+        <li class="on"><span class="spec-lv">10</span>命中100増加</li>
+        <li class="on"><span class="spec-lv">15</span>最大HP10%増加</li>
+        <li class="on"><span class="spec-lv">20</span>完璧10%増加</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="prayer-of-amplification">
+  <img class="skill-icon" data-sk="prayer-of-amplification" src="../../assets/icons/cleric/prayer-of-amplification.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">増幅の祈り <span class="badge must">Lv10+</span></div>
+    <div class="skill-desc">クールタイムごとに使って攻撃力+20%。神の恩恵と大地の恩恵の効果も強化する。これがないとクレリックは火力が出ない。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>PvEダメージ増幅20%、PvPダメージ増幅10%増加</li><li><span class="spec-lv">10</span>持続時間中は[神の恩恵]の効果1.5倍増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>PvEダメージ増幅20%、PvPダメージ増幅10%増加</li>
+        <li class="on"><span class="spec-lv">10</span>持続時間中は[神の恩恵]の効果1.5倍増加</li>
+        <li class=""><span class="spec-lv">15</span>持続時間中は[大地の恩恵]の効果1.5倍増加</li>
+        <li class=""><span class="spec-lv">20</span>攻撃力15%追加増加</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="noble-aura">
+  <img class="skill-icon" data-sk="noble-aura" src="../../assets/icons/cleric/noble-aura.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">高潔な気 <span class="badge must">Lv10+</span></div>
+    <div class="skill-desc">一緒に攻撃してくれる気の玉。火力がおよそ倍になる。レベルは高いほどよい。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>気のクリティカル200増加</li><li><span class="spec-lv">10</span>弱化の烙印状態の対象にダメージが20%増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>気のクリティカル200増加</li>
+        <li class="on"><span class="spec-lv">10</span>弱化の烙印状態の対象にダメージが20%増加</li>
+        <li class=""><span class="spec-lv">15</span>行動不可免疫の対象にダメージ30%増加</li>
+        <li class=""><span class="spec-lv">20</span>気の攻撃の再使用時間1秒減少</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="absolution">
+  <img class="skill-icon" data-sk="absolution" src="../../assets/icons/cleric/absolution.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">免罪 <span class="badge opt">聖域</span></div>
+    <div class="skill-desc">最強の回復スティグマだが、強いのは15以上から。パーティーの回復が足りないときだけ入れ替える。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>再使用時間30秒減少</li><li><span class="spec-lv">10</span>デバフをすべて除去</li><li><span class="spec-lv">15</span>HP5%追加回復</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>再使用時間30秒減少</li>
+        <li class="on"><span class="spec-lv">10</span>デバフをすべて除去</li>
+        <li class="on"><span class="spec-lv">15</span>HP5%追加回復</li>
+        <li class=""><span class="spec-lv">20</span>10s間、2s間隔でHPの1.5%追加回復</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="benevolence">
+  <img class="skill-icon" data-sk="benevolence" src="../../assets/icons/cleric/benevolence.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">生命の権能 <span class="badge opt">聖域</span></div>
+    <div class="skill-desc">パーティー全体への持続回復。免罪と同じく、枠を割く価値が出るのは15から。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>持続時間10秒増加</li><li><span class="spec-lv">10</span>持続時間中は5s間隔で行動力200回復</li><li><span class="spec-lv">15</span>持続時間中は5s間隔でHP2%回復</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>持続時間10秒増加</li>
+        <li class="on"><span class="spec-lv">10</span>持続時間中は5s間隔で行動力200回復</li>
+        <li class="on"><span class="spec-lv">15</span>持続時間中は5s間隔でHP2%回復</li>
+        <li class=""><span class="spec-lv">20</span>持続時間中は5s間隔で浄化効果</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="yustiels-power">
+  <img class="skill-icon" data-sk="yustiels-power" src="../../assets/icons/cleric/yustiels-power.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">ユスティエルの権能 <span class="badge opt">聖域</span></div>
+    <div class="skill-desc">10秒間、パーティーのダメージ耐性を上げる。聖域で高潔な気か増幅の祈りの代わりに入れる。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>最大HPの10%のバリア生成</li><li><span class="spec-lv">10</span>ガード、回避100増加</li><li><span class="spec-lv">15</span>状態異常抵抗20%増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>最大HPの10%のバリア生成</li>
+        <li class="on"><span class="spec-lv">10</span>ガード、回避100増加</li>
+        <li class="on"><span class="spec-lv">15</span>状態異常抵抗20%増加</li>
+        <li class=""><span class="spec-lv">20</span>PvEダメージ耐性10%、PvPダメージ耐性5%追加増加</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="summon-resurrection">
+  <img class="skill-icon" data-sk="summon-resurrection" src="../../assets/icons/cleric/summon-resurrection.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">召喚復活 <span class="badge opt">Lv5</span></div>
+    <div class="skill-desc">序盤は5で止めておく。パーティーがよく死ぬなら入れる。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>発動時間が1秒減少</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>発動時間が1秒減少</li>
+        <li class=""><span class="spec-lv">10</span>復活後に3s間、無敵効果</li>
+        <li class=""><span class="spec-lv">15</span>最大HPの20%回復</li>
+        <li class=""><span class="spec-lv">20</span>復活後に5s間、無敵効果</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="salvation">
+  <img class="skill-icon" data-sk="salvation" src="../../assets/icons/cleric/salvation.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">救援 <span class="badge skip">不要</span></div>
+    <div class="skill-desc">長い再使用時間に対して無敵は3秒。赤い攻撃はどのみち貫通するので、回避で対処しよう。</div>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">5</span>受ける治癒量100%増加</li>
+        <li class=""><span class="spec-lv">10</span>[救援]終了時に最大HPの20%回復</li>
+        <li class=""><span class="spec-lv">15</span>HPが一番低いパーティー メンバーに[救援]基本効果を付与</li>
+        <li class=""><span class="spec-lv">20</span>衝撃系状態の時に[救援]活性化</li>
+      </ul>
+    </details>
+  </div>
+</li>  </ul>
+  <p class="note">チャンターがいるパーティーでは、保護の光を回復スティグマのどれかか召喚復活に替える。破滅の声（15でボスのクリティカル抵抗−200）は、ヒーラーがもう一人いる聖域での選択肢。主に、全員のクリティカルが足りない序盤向け。権能爆発は、グロッキー ゲージを削り切る必要があり、ほかに削れる人がいない場面（悪夢）でのみ使う。<span class="sk" data-sk="root"><img src="../../assets/icons/cleric/root.webp" width="18" height="18" alt="" loading="lazy">束縛</span>と<span class="sk" data-sk="assault-mark"><img src="../../assets/icons/cleric/assault-mark.webp" width="18" height="18" alt="" loading="lazy">強襲烙印</span>はPvEでは使い道がない。</p>
+
+</section>
+<section id="macro" class="g-section" data-only="pve" aria-labelledby="h-macro">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-macro">マクロ</h2></div>
+    <p>Kaeriaはゲーム内マクロだけを使い、外部ツールは使わない。そのため、マクロの合間にも回復を押せる。以下のラインは、動画に映った彼女のホットバーから読み取ったもの。AION 2では<strong>ラインの一番下のスロットが最優先</strong>になる。カードは各ラインを、ゲーム内と同じく上から下へ表示している。</p>
+
+  <h3>1. ホットバーのライン</h3>
+  <div class="hotlines">
+<div class="hotline">
+  <div class="hotline-head"><span class="key">3</span><span class="hotline-name">断罪ライン</span></div>
+  <ol class="hotline-skills" reversed>
+    <li class="" data-sk="chain-of-torment">
+      <span class="hl-n">3</span>
+      <img src="../../assets/icons/cleric/chain-of-torment.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">苦痛の連鎖</span>
+    </li>
+    <li class="" data-sk="condemnation">
+      <span class="hl-n">2</span>
+      <img src="../../assets/icons/cleric/condemnation.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">断罪</span>
+    </li>
+    <li class=" is-first" data-sk="earth-punishment">
+      <span class="hl-n">1</span>
+      <img src="../../assets/icons/cleric/earth-punishment.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">大地の懲罰</span>
+    </li>
+  </ol>
+  <p class="hotline-order">ゲーム内の並び順で、上から下へ。1が最優先で、最下段のスロット。</p>
+<p class="hotline-note">大地の懲罰を最初に置くことで、断罪が必ずクリティカルになり再使用時間が初期化される。苦痛の連鎖は、断罪に必要な烙印を維持する。<span class="sk" data-sk="light-of-protection"><img src="../../assets/icons/cleric/light-of-protection.webp" width="18" height="18" alt="" loading="lazy">保護の光</span>はラインに入れない。切り替え式なので、押すたびにオンとオフが入れ替わってしまう。</p></div><div class="hotline">
+  <div class="hotline-head"><span class="key">2</span><span class="hotline-name">神聖な気ライン</span></div>
+  <ol class="hotline-skills" reversed>
+    <li class="" data-sk="judgment-thunder">
+      <span class="hl-n">4</span>
+      <img src="../../assets/icons/cleric/judgment-thunder.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">審判の雷</span>
+    </li>
+    <li class="" data-sk="light-of-regeneration">
+      <span class="hl-n">3</span>
+      <img src="../../assets/icons/cleric/light-of-regeneration.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">再生の光</span>
+    </li>
+    <li class="" data-sk="debilitating-mark">
+      <span class="hl-n">2</span>
+      <img src="../../assets/icons/cleric/debilitating-mark.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">弱化の烙印</span>
+    </li>
+    <li class=" is-first" data-sk="divine-aura">
+      <span class="hl-n">1</span>
+      <img src="../../assets/icons/cleric/divine-aura.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">神聖な気</span>
+    </li>
+  </ol>
+  <p class="hotline-order">ゲーム内の並び順で、上から下へ。1が最優先で、最下段のスロット。</p>
+<p class="hotline-note">気とデバフは使えるようになり次第発動し、残りは審判の雷で埋める。</p></div><div class="hotline">
+  <div class="hotline-head"><span class="key">1</span><span class="hotline-name">グロッキー</span></div>
+  <ol class="hotline-skills" reversed>
+    <li class=" is-first" data-sk="lightning-strike-scattershot">
+      <span class="hl-n">1</span>
+      <img src="../../assets/icons/cleric/lightning-strike-scattershot.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">稲妻乱射</span>
+    </li>
+  </ol>
+  <p class="hotline-order">ゲーム内の並び順で、上から下へ。1が最優先で、最下段のスロット。</p>
+<p class="hotline-note">グロッキー状態のボスにしか効かないので、ほとんどの時間このステップは飛ばされる。</p></div>  </div>
+
+  <h3>2. ゲーム内マクロ</h3>
+  <p><span class="key">右クリック</span>に登録し、各ステップのディレイは<strong>10ms</strong>：</p>
+  <ol class="macroseq">
+  <li><span class="ms-n">1</span><span class="ms-label">大地の裁き</span><span class="ms-detail">通常攻撃</span></li>
+  <li><span class="ms-n">2</span><span class="ms-label">ライン2</span><span class="ms-detail">神聖な気</span></li>
+  <li><span class="ms-n">3</span><span class="ms-label">ライン3</span><span class="ms-detail">断罪</span></li>
+  <li><span class="ms-n">4</span><span class="ms-label">ライン1</span><span class="ms-detail">グロッキー</span></li>
+  <li><span class="ms-n">5</span><span class="ms-label">ライン3</span></li>
+  <li><span class="ms-n">6</span><span class="ms-label">ライン1</span></li>
+  <li><span class="ms-n">7</span><span class="ms-label">ライン1</span></li>
+</ol>
+
+  <h3>3. キー操作</h3>
+  <ul class="presslist">
+    <li><span class="press-how">長押し</span><span class="press-what"><span class="key">右クリック</span>のマクロと<span class="key">3</span>（断罪ライン）を同時に押し続ける。断罪は再使用時間がなく、ほかのすべてのスキルのモーションをキャンセルする。</span></li>
+    <li><span class="press-how">グロッキー</span><span class="press-what">ボスがグロッキーになったら<span class="key">3</span>を離してマクロだけを押し続け、<span class="sk" data-sk="lightning-strike-scattershot"><img src="../../assets/icons/cleric/lightning-strike-scattershot.webp" width="18" height="18" alt="" loading="lazy">稲妻乱射</span>が発動するようにする。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">誰かが被弾した直後に<span class="sk" data-sk="healing-light"><img src="../../assets/icons/cleric/healing-light.webp" width="18" height="18" alt="" loading="lazy">治癒の光</span>（彼女は<span class="key">4</span>に配置）と<span class="sk" data-sk="radiant-recovery"><img src="../../assets/icons/cleric/radiant-recovery.webp" width="18" height="18" alt="" loading="lazy">快癒の光輝</span>（<span class="key">Q</span>）、フルチャージの<span class="sk" data-sk="bolt"><img src="../../assets/icons/cleric/bolt.webp" width="18" height="18" alt="" loading="lazy">霹靂</span>（<span class="key">E</span>）、<span class="sk" data-sk="prayer-of-amplification"><img src="../../assets/icons/cleric/prayer-of-amplification.webp" width="18" height="18" alt="" loading="lazy">増幅の祈り</span>はクールタイムごとに。</span></li>
+  </ul>
+  <p class="note">これは高Ping向けに組まれた、彼女の台湾版での設定。Pingの低いグローバル版ではモーションキャンセルが効きやすく、大地の裁きをもう少し多く挟める。</p>
+
+</section>
+<section id="recap" class="g-section" data-only="pve" aria-labelledby="h-recap">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-recap">まとめ</h2></div>
+    <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>断罪、神聖な気、霹靂は16 → 20。審判の雷、稲妻乱射、治癒の光、快癒の光輝は16。残りは12–14。</li>
+    <li><strong>スティグマ：</strong>大地の懲罰、保護の光、増幅の祈り、高潔な気（チャンターがいれば保護の光を入れ替える）。</li>
+    <li><strong>立ち回り：</strong>貢献度のために火力を出す。回復は被弾した直後の人にだけ。</li>
+  </ul></div>
+
+</section>
+
+
+<section id="intro-lvl" class="g-section" data-only="lvl" aria-labelledby="h-intro-lvl">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-intro-lvl">概要</h2></div>
+    <p>クレリックはヒーラーだが、レベリング中は遠距離アタッカーとして戦う。<span class="sk" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/chain-of-torment.webp" width="18" height="18" alt="" loading="lazy">苦痛の連鎖</span>で対象に印を付け、<span class="sk" data-sk="condemnation"><img src="../../assets/icons/cleric/condemnation.webp" width="18" height="18" alt="" loading="lazy">断罪</span>で叩き、パッシブの<span class="sk" data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" width="18" height="18" alt="" loading="lazy">煌めく加護</span>が攻撃のたびに自分とパーティーを回復する。回復は必要なときだけでよい。</p>
+  <div class="callout accent">
+    <h3>レベリングを一言で</h3>
+    <p>MP回復のために<span class="sk" data-sk="earths-retribution"><img src="../../assets/icons/cleric/earths-retribution.webp" width="18" height="18" alt="" loading="lazy">大地の裁き</span>を押し続け、ゲーム内マクロで連鎖ラインを連打する。スキルポイントは回復ではなく攻撃スキルに振る。</p>
+  </div>
+
+<p class="guide-origin"><b>パッチ シーズン1.</b> ビルドはグローバルサーバーのガイドと照らして確認済み：スティグマ4つ、上限20。</p></section>
+<section id="fight-lvl" class="g-section" data-only="lvl" aria-labelledby="h-fight-lvl">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-fight-lvl">レベリング中の戦い方</h2></div>
+    <div class="callout"><ul>
+    <li><strong>集団：</strong><span class="sk" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/chain-of-torment.webp" width="18" height="18" alt="" loading="lazy">苦痛の連鎖</span>（最大4体に命中）→ <span class="sk" data-sk="condemnation"><img src="../../assets/icons/cleric/condemnation.webp" width="18" height="18" alt="" loading="lazy">断罪</span> → 広域化した<span class="sk" data-sk="divine-aura"><img src="../../assets/icons/cleric/divine-aura.webp" width="18" height="18" alt="" loading="lazy">神聖な気</span> → <span class="sk" data-sk="judgment-thunder"><img src="../../assets/icons/cleric/judgment-thunder.webp" width="18" height="18" alt="" loading="lazy">審判の雷</span>。</li>
+    <li><strong>エリート：</strong><span class="sk" data-sk="debilitating-mark"><img src="../../assets/icons/cleric/debilitating-mark.webp" width="18" height="18" alt="" loading="lazy">弱化の烙印</span>（防御力低下）→ <span class="sk" data-sk="chain-of-torment"><img src="../../assets/icons/cleric/chain-of-torment.webp" width="18" height="18" alt="" loading="lazy">苦痛の連鎖</span> → チャージした<span class="sk" data-sk="bolt"><img src="../../assets/icons/cleric/bolt.webp" width="18" height="18" alt="" loading="lazy">霹靂</span> → <span class="sk" data-sk="condemnation"><img src="../../assets/icons/cleric/condemnation.webp" width="18" height="18" alt="" loading="lazy">断罪</span>。</li>
+    <li><strong>MP：</strong>ターゲットモードにして、<span class="sk" data-sk="earths-retribution"><img src="../../assets/icons/cleric/earths-retribution.webp" width="18" height="18" alt="" loading="lazy">大地の裁き</span>を挟む。使うたびにMPが回復する。</li>
+    <li><strong>HPが少ないとき：</strong><span class="sk" data-sk="healing-light"><img src="../../assets/icons/cleric/healing-light.webp" width="18" height="18" alt="" loading="lazy">治癒の光</span>。攻撃を続けている限り、<span class="sk" data-sk="radiant-benediction"><img src="../../assets/icons/cleric/radiant-benediction.webp" width="18" height="18" alt="" loading="lazy">煌めく加護</span>の回復も入り続ける。</li>
+    <li><strong>グロッキー中のボス：</strong><span class="sk" data-sk="lightning-strike-scattershot"><img src="../../assets/icons/cleric/lightning-strike-scattershot.webp" width="18" height="18" alt="" loading="lazy">稲妻乱射</span>は対象がグロッキー状態のときしか使えない。</li>
+  </ul></div>
+
+</section>
+<section id="macro-lvl" class="g-section" data-only="lvl" aria-labelledby="h-macro-lvl">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-macro-lvl">レベリング用マクロ</h2></div>
+    <p>Grobsの序盤向け設定：ホットバーのライン1本と、1スロットだけのゲーム内マクロ。AION 2では<strong>ラインの一番下のスロットが最優先</strong>になる。カードはラインを、ゲーム内と同じく上から下へ表示している。</p>
+  <div class="hotlines">
+<div class="hotline">
+  <div class="hotline-head"><span class="key">右クリック</span><span class="hotline-name">連鎖ライン</span></div>
+  <ol class="hotline-skills" reversed>
+    <li class="" data-sk="judgment-thunder">
+      <span class="hl-n">4</span>
+      <img src="../../assets/icons/cleric/judgment-thunder.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">審判の雷</span>
+    </li>
+    <li class="" data-sk="condemnation">
+      <span class="hl-n">3</span>
+      <img src="../../assets/icons/cleric/condemnation.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">断罪</span>
+    </li>
+    <li class="" data-sk="debilitating-mark">
+      <span class="hl-n">2</span>
+      <img src="../../assets/icons/cleric/debilitating-mark.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">弱化の烙印</span>
+    </li>
+    <li class=" is-first" data-sk="chain-of-torment">
+      <span class="hl-n">1</span>
+      <img src="../../assets/icons/cleric/chain-of-torment.webp" width="40" height="40" alt="" loading="lazy">
+      <span class="hl-name">苦痛の連鎖</span>
+    </li>
+  </ol>
+  <p class="hotline-order">ゲーム内の並び順で、上から下へ。1が最優先で、最下段のスロット。</p>
+<p class="hotline-note">苦痛の連鎖を最初に置くことで、断罪が当たるようになる。審判の雷は再使用時間がなく、隙間を埋める。</p></div>  </div>
+  <p>ゲーム内マクロ（Skill window → Macro）、ディレイは<strong>10ms</strong>：</p>
+  <ol class="macroseq">
+  <li><span class="ms-n">1</span><span class="ms-label">連鎖ライン</span><span class="ms-detail">10ms</span></li>
+</ol>
+  <ul class="presslist">
+    <li><span class="press-how">長押し</span><span class="press-what"><span class="key">左クリック</span>の<span class="sk" data-sk="earths-retribution"><img src="../../assets/icons/cleric/earths-retribution.webp" width="18" height="18" alt="" loading="lazy">大地の裁き</span>とマクロキーを同時に押し続ける。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what"><span class="sk" data-sk="bolt"><img src="../../assets/icons/cleric/bolt.webp" width="18" height="18" alt="" loading="lazy">霹靂</span>（チャージスキルなのでマクロには入れない）、回復、スティグマ。</span></li>
+  </ul>
+
+</section>
+<section id="stigmas-lvl" class="g-section" data-only="lvl" aria-labelledby="h-stigmas-lvl">
+  <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-stigmas-lvl">レベリング中のスティグマ</h2></div>
+    <p>スティグマはLv22で解放される。</p>
+  <ul class="skill-grid">
+<li class="skill" data-sk-card="summon-resurrection">
+  <img class="skill-icon" data-sk="summon-resurrection" src="../../assets/icons/cleric/summon-resurrection.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">召喚復活 <span class="badge must">Lv1</span></div>
+    <div class="skill-desc">最初は1ポイントで十分。後でLv5にすると発動時間が短くなる。</div>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class=""><span class="spec-lv">5</span>発動時間が1秒減少</li>
+        <li class=""><span class="spec-lv">10</span>復活後に3s間、無敵効果</li>
+        <li class=""><span class="spec-lv">15</span>最大HPの20%回復</li>
+        <li class=""><span class="spec-lv">20</span>復活後に5s間、無敵効果</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="noble-aura">
+  <img class="skill-icon" data-sk="noble-aura" src="../../assets/icons/cleric/noble-aura.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">高潔な気 <span class="badge must">Lv5</span></div>
+    <div class="skill-desc">5分間、横で一緒に戦ってくれる気。タダで手に入る火力。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>気のクリティカル200増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>気のクリティカル200増加</li>
+        <li class=""><span class="spec-lv">10</span>弱化の烙印状態の対象にダメージが20%増加</li>
+        <li class=""><span class="spec-lv">15</span>行動不可免疫の対象にダメージ30%増加</li>
+        <li class=""><span class="spec-lv">20</span>気の攻撃の再使用時間1秒減少</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="earth-punishment">
+  <img class="skill-icon" data-sk="earth-punishment" src="../../assets/icons/cleric/earth-punishment.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">大地の懲罰 <span class="badge must">Lv5</span></div>
+    <div class="skill-desc">持続ダメージ。Lv5で断罪が確定クリティカルになる。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>[大地の懲罰]の効果中の対象は[断罪]スキルが確定クリティカルで的中</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>[大地の懲罰]の効果中の対象は[断罪]スキルが確定クリティカルで的中</li>
+        <li class=""><span class="spec-lv">10</span>[大地の祝福]自分の強打10%、パーティー メンバーの強打5%増加</li>
+        <li class=""><span class="spec-lv">15</span>[大地の祝福]自分の攻撃力と防御力が10%、パーティー メンバーの攻撃力と防御力が5%増加</li>
+        <li class=""><span class="spec-lv">20</span>[大地の懲罰]と[大地の祝福]の持続時間10秒増加</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="benevolence">
+  <img class="skill-icon" data-sk="benevolence" src="../../assets/icons/cleric/benevolence.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">生命の権能 <span class="badge must">Lv5</span></div>
+    <div class="skill-desc">20秒間の持続回復。集団と集団の合間の継戦力になる。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>持続時間10秒増加</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>持続時間10秒増加</li>
+        <li class=""><span class="spec-lv">10</span>持続時間中は5s間隔で行動力200回復</li>
+        <li class=""><span class="spec-lv">15</span>持続時間中は5s間隔でHP2%回復</li>
+        <li class=""><span class="spec-lv">20</span>持続時間中は5s間隔で浄化効果</li>
+      </ul>
+    </details>
+  </div>
+</li><li class="skill" data-sk-card="absolution">
+  <img class="skill-icon" data-sk="absolution" src="../../assets/icons/cleric/absolution.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+  <div class="skill-body">
+    <div class="skill-name">免罪 <span class="badge opt">Lv5</span></div>
+    <div class="skill-desc">大回復とデバフ解除。</div>
+    <ul class="spec-chips">
+<li><span class="spec-lv">5</span>再使用時間30秒減少</li>    </ul>
+    <details class="spec-all">
+      <summary>全特化一覧</summary>
+      <ul>
+        <li class="on"><span class="spec-lv">5</span>再使用時間30秒減少</li>
+        <li class=""><span class="spec-lv">10</span>デバフをすべて除去</li>
+        <li class=""><span class="spec-lv">15</span>HP5%追加回復</li>
+        <li class=""><span class="spec-lv">20</span>10s間、2s間隔でHPの1.5%追加回復</li>
+      </ul>
+    </details>
+  </div>
+</li>  </ul>
+
+</section>
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">出典</h2>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=7LjTwlZ4v_s" target="_blank" rel="noopener">Kaeria：クレリックPvEガイド（ロシア語）</a>：PvEモードの出典。スキルレベルと特化、スティグマ、パッシブ、ステータス、ディーヴァニオン、アルカナ</li>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs：AION 2 Macro Guide</a>：序盤のマクロのスライド（クレリックのホットバーのラインとマクロ）</li>
+    <li><a href="https://mmo-codex.com/articles/aion-2-cleric-guide/" target="_blank" rel="noopener">MMO Codex：Aion 2 Cleric guide</a>：レベリング中のスキル順と特化、Lv22のスティグマ</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/cleric" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルデータ</li>
+    <li><a href="https://www.youtube.com/watch?v=A3pZDSt4ceU" target="_blank" rel="noopener">aLuckyRO：AION 2 Latest Cleric PVE Build for Global</a>：序盤の特化（周回とボス向けの神聖な気、MP用の大地の裁き）、ダンジョン向けのスティグマの入れ替え、苦痛の連鎖 → 断罪のコンボ、序盤のパッシブ</li>
+  </ul>
+  <p class="sources-all"><a href="../../ja/sources/">すべての出典と配信者 →</a></p>
+</section>    <p class="report-box"><button type="button" class="btn btn-ghost btn-sm report-open" title="短いフォームが開く。メッセージはサイト作者に直接届く">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+      誤りを報告</button></p>
+    <script type="application/json" id="sk-data" data-cd="再使用時間" data-s="秒" data-active="アクティブ" data-stigma="スティグマ" data-passive="パッシブ">{"noble-aura":{"n":"高潔な気","c":"stigma","cd":60,"d":"自分の周辺に300s秒間維持される高潔な気を召喚します。気は使用者に追従し、対象を一緒に攻撃します。\n\n20m内の対象にX～Xのダメージを与えます。\n気の攻撃の再使用時間：2s","sp":[[5,"気のクリティカル200増加"],[10,"弱化の烙印状態の対象にダメージが20%増加"],[15,"行動不可免疫の対象にダメージ30%増加"],[20,"気の攻撃の再使用時間1秒減少"]]},"earths-retribution":{"n":"大地の裁き","c":"active","cd":0,"d":"20m内の対象にX～Xの地属性ダメージを与えて、MPを110回復します。","sp":[[8,"MP回復20%増加"],[8,"[放電]連続スキル活性化確率20%増加"],[8,"的中時に多段ヒット50%増加"],[12,"[放電]的中時に[霹靂]の再使用時間7s減少"],[16,"ガードと回避を無視して的中"]]},"judgment-thunder":{"n":"審判の雷","c":"active","cd":0,"d":"20m内の対象を中心に4m内の最大4体の敵にX～Xの風属性ダメージを与えます。\n\nグロッキー ゲージ ダメージ量2","sp":[[8,"MP消耗20%減少"],[8,"的中した対象が少ないほどダメージ量が最大12%増加"],[8,"[天罰]的中時に5s間、戦闘速度10%減少を付与"],[12,"[天罰]的中時に10%の確率で2s間、束縛を付与"],[16,"[天罰]1回追加発動"]]},"bolt":{"n":"霹靂","c":"active","cd":45,"d":"20m内の対象を中心に4m内の最大4体の敵にX～Xの風属性ダメージを与えます。\n\n最大3段階チャージ スキル\nグロッキー ゲージ ダメージ量20～35","sp":[[8,"最大チャージ時に30%の確率で3s間、気絶を付与"],[8,"スキル命中300増加"],[8,"スキル速度30%増加"],[12,"的中した対象が少ないほど最大20%ダメージ増加"],[16,"的中時に確定クリティカル"]]},"chain-of-torment":{"n":"苦痛の連鎖","c":"active","cd":20,"d":"20m内の対象を中心に4m内の最大4体の敵にX～Xの地属性ダメージを与えます。敵は10s間、PvEダメージ耐性が5%、PvPダメージ耐性が2.5%減少し、1s間隔でXの持続ダメージを受けます。\n\nグロッキー ゲージ ダメージ量10","sp":[[8,"5s間、対象を鈍化"],[8,"持続ダメージ3秒増加"],[8,"20%の確率で3s間、対象を転倒"],[12,"PvEダメージ耐性10%、PvPダメージ耐性5%追加減少"],[16,"ガードと回避を無視して的中と持続ダメージ間隔50%減少"]]},"debilitating-mark":{"n":"弱化の烙印","c":"active","cd":10,"d":"20m内の対象を中心に4m内の最大4体の敵にX～Xの風属性ダメージを与えます。敵は10s間、PvEダメージ増幅が5%、PvPダメージ増幅が2.5%減少し、1s間隔でXの持続ダメージを受けます。\n\nグロッキー ゲージ ダメージ量10","sp":[[8,"MP消耗削除とMP150回復"],[8,"持続ダメージ中は対象の防御力15%減少"],[8,"20%の確率で3s間、対象を気絶"],[12,"PvEダメージ増幅10%、PvPダメージ増幅5%追加減少"],[16,"ガードと回避を無視して的中と持続ダメージ間隔50%減少"]]},"light-of-regeneration":{"n":"再生の光","c":"active","cd":30,"d":"自分と周辺40m内のパーティー メンバーのHPを30s間、2s間隔でX～Xずつ回復します。","sp":[[8,"回復中は防御力5%増加"],[8,"HP50%以下の時に回復量20%増加"],[8,"回復中は受ける治癒量5%増加"],[12,"回復中は移動速度5%増加"],[16,"回復中はPvEダメージ耐性5%、PvPダメージ耐性2.5%増加"]]},"healing-light":{"n":"治癒の光","c":"active","cd":6,"d":"周辺40m内のHPが一番低いパーティー メンバーと自分のHPを192～211回復します。","sp":[[8,"連続発動+2回"],[8,"HP50%以下の時に回復量20%増加"],[8,"50%の確率でデバフを1個解除"],[12,"HP2%追加回復"],[16,"再使用時間2秒減少"]]},"radiant-recovery":{"n":"快癒の光輝","c":"active","cd":12,"d":"自分と周辺40m内のパーティー メンバーのHPを379～417回復し、デバフを1個解除します。","sp":[[8,"デバフ最大2個解除"],[8,"連続発動+1回"],[8,"再使用時間3秒減少"],[12,"10s間、受ける治癒量10%増加"],[16,"HP5%追加回復"]]},"divine-aura":{"n":"神聖な気","c":"active","cd":30,"d":"自分の周辺に5秒間維持される神聖な気を召喚します。気はその場を動かず、一定間隔で使用者が指定した20m内の対象にXの地属性ダメージを与えます。","sp":[[8,"気を中心に4m内の最大4体の敵の移動速度を3s間、40%減少"],[8,"広域スキルに変更"],[8,"[神聖な気]発射速度50%増加"],[12,"[神聖な気]持続時間3秒増加"],[16,"再使用時間10秒減少"]]},"benevolence":{"n":"生命の権能","c":"stigma","cd":90,"d":"自分に20s間、持続する生命の権能を付与します。生命の権能の持続中は自分と周辺40m内のパーティー メンバーのHPを2s間隔で90～100回復します。","sp":[[5,"持続時間10秒増加"],[10,"持続時間中は5s間隔で行動力200回復"],[15,"持続時間中は5s間隔でHP2%回復"],[20,"持続時間中は5s間隔で浄化効果"]]},"root":{"n":"束縛","c":"stigma","cd":60,"d":"20m内の対象を中心に4m内の最大4体の敵にX～Xの地属性ダメージを与えて、75%の確率で10s間、束縛状態にします。\n対象がNPCの場合、100%の確率で束縛が的中します。\n\nグロッキー ゲージ ダメージ量15","sp":[[5,"移動可能スキルに変更"],[10,"束縛の持続時間2秒増加"],[15,"束縛確率25%増加"],[20,"束縛時に対象の持続ダメージ2倍増加"]]},"defiance":{"n":"衝撃解除","c":"active","cd":60,"d":"自分の気絶、転倒、空中束縛、掴み、氷結、恐怖状態を解除し、5s間、強靭さ状態になります。\n強靭さ：状態異常免疫\n\n再使用時間減少効果に影響されません。","sp":[[8,"2番連続スキル[再生の祝福]追加"],[8,"[衝撃解除]発動時に行動力1000回復"],[8,"[衝撃解除]発動時にHP10%回復"],[12,"強靭さの持続時間2秒増加"],[16,"強靭さの持続時間中はPvEダメージ耐性50%、PvPダメージ耐性25%増加"]]},"salvation":{"n":"救援","c":"stigma","cd":150,"d":"3s間、ダメージを受けず、状態異常にかかりません。\n\n一部の強力な攻撃は防御できず、再使用時間増加効果に影響されません。\n無敵重複不可効果を持っている場合、30s間、根性、救援、結界の呪文、阻止不可効果が適用されません。","sp":[[5,"受ける治癒量100%増加"],[10,"[救援]終了時に最大HPの20%回復"],[15,"HPが一番低いパーティー メンバーに[救援]基本効果を付与"],[20,"衝撃系状態の時に[救援]活性化"]]},"power-burst":{"n":"権能爆発","c":"stigma","cd":60,"d":"20m内の対象にX～Xの地属性ダメージを与えます。\n\nグロッキー ゲージ ダメージ量50","sp":[[5,"スキル速度20%増加"],[10,"的中時に確定クリティカル"],[15,"75%の確率でノックバックを付与"],[20,"75%の確率で3s間、気絶を付与"]]},"absolution":{"n":"免罪","c":"stigma","cd":90,"d":"自分と周辺40m内のパーティー メンバーのデバフを2個まで解除し、HPを1602～1762回復します。","sp":[[5,"再使用時間30秒減少"],[10,"デバフをすべて除去"],[15,"HP5%追加回復"],[20,"10s間、2s間隔でHPの1.5%追加回復"]]},"voice-of-doom":{"n":"破滅の声","c":"stigma","cd":60,"d":"20m内の対象を中心に4m内の最大4体の敵にX～Xの地属性ダメージを与えます。敵は20s間、1s間隔でXのダメージを受けて、受ける治癒量とHPポーション回復が60%減少します。","sp":[[5,"的中した対象が多いほどダメージ量が最大20%増加"],[10,"的中時にバリア除去"],[15,"持続時間中はクリティカル抵抗200減少"],[20,"持続ダメージ間隔50%減少"]]},"condemnation":{"n":"断罪","c":"active","cd":3,"d":"20m内の苦痛の連鎖効果を受ける対象を中心に4m内の最大4体の敵にX～Xの地属性ダメージを与えます。\n\nグロッキー ゲージ ダメージ量7","sp":[[8,"的中時にMP100回復"],[8,"的中した対象が少ないほど最大12%ダメージ増加"],[8,"20%の確率で3s間、束縛を付与"],[12,"[断罪]クリティカル的中時に[断罪]の再使用時間初期化"],[16,"的中時に必ず多段ヒット"]]},"lightning-strike-scattershot":{"n":"稲妻乱射","c":"active","cd":0,"d":"20m内のグロッキー状態の対象にX～Xのダメージを与えます。","sp":[[8,"HP5%吸収"],[8,"MP120回復"],[8,"移動可能スキルに変更"],[12,"的中時に必ず多段ヒット"],[16,"的中時にすべてのスキル再使用時間1s減少"]]},"summon-resurrection":{"n":"召喚復活","c":"stigma","cd":120,"d":"自分を中心に40m内にいる死亡したパーティー メンバーを自分に近くで復活させます。","sp":[[5,"発動時間が1秒減少"],[10,"復活後に3s間、無敵効果"],[15,"最大HPの20%回復"],[20,"復活後に5s間、無敵効果"]]},"earth-punishment":{"n":"大地の懲罰","c":"stigma","cd":30,"d":"20m内の対象にX～Xの地属性ダメージを与えて、10s間、1s間隔でXのダメージを与えます。\n\nグロッキー ゲージ ダメージ量20","sp":[[5,"[大地の懲罰]の効果中の対象は[断罪]スキルが確定クリティカルで的中"],[10,"[大地の祝福]自分の強打10%、パーティー メンバーの強打5%増加"],[15,"[大地の祝福]自分の攻撃力と防御力が10%、パーティー メンバーの攻撃力と防御力が5%増加"],[20,"[大地の懲罰]と[大地の祝福]の持続時間10秒増加"]]},"light-of-protection":{"n":"保護の光","c":"stigma","cd":5,"d":"自分と周辺のパーティー メンバーのPvEダメージ増幅とPvEダメージ耐性を10.5%、PvPダメージ増幅とPvPダメージ耐性を5.25%増加させます。\n\nチャンターのスキル[不敗のマントラ]と重複適用されず、スキル レベルがより高い方の1つの効果のみ適用されます。スキル レベルが同じ場合、不敗のマントラ効果を受けます。","sp":[[5,"受ける治癒量10%増加"],[10,"命中100増加"],[15,"最大HP10%増加"],[20,"完璧10%増加"]]},"yustiels-power":{"n":"ユスティエルの権能","c":"stigma","cd":60,"d":"10s間、自分と周辺40m内にいるパーティー メンバーのPvEダメージ耐性を20%、PvPダメージ耐性を10%増加させます。\n\n再使用時間増加効果に影響されません。","sp":[[5,"最大HPの10%のバリア生成"],[10,"ガード、回避100増加"],[15,"状態異常抵抗20%増加"],[20,"PvEダメージ耐性10%、PvPダメージ耐性5%追加増加"]]},"prayer-of-amplification":{"n":"増幅の祈り","c":"stigma","cd":60,"d":"10s間、攻撃力が20%増加します。","sp":[[5,"PvEダメージ増幅20%、PvPダメージ増幅10%増加"],[10,"持続時間中は[神の恩恵]の効果1.5倍増加"],[15,"持続時間中は[大地の恩恵]の効果1.5倍増加"],[20,"攻撃力15%追加増加"]]},"assault-mark":{"n":"強襲烙印","c":"stigma","cd":120,"d":"20m内の対象を中心に4m内の最大4体の敵にX～Xのダメージを与えて、30%の確率で束縛状態にします。\n対象がNPCの場合、100%の確率で束縛が的中します。\n\n的中人数に比例して、防御力が最大20%増加します。","sp":[[5,"的中時に5s間、攻撃力20%増加"],[10,"的中時にMP500ダメージ"],[15,"射程10m増加"],[20,"束縛確率20%増加"]]},"warm-benediction":{"n":"暖かな加護","c":"passive","cd":0,"d":"自分の最大HPが6%、最大MPが7%増加します。","sp":[]},"empyrean-lords-benediction":{"n":"神の加護","c":"passive","cd":0,"d":"自分のガードが200増加し、ガード成功時にHPを53～64回復します。\n\n再発動制限時間：3s","sp":[]},"empyrean-lords-grace":{"n":"神の恩恵","c":"passive","cd":0,"d":"自分のクリティカルが100、強打が0.2%増加し、対象に攻撃を的中させるたびにX～Xの追加ダメージを与えます。\n\n再発動制限時間：1s","sp":[]},"healing-enhancement":{"n":"治癒力強化","c":"passive","cd":0,"d":"自分の治癒増幅が攻撃力の22400%増加します。","sp":[]},"immortal-veil":{"n":"不死の帳","c":"passive","cd":0,"d":"自分の防御力が2%、クリティカル抵抗が100増加します。","sp":[]},"heal-block":{"n":"回復遮断","c":"passive","cd":0,"d":"攻撃が的中するたびに7%の確率で5s間、対象の受ける治癒量を32%減少させます。\n\n再発動制限時間：5s","sp":[]},"prayer-of-concentration":{"n":"集中の祈り","c":"passive","cd":0,"d":"HPが50%以下の時に30s間、424のダメージを防ぐバリアを生成します。自分の治癒増幅が20%増加します。\n\n再発動制限時間：60s","sp":[]},"earths-grace":{"n":"大地の恩恵","c":"passive","cd":0,"d":"自分のクリティカル ダメージ増幅が10.5%、命中が100増加します。","sp":[]},"survival-willpower":{"n":"生存意志","c":"passive","cd":0,"d":"自分の状態異常抵抗が17%増加し、気絶、転倒、空中束縛、氷結、恐怖効果を受けた時に5s間、PvEダメージ耐性が12%、PvPダメージ耐性が6%増加します。気絶、転倒、空中束縛、氷結、恐怖状態で攻撃を受けた時に5s間、状態異常抵抗が10%増加します。(最大10回重複可能)\n\nダメージ耐性増加の再発動制限時間：60s\n状態異常抵抗増加の再発動制限時間：1s","sp":[]},"radiant-benediction":{"n":"煌めく加護","c":"passive","cd":0,"d":"攻撃が的中するたびに自分と周辺40m内のパーティー メンバーのHPを384～461回復させます。\n\n再発動制限時間：5s","sp":[]},"i:wings":{"n":"ディーヴァの最上級翼(刻印)","m":"","g":41,"d":"[ディーヴァの最上級翼(刻印)]を獲得します。\n\n[装着効果]\nHP：500\nMP：250\n貫通：500\nクリティカル：35\n[保有効果]\n飛行力：500\n貫通：100\n追加命中：20\n追加攻撃力：10","sp":[]},"i:bracelet":{"n":"覚醒のブレスレット","m":"アイテムレベル 51","g":41,"d":"防御力: 156\n攻撃力: 65","sp":[]},"i:trace":{"n":"神の痕跡：アルトガルド(刻印)","m":"","g":71,"d":"アルトガルドを守護する神たちの力が微かに残っている痕跡です。アルトガルドのモノリスに共鳴させることができます。","sp":[]},"i:dcrystal":{"n":"ディーヴァニオン結晶(刻印)","m":"","g":71,"d":"使用するとディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_ariel":{"n":"ディーヴァニオン結晶：アリエル(刻印)","m":"","g":71,"d":"使用するとアリエル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_azphel":{"n":"ディーヴァニオン結晶：アスフェル(刻印)","m":"","g":71,"d":"使用するとアスフェル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:wisdom":{"n":"知恵の石(刻印)","m":"","g":71,"d":"戦闘の記憶が宿る神秘的な石です。\n使用するとスキル ポイントを1獲得します。","sp":[]},"i:clashrune":{"n":"激突のルーン箱(刻印)","m":"","g":71,"d":"悪夢を克服した者だけが得られるルーンです。\n使用すると激突のルーン(刻印)とルーン強化スクロール(刻印)を獲得できます。","sp":[]},"i:beltscroll":{"n":"高潔のベルト強化スクロール(刻印)","m":"","g":11,"d":"古代の力が込められた強化スクロールです。\n高潔のベルトを強化できます。","sp":[]},"i:shugokey":{"n":"シューゴ フェスタ報酬の鍵(刻印)","m":"","g":71,"d":"シューゴ フェスタ報酬の鍵の回数を1回チャージします。","sp":[]},"i:bakarma":{"n":"ヴォカルマのプレート","m":"アイテムレベル 54","g":41,"d":"HP: 216\n防御力: 397","sp":[]},"i:voucher":{"n":"装備変更券：バクロンの空中島(刻印)","m":"","g":41,"d":"バクロンを倒して獲得した報酬です。\n物質変換の材料に使用すると、唯一級ガーダーまたは唯一級装備選択箱に変換できます。","sp":[]},"i:vakronguard":{"n":"バクロンのガーダー","m":"アイテムレベル 70","g":41,"d":"クリティカル: 50\n命中: 50\n攻撃力: 144","sp":[]},"i:mana_sup":{"n":"上級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_int":{"n":"中級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_less":{"n":"下級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:theostone":{"n":"神石：ユベントスの敏捷(刻印)","m":"","g":31,"d":"[神石：ユベントスの敏捷]を獲得します。\n獲得した神石は統合強化ウィンドウから確認できます。\n攻撃時に20%の確率で最大4体に広域風属性ダメージ250\n効果発動クールタイム：1秒\n同じ神石を複数着用時、1個の効果のみ適用されます。","sp":[]},"i:enhance":{"n":"強化石","m":"","g":11,"d":"装備の秘められた力を目覚めさせるのに使用されます。","sp":[]},"i:bell_green":{"n":"活力の鐘","m":"アイテムレベル 40 · セット: 太初の活力","g":21,"d":"Justice [ネザカン]: 12","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_green":{"n":"魔力の鏡","m":"アイテムレベル 40 · セット: 魔力鎧","g":21,"d":"Wisdom [ルミエル]: 12","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:compass_grey":{"n":"魔力のコンパス","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Death [トリニエル]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:chalice_grey":{"n":"魔力の聖杯","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Space [Israphel]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:mirror_gold":{"n":"活力の鏡","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Illusion [カイジネル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:transfer_w":{"n":"継承石：武器(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の武器に使用できます。","sp":[]},"i:transfer_a":{"n":"継承石：防具(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の防具に使用できます。","sp":[]},"i:stigmashard":{"n":"スティグマ シャード(刻印)","m":"","g":71,"d":"経験の精髄が封印された破片です。\n獲得時にスティグマ シャード ポイントの1ポイント獲得します。","sp":[]},"i:amplify":{"n":"突破石(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を引き出す神秘的な原石です。\n最大強化段階に達した唯一級の装備を突破する材料に使用されます。","sp":[]},"i:amplify_frag":{"n":"突破石の欠片(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を目覚めさせる時に使用する突破石の破片です。\n物質変換で突破石に変換できます。","sp":[]},"i:sync":{"n":"調律石(唯一)(刻印)","m":"","g":41,"d":"装備に宿る力を調律して、新しい可能性を目覚めさせる調律石です。\n[統合強化 - 魂刻印 - 調律]で装備に使用すると、オプションを調律できます。","sp":[]},"i:sapphire":{"n":"サファイアの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:ruby":{"n":"ルビーの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:odyle":{"n":"オード","m":"","g":11,"d":"アイテムにオードの力を吹き込むことができます。製作と物質変換の材料です。","sp":[]},"i:log":{"n":"ユグドラシルの木(刻印)","m":"","g":11,"d":"魔法の力が宿る木です。細工で木製武器を作る材料です。","sp":[]},"i:odyle_energy":{"n":"オード エネルギー(刻印)","m":"","g":71,"d":"オード エネルギーを40チャージします。\nオード エネルギーは遠征、超越、聖域の挑戦に成功した時に現れるオード エネルギー キューブを活性化するのに使用できます。","sp":[]},"i:ore":{"n":"オリハルコン鉱石","m":"","g":11,"d":"頑丈さを持つ鉱石です。鍛冶と防具製作の材料です。","sp":[]},"i:herb":{"n":"カレンドラ","m":"","g":11,"d":"薬草の葉です。錬金術でポーションを作る材料です。","sp":[]},"i:ingredient":{"n":"ククル","m":"","g":11,"d":"料理を作る材料です。","sp":[]},"i:parchment_vigor":{"n":"活力の羊皮紙","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Life [ユスティエル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:compass_vigor":{"n":"活力のコンパス","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:chalice_vigor":{"n":"活力の聖杯","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_magic_gold":{"n":"魔力の鏡","m":"アイテムレベル 80 · セット: 魔力鎧","g":41,"d":"Wisdom [ルミエル]: 20","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"dv:combatspeed:4:":{"n":"戦闘速度","m":"特殊 · 4 pt","g":41,"d":"戦闘速度 +1.5%","sp":[]},"dv:fixingdamage:1:":{"n":"攻撃力","m":"ステータス · 1 pt","g":11,"d":"攻撃力 +3","sp":[]},"dv:criticalresist:1:":{"n":"クリティカル抵抗","m":"ステータス · 1 pt","g":11,"d":"クリティカル抵抗 +5","sp":[]},"dv:critical:1:":{"n":"クリティカル","m":"ステータス · 1 pt","g":11,"d":"クリティカル +5","sp":[]},"dv:cooltimedecrease:4:":{"n":"再使用時間減少","m":"特殊 · 4 pt","g":41,"d":"再使用時間減少 +1.5%","sp":[]},"dv:mpmax:1:":{"n":"最大MP","m":"ステータス · 1 pt","g":11,"d":"最大MP +50","sp":[]},"dv:defense:1:":{"n":"防御力","m":"ステータス · 1 pt","g":11,"d":"防御力 +30","sp":[]},"dv:hpmax:1:":{"n":"最大HP","m":"ステータス · 1 pt","g":11,"d":"最大HP +100","sp":[]},"dv::0:710113":{"n":"ネザカン - 開始","m":"","g":0,"d":"","sp":[]},"dv:decreasedamage:4:":{"n":"ダメージ耐性","m":"特殊 · 4 pt","g":41,"d":"ダメージ耐性 +1.5%","sp":[]},"dv:amplifyalldamage:4:":{"n":"ダメージ増幅","m":"特殊 · 4 pt","g":41,"d":"ダメージ増幅 +1.5%","sp":[]},"dv::0:720113":{"n":"ジケル - 開始","m":"","g":0,"d":"","sp":[]},"dv:amplifycriticaldamage:4:":{"n":"クリティカル ダメージ増幅","m":"特殊 · 4 pt","g":41,"d":"クリティカル ダメージ増幅 +1.5%","sp":[]},"dv:decreasecriticaldamage:4:":{"n":"クリティカル ダメージ耐性","m":"特殊 · 4 pt","g":41,"d":"クリティカル ダメージ耐性 +1.5%","sp":[]},"dv::0:730113":{"n":"バイゼル - 開始","m":"","g":0,"d":"","sp":[]},"dv:additionalhitresistrate:4:":{"n":"多段ヒット抵抗","m":"特殊 · 4 pt","g":41,"d":"多段ヒット抵抗 +1.5%","sp":[]},"dv:additionalhitrate:4:":{"n":"多段ヒット的中","m":"特殊 · 4 pt","g":41,"d":"多段ヒット的中 +1.5%","sp":[]},"dv::0:740113":{"n":"トリニエル - 開始","m":"","g":0,"d":"","sp":[]},"dv:pvpdecreasedamage:4:":{"n":"PvPダメージ耐性","m":"特殊 · 4 pt","g":41,"d":"PvPダメージ耐性 +1.5%","sp":[]},"dv:pvpadddamage:1:":{"n":"PvP攻撃力","m":"ステータス · 1 pt","g":11,"d":"PvP攻撃力 +3","sp":[]},"dv:pvpdamagedefense:1:":{"n":"PvP防御力","m":"ステータス · 1 pt","g":11,"d":"PvP防御力 +30","sp":[]},"dv:abnormalaccuracy:3:":{"n":"状態異常的中","m":"ステータス · 3 pt","g":31,"d":"状態異常的中 +100","sp":[]},"dv:pvpcritical+pvpcriticalresist:2:":{"n":"PvPクリティカル、PvPクリティカル抵抗","m":"ステータス · 2 pt","g":21,"d":"PvPクリティカル +5\nPvPクリティカル抵抗 +5","sp":[]},"dv:pvpaccuracy:1:":{"n":"PvP命中","m":"ステータス · 1 pt","g":11,"d":"PvP命中 +5","sp":[]},"dv:pvpevasion:1:":{"n":"PvP回避","m":"ステータス · 1 pt","g":11,"d":"PvP回避 +3","sp":[]},"dv:abnormalresistance:3:":{"n":"状態異常抵抗","m":"ステータス · 3 pt","g":31,"d":"状態異常抵抗 +100","sp":[]},"dv:pvpcriticalresist:1:":{"n":"PvPクリティカル抵抗","m":"ステータス · 1 pt","g":11,"d":"PvPクリティカル抵抗 +5","sp":[]},"dv:pvpamplifydamage:4:":{"n":"PvPダメージ増幅","m":"特殊 · 4 pt","g":41,"d":"PvPダメージ増幅 +1.5%","sp":[]},"dv:pvpcritical:1:":{"n":"PvPクリティカル","m":"ステータス · 1 pt","g":11,"d":"PvPクリティカル +5","sp":[]},"dv:pvpaccuracy+pvpevasion:2:":{"n":"PvP命中、PvP回避","m":"ステータス · 2 pt","g":21,"d":"PvP命中 +5\nPvP回避 +3","sp":[]},"dv:pvpadddamage+pvpdamagedefense:2:":{"n":"PvP攻撃力、PvP防御力","m":"ステータス · 2 pt","g":21,"d":"PvP攻撃力 +3\nPvP防御力 +30","sp":[]},"dv::0:760113":{"n":"アスフェル - 開始","m":"","g":0,"d":"","sp":[]}}</script>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <div>
+      <a class="brand brand-sm" href="../../ja/">AION 2 ガイド</a>
+      <p>NCSOFTとは無関係の非公式ファンサイト。AION 2とそのスキルアイコンの著作権はNCSOFTに帰属する。</p>
+      <p>最終確認: 2026-10-04 (グローバル版ローンチ前).</p>
+      <p><a href="../../ja/sources/">すべての出典と配信者</a> · <a href="../../ja/changelog/">更新履歴</a> · <button type="button" class="link-btn report-open">誤りを報告</button></p>
+    </div>
+  </div>
+</footer>
+<dialog class="search-dlg" aria-label="検索" data-index="../../ja/search.json" data-base="../../ja/" data-empty="見つからなかった"
+  data-kinds="{&#34;boss&#34;: &#34;\u30dc\u30b9&#34;, &#34;class&#34;: &#34;\u30af\u30e9\u30b9&#34;, &#34;page&#34;: &#34;\u30da\u30fc\u30b8&#34;, &#34;section&#34;: &#34;\u30bb\u30af\u30b7\u30e7\u30f3&#34;, &#34;skill&#34;: &#34;\u30b9\u30ad\u30eb&#34;}" data-root="../../">
+  <div class="search-in">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" class="search-q" placeholder="クラス、スキル、ボス、セクション…" aria-label="検索" autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="search-res" role="listbox"></ul>
+  </div>
+</dialog>
+<dialog class="whatsnew" data-id="2026-10-04" aria-labelledby="wn-title">
+  <form method="dialog" class="wn-in">
+    <div class="wn-head">
+      <h2 id="wn-title">更新情報</h2>
+      <button class="icon-btn wn-x" value="close" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <section class="wn-entry">
+      <time class="wn-date" datetime="2026-10-04">2026年10月4日</time>
+      <ul>
+        <li><span><strong>トルコ語版</strong>：サイト全体がトルコ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ウクライナ語ページと同じく、スキル名とアイテム名は英語のまま。翻訳はAIによるもので、誤りを見つけたら「誤りを報告」を使うかGitHubでissueを立ててほしい。</span></li>
+      </ul>
+    </section>
+    <button class="btn btn-primary wn-ok" value="close">閉じる</button>
+    <p class="wn-all"><a href="../../ja/changelog/">更新履歴をすべて見る →</a></p>
+  </form>
+</dialog>
+<dialog class="whatsnew feedback" aria-labelledby="fb-title" data-url="https://aion2-feedback.couga-ua.workers.dev/" data-page="ja/cleric/" data-lang="ja">
+  <form class="wn-in fb-form" novalidate>
+    <div class="wn-head">
+      <h2 id="fb-title">誤りを報告</h2>
+      <button type="button" class="icon-btn fb-x" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="fb-hint">どこが間違っている、または古い？ 出典のリンクやスクリーンショットがあると助かる。</p>
+    <label class="fb-label" for="fb-text">メッセージ</label>
+    <textarea id="fb-text" class="fb-text" name="text" rows="6" maxlength="2000" required placeholder="例：グローバル版では炎爆発の3つ目の特化が違う…"></textarea>
+    <label class="fb-label" for="fb-contact">返信先の連絡先（任意）</label>
+    <input id="fb-contact" class="fb-contact" name="contact" type="text" maxlength="100" autocomplete="off" placeholder="DiscordまたはTelegram">
+    <input class="fb-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fb-meta">メッセージと一緒に送信される情報： <b class="fb-where"></b></p>
+    <p class="fb-status" role="status" data-sending="送信中…" data-ok="送信した。ありがとう！" data-err="送信できなかった。しばらくしてからもう一度試してほしい。" data-rate="連続送信が多すぎる。数分後にもう一度試してほしい。" data-short="まず少し書いてほしい。"></p>
+    <div class="fb-actions">
+      <button type="submit" class="btn btn-primary fb-send">送信</button>
+      <button type="button" class="btn btn-ghost fb-cancel">キャンセル</button>
+    </div>
+  </form>
+</dialog>
+<script src="../../assets/js/site.js?v=16a30350" defer></script>
+<script src="../../assets/js/fx.js?v=16a30350" defer></script>
+<div class="cel-banner" role="status" hidden data-at="2026-09-30T14:00:00Z" data-id="early">
+  <span class="cel-ico" aria-hidden="true">✦</span>
+  <div><p class="cel-h">先行アクセス開始！</p><p class="cel-p">ファウンダーパックのサーバーが稼働中。初日の健闘を祈る。クラスガイドは準備できている。</p></div>
+  <button type="button" class="cel-x" aria-label="閉じる">×</button>
+</div>
+<script src="../../assets/js/celebrate.js?v=16a30350" defer></script>
+</body>
+</html>

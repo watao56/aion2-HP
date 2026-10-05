@@ -1,0 +1,272 @@
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+
+{# ============================== PvE and PvP ============================== #}
+{% call glance('pve') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('elemental-fusion', '20'), ('combustion', '20'), ('summon-fire-spirit', '20'), ('cold-shock', '16'), ('summon-water-spirit', '16')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('summon-ancient-spirit', 20), ('enhance-spirits-benediction', 20), ('flame-blessing', 20), ('jointstrike-corrode', 20)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['mental-focus', 'spirit-strike', 'element-unification', 'spirit-revitalization']) }}
+{% endcall %}
+
+{% call glance('pvp') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('defiance', '20'), ('cold-shock', '20'), ('elemental-fusion', '20'), ('jointstrike-curse', '20'), ('combustion', '20')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('summon-ancient-spirit', 20), ('enhance-spirits-benediction', 20), ('command-proxy', 20), ('seize-magic', 20)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['spirit-protection', 'revitalization-contract', 'spirit-strike', 'mental-focus']) }}
+{% endcall %}
+
+{% call section('intro', '概要', 'pve') %}
+  <p>スピリットマスターは唯一の召喚職。精霊がそばで戦い、精霊がスキルを使うたびに元素を1つ獲得する。元素が4つそろうと{{ s('elemental-fusion') }}が使える。ダメージの大半は元素融合と精霊から出る。中でも{{ s('summon-ancient-spirit') }}と{{ s('summon-fire-spirit') }}が大きい。</p>
+  <div class="callout accent">
+    <h3>ビルドを一言で</h3>
+    <p>先にバフ、それから召喚。精霊は召喚された瞬間のプレイヤーの能力値をコピーする。{{ s('cold-shock') }}の攻撃力バフを5スタック維持し、バフと古代の精霊で開幕して、元素融合は使えるようになるたびにマクロに撃たせる。</p>
+  </div>
+  <div class="callout"><ul>
+    <li><strong>スナップショットのルール。</strong>精霊のダメージは召喚した時点の能力値とバフで決まる。召喚後にかけたバフはその精霊には乗らない。バフなしで古代の精霊を呼ばないこと。</li>
+    <li><strong>通常攻撃を挟む。</strong>冷気衝撃は1回当てるごとに攻撃力+2%、最大5スタック。これが切れると自分と以後に召喚する精霊すべての攻撃力が10%下がる。次の召喚より、通常攻撃を1回挟むほうが価値が高い。</li>
+    <li><strong>長期戦が得意。</strong>バフと持続ダメージに頼るクラスなので、戦闘が長引くほど強くなる。逆に、スキルをすべてクールタイムにした状態で倒れると、失うものが最も大きい。</li>
+  </ul></div>
+  <p class="note">このガイドはEvripidesによるスピリットマスターの文章ガイド、シーズン1グローバル版(aion2sm.com、700k CPで執筆、9月29日更新)に沿っている。DankRNGの動画もこのガイドを基にしている。初日の特化はaLuckyROのグローバル版向け動画で補った。元のガイドは台湾版と韓国版を基にしたもので、作者はリリース後に更新する予定。</p>
+{% endcall %}
+
+{% call section('intro-pvp', '概要', 'pvp') %}
+  <p>PvPのスピリットマスターは<strong>粘り勝ちするカイト職</strong>。機動力はレンジャーに、バーストはソーサラーに劣るが、遠距離職の中では群を抜いて硬い。恐怖、バフ解除、そして自分が射程外にいても攻撃を続ける精霊を持つ。</p>
+  <div class="callout"><ul>
+    <li><strong>恐怖は倒すためではなく制御のために使う。</strong>敵を引き剥がしたり、敵の{{ s('defiance', False) }}を吐かせたりするのに使う。ダメージ源は元素融合、呪い、精霊。</li>
+    <li><strong>勝敗はタイミングで決まる。</strong>相手クラスのスキルを把握しておく。防御スキルを早すぎても遅すぎても負ける。</li>
+    <li><strong>{{ s('summon-earth-spirit') }}は挑発を入れる。</strong>挑発は衝撃解除では解除できない。</li>
+  </ul></div>
+  <p class="note">PvPモードは同じガイドの「PvP Starter」ビルド(9月29日更新)に沿っている。</p>
+{% endcall %}
+
+{% call section('skills', 'スキル', 'pve') %}
+  <p><strong>20</strong>まで上げる必須スキルは3つ：{{ s('combustion') }}、{{ s('summon-fire-spirit') }}、{{ s('elemental-fusion') }}。{{ s('summon-water-spirit') }}は16で十分、20ならなお良い。それ以外はすべて16で止める。スキルLvが8〜12の最初の数日は、カードに書いたMP系の特化を取る(aLuckyRO)。</p>
+  <ul class="skill-grid">
+    {% call skill('elemental-fusion', 'must', '20', [1, 2, 4]) %}最大の一撃で、再使用時間がない。4元素がそろうたびに撃てる。時間差の追加ダメージ、全属性増幅10%増加、25%の確率で4元素再獲得。aLuckyROは初日、代わりにチャージ版(最大+200%)を取る。{% endcall %}
+    {% call skill('combustion', 'must', '20', [1, 3, 4]) %}単体なら+12%、スキル速度+20%、連続スキル「灰の呼びかけ」。最初の数日はMPが持つようになるまでMP消耗−20%を取る(aLuckyRO)。{% endcall %}
+    {% call skill('summon-fire-spirit', 'must', '20', [1, 2, 4]) %}基本の精霊で最も強く、場にいる時間も最も長い。最後に召喚すれば、他の精霊がクールタイム中も場に残る。{% endcall %}
+    {% call skill('cold-shock', 'must', '16', [2, 3]) %}通常攻撃。多段ヒットと、召喚する精霊すべてがコピーする攻撃力+2%のスタック。14でも可。序盤は再使用時間が長いので16が最適。最初の数日は多段ヒットの代わりにMP回復+20%を取る。{% endcall %}
+    {% call skill('summon-water-spirit', 'must', '16', [1, 4]) %}協力攻撃：腐食に加わったときの単体ダメージは基本の精霊で最も高い。レベリング中はMP源にもなる。{% endcall %}
+    {% call skill('jointstrike-curse', 'must', '16', [0, 2]) %}持続ダメージとデバフ。呪いの持続時間+2秒と移動可能化を取る。精霊(古代の精霊も)が一緒に攻撃する。{% endcall %}
+    {% call skill('dimensional-control', 'must', '16', [1, 2]) %}召喚すると発動する。時間差の追加ダメージと多段ヒット。引き寄せと鈍化は取らない。{% endcall %}
+    {% call skill('summon-earth-spirit', 'opt', '16', [1, 2]) %}敵を挑発して精霊自身に引きつけるので、ボスはプレイヤーではなく精霊を殴る。ソロで便利。{% endcall %}
+    {% call skill('rapid-scattershot', 'opt', '16', [3, 4]) %}グロッキー状態のボスにしか使えない。16未満なら移動可能化と多段ヒット、16では多段ヒットと全スキル再使用時間−1秒。{% endcall %}
+    {% call skill('defiance', 'opt', '16', [2, 4]) %}CC解除。HP20%回復と、強靭さの間のダメージ耐性。{% endcall %}
+    {% call skill('summon-wind-spirit', 'skip', '不要') %}スキルダメージが最も低く、召喚に時間を取られて他の精霊が遅れる。aLuckyROは4元素を早くそろえるため最初の1週間は使う。3体の精霊だけで融合が回るようになったら外す。{% endcall %}
+    {% call skill('souls-cry', 'skip', 'PvP') %}恐怖。PvP用のスキル。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('skills-pvp', 'スキル', 'pvp') %}
+  <p><strong>20</strong>が絶対に必要なのは4つ：{{ s('defiance') }}、{{ s('cold-shock') }}、{{ s('elemental-fusion') }}、{{ s('jointstrike-curse') }}。{{ s('combustion') }}はアルカナのセットでどのみち20に届く。</p>
+  <ul class="skill-grid">
+    {% call skill('defiance', 'must', '20', [2, 3, 4]) %}HP20%回復、強靭さ+2秒、ダメージ耐性付きのCC解除。敵に仕掛けられたら、最初のCCをすぐに解除する。{% endcall %}
+    {% call skill('cold-shock', 'must', '20', [1, 2]) %}HP吸収と多段ヒット。PvPでは攻撃力スタックがほとんど溜まらないので、ここでは取らない。{% endcall %}
+    {% call skill('elemental-fusion', 'must', '20', [1, 2, 4]) %}バーストの要。大規模PvPでは時間差ダメージを広域版に替える。{% endcall %}
+    {% call skill('jointstrike-curse', 'must', '20', [1, 3, 4]) %}多段ヒット、再使用時間−2秒。16ではガードと回避を無視してクリティカルで的中する。最初に当てる。敵の回復ポーションを吐かせられる。{% endcall %}
+    {% call skill('combustion', 'must', '20', [1, 3, 4]) %}PvEと同じ特化。{% endcall %}
+    {% call skill('dimensional-control', 'must', '16', [1, 4]) %}CCとカイトの要。時間差の追加ダメージと束縛確率。召喚のたびに発動し、束縛で敵の衝撃解除を引き出す。{% endcall %}
+    {% call skill('summon-earth-spirit', 'must', '16', [1, 4]) %}挑発はゲーム内でも最強クラスのCC。精霊のダメージ耐性と能力値+20%。{% endcall %}
+    {% call skill('souls-cry', 'opt', '12–16', [1, 3]) %}束縛付きの恐怖と再使用時間−10秒。16未満でも問題ない。{% endcall %}
+    {% call skill('summon-water-spirit', 'opt', '12–16', [1, 2]) %}12〜16で十分。{% endcall %}
+    {% call skill('summon-fire-spirit', 'opt', '14', [1, 2]) %}低いLvでも十分に強い。{% endcall %}
+    {% call skill('summon-wind-spirit', 'skip', '不要') %}PvPでは使わない。{% endcall %}
+    {% call skill('rapid-scattershot', 'skip', '不要') %}グロッキー状態の対象にしか効かない。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('passives', 'パッシブ', 'pve pvp') %}
+  <p>パッシブのLvは防具の全部位、イヤリング、ネックレスで上がるので、アクティブよりはるかに高くなる。シーズン1の装備が完成すれば、パッシブは30以上に届く。</p>
+  <div class="table-wrap" data-only="pve"><table>
+    <thead><tr><th>#</th><th>パッシブ</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>{{ s('mental-focus') }}</td><td>強打。最大まで上げる(シーズン1で約32)。</td></tr>
+      <tr><td>2</td><td>{{ s('spirit-strike') }}</td><td>自分と精霊のPvEダメージ増幅と完璧。僅差の2番手。</td></tr>
+      <tr><td>3</td><td>{{ s('element-unification') }}</td><td>精霊のスキルが的中するたびにクリティカル ダメージ増幅が重複する。</td></tr>
+      <tr><td>4</td><td>{{ s('spirit-revitalization') }}</td><td>精霊の再使用時間が短くなり、元素融合の回数が増える。</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" data-only="pve">最初の数日(aLuckyRO)：まず{{ s('spirit-strike') }}、次に{{ s('spirits-descent') }}と{{ s('consecutive-countercurrent') }}。{{ s('corrode') }}と元素結集は、装備でクリティカルが付いてから効いてくる。それまではほとんどクリティカルが出ない。</p>
+  <div class="table-wrap" data-only="pvp"><table>
+    <thead><tr><th>#</th><th>パッシブ</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>{{ s('spirit-protection') }}</td><td>バースト対策の防御(アサシン、ソーサラー、グラディエーター)。約20。</td></tr>
+      <tr><td>2</td><td>{{ s('revitalization-contract') }}</td><td>状態異常抵抗。約20。</td></tr>
+    </tbody>
+  </table></div>
+{% endcall %}
+
+{% call section('stigmas', 'スティグマ', 'pve') %}
+  <p>PvEはどの戦闘でもこの4つ。まず4つとも10まで上げ、その後この順に1つずつ20にする。スロットはLv22、27、32、37で開く。</p>
+  <ul class="skill-grid">
+    {% call skill('summon-ancient-spirit', 'must', 'Lv20', upto=20) %}最大火力のスティグマ。30秒間追加の精霊を呼び、その精霊がスキルを使うたびに元素融合が使えるようになる。15からは通常攻撃5回ごとにスキルを使う。必ずバフと冷気衝撃のスタックがそろった状態で召喚する。{% endcall %}
+    {% call skill('enhance-spirits-benediction', 'must', 'Lv20', upto=20) %}自分と精霊にダメージ増幅とダメージ耐性。召喚の前にかける。{% endcall %}
+    {% call skill('flame-blessing', 'must', 'Lv20', upto=20) %}命中と、攻撃的中時の追加ダメージ。最強クラスのバフで、20で大きく伸びる。{% endcall %}
+    {% call skill('jointstrike-corrode', 'must', 'Lv20', upto=20) %}対象が精霊から受けるダメージを増やす持続ダメージ。20では20秒持続し、再使用時間減少が約33%あれば常時維持できる。{% endcall %}
+    {% call skill('cursed-cloud', 'opt', '後回し', upto=10) %}PvEでは強いが、シーズン1では入れるスロットがない。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('stigmas-pvp', 'スティグマ', 'pvp') %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>セット</th><th>スティグマ</th><th>使いどころ</th></tr></thead>
+    <tbody>
+      <tr><td>基本</td><td>召喚：古代の精霊、強化：精霊の加護、命令：身代わり、魔法強奪</td><td>最も汎用的なセット。</td></tr>
+      <tr><td>身代わりなし</td><td>命令：身代わりの代わりに協力攻撃：腐食</td><td>リスクは高いが、火力と回復阻害が増える。クレリック、グラディエーター、テンプラー向け。</td></tr>
+      <tr><td>補助</td><td>召喚：古代の精霊、恐怖の絶叫、協力攻撃：腐食、カイジネルの権能</td><td>範囲恐怖とCC確率が増える。クレリックとチャンター向け。</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="skill-grid">
+    {% call skill('command-proxy', 'must', 'Lv20', upto=20) %}7秒間、受けるダメージの大半を精霊と分担する。アサシンに仕掛けられたときや、ソーサラーに凍らされたときに使う。最初のCCには使わない。{% endcall %}
+    {% call skill('seize-magic', 'must', 'Lv20', upto=20) %}敵のバフやバースト用の強化を消し、20では封印もかける。無敵スキルを消すか、レンジャーがバフをかけた直後に使う。{% endcall %}
+    {% call skill('jointstrike-corrode', 'opt', '身代わりなし', upto=20) %}回復量−60%と長い持続ダメージで、継戦能力の高いクラスに効く。ポーションで解除されないよう、先に呪いと他の持続ダメージを入れておく。{% endcall %}
+    {% call skill('cry-of-terror', 'opt', '補助', upto=20) %}追加の制御用の範囲恐怖。{% endcall %}
+    {% call skill('kaisinels-power', 'opt', '補助', upto=20) %}CC確率を上げる。これがないとCCがほとんど入らない。{% endcall %}
+    {% call skill('siphon', 'opt', '代替', upto=20) %}継戦能力用。15でバリアが付く。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('macro', 'ローテーションとマクロ', 'pve') %}
+  <p>2つのキーを押しっぱなしにして戦う。{{ s('cold-shock') }}を<span class="key">左クリック</span>、マクロを<span class="key">右クリック</span>で押しっぱなしにしたまま移動し、残りは手動で押す。もともと右クリックにあったホットバーのラインは<span class="key">T</span>に移す。</p>
+  <h3>1. ホットバーのライン</h3>
+  <div class="hotlines">
+    {% call hotline('1', '精霊ライン', ['elemental-fusion', 'summon-water-spirit', 'summon-earth-spirit', 'summon-fire-spirit']) %}連打する。元素融合は使えるようになり次第撃ち、その後に精霊が続く。火の精霊は最後に呼ぶので、一番長く場に残る。{% endcall %}
+    {% call hotline('7', 'バフ + 古代の精霊', ['enhance-spirits-benediction', 'flame-blessing', 'summon-ancient-spirit']) %}バフを古代の精霊より前に置くので、召喚がバフをコピーする。{% endcall %}
+    {% call hotline('T', '火力ライン', ['jointstrike-corrode', 'jointstrike-curse', 'dimensional-control', 'combustion']) %}ダメージ順に並べる。協力攻撃：腐食は使えるようになった瞬間に入れる。{% endcall %}
+  </div>
+  <h3>2. ゲーム内マクロ</h3>
+  <p>マクロを<span class="key">右クリック</span>に割り当て、各ステップは<strong>10ms</strong>：</p>
+  {{ macroseq([(skill_data('enhance-spirits-benediction')[lang].name, '右クリック · 10ms'), (skill_data('elemental-fusion')[lang].name, '10ms'), (skill_data('jointstrike-corrode')[lang].name, '10ms')]) }}
+  <h3>3. 戦闘の流れ</h3>
+  <ol>
+    <li><strong>開幕</strong>は{{ s('flame-blessing') }} → {{ s('enhance-spirits-benediction') }} → {{ s('summon-ancient-spirit') }}。バフを召喚より先に入れる。</li>
+    <li>精霊ラインと協力攻撃：腐食。その後マクロを起動し、2つ押しっぱなしの操作に移る。</li>
+    <li>精霊を回し続ける。バフは古代の精霊用に温存せず、使えるようになったらすぐかけ直す。</li>
+    <li>冷気衝撃の5スタックが切れそうなら、次の召喚より通常攻撃を1回挟むほうがいい。</li>
+  </ol>
+  <p class="note">通常攻撃をうまく挟めるかはPingしだい。作者の目安は戦闘速度65%以上、Ping約60ms未満。aLuckyROの最初の1週間向けのアドバイスは、クラスに慣れるまではマクロなしで遊ぶこと。精霊をすべて解除する操作は押しやすいキーに割り当てておく。</p>
+{% endcall %}
+
+{% call section('combos-pvp', '戦闘の始め方', 'pvp') %}
+  <p>PvPではマクロにほとんど頼らない。マクロで回すのは<span class="key">右クリック</span>の{{ s('elemental-fusion') }} → {{ s('summon-earth-spirit') }}だけ。残りはすべてタイミング勝負。</p>
+  <div class="callout">
+    <h3>仕掛けられたとき</h3>
+    <p>最初のCCは{{ s('defiance') }}ですぐ解除する。{{ s('command-proxy') }}は次の追撃まで我慢して取っておく。</p>
+  </div>
+  <div class="callout accent">
+    <h3>自分から仕掛けるとき</h3>
+    <div class="combo">{{ s('enhance-spirits-benediction') }} + {{ s('kaisinels-power') }}<span class="arrow">→</span>{{ s('summon-earth-spirit') }} + {{ s('jointstrike-curse') }}<span class="arrow">→</span>{{ s('summon-ancient-spirit') }}<span class="arrow">→</span>敵のポーション後に{{ s('jointstrike-corrode') }}</div>
+    <p>{{ s('souls-cry') }}は、地の精霊がCCを入れられなかったときか、敵の衝撃解除がなくなってから使う。衝撃解除を吐かせるには{{ s('dimensional-control') }}で束縛する。</p>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>相手</th><th>対処</th></tr></thead>
+    <tbody>
+      <tr><td>グラディエーター、クレリック</td><td>無敵スキルには魔法強奪。回復対策は協力攻撃：呪いを先に入れ、次に協力攻撃：腐食。</td></tr>
+      <tr><td>レンジャー</td><td>バフをかけた直後に魔法強奪。継戦能力には協力攻撃：腐食。</td></tr>
+      <tr><td>アサシン</td><td>仕掛けてきたら命令：身代わり。</td></tr>
+      <tr><td>ソーサラー</td><td>凍らされたら命令：身代わり。ダッシュはメテオ用に取っておく。メテオは回避とガードを無視する。</td></tr>
+      <tr><td>チャンター</td><td>協力攻撃：腐食で回復量−60%と、30秒近い持続ダメージ。</td></tr>
+    </tbody>
+  </table></div>
+{% endcall %}
+
+{% call section('gear', 'アルカナとステータス', 'pve pvp') %}
+  <div class="callout"><ul>
+    <li><strong>スキルLvの内訳：</strong>スキルポイントで10、最初の4枚のディーヴァニオン ボードで14。さらにアルカナで+4、指輪1つごとに+1で、必須スキルが20になる。アクティブスキルは指輪、武器、ガーダーに、パッシブは防具の全部位、イヤリング、ネックレスに付く。</li>
+    <li data-only="pve"><strong>アルカナ：</strong>太初の活力3枚と魔力鎧2枚。どちらも2枚セットの効果。</li>
+    <li data-only="pve"><strong>目標：</strong>強打25%、再使用時間減少20%、命中1,500。</li>
+    <li data-only="pvp"><strong>アルカナ：</strong>太初の活力5枚。カードのオプションで狙うスキルは協力攻撃：呪いと元素融合の2つ。</li>
+    <li data-only="pvp"><strong>目標：</strong>命中2,000以上、状態異常抵抗100%以上、再生約40%。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('daevanion', 'ディーヴァニオン ボード', 'pve pvp') %}
+  <p>ディーヴァニオンでスキルLvが10から14に上がる。青いノードを1つ取るごとに、対応するスキルのLvが<strong>1上がる</strong>。</p>
+  <div class="callout"><ul>
+    <li data-only="pve"><strong>優先度：</strong>{{ s('elemental-fusion') }}、{{ s('combustion') }}、{{ s('summon-fire-spirit') }}、{{ s('cold-shock') }}、{{ s('summon-water-spirit') }}の青ノード、緑の{{ s('mental-focus') }}と{{ s('spirit-strike') }}。その後に攻撃系のオレンジノード。</li>
+    <li data-only="pve"><strong>最初の数日：</strong>各スキルの一番安いノードを取る。どのボードにも全スキルのノードがあり、開始地点の近くにあるものもある(aLuckyRO)。</li>
+    <li data-only="pvp"><strong>優先度：</strong>{{ s('defiance') }}、{{ s('cold-shock') }}、{{ s('elemental-fusion') }}、{{ s('jointstrike-curse') }}、{{ s('combustion') }}の青ノード。アスフェル(Lv45)はすべてPvPダメージ増幅とPvPダメージ耐性なので取る。</li>
+  </ul></div>
+  <div data-only="pve">{{ dv_board('pve') }}</div>
+  <div data-only="pvp">{{ dv_board('pvp') }}</div>
+  <p class="note">ボードとコストはグローバル版クライアントのデータ(questlog.gg)による。ルートは計算で出したもので、ガイドから取ったものではない。</p>
+{% endcall %}
+
+{% call section('recap', 'まとめ', 'pve') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>元素融合、火炎全焼、召喚：火の精霊は20。冷気衝撃、召喚：水の精霊、協力攻撃：呪い、空間支配は16。召喚：風の精霊は取らない。</li>
+    <li><strong>スティグマ：</strong>召喚：古代の精霊 → 強化：精霊の加護 → 焔の祝福 → 協力攻撃：腐食。まず全部10まで、その後20。</li>
+    <li><strong>パッシブ：</strong>精神集中、精霊打撃、元素結集、精霊蘇生。</li>
+    <li><strong>立ち回り：</strong>召喚の前にバフ。冷気衝撃の5スタックを維持する。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('recap-pvp', 'まとめ', 'pvp') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>衝撃解除、冷気衝撃、元素融合、協力攻撃：呪い、火炎全焼は20。召喚：地の精霊と空間支配は16。</li>
+    <li><strong>スティグマ：</strong>召喚：古代の精霊、強化：精霊の加護、命令：身代わり、魔法強奪。回復阻害がほしいときは協力攻撃：腐食。</li>
+    <li><strong>パッシブ：</strong>精霊保護、蘇生の契約。</li>
+    <li><strong>立ち回り：</strong>協力攻撃：呪いを先に、協力攻撃：腐食は敵のポーション後に。恐怖は倒すためではなく制御に使う。</li>
+  </ul></div>
+{% endcall %}
+{# ============================ Leveling ============================ #}
+
+{% call section('intro-lvl', '概要', 'lvl') %}
+  <p>スピリットマスターは唯一の召喚職。精霊がそばで戦い、精霊がスキルを使うたびに元素を1つ獲得する。元素が4つそろうと{{ s('elemental-fusion') }}が使える。{{ s('dimensional-control') }}は精霊がスキルを使うたびに発動し、呪いは対象にダメージを与え続ける。</p>
+  <div class="callout accent">
+    <h3>レベリングを一言で</h3>
+    <p>{{ s('summon-water-spirit') }}でレベルを上げる(ダメージとMP)。MP回復には{{ s('cold-shock') }}を押しっぱなしにし、精霊ラインと融合ラインはゲーム内マクロに回させる。</p>
+  </div>
+{% endcall %}
+
+{% call section('fight-lvl', t.lvl_combat, 'lvl') %}
+  <div class="callout"><ul>
+    <li><strong>精霊：</strong>上限レベルまで{{ s('summon-water-spirit') }}。単体ダメージが最も高く、MPも補ってくれる。レベリング中、他の精霊はLv1のままでいい。</li>
+    <li><strong>集団：</strong>{{ s('jointstrike-curse') }}(最大4体に命中) → {{ s('combustion') }} → 使えるようになったら広域特化の{{ s('elemental-fusion') }}。</li>
+    <li><strong>MP：</strong>序盤最大の課題。ターゲットモードで戦い、スキルの合間に{{ s('cold-shock') }}を挟み、精霊のローテーションは水の精霊で締める。</li>
+    <li><strong>グロッキー状態の対象：</strong>{{ s('rapid-scattershot') }}。</li>
+    <li>{{ s('souls-cry') }}はPvP用なので取らない。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
+  <p>Grobsの序盤向けセットアップ。ホットバー2ラインと、2枠のゲーム内マクロを使う。AION 2では<strong>ラインの一番下の枠が最優先</strong>になる。カードはゲーム内と同じく、各ラインを上から下へ表示している。</p>
+  <div class="hotlines">
+    {% call hotline('1', '精霊ライン', ['summon-water-spirit', 'jointstrike-corrode', 'summon-earth-spirit', 'summon-fire-spirit']) %}水の精霊が最初。協力攻撃：腐食(スティグマ)を入れると、対象が精霊から受けるダメージが増える。{% endcall %}
+    {% call hotline('2', '融合ライン', ['elemental-fusion', 'dimensional-control', 'jointstrike-curse', 'combustion']) %}元素融合と空間支配は精霊が使えるようにした瞬間に発動し、火炎全焼が隙間を埋める。{% endcall %}
+  </div>
+  <p>ゲーム内マクロ(Skill window → Macro)。各スロットのディレイは<strong>10ms</strong>：</p>
+  {{ macroseq([('精霊ライン', '1 · 10ms'), ('融合ライン', '2 · 10ms')]) }}
+  <ul class="presslist">
+    <li><span class="press-how">押しっぱなし</span><span class="press-what">{{ s('cold-shock') }}(<span class="key">左クリック</span>)とマクロキーを同時に。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">{{ s('enhance-spirits-benediction') }}、次に{{ s('summon-ancient-spirit') }}(先にバフ。古代の精霊は30秒しかいない)。</span></li>
+  </ul>
+{% endcall %}
+
+{% call section('stigmas-lvl', 'レベリング中のスティグマ', 'lvl') %}
+  <p>スティグマはLv22で解放される。</p>
+  <ul class="skill-grid">
+    {% call skill('summon-ancient-spirit', 'must', 'Lv5', upto=5) %}30秒間の追加の精霊。元素融合用の元素も獲得できる。{% endcall %}
+    {% call skill('enhance-spirits-benediction', 'must', 'Lv5', upto=5) %}10秒間、PvEダメージ増幅とダメージ耐性+20%、回復付き。古代の精霊より先にかける。{% endcall %}
+    {% call skill('jointstrike-corrode', 'must', 'Lv5', upto=5) %}Grobsの精霊ラインに入っている。対象が精霊から受けるダメージが増える。{% endcall %}
+    {% call skill('flame-blessing', 'opt', 'Lv5', upto=5) %}10秒間、攻撃時に追加ダメージ。命中が足りるようになってから取る。{% endcall %}
+  </ul>
+{% endcall %}
+
+{# ============================ Sources ============================ #}
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">{{ t.sources }}</h2>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs — AION 2 Macro Guide</a>：序盤用マクロのスライド(スピリットマスターのホットバーラインとマクロ)</li>
+    <li><a href="https://aion2sm.com/global/" target="_blank" rel="noopener">Evripides — Spirit Master guide, Global edition (aion2sm.com)</a>：グローバル版クライアント向けのPvEとPvPのビルド。スキルLvと特化、スティグマ、パッシブ、ローテーション、マクロ、アルカナ、対面別の対策</li>
+    <li><a href="https://www.youtube.com/watch?v=KlmstIyukX8" target="_blank" rel="noopener">DankRNG — How to MASTER the SPIRITS | Elementalist Guide &amp; Build</a>：スナップショットのルール、精霊の順番、風の精霊を外す理由</li>
+    <li><a href="https://www.youtube.com/watch?v=v9MYphrcvic" target="_blank" rel="noopener">aLuckyRO — AION 2 Latest Spiritmaster PVE Build for Global</a>：初日の特化、スティグマの順番、最初の数日のディーヴァニオン</li>
+    <li><a href="https://mmo-codex.com/articles/aion-2-spiritmaster-guide/" target="_blank" rel="noopener">MMO Codex — Aion 2 Spiritmaster build</a>：Lvごとのスキルの上げ方、レベリングでの水の精霊、スティグマ</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/elementalist" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルデータ</li>
+  </ul>
+  <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
+</section>

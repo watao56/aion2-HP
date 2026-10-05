@@ -1,0 +1,206 @@
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+
+{# ============================== PvE ============================== #}
+{% call glance('pve') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('dark-crush', '16 → 20'), ('onslaught', '16 → 20'), ('spinning-strike', '16 → 20'), ('incandescent-blow', '16'), ('recuperation', '12')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('undefeated-mantra', 20), ('power-of-the-storm', 5), ('marchutans-wrath', 1), ('focused-defense', 5)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['attack-preparation', 'inspiring-spell', 'winds-promise', 'impact-hit']) }}
+{% endcall %}
+
+{% call section('intro', '概要', 'pve') %}
+  <p>チャンターはワンドで近接戦闘をこなしながら、パーティー全体を強化する。どのパーティーにも欲しいバッファー兼サブヒーラーだ。火力トップは期待しないこと。装備が同じなら、チャンターとクレリックは与ダメージが最も低い2クラスになる。それでもパーティーの火力は上がり、倒れにくくなり、デバフも解除してもらえる。</p>
+  <div class="callout accent">
+    <h3>このビルドを一言で</h3>
+    <p>{{ s('undefeated-mantra') }}を常に有効にしておき、{{ s('spinning-strike') }}と{{ s('impactful-crush') }}で{{ s('dark-crush') }}を開くラインを連打する。一撃ごとに{{ s('onslaught') }}を挟み、岩撃砕が使えない時は{{ s('marchutans-wrath') }}を手動で使う。</p>
+  </div>
+  <p><strong>岩撃砕の仕組み：</strong>遠距離スキルを使った直後の短い時間しか使えない。{{ s('spinning-strike') }}か{{ s('impactful-crush') }}の後は2秒、{{ s('marchutans-wrath') }}の後は3秒。スキルLv16で岩撃砕自体の再使用時間がなくなるので、その受付時間中は何度でも押せる。このビルドはすべて、この受付時間を開け続けるために組まれている。</p>
+  <p class="note">PvEモードは、Arthars Gamingのグローバル版ローンチ向けチャンター入門ガイド（動画、9月26日公開。台湾サーバーでこのクラスを8か月プレイ）をコマ単位で読み取ってまとめた。レベリングはTitanTheFのシートに従う。</p>
+{% endcall %}
+
+{% call section('global', 'グローバル版シーズン1：変更点', 'pve pvp') %}
+  <p>グローバル版のサーバーは<strong>2026年10月5日</strong>にオープンする（ファウンダー先行アクセスは9月30日から）。チャンターへの影響は次のとおり。</p>
+  <div class="callout">
+    <ul>
+      <li><strong>スティグマ枠は4つ、上限はLv20。</strong>チャンターは役に立つスティグマが枠より多いので、どの4つを選ぶかが本当の悩みどころになる（「スティグマ」参照）。</li>
+      <li><strong>序盤は再使用時間減少も戦闘速度も少ない。</strong>再使用時間を縮める特化はどれも価値が上がり、戦闘は台湾版より長引く。</li>
+      <li><strong>シーズン1ではスキルLv20に届きにくい。</strong>まずは主要スキルの16を目指す。20は後からアルカナで届かせる。</li>
+      <li><strong>パーティーの人数が増える</strong>（5人の遠征、10人の聖域）：クレリックがいると、チャンターのマントラは保護の光と重複しない（同じLvならこちらが優先）。波動撃のデバフもクレリックの弱化の烙印とは重複しない。</li>
+      <li data-only="pvp"><strong>PvP：</strong>全員が同じ限られた装備から始まり、メタはまだ固まっていない。</li>
+    </ul>
+  </div>
+  <p class="note">アクティブスキルとパッシブは、グローバル版と韓国/台湾版のデータで同一。スティグマはLv25の段階がなくなる。</p>
+{% endcall %}
+
+{% call section('skills', 'スキル', 'pve') %}
+  <p>意味のあるスキルLvは<strong>12、16、20</strong>だけ。ここで新しい特化やスロットが開き、その間のLvはほとんど何も足さない。スキルポイントで10、ディーヴァニオンで+4、両方の指輪で+2、残りはアルカナ。まず主要スキルを<strong>16</strong>にしよう。</p>
+  <ul class="skill-grid">
+    {% call skill('dark-crush', 'must', '16 → 20', [3, 4]) %}メイン火力で、最初に16にするスキル。再使用時間削除がないとこのクラスは回らない。20では確定クリティカルを追加する。これで岩撃砕のすべてが風の約束のボーナスを丸ごと受けられる。{% endcall %}
+    {% call skill('onslaught', 'must', '16 → 20', [3, 4]) %}あらゆる攻撃の合間に挟む基本攻撃。MPを回復し、回転撃の再使用時間を縮め、16で暴風砕が追加される。20の3つ目は好みで、火力かHP吸収を選ぶ。{% endcall %}
+    {% call skill('spinning-strike', 'must', '16 → 20', [0, 2]) %}最も重い一撃のひとつ。30秒間のクリティカル ダメージ増幅+15%が重複し、岩撃砕も開く。20ではガードと回避を無視してクリティカルで的中する特化を追加する。治癒増幅は取らない。メインヒーラーではないからだ。{% endcall %}
+    {% call skill('incandescent-blow', 'must', '16', [2, 4]) %}岩撃砕が閉じている間のつなぎ。単体相手に+12%と多段ヒット。3つ目に良い特化がないので16で十分。{% endcall %}
+    {% call skill('recuperation', 'must', '12', [0, 3]) %}スティグマ以外で唯一の回復で、デバフ解除も担う。12で十分（notXeon、WallyJTV）：HP5%追加回復（基本の回復量は固定値）と連続発動+1回。デバフの多い戦闘では連続発動をデバフ2個解除に替える。16にして−3秒を取るのは、自分しかヒーラーがいない時だけ。{% endcall %}
+    {% call skill('defiance', 'must', '16', [3, 4]) %}CC解除。強靭さの持続時間+2秒、その間ずっとダメージ耐性50%。7秒間、ギミックの中に立っていられる。{% endcall %}
+    {% call skill('impactful-crush', 'opt', '12', [2, 3]) %}岩撃砕を開く遠距離スキル。移動しながら使えて、スキル速度も上がる。12で十分。16の特化はPvP向け。{% endcall %}
+    {% call skill('wave-blow', 'opt', '12', [1, 3]) %}10秒間ボスの与ダメージ−15%、射程10m。モーションが他のスキルとかみ合わないので、隙がある時だけ押す。岩撃砕の代わりに使うのは厳禁。{% endcall %}
+    {% call skill('rushing-smash', 'opt', '12', [2, 3]) %}敵を倒すと再使用時間が戻る突進スキル。群れから群れへ飛び込める。チャージの特化は絶対に取らない。チャージ スキルは火力ロスになる。{% endcall %}
+    {% call skill('tremor-crush', 'opt', '12', [0, 1]) %}使った行動力が戻ってくる回避で、20mの突進にもなる。{% endcall %}
+    {% call skill('heat-wave-blow', 'opt', '12', [2, 3]) %}威力は高いが、岩撃砕がローテーションの中心になった今のPvEでは使う隙がほとんどない。{% endcall %}
+    {% call skill('gust-rampage', 'skip', '0–8') %}グロッキー状態の対象にしか使えず、ボスがグロッキーになるのは1戦で2〜3回。シーズン1ではポイントを割く価値がない。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('passives', 'パッシブ', 'pve') %}
+  <p>スキルポイントはほぼすべてのパッシブを最大にできるだけある。装備のオプション枠は少ないので、上位3つに回す。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>パッシブ</th><th>優先度</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>{{ s('attack-preparation') }}</td><td>1 · 最大</td><td>PvEダメージ増幅、防御力、命中が固定値で上がる。常に効果がある。</td></tr>
+      <tr><td>{{ s('inspiring-spell') }}</td><td>2 · 最大</td><td>クリティカルと完璧。風の約束はクリティカル時にしか効果がないので、こちらが先（notXeon、WallyJTV）。</td></tr>
+      <tr><td>{{ s('winds-promise') }}</td><td>3 · 最大</td><td>クリティカル ダメージ増幅と追加ダメージ。岩撃砕の確定クリティカルと相性がいい。Lv制限はないので、習得したらすぐ最大にする。</td></tr>
+      <tr><td>{{ s('impact-hit') }}</td><td>4 · 最大</td><td>強打。そのまま火力が上がる。</td></tr>
+      <tr><td>{{ s('protection-circle') }}</td><td>最大</td><td>HPが半分を切ると大きなバリア、攻撃が当たるたびにパーティーへ小さなバリア。防御系パッシブでは最良で、火力系の次に最初に上げる。</td></tr>
+      <tr><td>{{ s('earths-promise') }}</td><td>5</td><td>対象のPvEダメージ耐性を下げるが、効いているのは時間の半分ほどで、クレリックの苦痛の連鎖とも効果がかぶる。</td></tr>
+      <tr><td>{{ s('blessing-of-life') }}、{{ s('survival-willpower') }}</td><td>ポイントのみ</td><td>スキルポイントだけで最大にできる。装備のオプション枠は使わない。</td></tr>
+      <tr><td>{{ s('crossguard') }}、{{ s('raging-spell') }}</td><td>不要</td><td>PvEではほとんど何もしない。装備に付いたら再設定で消す。</td></tr>
+    </tbody>
+  </table></div>
+{% endcall %}
+
+{% call section('gear', '装備とステータス', 'pve') %}
+  <div class="callout"><ul>
+    <li><strong>指輪：</strong>アクティブスキルを付けられる唯一の場所。オプション4〜5行（製作品の指輪は1行多い）で、主要スキルを14から16に上げる。</li>
+    <li><strong>武器とガーダー：</strong>スキルは絶対に付けない。ダメージ系のオプションのほうが価値が高い。</li>
+    <li><strong>パッシブ</strong>はそれ以外の部位で上げる。グローバル版の装備はそこにMight、Precision、戦闘速度も付くので、台湾版よりパッシブのオプションは少なくなると見ておこう。</li>
+    <li><strong>命中</strong>は序盤に足りなくなる。不足しているとボスを背後から殴るしかなく、正面では武器ガードされる。</li>
+    <li><strong>魔石：</strong>攻撃力、クリティカル、命中。<strong>ガーダー</strong>（サブ武器）は+10まで。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('arcana', 'アルカナ', 'pve') %}
+  <p>シーズン1のカードは5種類、セットは2つ。Artharsの選択は太初の活力のカード3枚に、魔力鎧の鐘と鏡。太初の活力を4枚（PvE攻撃力+150）でもいい。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>カード</th><th>ステータス</th><th>セット</th><th>狙うスキル</th></tr></thead>
+    <tbody>
+      <tr><td>聖杯</td><td>Time（戦闘速度）</td><td>太初の活力</td><td>まだ20に届いていない主要スキルならどれでも</td></tr>
+      <tr><td>羊皮紙</td><td>Life</td><td>太初の活力</td><td>{{ s('dark-crush') }}、{{ s('onslaught') }}、{{ s('spinning-strike') }}</td></tr>
+      <tr><td>コンパス</td><td>Freedom（命中）</td><td>太初の活力</td><td>{{ s('incandescent-blow') }}、{{ s('recuperation') }}。{{ s('defiance') }}でもよい</td></tr>
+      <tr><td>鐘</td><td>Destruction（攻撃力）</td><td>魔力鎧</td><td>{{ s('attack-preparation') }}</td></tr>
+      <tr><td>鏡</td><td>Wisdom（強打）</td><td>魔力鎧</td><td>{{ s('impact-hit') }}、{{ s('winds-promise') }}</td></tr>
+    </tbody>
+  </table></div>
+  <p>カードを強化すると、付いているスキルが最大+4までランダムに上がる。目安は<strong>+2</strong>。それで足りる：ポイントで10、ディーヴァニオンで4、カードで2の合計16になり、指輪のオプションは他のスキルに回せる。</p>
+  <p class="note">これらのカードに投資しすぎないこと。シーズン2で新しいカードが来ればすぐ入れ替わる。鏡のIllusion（再使用時間）は、Wisdomに代わる完全サポート向けの選択肢。</p>
+{% endcall %}
+
+{% call section('daevanion', 'ディーヴァニオン ボード', 'pve pvp') %}
+  <p>ディーヴァニオンはスキルを10から14に上げ、ステータスも伸ばす。青いノードは1つごとに、対応するスキルを<strong>Lv+1</strong>する。</p>
+  <div class="callout"><ul>
+    <li data-only="pve"><strong>優先順：</strong>{{ s('dark-crush') }}、{{ s('onslaught') }}、{{ s('spinning-strike') }}、{{ s('incandescent-blow') }}の青ノード、次にオレンジのノード。</li>
+    <li data-only="pvp"><strong>優先順：</strong>{{ s('impactful-crush') }}、{{ s('wave-blow') }}、{{ s('defiance') }}の青ノード。</li>
+    <li data-only="pve"><strong>グローバル版にアリエルはない：</strong>ボードは5枚で、Lv45のアスフェルはPvPダメージ増幅とPvPダメージ耐性だけ。PvEでは最初の4枚を埋める。</li>
+    <li data-only="pvp"><strong>アスフェル</strong>（Lv45）はすべてPvPダメージ増幅とPvPダメージ耐性。取っておこう。その前にトリニエルも。</li>
+  </ul></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ボード</th><th>解放</th><th>オレンジのノード</th></tr></thead>
+    <tbody>
+      <tr><td>ネザカン</td><td>Lv12</td><td>戦闘速度、再使用時間減少</td></tr>
+      <tr><td>ジケル</td><td>Lv20</td><td>ダメージ増幅、ダメージ耐性</td></tr>
+      <tr><td>バイゼル</td><td>Lv30</td><td>クリティカル ダメージ増幅と耐性</td></tr>
+      <tr><td>トリニエル</td><td>Lv40</td><td>多段ヒット的中と抵抗</td></tr>
+      <tr><td>アスフェル</td><td>Lv45</td><td>PvPダメージ増幅と耐性。スキルノードなし</td></tr>
+    </tbody>
+  </table></div>
+  <h3>ボード上のルート</h3>
+  <p>ゲームデータから再現したグローバル版の実際のボード。金色は、開始地点からこのガイドで取るノード（優先スキルの青ノードとオレンジのノード）までの最安ルート。ノードにカーソルを合わせると効果が表示される。</p>
+  <div data-only="pve">{{ dv_board('pve') }}</div>
+  <div data-only="pvp">{{ dv_board('pvp') }}</div>
+  <p class="note">ボードとコストはグローバル版クライアントのデータ（questlog.gg）による。ルートは計算で出したもので、動画から取ったものではない。ステータスの値はローンチ時に変わる可能性があるので、ルートを最後まで決める前にゲーム内のボードで確認しよう。</p>
+{% endcall %}
+
+{% call section('stigmas', 'スティグマ', 'pve') %}
+  <p>3つは確定で、4つ目は選択。上げる順番はこのとおりで、不敗のマントラをLv20にするのが何よりも先。</p>
+  <ul class="skill-grid">
+    {% call skill('undefeated-mantra', 'must', 'Lv20', upto=20) %}パーティーがチャンターを入れる理由そのもの。PvEダメージ増幅と耐性、クリティカル、命中、クリティカル ダメージ増幅、強打を全員に与える。最初にLv20にし、バーから外すことはない。{% endcall %}
+    {% call skill('marchutans-wrath', 'must', 'Lv1', upto=1) %}岩撃砕を3秒間開く、3つ目の遠距離スキル。岩撃砕を使える時間がほぼ倍になる。1ポイントで十分で、上の段階はPvP向け。{% endcall %}
+    {% call skill('focused-defense', 'must', 'Lv5', upto=5) %}Lv5で連続発動が2回になるガード。過小評価されがち：近接職が逃げ回らず、ほとんどの攻撃の間もボスに張り付いていられる。{% endcall %}
+    {% call skill('sprint-mantra', 'opt', 'Lv10', upto=10) %}移動速度、受ける治癒量+10%、行動力の回復で、パーティーはほぼ無制限に回避できる。notXeonはダンジョンと周回で使い、PvPでは外す。回復量は微々たるものなので、10より上げない。{% endcall %}
+    {% call skill('power-of-the-storm', 'must', 'Lv5 → 20', upto=20) %}10秒間、戦闘速度+20%、再使用時間−20%（パーティーには+20%と−10%）。notXeonはあらゆるコンテンツで採用している。まだ誰も戦闘速度を持っていない今は、最大級の火力バフのひとつ。Lv5で自身の再使用時間が30秒縮み、20で自分とパーティーの攻撃力が上がる。{% endcall %}
+    {% call skill('healing-touch', 'opt', 'クレリック不在', upto=15) %}強力な緊急回復。HPが低いほど回復量が増え、15でデバフを5個解除する。自分しかヒーラーがいない時や、デバフの多い戦闘で取る。{% endcall %}
+    {% call skill('impeding-authority', 'opt', '初見攻略', upto=15) %}パーティーにバリアを張る。パーティーがまだ戦闘に慣れていない間、実質HPが増える。{% endcall %}
+    {% call skill('guardian-blessing', 'opt', '枠なし', upto=15) %}15で風の約束が1.5倍になり、確かな火力アップになる。ただし枠が4つでは、シーズン1に入れる余地はない。{% endcall %}
+    {% call skill('obliterate', 'opt', 'グロッキー', upto=5) %}レベリング中の群れに使う範囲転倒。WallyJTVはグロッキーギミックのあるボス用に上限まで上げている。パーティーが必要とする時に、グロッキー ゲージ ダメージ量50を出せる。{% endcall %}
+  </ul>
+  <p class="note">マントラはトグル式。一度有効にしたら、どのマクロにも入れない。もう一度押すと切れてしまう。{{ s('barrier-spell') }}、{{ s('ensnaring-mark') }}、{{ s('fracturing-blow') }}、{{ s('assault-shock') }}はPvEでは出番がない。</p>
+{% endcall %}
+
+{% call section('macro', 'マクロとローテーション', 'pve') %}
+  <p>AION 2には別々の仕組みが2つある。</p>
+  <ul>
+    <li><strong>ホットバーライン</strong>：<em>1つ</em>のホットバーボタンに複数のスキルを重ねたもの。押すと、使えるスキルのうち優先度が最も高いものが発動する。AION 2では<strong>一番下のスロットが最優先</strong>。カードでは各ラインをゲーム内と同じく上から下へ並べている。</li>
+    <li><strong>ゲーム内マクロ</strong>：キーを押している間、ホットバーボタンを順番に押し、モーションの後隙をキャンセルする。再使用時間中のスキルは飛ばされる。</li>
+  </ul>
+
+  <h3>1. ホットバーライン</h3>
+  <div class="hotlines">
+    {% call hotline('E', '岩撃砕ライン', ['dark-crush', 'spinning-strike', 'impactful-crush', 'incandescent-blow']) %}受付時間が開いていれば岩撃砕が出る。閉じたら回転撃が開き直し、次に打撃砕が開く。両方が再使用時間中なら百裂撃でつなぐ。{% endcall %}
+  </div>
+  <p class="note">{{ s('marchutans-wrath') }}はこのラインに<strong>入れない</strong>。別のキーに置いて予備にする。遠距離スキルが両方とも再使用時間中の時や、ボスから離れざるを得なかった直後に、岩撃砕を開く手段になる。ラインに入れると、百裂撃がローテーションから押し出されてしまう。</p>
+  <p class="note">岩撃砕が16になるまでは、その再使用時間がこのラインを崩す。岩撃砕がまだ再使用時間中なのにマクロが開くためのスキルを使ってしまい、3秒の受付時間が無駄になる。それまでのnotXeonの対処法：開くスキルを1つ別のキーに置き、岩撃砕が使えるようになった瞬間に自分で押す。</p>
+
+  <h3>2. ゲーム内マクロ</h3>
+  <p>2ステップ、各<strong>10ms</strong>。押しっぱなしにできるキーに置く（ほとんどの人は<span class="key">右クリック</span>）。</p>
+  {{ macroseq([('岩撃砕ライン', '10ms'), (skill_data('onslaught')[lang].name, '10ms')]) }}
+
+  <h3>3. 実際に押すもの</h3>
+  <ul class="presslist">
+    <li><span class="press-how">押しっぱなし</span><span class="press-what">マクロのキー。</span></li>
+    <li><span class="press-how">連打</span><span class="press-what">{{ s('onslaught') }}（<span class="key">左クリック</span>）と岩撃砕ライン自体。マクロだけでは足りず、自分で押した分がマクロのステップの間に入る。連打はキーボードやマウスのマクロ機能に任せてもいい。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">岩撃砕が閉じている時の{{ s('marchutans-wrath') }}、大技に合わせた{{ s('focused-defense') }}、デバフ解除や回復の{{ s('recuperation') }}、隙がある時だけの{{ s('wave-blow') }}、それと突進スキル。</span></li>
+  </ul>
+  <p class="note">Artharsのテストでのダメージ内訳：岩撃砕とその連続スキル貫通砕で約40%、続いて破裂撃、暴風砕、百裂撃、回転撃がそれぞれ約10%。だから岩撃砕を最初に16にし、撃破砕には暴風砕が必要になる。</p>
+{% endcall %}
+
+{% call section('recap', 'まとめ', 'pve') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>岩撃砕、撃破砕、回転撃は16 → 20。百裂撃、衝撃解除は16。快癒の呪文とその他は12。</li>
+    <li><strong>スティグマ：</strong>不敗のマントラ20、疾風の権能5 → 20、マルクタンの怒り1、集中防御5。ダンジョンでは疾走のマントラ、グロッキーギミックには滅火。</li>
+    <li><strong>パッシブ：</strong>攻撃準備、鼓舞の呪文、風の約束、衝撃的中。保護陣も最大まで。</li>
+    <li><strong>マクロ：</strong>岩撃砕ライン → 撃破砕。マルクタンの怒りは手動。</li>
+  </ul></div>
+{% endcall %}
+
+{# ============================ Leveling ============================ #}
+{% call section('fight-lvl', t.lvl_combat, 'lvl') %}
+  <div class="callout"><ul>
+    <li><strong>群れ：</strong>{{ s('rushing-smash') }}で突入（敵を倒すとリセット）→ {{ s('obliterate') }} → 砕ライン + {{ s('onslaught') }}。</li>
+    <li><strong>エリート：</strong>{{ s('impactful-crush') }}（気絶）→ {{ s('dark-crush') }} → {{ s('wave-blow') }} → {{ s('spinning-strike') }} → もう一度岩撃砕。</li>
+    <li><strong>MP：</strong>撃破砕は当たるたびにMPを回復する。合間に挟むのを止めない。</li>
+    <li><strong>HPが減ったら：</strong>{{ s('recuperation') }}。疾走のマントラも攻撃が当たると回復する。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
+  <p>レベリング中、岩撃砕が16になる前は、TitanTheFのもっとシンプルな構成がLv1から使える。右クリックに砕ライン、左クリックに撃破砕、ホイールクリックにゲーム内マクロ（疾風の権能 → 撃破砕 → 波ライン → 撃破砕）。1〜45の序盤ビルド：撃破砕、百裂撃、回転撃、突進撃破を12、それ以外は8。</p>
+  <div class="hotlines">
+    {{ hotline('右クリック', '砕ライン', ['impactful-crush', 'dark-crush', 'spinning-strike', 'incandescent-blow']) }}
+  </div>
+  <p><a href="https://aion2t.com/ru/simulator?job=9&amp;b=S5RCtE" target="_blank" rel="noopener">1〜45の初期ビルド（aion2t）→</a> · <a href="https://aion2t.com/ru/simulator?job=9&amp;b=yDzsiQ" target="_blank" rel="noopener">45以降の目標ビルド →</a></p>
+{% endcall %}
+
+{# ============================ Sources ============================ #}
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">{{ t.sources }}</h2>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=7qMgsnSsmIU" target="_blank" rel="noopener">Arthars Gaming「The ULTIMATE AION 2 Chanter Starter Guide! (Global Launch)」</a>：PvEモードの出典（スキルLvと特化、パッシブ、アルカナ、スティグマ、ホットバーラインとマクロ）</li>
+    <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml" target="_blank" rel="noopener">TitanTheF「AION 2 progression sheet」</a>（Chanterタブ）：レベリングのビルドとマクロ、魔石</li>
+    <li><a href="https://aion2t.com/ru/simulator?job=9&amp;b=yDzsiQ" target="_blank" rel="noopener">aion2t.com</a>：TitanTheFの初期ビルドと45以降のビルド（スキルLv、特化、スティグマ、パッシブ）</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/chanter" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルデータ</li>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs「AION 2 Macro Guide」</a>：ホットバーラインとゲーム内マクロの仕組み</li>
+    <li><a href="https://www.youtube.com/watch?v=aqv5kWXqtIw" target="_blank" rel="noopener">notXeon「The ONLY Chanter Skill Guide You'll Ever Need」</a>：最初に16にするスキル、パッシブの優先度、コンテンツ別のスティグマ、岩撃砕16前のマクロのコツ</li>
+    <li><a href="https://www.youtube.com/watch?v=zxq03c3NhEw" target="_blank" rel="noopener">WallyJTV「Aion 2 CHANTER Global Skill Guide」</a>：グローバル版の変更点、PvEとPvPの特化、グロッキーギミック用に滅火を入れたスティグマ</li>
+  </ul>
+  <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
+</section>

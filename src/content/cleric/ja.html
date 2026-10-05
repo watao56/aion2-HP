@@ -1,0 +1,213 @@
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+
+{# PvE from Kaeria's video guide; PvP stays off (site.json modes_off) until there is a real source. #}
+
+{# ============================== PvE ============================== #}
+{% call glance('pve') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('condemnation', '16 → 20'), ('divine-aura', '16 → 20'), ('bolt', '16 → 20'), ('judgment-thunder', '16'), ('lightning-strike-scattershot', '16')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('earth-punishment', 20), ('light-of-protection', 20), ('prayer-of-amplification', 10), ('noble-aura', 10)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['empyrean-lords-grace', 'earths-grace', 'healing-enhancement', 'radiant-benediction']) }}
+{% endcall %}
+
+{% call section('intro', '概要', 'pve') %}
+  <p>AION 2のダンジョンでは、クレリックは<strong>火力も出さなければならない</strong>ヒーラーだ。報酬は貢献度で決まるため、回復しかしないクレリックは何ももらえずに終わることもある。パーティー メンバーは自前の回避や無敵を十分に持っている。被弾した人だけを回復し、それ以外はすべて火力に回そう。</p>
+  <div class="callout accent">
+    <h3>ビルドを一言で</h3>
+    <p>{{ s('earth-punishment') }}で{{ s('condemnation') }}が必ずクリティカルになり、クリティカルで断罪の再使用時間が初期化される。つまり断罪はクールタイムなしで撃ち続けられ、そこに{{ s('divine-aura') }}、{{ s('bolt') }}、{{ s('noble-aura') }}の火力が上乗せされる。</p>
+  </div>
+  <p class="note">このモードはKaeriaのクレリックPvE動画ガイド（ロシア語。9月28日に台湾版クライアントで収録され、本人はグローバル版にも当てはまると話している）に基づき、9月30日に動画のフレームと照合した。スキルの特化はいつでも無料で振り直せる。資源を消費するのはアルカナだけだ。</p>
+{% endcall %}
+
+{% call section('global', 'グローバル版シーズン1：変更点', 'pve pvp') %}
+  <p>グローバル版のサーバーは<strong>2026年10月5日</strong>にオープンする（ファウンダー先行アクセスは9月30日から）。クレリックにとっての変更点は次のとおり。</p>
+  <div class="callout">
+    <ul>
+      <li><strong>スティグマ枠は4つ、上限は20。</strong>Kaeriaの台湾版のバーにはもっと多く並んでいるが、このガイドの4つは本人がグローバル版向けに選んだもの。スティグマLv25の効果（保護の光の強打など）はグローバル版には存在しない。</li>
+      <li><strong>報酬は火力で決まる。</strong>ダンジョンの報酬は貢献度次第なので、回復しかしないクレリックは何ももらえずに終わることもある。このビルドは、回復を片手間にこなしながら火力を出すことに徹している。</li>
+      <li><strong>大人数のパーティー</strong>（5人の遠征、10人の聖域）：チャンターがいると、こちらのマントラはチャンターのマントラと重複しない。その場合は保護の光を外そう。</li>
+      <li><strong>台湾版よりPingが低い：</strong>モーションキャンセルが効きやすくなり、マクロに通常攻撃を多めに挟める。</li>
+    </ul>
+  </div>
+  <p class="note">アクティブスキルとパッシブは、グローバル版とKR/TWのデータで同一。スティグマはLv25の効果がなくなる。元の動画は、スキル名が英語表示の台湾版クライアントで収録されている。</p>
+{% endcall %}
+
+{% call section('skills', 'スキル', 'pve') %}
+  <p>ほぼすべてを火力に振る。重要な回復スキルは治癒の光と快癒の光輝で、どちらも16が必要。</p>
+  <ul class="skill-grid">
+    {% call skill('condemnation', 'must', '16 → 20', [1, 3]) %}バーで最も重要なスキル。単体へのダメージ+12%と、クリティカル時の再使用時間初期化を取る。20ではMPが足りなければMP回復、足りていれば多段ヒットを追加。{% endcall %}
+    {% call skill('divine-aura', 'must', '16 → 20', [3, 4]) %}過小評価されがちなスキル。自分と並行してダメージを出すので、出ている時間が長いほど強い。16では持続時間+3秒と再使用時間−10秒、20では気の発射速度を追加。周回ではaLuckyROは+3秒の代わりに広域化（最大4体）を取っている。{% endcall %}
+    {% call skill('bolt', 'must', '16 → 20', [2, 3]) %}最大の一撃。必ずフルチャージで撃つ。スキル速度+30%、単体へのダメージ+20%。20では確定クリティカルを追加。{% endcall %}
+    {% call skill('judgment-thunder', 'must', '16', [1, 4]) %}絶え間なくダメージを出せ、モーションキャンセルにも使える。天罰の特化を取るとダメージがほぼ倍増する。20ではMP消耗−20%を追加。{% endcall %}
+    {% call skill('lightning-strike-scattershot', 'must', '16', [3, 4]) %}グロッキー中しか使えないが、1ヒットごとにすべてのスキルの再使用時間が1秒短くなる。{% endcall %}
+    {% call skill('healing-light', 'must', '16', [0, 3]) %}ほぼクールタイムなしで使える即効回復。連続発動+2回とHP+2%（治癒増幅で伸びる）を取る。20では再使用時間−2秒を追加。{% endcall %}
+    {% call skill('radiant-recovery', 'must', '16', [4]) %}スティグマを除けば最も強力な回復で、デバフも解除する。20では再使用時間−3秒を追加。{% endcall %}
+    {% call skill('earths-retribution', 'opt', '12 → 16', [1, 3]) %}モーションキャンセルに使う通常攻撃。放電の発動確率と、放電的中時の霹靂の再使用時間−7秒を取る。{% endcall %}
+    {% call skill('debilitating-mark', 'opt', '12', [1, 3]) %}ボスの防御力−15%と、ボスから受けるダメージの軽減。{% endcall %}
+    {% call skill('chain-of-torment', 'opt', '14', [1, 3]) %}断罪を使えるようにするためのスキル。ボスのPvEダメージ耐性を−10%。{% endcall %}
+    {% call skill('light-of-regeneration', 'opt', '12–16', [0, 4]) %}クールタイムごとにかけ直す。16ではダメージ耐性5%の特化を取る。{% endcall %}
+    {% call skill('defiance', 'opt', '12', [2, 3]) %}CC解除。HP10%回復と免疫時間+2秒。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('passives', 'パッシブ', 'pve') %}
+  <div class="callout"><ul>
+    <li>{{ s('empyrean-lords-grace') }}：最も重要なパッシブ。クリティカル ダメージ、強打、全ヒットへの追加ダメージ。できるだけ高く上げる。</li>
+    <li>{{ s('earths-grace') }}：以前はパーティーへのバフだったが、今は自分だけ。それでも上げる価値はある。</li>
+    <li>{{ s('healing-enhancement') }}：回復を多用するなら、治癒増幅のために取る。</li>
+    <li>{{ s('radiant-benediction') }}：攻撃するたびに周囲の味方を回復する。火力に全振りするなら取る。</li>
+    <li>{{ s('warm-benediction') }}と{{ s('immortal-veil') }}はあってもよい。{{ s('empyrean-lords-benediction') }}はPvP用。</li>
+  </ul></div>
+  <p class="note">最初の数日（aLuckyRO）：まず{{ s('radiant-benediction') }}（パーティーが攻撃している間、数秒ごとにパーティー全体を回復する）と{{ s('healing-enhancement') }}を上げる。クリティカル系のパッシブは、装備でクリティカルが付いてから効いてくる。それまではほとんどクリティカルが出ない。</p>
+{% endcall %}
+
+{% call section('gear', '装備とステータス', 'pve') %}
+  <div class="callout"><ul>
+    <li><strong>装備のオプション：</strong>Might（攻撃と回復）、戦闘速度、ダメージ増幅。武器ダメージ増幅とPrecisionも強い。PvEでは状態異常抵抗、回避、防御系のオプションは不要。</li>
+    <li><strong>指輪：</strong>できるだけ早く製作しよう。製作した指輪はアクティブスキルのオプションが1つ多い。</li>
+    <li><strong>ステータス：</strong>Destruction、Wisdom（強打）、Illusion（再使用時間）、Time（戦闘速度）、Freedom（命中）、さらにDeath（クリティカル）。DeathはKaeria独自の選択で、クレリックは常にクリティカルが不足しがち。ほかにMight、Precision、Constitution。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('arcana', 'アルカナ', 'pve') %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>アルカナ</th><th>セット／ステータス</th><th>狙うスキル</th></tr></thead>
+    <tbody>
+      <tr><td>聖杯</td><td>活力（戦闘速度）</td><td>主要スキルを16 → 20に上げられるものなら何でも</td></tr>
+      <tr><td>羊皮紙</td><td>DestinyまたはLife</td><td>断罪、快癒の光輝、大地の裁き、霹靂</td></tr>
+      <tr><td>コンパス</td><td>DeathまたはFreedom</td><td>稲妻乱射、治癒の光、神聖な気、審判の雷</td></tr>
+      <tr><td>鐘</td><td>Destruction</td><td>神の恩恵（生存意志は避ける）</td></tr>
+      <tr><td>鏡</td><td>Wisdom（火力）またはIllusion（再使用時間）</td><td>大地の恩恵、治癒力強化</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>セット効果：</strong>2 + 2で揃えるか、太初の活力のカードを4枚集める（HPが70%以上の間、2枚でPvE攻撃力+60、4枚で+150）。序盤は正しいセットのカードより、正しいスキルが付いたカードのほうが強い。セットは後から整えればよい。</p>
+{% endcall %}
+
+{% call section('daevanion', 'ディーヴァニオン ボード', 'pve pvp') %}
+  <p>ディーヴァニオンはスキルを10から14まで引き上げ、ステータスも追加する。青いノードはそれぞれ、対応するスキルを<strong>Lv+1</strong>する。</p>
+  <div class="callout"><ul>
+    <li><strong>優先度：</strong>まずオレンジの再使用時間と戦闘速度のノード、次に攻撃力とクリティカル、次に青いスキルノード、次に防御系のオレンジノード、パッシブは最後。</li>
+    <li>クリティカル ダメージ耐性と多段ヒット抵抗はPvEでは役に立たない。ボスはクリティカルも多段ヒットも出さない。</li>
+    <li>ボードのリセットは安く、何度も組み直すことになる。</li>
+    <li><strong>グローバル版にアリエルはない：</strong>ボードは5枚で、Lv45のアスフェルはPvPダメージ増幅と耐性しか付かない。PvEでは最初の4枚を完成させよう。</li>
+  </ul></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ボード</th><th>解放</th><th>オレンジノード</th></tr></thead>
+    <tbody>
+      <tr><td>ネザカン</td><td>Lv12</td><td>戦闘速度、再使用時間減少</td></tr>
+      <tr><td>ジケル</td><td>Lv20</td><td>ダメージ増幅、ダメージ耐性</td></tr>
+      <tr><td>バイゼル</td><td>Lv30</td><td>クリティカル ダメージ増幅と耐性</td></tr>
+      <tr><td>トリニエル</td><td>Lv40</td><td>多段ヒット的中と抵抗</td></tr>
+      <tr><td>アスフェル</td><td>Lv45</td><td>PvPダメージ増幅と耐性（スキルノードなし）</td></tr>
+    </tbody>
+  </table></div>
+  <h3>ボード上のルート</h3>
+  <p>ゲームデータから取ったグローバル版の実際のボード。金色は、開始地点からこのガイドが取るノードまでの最も安いルート。対象は優先スキルの青いノードと、PvEで重要なオレンジノード（クリティカル ダメージ耐性と多段ヒット抵抗を除く）。ノードにカーソルを合わせると効果を確認できる。</p>
+  {{ dv_board('pve') }}
+  <p class="note">ボードとコストはグローバル版クライアントのデータ（questlog.gg）によるもの。ルートは計算で求めたもので、動画から取ったものではない。ステータスの数値はリリース時に変わる可能性がある。ルートを最後まで振る前に、ゲーム内のボードを確認しよう。</p>
+{% endcall %}
+
+{% call section('stigmas', 'スティグマ', 'pve') %}
+  <ul class="skill-grid">
+    {% call skill('earth-punishment', 'must', 'Lv15 → 20', upto=20) %}断罪が必ずクリティカルになり（つまり断罪の再使用時間がなくなる）、パーティーは防御力、攻撃力、強打を得る。最も重要なスキルの一つ。{% endcall %}
+    {% call skill('light-of-protection', 'must', 'Lv20', upto=20) %}自分のマントラ。受ける治癒量、命中、最大HP+10%、完璧が上がり、再使用時間はない。チャンターのマントラとは重複しないので、チャンターがいるパーティーでは外す。切り替え式のスキルなので、一度オンにしたらホットバーのラインにもマクロにも入れないこと。{% endcall %}
+    {% call skill('prayer-of-amplification', 'must', 'Lv10+', upto=10) %}クールタイムごとに使って攻撃力+20%。神の恩恵と大地の恩恵の効果も強化する。これがないとクレリックは火力が出ない。{% endcall %}
+    {% call skill('noble-aura', 'must', 'Lv10+', upto=10) %}一緒に攻撃してくれる気の玉。火力がおよそ倍になる。レベルは高いほどよい。{% endcall %}
+    {% call skill('absolution', 'opt', '聖域', upto=15) %}最強の回復スティグマだが、強いのは15以上から。パーティーの回復が足りないときだけ入れ替える。{% endcall %}
+    {% call skill('benevolence', 'opt', '聖域', upto=15) %}パーティー全体への持続回復。免罪と同じく、枠を割く価値が出るのは15から。{% endcall %}
+    {% call skill('yustiels-power', 'opt', '聖域', upto=15) %}10秒間、パーティーのダメージ耐性を上げる。聖域で高潔な気か増幅の祈りの代わりに入れる。{% endcall %}
+    {% call skill('summon-resurrection', 'opt', 'Lv5', upto=5) %}序盤は5で止めておく。パーティーがよく死ぬなら入れる。{% endcall %}
+    {% call skill('salvation', 'skip', '不要') %}長い再使用時間に対して無敵は3秒。赤い攻撃はどのみち貫通するので、回避で対処しよう。{% endcall %}
+  </ul>
+  <p class="note">チャンターがいるパーティーでは、保護の光を回復スティグマのどれかか召喚復活に替える。破滅の声（15でボスのクリティカル抵抗−200）は、ヒーラーがもう一人いる聖域での選択肢。主に、全員のクリティカルが足りない序盤向け。権能爆発は、グロッキー ゲージを削り切る必要があり、ほかに削れる人がいない場面（悪夢）でのみ使う。{{ s('root') }}と{{ s('assault-mark') }}はPvEでは使い道がない。</p>
+{% endcall %}
+
+{% call section('macro', 'マクロ', 'pve') %}
+  <p>Kaeriaはゲーム内マクロだけを使い、外部ツールは使わない。そのため、マクロの合間にも回復を押せる。以下のラインは、動画に映った彼女のホットバーから読み取ったもの。AION 2では<strong>ラインの一番下のスロットが最優先</strong>になる。カードは各ラインを、ゲーム内と同じく上から下へ表示している。</p>
+
+  <h3>1. ホットバーのライン</h3>
+  <div class="hotlines">
+    {% call hotline('3', '断罪ライン', ['earth-punishment', 'condemnation', 'chain-of-torment']) %}大地の懲罰を最初に置くことで、断罪が必ずクリティカルになり再使用時間が初期化される。苦痛の連鎖は、断罪に必要な烙印を維持する。{{ s('light-of-protection') }}はラインに入れない。切り替え式なので、押すたびにオンとオフが入れ替わってしまう。{% endcall %}
+    {% call hotline('2', '神聖な気ライン', ['divine-aura', 'debilitating-mark', 'light-of-regeneration', 'judgment-thunder']) %}気とデバフは使えるようになり次第発動し、残りは審判の雷で埋める。{% endcall %}
+    {% call hotline('1', 'グロッキー', ['lightning-strike-scattershot']) %}グロッキー状態のボスにしか効かないので、ほとんどの時間このステップは飛ばされる。{% endcall %}
+  </div>
+
+  <h3>2. ゲーム内マクロ</h3>
+  <p><span class="key">右クリック</span>に登録し、各ステップのディレイは<strong>10ms</strong>：</p>
+  {{ macroseq([("大地の裁き", '通常攻撃'), ('ライン2', '神聖な気'), ('ライン3', '断罪'), ('ライン1', 'グロッキー'), ('ライン3', ''), ('ライン1', ''), ('ライン1', '')]) }}
+
+  <h3>3. キー操作</h3>
+  <ul class="presslist">
+    <li><span class="press-how">長押し</span><span class="press-what"><span class="key">右クリック</span>のマクロと<span class="key">3</span>（断罪ライン）を同時に押し続ける。断罪は再使用時間がなく、ほかのすべてのスキルのモーションをキャンセルする。</span></li>
+    <li><span class="press-how">グロッキー</span><span class="press-what">ボスがグロッキーになったら<span class="key">3</span>を離してマクロだけを押し続け、{{ s('lightning-strike-scattershot') }}が発動するようにする。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">誰かが被弾した直後に{{ s('healing-light') }}（彼女は<span class="key">4</span>に配置）と{{ s('radiant-recovery') }}（<span class="key">Q</span>）、フルチャージの{{ s('bolt') }}（<span class="key">E</span>）、{{ s('prayer-of-amplification') }}はクールタイムごとに。</span></li>
+  </ul>
+  <p class="note">これは高Ping向けに組まれた、彼女の台湾版での設定。Pingの低いグローバル版ではモーションキャンセルが効きやすく、大地の裁きをもう少し多く挟める。</p>
+{% endcall %}
+
+{% call section('recap', 'まとめ', 'pve') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>断罪、神聖な気、霹靂は16 → 20。審判の雷、稲妻乱射、治癒の光、快癒の光輝は16。残りは12–14。</li>
+    <li><strong>スティグマ：</strong>大地の懲罰、保護の光、増幅の祈り、高潔な気（チャンターがいれば保護の光を入れ替える）。</li>
+    <li><strong>立ち回り：</strong>貢献度のために火力を出す。回復は被弾した直後の人にだけ。</li>
+  </ul></div>
+{% endcall %}
+
+
+
+{% call section('intro-lvl', '概要', 'lvl') %}
+  <p>クレリックはヒーラーだが、レベリング中は遠距離アタッカーとして戦う。{{ s('chain-of-torment') }}で対象に印を付け、{{ s('condemnation') }}で叩き、パッシブの{{ s('radiant-benediction') }}が攻撃のたびに自分とパーティーを回復する。回復は必要なときだけでよい。</p>
+  <div class="callout accent">
+    <h3>レベリングを一言で</h3>
+    <p>MP回復のために{{ s('earths-retribution') }}を押し続け、ゲーム内マクロで連鎖ラインを連打する。スキルポイントは回復ではなく攻撃スキルに振る。</p>
+  </div>
+{% endcall %}
+
+{% call section('fight-lvl', t.lvl_combat, 'lvl') %}
+  <div class="callout"><ul>
+    <li><strong>集団：</strong>{{ s('chain-of-torment') }}（最大4体に命中）→ {{ s('condemnation') }} → 広域化した{{ s('divine-aura') }} → {{ s('judgment-thunder') }}。</li>
+    <li><strong>エリート：</strong>{{ s('debilitating-mark') }}（防御力低下）→ {{ s('chain-of-torment') }} → チャージした{{ s('bolt') }} → {{ s('condemnation') }}。</li>
+    <li><strong>MP：</strong>ターゲットモードにして、{{ s('earths-retribution') }}を挟む。使うたびにMPが回復する。</li>
+    <li><strong>HPが少ないとき：</strong>{{ s('healing-light') }}。攻撃を続けている限り、{{ s('radiant-benediction') }}の回復も入り続ける。</li>
+    <li><strong>グロッキー中のボス：</strong>{{ s('lightning-strike-scattershot') }}は対象がグロッキー状態のときしか使えない。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
+  <p>Grobsの序盤向け設定：ホットバーのライン1本と、1スロットだけのゲーム内マクロ。AION 2では<strong>ラインの一番下のスロットが最優先</strong>になる。カードはラインを、ゲーム内と同じく上から下へ表示している。</p>
+  <div class="hotlines">
+    {% call hotline('右クリック', '連鎖ライン', ['chain-of-torment', 'debilitating-mark', 'condemnation', 'judgment-thunder']) %}苦痛の連鎖を最初に置くことで、断罪が当たるようになる。審判の雷は再使用時間がなく、隙間を埋める。{% endcall %}
+  </div>
+  <p>ゲーム内マクロ（Skill window → Macro）、ディレイは<strong>10ms</strong>：</p>
+  {{ macroseq([('連鎖ライン', '10ms')]) }}
+  <ul class="presslist">
+    <li><span class="press-how">長押し</span><span class="press-what"><span class="key">左クリック</span>の{{ s('earths-retribution') }}とマクロキーを同時に押し続ける。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">{{ s('bolt') }}（チャージスキルなのでマクロには入れない）、回復、スティグマ。</span></li>
+  </ul>
+{% endcall %}
+
+{% call section('stigmas-lvl', 'レベリング中のスティグマ', 'lvl') %}
+  <p>スティグマはLv22で解放される。</p>
+  <ul class="skill-grid">
+    {% call skill('summon-resurrection', 'must', 'Lv1', upto=1) %}最初は1ポイントで十分。後でLv5にすると発動時間が短くなる。{% endcall %}
+    {% call skill('noble-aura', 'must', 'Lv5', upto=5) %}5分間、横で一緒に戦ってくれる気。タダで手に入る火力。{% endcall %}
+    {% call skill('earth-punishment', 'must', 'Lv5', upto=5) %}持続ダメージ。Lv5で断罪が確定クリティカルになる。{% endcall %}
+    {% call skill('benevolence', 'must', 'Lv5', upto=5) %}20秒間の持続回復。集団と集団の合間の継戦力になる。{% endcall %}
+    {% call skill('absolution', 'opt', 'Lv5', upto=5) %}大回復とデバフ解除。{% endcall %}
+  </ul>
+{% endcall %}
+
+{# ============================ Sources ============================ #}
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">{{ t.sources }}</h2>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=7LjTwlZ4v_s" target="_blank" rel="noopener">Kaeria：クレリックPvEガイド（ロシア語）</a>：PvEモードの出典。スキルレベルと特化、スティグマ、パッシブ、ステータス、ディーヴァニオン、アルカナ</li>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs：AION 2 Macro Guide</a>：序盤のマクロのスライド（クレリックのホットバーのラインとマクロ）</li>
+    <li><a href="https://mmo-codex.com/articles/aion-2-cleric-guide/" target="_blank" rel="noopener">MMO Codex：Aion 2 Cleric guide</a>：レベリング中のスキル順と特化、Lv22のスティグマ</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/cleric" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルデータ</li>
+    <li><a href="https://www.youtube.com/watch?v=A3pZDSt4ceU" target="_blank" rel="noopener">aLuckyRO：AION 2 Latest Cleric PVE Build for Global</a>：序盤の特化（周回とボス向けの神聖な気、MP用の大地の裁き）、ダンジョン向けのスティグマの入れ替え、苦痛の連鎖 → 断罪のコンボ、序盤のパッシブ</li>
+  </ul>
+  <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
+</section>

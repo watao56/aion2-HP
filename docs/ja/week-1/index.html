@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ja" data-mode="pve">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>1週目：リセットまでに終えること — AION 2 ガイド</title>
+<meta name="description" content="AION 2の1週目、週間リセットまでに終えること。見落としやすい一度きりの目標もまとめた。キャラクターごとのチェックリスト付き。">
+<link rel="canonical" href="https://couga54.github.io/aion2-guides/ja/week-1/">
+<link rel="alternate" hreflang="en" href="https://couga54.github.io/aion2-guides/en/week-1/">
+<link rel="alternate" hreflang="ru" href="https://couga54.github.io/aion2-guides/ru/week-1/">
+<link rel="alternate" hreflang="uk" href="https://couga54.github.io/aion2-guides/uk/week-1/">
+<link rel="alternate" hreflang="tr" href="https://couga54.github.io/aion2-guides/tr/week-1/">
+<link rel="alternate" hreflang="ja" href="https://couga54.github.io/aion2-guides/ja/week-1/">
+<link rel="alternate" hreflang="x-default" href="https://couga54.github.io/aion2-guides/en/week-1/">
+<meta name="theme-color" content="#0b0e14">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AION 2 ガイド">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="1週目：リセットまでに終えること — AION 2 ガイド">
+<meta property="og:description" content="AION 2の1週目、週間リセットまでに終えること。見落としやすい一度きりの目標もまとめた。キャラクターごとのチェックリスト付き。">
+<meta property="og:url" content="https://couga54.github.io/aion2-guides/ja/week-1/">
+<meta property="og:image" content="https://couga54.github.io/aion2-guides/assets/og/week-1-ja.jpg?v=16a30350">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&display=swap&subset=cyrillic">
+<script>
+  // Theme + guide mode before first paint (no flash).
+  (function (r) {
+    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') r.dataset.theme = t; } catch (e) {}
+    var off = (r.getAttribute('data-off') || '').split(' ');
+    var modes = ['pve', 'pvp', 'lvl'].filter(function (x) { return off.indexOf(x) < 0; });
+    var m = new URLSearchParams(location.search).get('mode');
+    if (modes.indexOf(m) < 0) { try { m = localStorage.getItem('mode'); } catch (e) {} }
+    if (modes.indexOf(m) >= 0) r.dataset.mode = m;
+    else if (modes.indexOf(r.dataset.mode) < 0) r.dataset.mode = modes[0];
+  })(document.documentElement);
+</script>
+<script>
+  // Google Analytics (site.json "ga"). Not loaded on local previews. A visitor who came through the root
+  // language redirect keeps the site they came from (root.html saves it in sessionStorage).
+  if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6WYEWLG4B5';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      var ref = null;
+      try { ref = sessionStorage.getItem('ref'); sessionStorage.removeItem('ref'); } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-6WYEWLG4B5', ref ? { page_referrer: ref } : {});
+    })();
+  }
+</script>
+<link rel="stylesheet" href="../../assets/css/site.css?v=16a30350">
+</head>
+<body class="page-tracker page-week1">
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="../../ja/">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg>
+      <span>AION 2 ガイド</span>
+    </a>
+    <details class="class-menu">
+      <summary class="class-menu-btn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg><span>クラス</span>        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <nav class="class-menu-panel" aria-label="クラス">
+        <a href="../../ja/gladiator/" class="cm-item accent-crimson">
+          <img src="../../assets/classes/gladiator.webp" width="44" height="44" alt=""><span class="cm-name">グラディエーター</span><span class="cm-role">近接DPS · ブルーザー</span>
+        </a>
+        <a href="../../ja/ranger/" class="cm-item accent-emerald">
+          <img src="../../assets/classes/ranger.webp" width="44" height="44" alt=""><span class="cm-name">レンジャー</span><span class="cm-role">遠距離DPS · カイター</span>
+        </a>
+        <a href="../../ja/templar/" class="cm-item accent-sapphire">
+          <img src="../../assets/classes/templar.webp" width="44" height="44" alt=""><span class="cm-name">テンプラー</span><span class="cm-role">タンク · パーティーバッファー</span>
+        </a>
+        <a href="../../ja/assassin/" class="cm-item accent-violet">
+          <img src="../../assets/classes/assassin.webp" width="44" height="44" alt=""><span class="cm-name">アサシン</span><span class="cm-role">近接DPS · バースト</span>
+        </a>
+        <a href="../../ja/sorcerer/" class="cm-item accent-frost">
+          <img src="../../assets/classes/sorcerer.webp" width="44" height="44" alt=""><span class="cm-name">ソーサラー</span><span class="cm-role">遠距離魔法DPS</span>
+        </a>
+        <a href="../../ja/elementalist/" class="cm-item accent-spirit">
+          <img src="../../assets/classes/elementalist.webp" width="44" height="44" alt=""><span class="cm-name">スピリットマスター</span><span class="cm-role">召喚士 · 魔法DPS</span>
+        </a>
+        <a href="../../ja/cleric/" class="cm-item accent-sunlight">
+          <img src="../../assets/classes/cleric.webp" width="44" height="44" alt=""><span class="cm-name">クレリック</span><span class="cm-role">ヒーラー · 大地と雷の攻撃</span>
+        </a>
+        <a href="../../ja/chanter/" class="cm-item accent-amber">
+          <img src="../../assets/classes/chanter.webp" width="44" height="44" alt=""><span class="cm-name">チャンター</span><span class="cm-role">近接サポート · バッファー</span>
+        </a>
+      </nav>
+    </details>
+    <div class="topbar-tools">      <span class="rift-timer" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="亀裂が開放中" title="亀裂：敵対エリアへのポータル。3時間ごとに開き、入口は10分間開いたままで、中には約1時間滞在できる。次回">
+        <svg class="rt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="7.5" ry="10.5"/><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/><g transform="rotate(180 12 12)"><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/></g></svg><span class="rt-name">Rift</span><b class="rt-time">--:--</b>
+      </span>
+      <a class="wr-chip" href="../../ja/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="日,時間,分,秒" title="週間リセットまで">
+        <svg class="wr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="wr-name">リセット</span><b class="wr-time">--</b>
+      </a>
+      <a class="top-timer" href="../../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-09-28T13:00:00Z", "n": "\u30d7\u30ea\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9", "o": ""}, {"at": "2026-09-30T14:00:00Z", "n": "\u5148\u884c\u30a2\u30af\u30bb\u30b9", "o": "\u5148\u884c\u30a2\u30af\u30bb\u30b9\u958b\u59cb"}, {"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
+        <span class="tt-dot" aria-hidden="true"></span><span class="tt-name"></span><b class="tt-time">--:--:--</b>
+      </a>
+      <details class="class-menu nav-menu">
+        <summary class="class-menu-btn is-here">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>ガイド</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <nav class="nav-menu-panel" aria-label="ガイド">
+          <div class="nm-col">
+            <p class="nm-group">進行</p>
+            <a href="../../ja/week-1/" class="nm-item" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
+              <span class="nm-name">1週目</span><span class="nm-desc">最初のリセットまでに終えること</span>
+            </a>
+            <a href="../../ja/progression/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h4v-6H3zM10 20h4V9h-4zM17 20h4V4h-4z"/></svg>
+              <span class="nm-name">45以降</span><span class="nm-desc">レイドまでのアイテムレベルルート</span>
+            </a>
+            <a href="../../ja/crafting/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 1.3-1.3a4 4 0 0 0-5-5L3 10l3-3 3 3 1.3-1.3a4 4 0 0 1 4.4-2.4z"/></svg>
+              <span class="nm-name">採集と製作</span><span class="nm-desc">生産スキルとゴールドの素体</span>
+            </a>
+            <a href="../../ja/settings/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+              <span class="nm-name">ゲーム設定</span><span class="nm-desc">操作、キー、FPS、大規模PvP</span>
+            </a>
+          </div>
+          <div class="nm-col">
+            <p class="nm-group">トラッカー</p>
+            <a href="../../ja/weekly/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8.5 15l2 2 4-4"/></svg>
+              <span class="nm-name">週間</span><span class="nm-desc">週間入場回数とエネルギー</span>
+            </a>
+            <a href="../../ja/bosses/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4.4 0-8 3.1-8 7.5 0 2.6 1.3 4.4 3 5.5V20h2v-2h2v2h2v-2h2v2h2v-4c1.7-1.1 3-2.9 3-5.5C20 6.1 16.4 3 12 3z"/><circle cx="9" cy="11" r="1.5"/><circle cx="15" cy="11" r="1.5"/></svg>
+              <span class="nm-name">ボス</span><span class="nm-desc">討伐トラッカーとタイマー</span>
+            </a>
+          </div>
+          <div class="nm-foot">
+            <a href="../../ja/sources/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h6M8 11h6"/></svg>
+              <span class="nm-name">出典とクレジット</span><span class="nm-desc">このサイトの土台になった人たち</span>
+            </a>
+          </div>
+        </nav>
+      </details>      <details class="lang-menu">
+        <summary class="lang-switch" title="言語"><span aria-hidden="true">JA</span><span class="sr-only">言語</span></summary>
+        <nav class="lang-panel" aria-label="言語">
+<a href="../../en/week-1/" hreflang="en" lang="en" data-keep-query><b>EN</b>English</a><a href="../../ru/week-1/" hreflang="ru" lang="ru" data-keep-query><b>RU</b>Русский</a><a href="../../uk/week-1/" hreflang="uk" lang="uk" data-keep-query><b>UA</b>Українська</a><a href="../../tr/week-1/" hreflang="tr" lang="tr" data-keep-query><b>TR</b>Türkçe</a><a href="../../ja/week-1/" hreflang="ja" lang="ja" aria-current="true" data-keep-query><b>JA</b>日本語</a>        </nav>
+      </details>
+      <button class="icon-btn search-open" type="button" aria-label="検索 (Ctrl+K)" title="検索 (Ctrl+K)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+<a class="icon-btn wn-top" href="../../ja/changelog/" aria-label="更新履歴" title="更新履歴">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.9"/><path d="M12 17h.01"/></svg>
+      </a>      <button class="icon-btn theme-toggle" type="button" aria-label="ダークモード切替" title="ダークモード切替">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero tracker-hero has-art" style="--hero-art:url('../../assets/art/hero-week-1.webp');--hero-pos:50% 40%">
+    <div class="wrap tracker-hero-in">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../../ja/">全クラス</a><span aria-hidden="true">/</span><span>1週目</span></nav>
+        <h1>最初の1週間</h1>
+        <p class="lead">取り返しのつかない週間上限と、損失の大きい序盤のミス。キャラクターごとにチェックしていこう。</p>
+      </div>
+      <div class="reset-box" aria-live="off">
+  <span class="reset-label">週間リセットまで</span>
+  <div class="reset-timer"><span><b>--</b><i>日</i></span><span><b>--</b><i>時間</i></span><span><b>--</b><i>分</i></span><span><b>--</b><i>秒</i></span></div>
+  <time class="reset-when" datetime=""></time>
+</div>
+    </div>
+  </section>
+
+  <div class="wrap tracker-page">
+    <section class="charbar" aria-label="キャラクター">
+  <div class="char-tabs" role="tablist"></div>
+  <details class="char-manage">
+    <summary>キャラクターを追加 · 名前を変更</summary>
+    <form class="char-form char-form-edit">
+      <input name="cname" maxlength="24" required placeholder="キャラクター名" aria-label="キャラクター名">
+      <select name="cls" aria-label="クラス">
+        <option value="">クラスなし</option>
+<option value="gladiator">グラディエーター</option><option value="ranger">レンジャー</option><option value="templar">テンプラー</option><option value="assassin">アサシン</option><option value="sorcerer">ソーサラー</option><option value="elementalist">スピリットマスター</option><option value="cleric">クレリック</option><option value="chanter">チャンター</option>      </select>
+      <button type="submit" class="btn btn-sm">保存</button>
+      <button type="button" class="btn btn-ghost btn-sm char-del">削除</button>
+    </form>
+    <form class="char-form char-form-add">
+      <input name="cname" maxlength="24" required placeholder="キャラクター名" aria-label="キャラクター名">
+      <select name="cls" aria-label="クラス">
+        <option value="">クラスなし</option>
+<option value="gladiator">グラディエーター</option><option value="ranger">レンジャー</option><option value="templar">テンプラー</option><option value="assassin">アサシン</option><option value="sorcerer">ソーサラー</option><option value="elementalist">スピリットマスター</option><option value="cleric">クレリック</option><option value="chanter">チャンター</option>      </select>
+      <button type="submit" class="btn btn-primary btn-sm">キャラクターを追加</button>
+    </form>
+  </details>
+  <p class="note local-note">このブラウザにのみ保存。アカウント不要で、何も送信されない。</p>
+</section>
+
+    <section class="w1-group" aria-labelledby="h-w1-reset">
+      <div class="w1-head">
+        <h2 id="h-w1-reset" class="section-title">最初の週間リセットまで</h2>
+        <span class="w1-progress"><b class="w1-n">0</b>/8 完了</span>
+      </div>
+      <p class="w1-lead">これらは週間上限で、リセットまでに使わなかった分は完全に失われる。10月5日に始めた場合、最初のリセットまで約2日しかない。</p>
+      <ol class="steps w1-list">
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="alts-22">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>サブキャラは早めにLv22まで上げる。</strong>オード エネルギーはLv22から回復し始め、以後はオフラインの1時間ごとにエネルギーが貯まる。ローンチ時に10〜16時間遊べるなら、まずメインを進め、序盤エリアが空く1〜2日後にサブを始める。時間が少ないなら、先に4キャラをLv22にする。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a><a class="w1-src" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml#gid=53494555" target="_blank" rel="noopener" title="出典: TitanTheF — AION 2 progression sheet">TitanTheF</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="energy-cap">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>エネルギーを上限で止めない。</strong>週7回のオード エネルギーをすべて製作(Substance Morph)し、フィールドやダンジョン後に出る緑のOdiumを拾う。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="daily-dungeon">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>Daily Dungeon：7回</strong>。名前はデイリーだが週間制限。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="charges">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>悪夢とシューゴ フェスタのチャージ</strong>は上限に達する前に使い切る。シューゴの鍵は14個で止まる。周回してもショップ通貨は入る。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="duty">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>Duty quests</strong>はペットダンジョン(Odilium Repository)で消化する。レアは強化石のためにリロールする。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="transcendence">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>超越</strong>は可能ならアイテムレベル約1.8kで。報酬プール2に青いアルカナがあり、1.5kでは緑しか出ない。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="commander">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>アビス司令官のスクロール</strong>は拾って、必要な報酬(アビス ポイント、石)が出るまでリロールする。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="ascension">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>覚醒戦は最後。</strong>週3回。リセット直前まで待ち、最高のアイテムレベルで挑む。初回クリア報酬は難易度で増える。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a><a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a>            </span>
+          </label>
+        </li>
+      </ol>
+    </section>
+    <section class="w1-group" aria-labelledby="h-w1-goals">
+      <div class="w1-head">
+        <h2 id="h-w1-goals" class="section-title">第1週に見逃さない</h2>
+        <span class="w1-progress"><b class="w1-n">0</b>/17 完了</span>
+      </div>
+      <p class="w1-lead">最初の数日に間違えやすい、一度きりの要素。</p>
+      <ol class="steps w1-list">
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="msq-45">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>まずメインストーリーをLv45まで。</strong>Lv45で多くが解放される(台湾では採集まで)。サブコンテンツはレベルに合わせてスケールするので、急いでも損はない。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a><a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="no-chests">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>レベリング中は遠征の宝箱を開けない。</strong>周回はこなしつつ、エネルギーはバクロンの空中島(アイテムレベル1,600)用に取っておく。メインストーリーの終盤で黄色の武器がもらえる。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="feathers">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>羽根 → モノリス、ただし最後に。</strong>グローバル版では弱体化されたので、他をすべて終えてから集める。羽根95個以上でモノリスがLv11になる(緑のアミュレット用の石)。ステータス、コスチューム、称号も得られる。インタラクティブマップを使う。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a><a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a><a class="w1-src" href="https://www.youtube.com/watch?v=a8zVweGN--4" target="_blank" rel="noopener" title="出典: Sanya Jacuzzi — New leveling plan after 45 (datamine)">Sanya Jacuzzi</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="sealed">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>封印ダンジョンと要塞</strong>は進行ルート上のものを。ディーヴァニオン結晶が出て、要塞は高潔のベルトを強化できる唯一の手段。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a><a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="rift">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>敵側の亀裂はもう優先しない。</strong>グローバル版のデータマイニングによると、敵側の?マークと封印ダンジョンはディーヴァニオン ノードではなく1,000 APと強化石2〜5kが出る。マイペースでよく、週間上限が先。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a><a class="w1-src" href="https://www.youtube.com/watch?v=a8zVweGN--4" target="_blank" rel="noopener" title="出典: Sanya Jacuzzi — New leveling plan after 45 (datamine)">Sanya Jacuzzi</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="amulet-belt">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>アミュレットとベルトを+10まで</strong>強化し、Substance Morphで次の色に変える。先に装備を外す。外さないとMorphできない。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="plus10">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>強化は+10で止める。</strong>+10を超えると成功率100%がなくなり、費用が跳ね上がる。火力になる武器とアクセサリーが先、防具は後。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="keep-yellows">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>使えない黄色のアイテムも取っておく。</strong>魂刻印のリロールが100%成功になる。分解しない。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="shops">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>シーズンショップは見切りで買わない。</strong>シーズンコインは貴重。何が得か分かるまで待つ。序盤のKanis PvP装備は買わず、Fierce Battleのアミュレットも強化しない。アビス ポイントはディーヴァニオン結晶とスティグマ シャードに使う。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a><a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="shugo-45">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>Lv45でシューゴ フェスタ。</strong>Lv45で初めて全報酬が出る。金装備と製作素材(グローバル版ではスティグマ シャードも追加)。すべて参加する。
+<a class="w1-src" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml#gid=53494555" target="_blank" rel="noopener" title="出典: TitanTheF — AION 2 progression sheet">TitanTheF</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="shugo-500">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>シューゴ フェスタ「Not This Tile」：</strong>1人がオーブを集め、残りは500ポイントで止まってボードから降りる。グループ全員が最上位の報酬を得られる。
+<a class="w1-src" href="https://youtu.be/DVQWMJa7jq0" target="_blank" rel="noopener" title="出典: LittleFattyGG — Don&#39;t Waste Your First Week">LittleFattyGG</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="macros">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>マクロを設定する。</strong>戦闘速度はすぐに指が追いつかなくなる。クラスガイドのマクロの項を参照。
+<a class="w1-src" href="https://www.youtube.com/watch?v=gwMMpH-OY9c" target="_blank" rel="noopener" title="出典: Spid — 14 Tips I Wish I Knew Before Starting">Spid</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="shugo-currency">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>シューゴの通貨 → まずディーヴァニオン ノード。</strong>敵側の?マークが弱体化された今、シューゴショップが序盤のディーヴァニオン ノードの主な入手先。ボス亀裂でも同じ報酬が出る。貢献ポイント100で報酬カード3枚。バフ目当てでチャンター、クレリック、テンプラーを誘う。
+<a class="w1-src" href="https://www.youtube.com/watch?v=a8zVweGN--4" target="_blank" rel="noopener" title="出典: Sanya Jacuzzi — New leveling plan after 45 (datamine)">Sanya Jacuzzi</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="nightmare-45">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>悪夢はLv45から。</strong>チャージが貯まり始めるのはLv45から。最初のリセットまでに到達する。ボスは各10段階の難易度で、消費はキルしたときだけなので、いったん抜けて強くなって戻れる。グレー、緑、ラストボスの順。
+<a class="w1-src" href="https://www.youtube.com/watch?v=a8zVweGN--4" target="_blank" rel="noopener" title="出典: Sanya Jacuzzi — New leveling plan after 45 (datamine)">Sanya Jacuzzi</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="contracts">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>デイリー契約は最初のスロットで判断する。</strong>確定は最初の報酬だけで、後ろにいくほど確率が下がる。スロット1〜4に鍵があるものを選び、なければ虹色とペットの石が多いもの。最後に金アイテムがあるものはほぼ罠。
+<a class="w1-src" href="https://www.youtube.com/watch?v=a8zVweGN--4" target="_blank" rel="noopener" title="出典: Sanya Jacuzzi — New leveling plan after 45 (datamine)">Sanya Jacuzzi</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="pass-boxes">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>Daily Dungeonとトライアルのパスボックスは開けずに取っておく</strong>(ローンチ時に配られた場合)。これらのモードは調整中で、週末の最も強い状態で挑むのがよい。報酬はキル速度で変わる。
+<a class="w1-src" href="https://www.youtube.com/watch?v=a8zVweGN--4" target="_blank" rel="noopener" title="出典: Sanya Jacuzzi — New leveling plan after 45 (datamine)">Sanya Jacuzzi</a>            </span>
+          </label>
+        </li>
+        <li class="step">
+          <label>
+            <input type="checkbox" data-goal="world-bosses">
+            <span class="step-box" aria-hidden="true"></span>
+            <span class="step-text"><strong>ワールドボスは全種1回ずつ倒す。</strong>ドロップの可能性と参加称号が得られる。タイマーはマップと<a href="../bosses/">ワールドボス</a>ページにある。
+<a class="w1-src" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml#gid=53494555" target="_blank" rel="noopener" title="出典: TitanTheF — AION 2 progression sheet">TitanTheF</a>            </span>
+          </label>
+        </li>
+      </ol>
+    </section>
+
+    <a class="w1-route-card" href="../../ja/progression/">
+      <span class="w1-route-card-gs" aria-hidden="true">45 → 2800</span>
+      <span><b>45以降：アイテムレベルルート</b><span>45からドラゴンレイドまでの手順（シューゴ、悪夢、ドラウプニル、バクロン、超越）を、専用ページに移した。</span></span>
+      <span class="btn btn-ghost btn-sm">ルートを開く →</span>
+    </a>
+
+    <p class="w1-cta"><a class="btn btn-primary" href="../../ja/weekly/">週間トラッカーを開く →</a></p>
+  </div>
+</main>
+<script type="application/json" id="tracker-config">{"energy": {"cap": 840, "chest": 40, "interval_min": 180, "regen": 15}, "lang": "ja", "reset": {"anchor": "2026-09-30T07:00:00Z", "confirmed": true, "tz": "Europe/Kyiv"}, "root": "../../", "t": {"char_default": "\u30e1\u30a4\u30f3", "char_delete_confirm": "\u3053\u306e\u30ad\u30e3\u30e9\u30af\u30bf\u30fc\u3068\u9032\u6357\u3092\u3059\u3079\u3066\u524a\u9664\u3059\u308b\uff1f", "energy_at_cap": "\u4e0a\u9650\u306b\u9054\u3057\u3066\u3044\u308b\u3002\u56de\u5fa9\u304c\u7121\u99c4\u306b\u306a\u308b\u306e\u3067\u4f7f\u304a\u3046", "energy_full": "\u6e80\u30bf\u30f3", "energy_next": "\u6b21\u306e+{n}\u307e\u3067", "notify_energy": "\u30aa\u30fc\u30c9 \u30a8\u30cd\u30eb\u30ae\u30fc\u304c\u6e80\u30bf\u30f3", "units": ["\u65e5", "\u6642\u9593", "\u5206", "\u79d2"]}}</script>
+<script src="../../assets/js/tracker.js?v=16a30350" defer></script>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <div>
+      <a class="brand brand-sm" href="../../ja/">AION 2 ガイド</a>
+      <p>NCSOFTとは無関係の非公式ファンサイト。AION 2とそのスキルアイコンの著作権はNCSOFTに帰属する。</p>
+      <p>最終確認: 2026-10-04 (グローバル版ローンチ前).</p>
+      <p><a href="../../ja/sources/">すべての出典と配信者</a> · <a href="../../ja/changelog/">更新履歴</a> · <button type="button" class="link-btn report-open">誤りを報告</button></p>
+    </div>
+  </div>
+</footer>
+<dialog class="search-dlg" aria-label="検索" data-index="../../ja/search.json" data-base="../../ja/" data-empty="見つからなかった"
+  data-kinds="{&#34;boss&#34;: &#34;\u30dc\u30b9&#34;, &#34;class&#34;: &#34;\u30af\u30e9\u30b9&#34;, &#34;page&#34;: &#34;\u30da\u30fc\u30b8&#34;, &#34;section&#34;: &#34;\u30bb\u30af\u30b7\u30e7\u30f3&#34;, &#34;skill&#34;: &#34;\u30b9\u30ad\u30eb&#34;}" data-root="../../">
+  <div class="search-in">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" class="search-q" placeholder="クラス、スキル、ボス、セクション…" aria-label="検索" autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="search-res" role="listbox"></ul>
+  </div>
+</dialog>
+<dialog class="whatsnew" data-id="2026-10-04" aria-labelledby="wn-title">
+  <form method="dialog" class="wn-in">
+    <div class="wn-head">
+      <h2 id="wn-title">更新情報</h2>
+      <button class="icon-btn wn-x" value="close" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <section class="wn-entry">
+      <time class="wn-date" datetime="2026-10-04">2026年10月4日</time>
+      <ul>
+        <li><span><strong>トルコ語版</strong>：サイト全体がトルコ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ウクライナ語ページと同じく、スキル名とアイテム名は英語のまま。翻訳はAIによるもので、誤りを見つけたら「誤りを報告」を使うかGitHubでissueを立ててほしい。</span></li>
+      </ul>
+    </section>
+    <button class="btn btn-primary wn-ok" value="close">閉じる</button>
+    <p class="wn-all"><a href="../../ja/changelog/">更新履歴をすべて見る →</a></p>
+  </form>
+</dialog>
+<dialog class="whatsnew feedback" aria-labelledby="fb-title" data-url="https://aion2-feedback.couga-ua.workers.dev/" data-page="ja/week-1/" data-lang="ja">
+  <form class="wn-in fb-form" novalidate>
+    <div class="wn-head">
+      <h2 id="fb-title">誤りを報告</h2>
+      <button type="button" class="icon-btn fb-x" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="fb-hint">どこが間違っている、または古い？ 出典のリンクやスクリーンショットがあると助かる。</p>
+    <label class="fb-label" for="fb-text">メッセージ</label>
+    <textarea id="fb-text" class="fb-text" name="text" rows="6" maxlength="2000" required placeholder="例：グローバル版では炎爆発の3つ目の特化が違う…"></textarea>
+    <label class="fb-label" for="fb-contact">返信先の連絡先（任意）</label>
+    <input id="fb-contact" class="fb-contact" name="contact" type="text" maxlength="100" autocomplete="off" placeholder="DiscordまたはTelegram">
+    <input class="fb-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fb-meta">メッセージと一緒に送信される情報： <b class="fb-where"></b></p>
+    <p class="fb-status" role="status" data-sending="送信中…" data-ok="送信した。ありがとう！" data-err="送信できなかった。しばらくしてからもう一度試してほしい。" data-rate="連続送信が多すぎる。数分後にもう一度試してほしい。" data-short="まず少し書いてほしい。"></p>
+    <div class="fb-actions">
+      <button type="submit" class="btn btn-primary fb-send">送信</button>
+      <button type="button" class="btn btn-ghost fb-cancel">キャンセル</button>
+    </div>
+  </form>
+</dialog>
+<script src="../../assets/js/site.js?v=16a30350" defer></script>
+<script src="../../assets/js/fx.js?v=16a30350" defer></script>
+<div class="cel-banner" role="status" hidden data-at="2026-09-30T14:00:00Z" data-id="early">
+  <span class="cel-ico" aria-hidden="true">✦</span>
+  <div><p class="cel-h">先行アクセス開始！</p><p class="cel-p">ファウンダーパックのサーバーが稼働中。初日の健闘を祈る。クラスガイドは準備できている。</p></div>
+  <button type="button" class="cel-x" aria-label="閉じる">×</button>
+</div>
+<script src="../../assets/js/celebrate.js?v=16a30350" defer></script>
+</body>
+</html>

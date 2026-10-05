@@ -4,8 +4,8 @@
   python tools/fetch_boards.py --relink            re-link the saved boards to data/skills (no download)
 
 Writes data/boards/<class>.json:
-  {"boards": [{"id", "name": {en, ru}, "needLevel", "order", "rows", "cols",
-               "nodes": [{"id", "row", "col", "type", "grade", "cost", "auto", "name": {en, ru}, "skill", "effect": {en, ru}}]}]}
+  {"boards": [{"id", "name": {en, ru, ja}, "needLevel", "order", "rows", "cols",
+               "nodes": [{"id", "row", "col", "type", "grade", "cost", "auto", "name": {en, ru, ja}, "skill", "effect": {en, ru, ja}}]}]}
 Node ids are <board id><4-digit cell number> (board 11 -> 110001, 110002, ...), one per grid cell.
 A skill node's "skill" is the slug from data/skills/<class>.json, matched by skill id: the node text sometimes
 uses another name for the same skill (Sorcerer "Flame Explosion" = Blaze).
@@ -78,7 +78,7 @@ def main(classes):
     for cls in classes:
         out = []
         for b in sorted((b for b in boards if b["mainCategory"] == cls), key=lambda b: int(b["id"])):
-            info = {lang: trpc("getDaevanionBoard", {"language": lang, "id": b["id"]}) for lang in ("en", "ru")}
+            info = {lang: trpc("getDaevanionBoard", {"language": lang, "id": b["id"]}) for lang in ("en", "ru", "ja")}
             # The node list search caps at 1000 results, so walk the ids: every grid cell has one (empty cells are
             # placeholders named after their id), and the ids stop after the last cell.
             items, nid_n, misses = [], int(b["id"]) * 10000 + 1, 0
@@ -93,12 +93,13 @@ def main(classes):
                 if en.get("boardId") != b["id"] or en.get("name") == nid:
                     continue
                 ru = trpc("getDaevanionNode", {"language": "ru", "id": nid})
+                ja = trpc("getDaevanionNode", {"language": "ja", "id": nid})
                 skill = skill_slug(cls, en["name"], en.get("effect")) if en.get("mainCategory") == "skilllevel" else None
                 items.append({"id": nid, "row": en["row"], "col": en["col"], "type": en.get("nodeType") or en.get("mainCategory"),
                               "cat": en.get("mainCategory"), "grade": en.get("grade"), "cost": en.get("costDaevanionPoint"),
-                              "auto": bool(en.get("isAutoLearn")), "name": {"en": en["name"], "ru": ru.get("name") or en["name"]},
-                              "skill": skill, "effect": {"en": effect_text(en), "ru": effect_text(ru)}, "raw": en.get("effect")})
-            out.append({"id": b["id"], "name": {"en": info["en"]["name"], "ru": info["ru"]["name"]},
+                              "auto": bool(en.get("isAutoLearn")), "name": {"en": en["name"], "ru": ru.get("name") or en["name"], "ja": ja.get("name") or en["name"]},
+                              "skill": skill, "effect": {"en": effect_text(en), "ru": effect_text(ru), "ja": effect_text(ja) or effect_text(en)}, "raw": en.get("effect")})
+            out.append({"id": b["id"], "name": {"en": info["en"]["name"], "ru": info["ru"]["name"], "ja": info["ja"].get("name") or info["en"]["name"]},
                         "needLevel": info["en"].get("needLevel"), "order": info["en"].get("order"),
                         "rows": max((n["row"] for n in items), default=0) + 1, "cols": max((n["col"] for n in items), default=0) + 1,
                         "nodes": sorted(items, key=lambda n: (n["row"], n["col"]))})

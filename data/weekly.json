@@ -1,44 +1,44 @@
 {
   "_note": "Weekly tracker items (/<lang>/weekly/). max = entries per week; 1 = a single checkbox. Limits come from KR/TW and the EU test client — check the in-game counters at launch and update here.",
   "groups": [
-    {"id": "dungeons", "title": {"en": "Dungeons", "ru": "Подземелья", "uk": "Підземелля", "tr": "Zindanlar"},
+    {"id": "dungeons", "title": {"en": "Dungeons", "ru": "Подземелья", "uk": "Підземелля", "tr": "Zindanlar", "ja": "ダンジョン"},
      "items": [
        {"id": "daily-dungeon", "max": 7,
-        "name": {"en": "Daily Dungeon", "ru": "Ежедневное подземелье (Daily Dungeon)", "uk": "Daily Dungeon", "tr": "Daily Dungeon"},
-        "note": {"en": "Weekly despite the name — all 7 can go on one day.", "ru": "Несмотря на название, лимит недельный — все 7 можно пройти за один день.", "uk": "Попри назву, ліміт тижневий — усі 7 можна пройти за один день.", "tr": "Adına rağmen haftalık — 7'si de tek günde yapılabilir."}},
+        "name": {"en": "Daily Dungeon", "ru": "Ежедневное подземелье (Daily Dungeon)", "uk": "Daily Dungeon", "tr": "Daily Dungeon", "ja": "Daily Dungeon"},
+        "note": {"en": "Weekly despite the name — all 7 can go on one day.", "ru": "Несмотря на название, лимит недельный — все 7 можно пройти за один день.", "uk": "Попри назву, ліміт тижневий — усі 7 можна пройти за один день.", "tr": "Adına rağmen haftalık — 7'si de tek günde yapılabilir.", "ja": "名前はデイリーだが週間制限。7回すべてを1日で消化してもよい。"}},
        {"id": "nightmare", "max": 14,
-        "name": {"en": "Nightmare", "ru": "Кошмар (Nightmare)", "uk": "Nightmare", "tr": "Nightmare"},
-        "note": {"en": "2 charges a day — spend them before they cap.", "ru": "2 заряда в день — трать, пока не упёрлись в лимит.", "uk": "2 заряди на день — витрачай, поки не вперлися в ліміт.", "tr": "Günde 2 hak — sınıra dolmadan harca."}},
+        "name": {"en": "Nightmare", "ru": "Кошмар (Nightmare)", "uk": "Nightmare", "tr": "Nightmare", "ja": "悪夢"},
+        "note": {"en": "2 charges a day — spend them before they cap.", "ru": "2 заряда в день — трать, пока не упёрлись в лимит.", "uk": "2 заряди на день — витрачай, поки не вперлися в ліміт.", "tr": "Günde 2 hak — sınıra dolmadan harca.", "ja": "1日2チャージ。上限に達する前に使い切る。"}},
        {"id": "transcendence", "max": 2,
-        "name": {"en": "Transcendence", "ru": "Трансцендентность (Transcendence)", "uk": "Transcendence", "tr": "Transcendence"},
-        "note": {"en": "Arcana source. Reward pool 2 (blue cards) needs ~1.8k item level.", "ru": "Источник аркан. Для пула наград 2 (синие карты) нужно ~1.8k уровня предметов.", "uk": "Джерело аркан. Для пулу нагород 2 (сині карти) потрібно ~1.8k рівня предметів.", "tr": "Arcana kaynağı. Ödül havuzu 2 (mavi kartlar) için ~1,8k item level gerekir."}},
+        "name": {"en": "Transcendence", "ru": "Трансцендентность (Transcendence)", "uk": "Transcendence", "tr": "Transcendence", "ja": "超越"},
+        "note": {"en": "Arcana source. Reward pool 2 (blue cards) needs ~1.8k item level.", "ru": "Источник аркан. Для пула наград 2 (синие карты) нужно ~1.8k уровня предметов.", "uk": "Джерело аркан. Для пулу нагород 2 (сині карти) потрібно ~1.8k рівня предметів.", "tr": "Arcana kaynağı. Ödül havuzu 2 (mavi kartlar) için ~1,8k item level gerekir.", "ja": "アルカナの入手先。報酬プール2(青カード)はアイテムレベル約1.8k必要。"}},
        {"id": "expedition-conquest", "max": 3,
-        "name": {"en": "Expedition: Conquest", "ru": "Экспедиция: Завоевание (Conquest)", "uk": "Експедиція: Conquest", "tr": "Expedition: Conquest"},
-        "note": {"en": "Chests cost Odyle energy.", "ru": "Сундуки тратят энергию Odyle.", "uk": "Скрині витрачають енергію Odyle.", "tr": "Sandıklar Odyle enerjisi harcar."}},
+        "name": {"en": "Expedition: Conquest", "ru": "Экспедиция: Завоевание (Conquest)", "uk": "Експедиція: Conquest", "tr": "Expedition: Conquest", "ja": "遠征：Conquest"},
+        "note": {"en": "Chests cost Odyle energy.", "ru": "Сундуки тратят энергию Odyle.", "uk": "Скрині витрачають енергію Odyle.", "tr": "Sandıklar Odyle enerjisi harcar.", "ja": "宝箱にはオード エネルギーを消費する。"}},
        {"id": "sanctuary", "max": 1,
-        "name": {"en": "Sanctuary (raid)", "ru": "Святилище (рейд)", "uk": "Sanctuary (рейд)", "tr": "Sanctuary (raid)"},
-        "note": {"en": "10-player raid.", "ru": "Рейд на 10 человек.", "uk": "Рейд на 10 людей.", "tr": "10 kişilik raid."}},
+        "name": {"en": "Sanctuary (raid)", "ru": "Святилище (рейд)", "uk": "Sanctuary (рейд)", "tr": "Sanctuary (raid)", "ja": "聖域(レイド)"},
+        "note": {"en": "10-player raid.", "ru": "Рейд на 10 человек.", "uk": "Рейд на 10 людей.", "tr": "10 kişilik raid.", "ja": "10人レイド。"}},
        {"id": "ascension-trial", "max": 3,
-        "name": {"en": "Ascension Trial", "ru": "Испытание восхождения (Ascension Trial)", "uk": "Ascension Trial", "tr": "Ascension Trial"},
-        "note": {"en": "Do it last, right before the reset, at your highest item level — first-clear rewards grow with difficulty.", "ru": "Проходи последним, прямо перед сбросом, на максимальном уровне предметов — награды за первое прохождение растут со сложностью.", "uk": "Проходь останнім, прямо перед скиданням, на максимальному рівні предметів — нагороди за перше проходження ростуть зі складністю.", "tr": "En sona, sıfırlamadan hemen önce, en yüksek item level'ında yap — ilk geçiş ödülleri zorlukla birlikte artar."}}
+        "name": {"en": "Ascension Trial", "ru": "Испытание восхождения (Ascension Trial)", "uk": "Ascension Trial", "tr": "Ascension Trial", "ja": "覚醒戦"},
+        "note": {"en": "Do it last, right before the reset, at your highest item level — first-clear rewards grow with difficulty.", "ru": "Проходи последним, прямо перед сбросом, на максимальном уровне предметов — награды за первое прохождение растут со сложностью.", "uk": "Проходь останнім, прямо перед скиданням, на максимальному рівні предметів — нагороди за перше проходження ростуть зі складністю.", "tr": "En sona, sıfırlamadan hemen önce, en yüksek item level'ında yap — ilk geçiş ödülleri zorlukla birlikte artar.", "ja": "最後、リセット直前に最高のアイテムレベルで挑む。初回クリア報酬は難易度で増える。"}}
      ]},
-    {"id": "resources", "title": {"en": "Energy & resources", "ru": "Энергия и ресурсы", "uk": "Енергія й ресурси", "tr": "Enerji ve kaynaklar"},
+    {"id": "resources", "title": {"en": "Energy & resources", "ru": "Энергия и ресурсы", "uk": "Енергія й ресурси", "tr": "Enerji ve kaynaklar", "ja": "エネルギーと資源"},
      "items": [
        {"id": "odyle-craft", "max": 7,
-        "name": {"en": "Odyle energy craft (Substance Morph)", "ru": "Крафт энергии Odyle (Substance Morph)", "uk": "Крафт енергії Odyle (Substance Morph)", "tr": "Odyle enerjisi üretimi (Substance Morph)"},
-        "note": {"en": "7 a week, 40 energy each — the weekly cap is lost if you skip it.", "ru": "7 в неделю по 40 энергии — пропущенный лимит сгорает.", "uk": "7 на тиждень по 40 енергії — пропущений ліміт згорає.", "tr": "Haftada 7, her biri 40 enerji — atlarsan haftalık limit yanar."}},
+        "name": {"en": "Odyle energy craft (Substance Morph)", "ru": "Крафт энергии Odyle (Substance Morph)", "uk": "Крафт енергії Odyle (Substance Morph)", "tr": "Odyle enerjisi üretimi (Substance Morph)", "ja": "オード エネルギー製作(Substance Morph)"},
+        "note": {"en": "7 a week, 40 energy each — the weekly cap is lost if you skip it.", "ru": "7 в неделю по 40 энергии — пропущенный лимит сгорает.", "uk": "7 на тиждень по 40 енергії — пропущений ліміт згорає.", "tr": "Haftada 7, her biri 40 enerji — atlarsan haftalık limit yanar.", "ja": "週7回、各40エネルギー。やらないと週間上限分が失われる。"}},
        {"id": "shugo-festa", "max": 1,
-        "name": {"en": "Shugo Festa keys spent", "ru": "Ключи Shugo Festa потрачены", "uk": "Ключі Shugo Festa витрачено", "tr": "Harcanan Shugo Festa anahtarları"},
-        "note": {"en": "Keys stop at 14 — don't sit on a full stack.", "ru": "Ключи копятся до 14 — не держи полный запас.", "uk": "Ключі накопичуються до 14 — не тримай повний запас.", "tr": "Anahtarlar 14'te durur — dolu yığının üstünde oturma."}}
+        "name": {"en": "Shugo Festa keys spent", "ru": "Ключи Shugo Festa потрачены", "uk": "Ключі Shugo Festa витрачено", "tr": "Harcanan Shugo Festa anahtarları", "ja": "シューゴ フェスタの鍵を消費"},
+        "note": {"en": "Keys stop at 14 — don't sit on a full stack.", "ru": "Ключи копятся до 14 — не держи полный запас.", "uk": "Ключі накопичуються до 14 — не тримай повний запас.", "tr": "Anahtarlar 14'te durur — dolu yığının üstünde oturma.", "ja": "鍵は14個で止まる。満タンのまま放置しない。"}}
      ]},
-    {"id": "quests", "title": {"en": "Quests & Abyss", "ru": "Квесты и Бездна", "uk": "Квести й Безодня", "tr": "Görevler ve Abyss"},
+    {"id": "quests", "title": {"en": "Quests & Abyss", "ru": "Квесты и Бездна", "uk": "Квести й Безодня", "tr": "Görevler ve Abyss", "ja": "クエストとアビス"},
      "items": [
        {"id": "commander-scrolls", "max": 1,
-        "name": {"en": "Abyss commander scrolls", "ru": "Свитки командира Бездны", "uk": "Сувої командира Безодні", "tr": "Abyss komutan parşömenleri"},
-        "note": {"en": "Pick them up and reroll for the rewards you need.", "ru": "Забери и перекинь награды на нужные.", "uk": "Забери й перекинь нагороди на потрібні.", "tr": "Al ve ihtiyacın olan ödüller için yeniden çevir."}},
+        "name": {"en": "Abyss commander scrolls", "ru": "Свитки командира Бездны", "uk": "Сувої командира Безодні", "tr": "Abyss komutan parşömenleri", "ja": "アビス司令官のスクロール"},
+        "note": {"en": "Pick them up and reroll for the rewards you need.", "ru": "Забери и перекинь награды на нужные.", "uk": "Забери й перекинь нагороди на потрібні.", "tr": "Al ve ihtiyacın olan ödüller için yeniden çevir.", "ja": "拾って、必要な報酬が出るまでリロールする。"}},
        {"id": "duty-quests", "max": 1,
-        "name": {"en": "Duty quests", "ru": "Служебные задания (Duty quests)", "uk": "Службові завдання (Duty quests)", "tr": "Duty görevleri"},
-        "note": {"en": "Burn them in the pet dungeon (Odilium Repository).", "ru": "Сдавай их в питомнике (Odilium Repository).", "uk": "Здавай їх у підземеллі петів (Odilium Repository).", "tr": "Evcil hayvan zindanında (Odilium Repository) erit."}}
+        "name": {"en": "Duty quests", "ru": "Служебные задания (Duty quests)", "uk": "Службові завдання (Duty quests)", "tr": "Duty görevleri", "ja": "Duty quests"},
+        "note": {"en": "Burn them in the pet dungeon (Odilium Repository).", "ru": "Сдавай их в питомнике (Odilium Repository).", "uk": "Здавай їх у підземеллі петів (Odilium Repository).", "tr": "Evcil hayvan zindanında (Odilium Repository) erit.", "ja": "ペットダンジョン(Odilium Repository)で消化する。"}}
      ]}
   ]
 }

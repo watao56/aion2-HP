@@ -1,11 +1,13 @@
 """Render social preview images (1200x630) into src/assets/og/.
 
-  python tools/make_og.py
+  python tools/make_og.py [--lang ja[,uk] ...]
 
 One image for the home page, one per ready class and one per standalone page (with its header art), in every language.
-Needs Pillow and fonts with Cyrillic (Georgia / Segoe UI on Windows, DejaVu elsewhere).
+Needs Pillow and fonts with Cyrillic (Georgia / Segoe UI on Windows, DejaVu elsewhere); Japanese needs Hiragino, Yu Mincho / Yu Gothic or Noto CJK.
 """
+import argparse
 import json
+import re
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -26,17 +28,25 @@ def upper(text, lang):
 
 
 def font(names, size):
-    for n in names:
+    for n in names:                      # a name or a (file, index in a .ttc) pair
         try:
-            return ImageFont.truetype(n, size)
+            return ImageFont.truetype(*((n[0], size, n[1]) if isinstance(n, tuple) else (n, size)))
         except OSError:
             continue
+    if LANG == "ja":
+        raise SystemExit("no Japanese font found: install Hiragino (macOS), Yu Gothic / Yu Mincho (Windows) or Noto CJK JP (Linux)")
     return ImageFont.load_default(size)
 
 
+LANG = ""                                # language being rendered, set in main()
 SERIF = ["georgiab.ttf", "georgia.ttf", "DejaVuSerif-Bold.ttf"]
 SANS = ["segoeui.ttf", "arial.ttf", "DejaVuSans.ttf"]
 MONO = ["consolab.ttf", "DejaVuSansMono-Bold.ttf"]
+MAC = "/System/Library/Fonts/"
+LINUX = ["/usr/share/fonts/opentype/noto/", "/usr/share/fonts/noto-cjk/", "/usr/share/fonts/truetype/noto/"]
+JA_SERIF = [(MAC + "ヒラギノ明朝 ProN.ttc", 2), "yumindb.ttf", "yuminb.ttf"] + [(d + "NotoSerifCJK-Bold.ttc", 0) for d in LINUX]
+JA_SANS = [(MAC + "ヒラギノ角ゴシック W3.ttc", 0), "YuGothM.ttc", "meiryo.ttc"] + [(d + "NotoSansCJK-Regular.ttc", 0) for d in LINUX]
+JA_MONO = [(MAC + "ヒラギノ角ゴシック W6.ttc", 0), "YuGothB.ttc", "meiryob.ttc"] + [(d + "NotoSansCJK-Bold.ttc", 0) for d in LINUX]
 
 
 def glow(color, cx, cy, r):
@@ -55,7 +65,31 @@ def base(accent):
     return img
 
 
+NO_START = set("、。，．・：；？！）」』】〕ー々ぁぃぅぇぉっゃゅょゎァィゥェォッャュョヮ,.:;?!)]}")
+NO_END = set("（「『【〔([{")
+
+
+def wrap_ja(d, text, fnt, width):
+    """No spaces in Japanese: break between characters (Latin/digit runs stay whole), with basic kinsoku."""
+    lines, cur = [], ""
+    for tok in re.findall(r"[A-Za-z0-9][A-Za-z0-9'’.,:+%/&-]*[A-Za-z0-9%]|[A-Za-z0-9]|\s+|.", text):
+        if tok.isspace():
+            tok = " "
+        if d.textlength(cur + tok, font=fnt) <= width or not cur.strip():
+            cur += tok
+            continue
+        if tok[0] in NO_START and len(cur) > 1:       # pull the last character down so the line does not start with a closing mark
+            cur, tok = cur[:-1], cur[-1] + tok
+        while len(cur) > 1 and cur[-1] in NO_END:     # an opening bracket must not end a line
+            cur, tok = cur[:-1], cur[-1] + tok
+        lines.append(cur.rstrip())
+        cur = tok.lstrip()
+    return lines + [cur]
+
+
 def wrap(d, text, fnt, width):
+    if LANG == "ja":
+        return wrap_ja(d, text, fnt, width)
     words, lines, cur = text.split(), [], ""
     for w in words:
         t = (cur + " " + w).strip()
@@ -81,7 +115,10 @@ def render_class(cls, lang):
     d = ImageDraw.Draw(img)
     emblem(img, cls["slug"], 80, 90, 170)
     d.text((290, 100), upper(t["home_kicker"], lang), font=font(MONO, 26), fill=GOLD)
-    d.text((286, 135), cls["name"][lang], font=font(SERIF, 104), fill=(245, 240, 230))
+    size = 104
+    while d.textlength(cls["name"][lang], font=font(SERIF, size)) > W - 286 - 60:
+        size -= 4
+    d.text((286, 135 + (104 - size) // 2), cls["name"][lang], font=font(SERIF, size), fill=(245, 240, 230))
     y = 300
     for line in wrap(d, cls["pitch"][lang], font(SANS, 34), 1020)[:3]:
         d.text((80, y), line, font=font(SANS, 34), fill=(200, 205, 215))
@@ -97,8 +134,8 @@ def render_home(lang):
     img = base((160, 130, 70))
     d = ImageDraw.Draw(img)
     d.text((80, 90), upper(t["home_kicker"], lang), font=font(MONO, 26), fill=GOLD)
-    size = 78                            # shrink until the headline fits in two lines
-    while len(wrap(d, t["home_h1"], font(SERIF, size), 1040)) > 2:
+    size = 78                            # shrink until the headline fits in two lines (one for Japanese: no good break points)
+    while len(wrap(d, t["home_h1"], font(SERIF, size), 1040)) > (1 if lang == "ja" else 2):
         size -= 4
     y = 135
     for line in wrap(d, t["home_h1"], font(SERIF, size), 1040):
@@ -138,7 +175,10 @@ def render_page(slug, lang):
     img = Image.composite(Image.new("RGB", (W, H), BG), img, shade)
     d = ImageDraw.Draw(img)
     d.text((80, 90), upper(t["home_kicker"], lang), font=font(MONO, 26), fill=GOLD)
-    d.text((76, 130), t[title_key], font=font(SERIF, 84), fill=(245, 240, 230))
+    size = 84
+    while d.textlength(t[title_key], font=font(SERIF, size)) > 1040:
+        size -= 4
+    d.text((76, 130 + (84 - size) // 2), t[title_key], font=font(SERIF, size), fill=(245, 240, 230))
     y = 260
     lines = wrap(d, t[lead_key], font(SANS, 34), 700)
     if len(lines) > 4:                   # long leads: cut at a sentence end if possible, else with an ellipsis
@@ -152,8 +192,18 @@ def render_page(slug, lang):
 
 
 def main():
+    global LANG, SERIF, SANS, MONO
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--lang", action="append", default=[], help="render only this language (repeatable or comma-separated); default: all")
+    langs = [c for a in ap.parse_args().lang for c in a.split(",") if c] or SITE["langs"]
+    unknown = [c for c in langs if c not in SITE["langs"]]
+    if unknown:
+        raise SystemExit(f"unknown language: {', '.join(unknown)} (site has {', '.join(SITE['langs'])})")
     OUT.mkdir(parents=True, exist_ok=True)
-    for lang in SITE["langs"]:
+    western = SERIF, SANS, MONO
+    for lang in langs:
+        LANG = lang
+        SERIF, SANS, MONO = (JA_SERIF, JA_SANS, JA_MONO) if lang == "ja" else western
         render_home(lang).save(OUT / f"home-{lang}.jpg", quality=86, optimize=True, progressive=True)
         for slug in PAGES:
             render_page(slug, lang).save(OUT / f"{slug}-{lang}.jpg", quality=86, optimize=True, progressive=True)

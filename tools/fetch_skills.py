@@ -1,6 +1,6 @@
-"""Download skill data (EN + RU) and icons for the given classes from questlog.gg.
+"""Download skill data (EN + RU + JA) and icons for the given classes from questlog.gg.
 
-questlog.gg's "en"/"ru" databases are built from the global client, which is what
+questlog.gg's "en"/"ru"/"ja" databases are built from the global client, which is what
 the guides target. Output:
   data/skills/<class>.json            skill names, descriptions, specializations per language
   src/assets/icons/<class>/<slug>.webp  96x96 icons
@@ -21,7 +21,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 API = "https://questlog.gg/aion-2/api/trpc/database."
 CDN = "https://cdn.questlog.gg/aion-2"
-LANGS = ["en", "ru"]
+LANGS = ["en", "ru", "ja"]
 HEADERS = {"User-Agent": "aion2-guides-builder/1.0"}
 
 

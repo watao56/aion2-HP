@@ -50,29 +50,33 @@ for _cls, _fixes in load(DATA / "skills" / "_overrides.json").items():
 # Game data (skills, items, Daevanion boards, world bosses) comes from questlog.gg, which has no Ukrainian:
 # Ukrainian and Turkish pages show it in English. Only our own text (guides, UI) is translated.
 DATA_LANG = {"uk": "en", "tr": "en"}
+# Japanese has real game data (names from the Japanese client) like Russian; a gap (a skill, item, board node or boss
+# without "ja" yet) falls back to English. Same copy-if-missing step, so an existing "ja" is never overwritten.
+GAME_FALLBACK = {"ja": "en"}
 
 
-def _game_lang(x):
-    """Copy the English game data under every language in DATA_LANG (nested dicts with an 'en' key)."""
+def _game_lang(x, mapping):
+    """Copy the source language's game data under every language in `mapping` where it is missing (nested dicts with an 'en' key)."""
     if isinstance(x, dict):
-        for lang, src in DATA_LANG.items():
+        for lang, src in mapping.items():
             if src in x and lang not in x:
                 x[lang] = x[src]
             if "tip_" + src in x and "tip_" + lang not in x:
                 x["tip_" + lang] = x["tip_" + src]
         for v in list(x.values()):
-            _game_lang(v)
+            _game_lang(v, mapping)
     elif isinstance(x, list):
         for v in x:
-            _game_lang(v)
+            _game_lang(v, mapping)
 
 
 for _data in (SKILLS, ITEMS, BOARDS, BOSSES):
-    _game_lang(_data)
+    _game_lang(_data, DATA_LANG)
+    _game_lang(_data, GAME_FALLBACK)
 
 # Our own text: a string, UI key or class guide not translated to Turkish yet shows in English, so a guide edit
 # made in EN / RU / UK only never breaks the build (the Turkish text catches up later).
-TEXT_FALLBACK = {"tr": "en"}
+TEXT_FALLBACK = {"tr": "en", "ja": "en"}
 
 
 def _text_fallback(x):
@@ -114,7 +118,7 @@ def it(ctx, text):
 
     def chip(m):
         item = ITEMS[m.group(1)]
-        name = re.sub(r"\s*\((Bound|привяз\.)\)$", "", item[lang])
+        name = re.sub(r"\s*\((Bound|привяз\.|刻印)\)$", "", item[lang])
         return (f'<span class="it g{item["grade"]}" data-sk="i:{m.group(1)}"><img src="{root}assets/icons/items/{item["icon"]}"'
                 f' width="20" height="20" alt="" loading="lazy">{escape(name)}</span>')
     return Markup(re.sub(r"\{i:(\w+)\}", chip, text))
@@ -132,6 +136,10 @@ STAT_LABELS = {
            "destruction": "Разрушение [Зикель]", "life": "Жизнь [Юстиэль]", "destiny": "Судьба [Марчутан]"},
 }
 STAT_LABELS["uk"] = STAT_LABELS["tr"] = STAT_LABELS["en"]   # game stat names: English on Ukrainian and Turkish pages, like the rest of the game data
+STAT_LABELS["ja"] = {   # the Japanese client's stat and lord names; the eight board names stay English (questlog has ids only, no Japanese label)
+    "weaponfixingdamage": "攻撃力", "armordefense": "防御力", "hpmax": "HP", "critical": "クリティカル", "weaponaccuracy": "命中",
+    "justice": "Justice [ネザカン]", "wisdom": "Wisdom [ルミエル]", "death": "Death [トリニエル]", "space": "Space [Israphel]",
+    "illusion": "Illusion [カイジネル]", "destruction": "Destruction [ジケル]", "life": "Life [ユスティエル]", "destiny": "Destiny [マルクタン]"}
 
 
 def items_tip_json(lang, extra=None):
@@ -157,7 +165,7 @@ def items_tip(lang):
     return out
 
 
-WATCH_FILL = {"ru": "en", "uk": "en", "tr": "en"}   # RU / UK / TR pages fill free places with the English-speaking authors of the guide
+WATCH_FILL = {"ru": "en", "uk": "en", "tr": "en", "ja": "en"}   # RU / UK / TR / JA pages fill free places with the English-speaking authors of the guide
 
 
 def watch_for(cls, lang, limit=3):
@@ -362,16 +370,21 @@ MONTHS = {
 
 
 def fmt_utc(iso, lang):
-    """'2026-09-28T13:00:00Z' -> 'Sep 28 · 13:00 UTC' / '28 сентября · 13:00 UTC'."""
+    """'2026-09-28T13:00:00Z' -> 'Sep 28 · 13:00 UTC' / '28 сентября · 13:00 UTC' / '9月28日 · 13:00 UTC'."""
     from datetime import datetime
     d = datetime.strptime(iso, "%Y-%m-%dT%H:%M:%SZ")
-    day = f"{MONTHS[lang][d.month - 1]} {d.day}" if lang == "en" else f"{d.day} {MONTHS[lang][d.month - 1]}"
+    if lang == "ja":
+        day = f"{d.month}月{d.day}日"
+    else:
+        day = f"{MONTHS[lang][d.month - 1]} {d.day}" if lang == "en" else f"{d.day} {MONTHS[lang][d.month - 1]}"
     return f"{day} · {d:%H:%M} UTC"
 
 
 def fmt_day(iso, lang):
     """'2026-09-27' -> 'Sep 27, 2026' / '27 сентября 2026'."""
     y, m, d = (int(x) for x in iso.split("-"))
+    if lang == "ja":
+        return f"{y}年{m}月{d}日"
     mon = MONTHS[lang][m - 1]
     return f"{mon} {d}, {y}" if lang == "en" else f"{d} {mon} {y}"
 

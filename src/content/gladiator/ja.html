@@ -1,0 +1,342 @@
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+
+{# ===== PvE and PvP: each PvP block follows its PvE counterpart, so both modes read in the same order; shared sections are 'pve pvp' ===== #}
+{% call glance('pve') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('overhead-slam', '20'), ('rending-blow', '20'), ('ruinous-blow', '16')]) }}
+  <h3>{{ t.stigma_loadout }}</h3>
+  {{ loadout([('lunge-stance', 20), ('focused-block', 5), ('rage-burst', 5), ('zikels-blessing', 10)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['attack-preparation', 'experienced-counterstrike', 'murderous-burst', 'impact-hit']) }}
+{% endcall %}
+
+{% call glance('pvp') %}
+  <h3>{{ t.core_skills }}</h3>
+  {{ core([('overhead-slam', '20'), ('mocking-blade', '16'), ('defiance', '16'), ('aerial-snare', '16')]) }}
+  <h3>{{ t.stigma_loadout }} · アビス</h3>
+  {{ loadout([('lunge-stance', 20), ('armor-of-balance', 5), ('tenaciousness', 10), ('blade-toss', 5)]) }}
+  <h3>{{ t.key_passives }}</h3>
+  {{ passives(['attack-preparation', 'survival-willpower', 'survival-stance', 'impact-hit']) }}
+{% endcall %}
+
+{% call section('intro', '概要', 'pve') %}
+  <p>グラディエーターはNCSoftの看板クラスで、韓国・台湾サーバーではずっとSティアを維持している。パーティーにバフを配り、準タンクもこなしつつ大ダメージを出せるうえ、ほかのクラスより判断することが少ない。木人相手ならソーサラーとアサシンがわずかに上だが、グラディエーターもすぐ後ろにつけていて、操作ははるかに簡単だ。</p>
+  <div class="callout accent">
+    <h3>ビルドをひと言で</h3>
+    <p>{{ s('overhead-slam') }}をスキルLv16〜20、{{ s('lunge-stance') }}をスティグマLv20にし、{{ s('rage-burst') }}で打ち下ろしを活性化する。それ以外はすべて補助。</p>
+  </div>
+{% endcall %}
+
+{% call section('intro-pvp', '概要', 'pvp') %}
+  <p>PvPのグラディエーターは<strong>打たれ強い突撃役</strong>だ。距離を詰めて相手を転倒させ、その転倒に打ち下ろしを叩き込む。HP、ガード、自己回復が十分にあるので、乱戦のど真ん中でも生き残れる。PvPで最も人気のあるクラスのひとつなので、同職対決は覚悟しておこう。</p>
+  <p>優先順位：<strong>CC対策</strong> → <strong>張り付き</strong> → 相手の防御スキルが切れたら<strong>バースト</strong>。</p>
+  <p class="note">グローバル版のPvPメタはまだ存在しない。このモードは韓国・台湾のPvPビルドとグローバル版クライアントのスキルデータを組み合わせたものなので、出発点として扱ってほしい。</p>
+{% endcall %}
+
+{% call section('global', 'グローバル版シーズン1：変更点', 'pve pvp') %}
+  <p>グローバル版サーバーは<strong>2026年10月5日</strong>にオープンする(ファウンダー先行アクセスは9月30日から)。韓国・台湾サーバーとは別サーバーだ。グラディエーターにとっての影響は次のとおり。</p>
+  <div class="callout">
+    <ul>
+      <li><strong>スティグマスロットは4つ</strong>(6つではない)。シーズン1だけの予定。</li>
+      <li><strong>スティグマの上限はLv20</strong>。Lv25の段階はグローバル版クライアントに存在しない。</li>
+      <li>シーズン1には<strong>英雄装備がない</strong>ため、パッシブに回せる追加オプションが少ない。</li>
+      <li><strong>ディーヴァニオンのボーナスが台湾より弱い</strong>。戦闘が長引くので、攻撃し続けられる時間がより重要になる。</li>
+      <li><strong>パーティーが大きい</strong>：5人の遠征と10人の聖域があり、天族と魔族が一緒にマッチングできる。パーティーバフの価値が上がる。</li>
+      <li data-only="pvp"><strong>PvP：</strong>全員が同じ限られた装備から始まり、メタもまだ固まっていない。</li>
+    </ul>
+  </div>
+  <p class="note">アクティブスキルとパッシブは、グローバル版と韓国・台湾版のデータで同一。スティグマのLv25段階がなくなるだけだ。</p>
+{% endcall %}
+
+{% call section('skills', 'スキル', 'pve') %}
+  <p>高く上げる必要があるのは3つだけ：<strong>打ち下ろし → 切断の猛打 → 破滅の猛打</strong>。スキルはスキルポイントで<strong>10</strong>、ディーヴァニオンで<strong>14</strong>、指輪2つ(各+1)で<strong>16</strong>、アルカナで<strong>20</strong>まで上がる。特化はスキルLv8、12、16で解放される。</p>
+  <ul class="skill-grid">
+    {% call skill('overhead-slam', 'must', '16 → 20', [2, 4]) %}最大のダメージ源。激怒爆発と突撃姿勢があれば実質いつでも使える。Lv20で開く3つ目のスロットは確定クリティカルに。{% endcall %}
+    {% call skill('rending-blow', 'must', '16 → 20', [3, 4]) %}2番目のダメージ源で、MP回復の要。Lv20で移動可能スキルの特化を足す。{% endcall %}
+    {% call skill('ruinous-blow', 'must', '16', [2, 3]) %}戦闘準備(PvEダメージ+20%、20秒)を付与する大技。GrobsはLv8でスキル クリティカルの代わりにスキル速度+20%を選んでいる。{% endcall %}
+    {% call skill('leaping-slam', 'opt', '12', [0, 2]) %}メインの接近スキル。3秒間の戦闘準備を破滅の猛打の前に入れると、効果時間を延ばせる。{% endcall %}
+    {% call skill('rush-strike', 'opt', '12', [1, 0]) %}回避から接近につなげる。突撃姿勢で再使用時間が減っていくので、再使用時間−10秒より行動力回復のほうが得。{% endcall %}
+    {% call skill('mocking-blade', 'opt', '12', [0, 1]) %}緊急回復ボタン：ボスからはHPを15%吸収できる。{% endcall %}
+    {% call skill('ankle-slice', 'opt', '12', [2, 3]) %}予備の接近スキル。足首撃破の連続スキルはローテーションが遅くなるので取らない。{% endcall %}
+    {% call skill('crushing-wave', 'skip', '12', [0, 3]) %}ボスには遅すぎる。雑魚相手の範囲攻撃と自己回復用。{% endcall %}
+    {% call skill('defiance', 'opt', '余裕があれば16', [4]) %}CC解除。レイドではあると便利だが、優先度は低い。{% endcall %}
+    {% call skill('sword-aura-rampage', 'opt', '余裕があれば16', [2, 4]) %}グロッキー状態の対象にしか当たらないが、Lv16では的中するたびに<em>すべての</em>再使用時間が1秒減る(スティグマも含む)。グロッキー中に連打すれば強いが、それ以外で使うとダメージロスになる(Grobs)。優先度は低い。{% endcall %}
+    {% call skill('keen-strike', 'opt', '12', [0, 3]) %}通常攻撃：MP回復+20%と、的中ごとに破滅の猛打の再使用時間−1秒。MPが足りない初日は、aLuckyROもSenも12まで上げている。打ち下ろしと切断の猛打が16になったら押しっぱなしをやめる(Grobs、レベリングを参照)。{% endcall %}
+    {% call skill('aerial-snare', 'opt', 'ボス · 12', [2, 3]) %}転倒した対象にしか当たらないが、ボスは例外。aLuckyROは行動不可免疫の対象(つまり全ボス)へのダメージ+100%と強制落下の連続スキルのために12まで上げ、悪夢ダンジョンで使っている。GrobsとArtharsは入れていない。入れるならメインラインではなく専用のキーに置こう。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('skills-pvp', 'スキル', 'pvp') %}
+  <div class="callout accent">
+    <h3>重要なメカニクスはひとつ：転倒</h3>
+    <p>{{ s('overhead-slam') }}と{{ s('aerial-snare') }}は<strong>転倒</strong>状態の対象にしか当たらない(ボスは例外なので、PvEでは気にする必要がない)。バーストはすべて転倒から始まる：蹂躙の剣(確定)、回避後の突進一撃、足首斬り。例外は{{ s('rage-burst') }}で、対象に対して10秒間、打ち下ろしを活性化する。</p>
+  </div>
+  <ul class="skill-grid">
+    {% call skill('overhead-slam', 'must', '16 → 20', [2, 4]) %}転倒した対象へのお仕置き。韓国のPvPガイドはLv20の確定クリティカルを必須としている。これはLv20で開く3つ目のスロットに入る。{% endcall %}
+    {% call skill('mocking-blade', 'must', '16', [3, 4]) %}3秒の確定転倒で、メインの開幕スキル。Lv16では転倒時間の延長と、ガードと回避の無視を取る。2回追加攻撃はLv20の3つ目のスロットまで待つ。{% endcall %}
+    {% call skill('defiance', 'must', '16', [3, 4]) %}気絶、転倒、空中束縛、掴み、氷結、恐怖を解除する。必須。Lv16では強靭さ+2秒とダメージ耐性を取る。HP20%回復はLv20の3つ目のスロット。{% endcall %}
+    {% call skill('aerial-snare', 'must', '16', [3, 4]) %}転倒した対象を打ち上げる追撃。PvEでは役に立たないが、ここでは主力。Lv16では強制落下の連続スキルと再使用時間半減を取る。空中束縛確率はLv20の3つ目のスロット。{% endcall %}
+    {% call skill('rush-strike', 'opt', '12–16', [1, 3]) %}回避 → 転倒確率つきの突進。Lv16では射程の特化を転倒確率+25%に替えてもよい。{% endcall %}
+    {% call skill('rending-blow', 'opt', '16', [2, 4]) %}PvPでもつなぎの攻撃とMP回復の要。{% endcall %}
+    {% call skill('ruinous-blow', 'opt', '12–16', [1, 4]) %}3つ目の接近スキル。ガード・回避無視はテンプラー相手に強い。ただしこの特化はLv16が必要なので、Lv12では射程と追加ダメージを取る。{% endcall %}
+    {% call skill('crushing-wave', 'opt', '16', [3, 4]) %}引き寄せでヒーラーや後衛の魔法職を前に引きずり出す。{% endcall %}
+    {% call skill('ankle-slice', 'opt', '12', [2, 0]) %}転倒のチャンスを作るもうひとつの手段。{% endcall %}
+    {% call skill('leaping-slam', 'opt', '12', [1, 3]) %}20mの跳躍。敵の集団に着地しても生き残れる。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('passives', 'パッシブ', 'pve') %}
+  <p>パッシブのポイントは潤沢で、たいていのパッシブは何も考えなくても最大になる。注意すべき罠がひとつと、後回しでいいものがひとつ。</p>
+  <div class="callout">
+    <ul>
+      <li>{{ s('protection-armor') }}：ガード時にごくわずか回復するだけ。これが付いた装備やカードはオプションを付け直そう。</li>
+      <li>{{ s('destructive-impulse') }}：グロッキー状態の対象にだけ追加ダメージ。罠ではない。aLuckyROとSenはグロッキー中のために上げていて、{{ s('sword-aura-rampage') }}と効果が重なる。主要パッシブの後に取る。</li>
+    </ul>
+  </div>
+  <p>{{ s('blood-absorption') }}は投資不要。攻撃が的中するたびに50%の確率で回復し、HPが50%まで減ると大きく即時回復する。グラディエーターがヒーラーなしでもやっていけるのはこのおかげだ。</p>
+{% endcall %}
+
+{% call section('passives-pvp', 'パッシブ', 'pvp') %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>パッシブ</th><th>PvPでの価値</th></tr></thead>
+    <tbody>
+      <tr><td>{{ s('attack-preparation') }}</td><td>PvPでも最優先：PvPダメージ増幅、防御力、命中。</td></tr>
+      <tr><td>{{ s('survival-willpower') }}</td><td>状態異常抵抗に加え、CCを受けている間はダメージ耐性も上がる。PvEでは無駄だが、ここでは優秀。</td></tr>
+      <tr><td>{{ s('survival-stance') }}</td><td>HPとPvPダメージ耐性。</td></tr>
+      <tr><td>{{ s('impact-hit') }}</td><td>衝撃系的中が上がり、転倒が入りやすくなる。</td></tr>
+      <tr><td>{{ s('destructive-impulse') }}</td><td>転倒した対象への追加ダメージ。PvEの罠がここでは役に立つ。</td></tr>
+    </tbody>
+  </table></div>
+{% endcall %}
+
+{% call section('gear', '装備と魂刻印', 'pve') %}
+  <p>英雄装備がないため、追加オプションの大半は攻撃速度、移動速度、Might、Precisionで埋まり、パッシブに回せるのは1〜2枠だけ。優先順位：</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>パッシブ</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>{{ s('attack-preparation') }}</td><td>PvEダメージ増幅、防御力、命中が無条件で上がる。</td></tr>
+      <tr><td>2</td><td>{{ s('experienced-counterstrike') }}</td><td>前方ダメージが常に上がり、ガードするたびに自分<em>とパーティー</em>に20秒間のPvEダメージ増幅がつく。テンプラーの激昂とは重複しないが、テンプラーのいないパーティーならその穴を埋められる。</td></tr>
+      <tr><td>3</td><td>{{ s('murderous-burst') }} / {{ s('impact-hit') }}</td><td>5回の的中ごとに範囲バースト+クリティカル ダメージ / 衝撃系的中と強打の上昇。</td></tr>
+    </tbody>
+  </table></div>
+  <p>武器ダメージと前方・後方ダメージの増幅が最も強いタイプで、グラディエーターは常に正面から戦う。シーズン1では魔石の厳選にこだわらないこと。台湾サーバーでは付け直し1回に約200〜300kかかる。</p>
+{% endcall %}
+
+{% call section('gear-pvp', '装備とアルカナ', 'pvp') %}
+  <p>シーズン1は装備が限られるので、まだPvP専用セットは作らない。PvE装備のまま、パッシブ、スティグマ、ディーヴァニオンを切り替える。</p>
+  <div class="callout"><ul>
+    <li><strong>命中</strong>：プレイヤーはボスよりはるかに頻繁にガードや回避をする。</li>
+    <li><strong>クリティカルと戦闘速度</strong>：突撃姿勢の再使用時間減少はクリティカルで発動する。</li>
+    <li><strong>PvPダメージ増幅 / 耐性</strong>：選べるスロットではPvE版より優先する。</li>
+    <li><strong>アルカナ：</strong>まず打ち下ろしを20に、次に蹂躙の剣、衝撃解除、空中結縛を16に。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('arcana', 'アルカナ', 'pve') %}
+  <p>カードをLv5まで上げると、そのカードに付きうるスキルのどれかひとつに平均で約<strong>+2</strong>がつく。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>カード</th><th>狙うスキル</th></tr></thead>
+    <tbody>
+      <tr><td>{{ it('{i:parchment_vigor}') }}</td><td>{{ s('overhead-slam') }}と{{ s('ruinous-blow') }}。6つの候補のうち意味があるのはこの2つだけ。</td></tr>
+      <tr><td>{{ it('{i:compass_vigor}') }}</td><td>{{ s('rending-blow') }}のみ。命中が付くFreedom版を使おう。ボスの正面で武器ガードされた分はそのままダメージロスになる。</td></tr>
+      <tr><td>{{ it('{i:chalice_vigor}') }}</td><td>どのスキルでも付く。製作なら2つを選べる。まだ20に届いていないスキルを補う。</td></tr>
+    </tbody>
+  </table></div>
+  <p>運が平均的なら、打ち下ろしは14 + 2(指輪)+ 2 + 2 = <strong>20</strong>。もうひとつだけ20にできるなら、破滅の猛打より切断の猛打を選ぶ。</p>
+  <div class="callout">
+    <h3>セットとパッシブカード</h3>
+    <p><strong>太初の活力</strong>の4セット(上の活力カードすべて。カードにカーソルを合わせるとセット効果が見られる)を目指す。グラディエーターに再使用時間減少(Illusion)は不要。シーズン1の攻撃速度でMPが枯れるなら、<strong>魔力鎧</strong>の2セット({{ it('{i:mirror_magic_gold}') }}とほかの魔力カード)に切り替える。パッシブカードはまず{{ s('attack-preparation') }}、あとは巧みな反撃 &gt; 殺気破裂 &gt; 衝撃的中 &gt; 弱点把握の順で好きに組み合わせる。</p>
+  </div>
+{% endcall %}
+
+{% call section('daevanion', 'ディーヴァニオン ボード', 'pve pvp') %}
+  <p>ディーヴァニオンでスキルが10から14まで上がり、ステータスも大量につく。青いノードはそれぞれ対応するスキルを<strong>+1レベル</strong>上げる。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ボード</th><th>解放</th><th>主な内容</th></tr></thead>
+    <tbody>
+      <tr><td>ネザカン</td><td>Lv12</td><td>戦闘速度、再使用時間減少</td></tr>
+      <tr><td>ジケル</td><td>Lv20</td><td>ダメージ増幅、ダメージ耐性</td></tr>
+      <tr><td>バイゼル</td><td>Lv30</td><td>クリティカル ダメージ増幅と耐性</td></tr>
+      <tr><td>トリニエル</td><td>Lv40</td><td>多段ヒット的中と抵抗</td></tr>
+      <tr><td>アスフェル</td><td>Lv45</td><td>PvPダメージ増幅と耐性。スキルノードはない</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout">
+    <ul>
+      <li>ノードのコスト：灰色のステータス1、緑のパッシブ2、青のスキル3、オレンジの特殊4。</li>
+      <li data-only="pve"><strong>優先順位：</strong>{{ s('overhead-slam') }}、{{ s('rending-blow') }}、{{ s('ruinous-blow') }}の青ノード、次にオレンジのノード、最後にステータス。</li>
+      <li data-only="pvp"><strong>優先順位：</strong>{{ s('overhead-slam') }}、{{ s('mocking-blade') }}、{{ s('defiance') }}、{{ s('aerial-snare') }}の青ノード、次にオレンジのノード。</li>
+      <li data-only="pve"><strong>グローバル版にアリエルはない：</strong>グローバル版クライアントのボードは5つで、韓国・台湾版にあるPvE用ボードのアリエルは存在しない。アスフェルはPvP専用なので、PvEでは最初の4つのボードを先に仕上げる。</li>
+      <li data-only="pvp"><strong>アスフェル</strong>(Lv45)はすべてPvPダメージ増幅 / 耐性。これを取り、トリニエルも早めに取る。多段ヒットはPvP向けのステータスだ。</li>
+    </ul>
+  </div>
+  <h3>ボード上のルート</h3>
+  <p>ゲームデータから取った実際のグローバル版ボード。金色は開始地点からこのガイドで取るノードまでの最安ルート。ノードにカーソルを合わせると効果が見られる。</p>
+  <div data-only="pve">{{ dv_board('pve') }}</div>
+  <div data-only="pvp">{{ dv_board('pvp') }}</div>
+  <p class="note">ボードとコストはグローバル版クライアントのデータ(questlog.gg)による。ステータスの数値はリリース時に変わる可能性があるので、ルートをすべて決める前にゲーム内のボードを確認しよう。</p>
+{% endcall %}
+
+{% call section('stigmas', 'スティグマ', 'pve') %}
+  <p>3つは固定で、4つ目はパーティー次第。PvEでは怒りの波動、均衡の鎧、強制結縛、強襲一撃、粉砕突進は不要。刃飛ばしはパーティーのときだけ(後述)。</p>
+  <ul class="skill-grid">
+    {% call skill('lunge-stance', 'must', 'Lv20', upto=20) %}Lv20の効果で、クリティカル時にすべての再使用時間が減る。打ち下ろし、激怒爆発、ガード、接近スキルが常に回るようになる。最初に最大まで上げるスティグマ。{% endcall %}
+    {% call skill('focused-block', 'must', 'Lv5', upto=5) %}確定武器ガード。ガードするたびに巧みな反撃のパーティーバフが発動する。つまりガードがそのままバフになる。Lv5で2回連続で使えるようになる。レベリング中はこれを最初に取る。{% endcall %}
+    {% call skill('rage-burst', 'must', 'Lv5', upto=5) %}対象に10秒間打ち下ろしを活性化し、PvEダメージ増幅+10%、ボスの攻撃力−10%。{% endcall %}
+    {% call skill('zikels-blessing', 'opt', 'Lv10', upto=10) %}4つ目のスロットの基本：攻撃力+20%で、パーティーの腕前に左右されない。{% endcall %}
+    {% call skill('lifestealing-blade', 'opt', 'Lv20', upto=20) %}連携の取れたパーティー向けの4つ目：搾取効果で全員の攻撃が強化される。Lv20でなければ価値はない。{% endcall %}
+    {% call skill('blade-toss', 'opt', 'パーティー', upto=5) %}aLuckyROのパーティー用の選択：ボスの防御力を10秒間−30%し、パーティー全体の討伐が早くなる。連携の取れたパーティーで準タンクを務めるなら、ジケルの祝福の代わりに入れる。{% endcall %}
+    {% call skill('wave-armor', 'skip', 'Lv15', upto=15) %}テンプラーがいないときだけ。強力なLv25段階はグローバル版に存在しない。{% endcall %}
+  </ul>
+  <p>スティグマの入手先：悪夢ショップ、シューゴ フェスタショップ、段階制のアビスショップ。グラディエーターは必要な数が少ないので、最初の数日でそろう。</p>
+{% endcall %}
+
+{% call section('stigmas-pvp', 'スティグマ', 'pvp') %}
+  <p>韓国のPvPビルドはちょうど4つのスティグマで組まれているので、グローバル版のスロットにそのまま収まる。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>モード</th><th>スティグマ</th></tr></thead>
+    <tbody>
+      <tr><td>アビス</td><td>突撃姿勢、均衡の鎧、刃飛ばし、根性</td></tr>
+      <tr><td>アリーナ</td><td>突撃姿勢、均衡の鎧、根性、集中ガード</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="skill-grid">
+    {% call skill('lunge-stance', 'must', 'Lv20', upto=20) %}クリティカルによる再使用時間減少で、根性と衝撃解除も早く戻ってくる。{% endcall %}
+    {% call skill('armor-of-balance', 'must', 'Lv5+', upto=5) %}10秒間、転倒しにくくなる。CCの多い集団に飛び込む<em>前</em>に使う。{% endcall %}
+    {% call skill('tenaciousness', 'must', 'Lv10+', upto=10) %}3秒間ダメージと状態異常を無効化し、その後回復する。Lv20では衝撃系CCを受けると自動で発動する。{% endcall %}
+    {% call skill('blade-toss', 'opt', 'アビス', upto=5) %}20mの投擲：10秒間、防御力−30%、受ける治癒量−50%。ヒーラーと逃げる相手への答え。{% endcall %}
+    {% call skill('focused-block', 'opt', 'アリーナ', upto=5) %}1対1で相手の大技をガードする。CCに使って無駄にしないこと。{% endcall %}
+    {% call skill('forced-restraint', 'opt', '代替', upto=5) %}封印(沈黙)で、打ち下ろしを叩き込む間に相手を封じる。{% endcall %}
+    {% call skill('rage-burst', 'opt', '代替', upto=5) %}転倒なしで10秒間、打ち下ろしを使えるようにする。{% endcall %}
+  </ul>
+{% endcall %}
+
+{% call section('macro', 'マクロとローテーション', 'pve') %}
+  <p>AION 2には別々のツールが2つあり、このビルドは両方を使う。</p>
+  <ul>
+    <li><strong>ホットバーライン</strong>：複数のスキルを<em>ひとつの</em>ホットバーボタンに重ねたもの。押すと使用可能なスキルのうち優先度が最も高いものが発動し、AION 2では<strong>一番下のスロットが最優先</strong>になる。下のカードは各ラインをゲームと同じく上から下へ並べ、各スキルに優先順位の番号を付けている。</li>
+    <li><strong>ゲーム内マクロ</strong>：キーを押している間、ホットバーラインを順番に押し、モーションの後隙をキャンセルしてくれる。再使用時間中のスキルは飛ばされる。通常攻撃(左クリック)はマクロに入れず、マクロキーと<em>同時に</em>押しっぱなしにする。そのほうがゲーム側がうまく挟み込んでキャンセルしてくれる。</li>
+  </ul>
+  <p>グラディエーターに必要なのは<strong>6スキルを3ボタン</strong>：攻撃スキル4つとバフ2つ。</p>
+
+  <h3>1. ホットバーライン</h3>
+  <div class="hotlines">
+    {% call hotline('右クリック', 'メインライン', ['rage-burst', 'overhead-slam', 'rending-blow']) %}激怒爆発は<strong>一番下</strong>のスロットに置く。理由は後述。{% endcall %}
+    {% call hotline('E', '破滅の猛打ライン', ['ruinous-blow'], ['lifestealing-blade']) %}戦闘準備を付与する。吸血の剣はスティグマに入れている場合だけ追加する。{% endcall %}
+    {% call hotline('R', 'バフライン', ['lunge-stance', 'zikels-blessing']) %}突撃姿勢の再使用時間減少のおかげで、どちらも切れずに回り続ける。{% endcall %}
+  </div>
+
+  <h3>2. ゲーム内マクロ</h3>
+  <p>スキルウィンドウ → <strong>Macro</strong>。3つのラインをこの順に入れ、<strong>Delayはすべて10ms</strong>にする(ボタン間の待ち時間で、Pingとは関係ない)。マクロのキーはSettings → Key Settings → General → Gameplay → <strong>Macro</strong>で割り当てる。押しっぱなしにするので、マウスのサイドボタンが理想的だ。</p>
+  {{ macroseq([('メインライン', '右クリック · 10ms'), ('破滅の猛打ライン', 'E · 10ms'), ('バフライン', 'R · 10ms')]) }}
+
+  <p class="note">シーズン1のコツ(Grobs)：リリース直後は再使用時間が長いので、バフはタイミングを合わせて使うほうが価値が高い。バフラインをマクロから外し、ボスや大きな群れの直前に手動で押してもよい。</p>
+
+  <h3>3. 実際に押すもの</h3>
+  <ul class="presslist">
+    <li><span class="press-how">長押し</span><span class="press-what"><span class="key">マクロキー</span>を戦闘中ずっと。</span></li>
+    <li><span class="press-how">連打</span><span class="press-what"><span class="key">右クリック</span>のメインラインと、その上から<span class="key">E</span>の破滅の猛打ライン。挟み込めるように、2つのラインは分けておく。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">{{ s('focused-block') }}(ガード = パーティーバフ)、{{ s('mocking-blade') }}(転倒+回復)、{{ s('leaping-slam') }}(接近)、群れには{{ s('crushing-wave') }}。</span></li>
+  </ul>
+
+  <div class="callout accent">
+    <h3>ボス戦の開幕</h3>
+    <div class="combo">{{ s('lunge-stance') }} + {{ s('zikels-blessing') }}<span class="arrow">→</span>{{ s('leaping-slam') }}で突入<span class="arrow">→</span>{{ s('ruinous-blow') }}<span class="arrow">→</span>マクロ長押し</div>
+    <p>ボスの<strong>最初の攻撃</strong>を{{ s('focused-block') }}でガードする。巧みな反撃ですぐにパーティー全体にバフがかかる。ボスごとに開幕の動きは違い、飛び込んでから先にガードし、バフはその後にしたほうがいい相手もいる。ボスを覚えて、ガードを組み込もう。</p>
+    <p class="note">便利な設定(Grobs)：Esc → Settings → Info Display → Combat → <strong>Display boss orientation indicator</strong>。ボスの正面がどちらかを表示してくれる。グラディエーターは常に正面から殴りたい。</p>
+  </div>
+  <div class="callout">
+    <h3>激怒爆発を一番下に置く理由</h3>
+    <p>激怒爆発は常に維持すべきバフなので、最優先の一番下のスロットに置き、再使用時間が明けるたびに発動させる。打ち下ろしより上に置くと一度も発動しない。突撃姿勢のおかげで打ち下ろしは常に使える状態にあり、下のスロットが必ず優先されるからだ。メインラインにスキルを詰め込みすぎないこと。マクロのタイミングはフレームレートに左右され、打ち下ろしが少しでも遅れると、追加したスキルで得る分より損のほうが大きい。</p>
+  </div>
+  <div class="callout">
+    <h3>ダメージの内訳</h3>
+    <p>木人で1分間計測した結果：打ち下ろし(叩き上げ込み)&gt; 切断の猛打 &gt; 破滅の猛打 &gt; 突撃姿勢 &gt; 殺気破裂 &gt; 激怒爆発。</p>
+  </div>
+  <p>マクロはテンポを保ってくれるだけで、代わりに戦ってはくれない。いつガードするか、いつ距離を詰めるか、いつ自己回復するかは自分で決める。シーズン1はステータスが弱く、ボス戦は数分かかるので、攻撃が止まる1秒1秒が響く。</p>
+  <p class="note">キー配置はArtharsのアクションモードのもの(右クリック / E)。タブターゲットなら連打しやすいキーを2つ使えばよい。マクロスロットの順番は、韓国のビルドと同じライン単位の組み方に従っている。</p>
+{% endcall %}
+
+{% call section('combos-pvp', 'コンボと立ち回り', 'pvp') %}
+  <div class="callout">
+    <h3>転倒へのお仕置き</h3>
+    <div class="combo">{{ s('mocking-blade') }}<span class="arrow">→</span>{{ s('overhead-slam') }} × N<span class="arrow">→</span>{{ s('aerial-snare') }}<span class="arrow">→</span>強制落下</div>
+  </div>
+  <div class="callout">
+    <h3>離れた位置からの仕掛け</h3>
+    <div class="combo">{{ s('blade-toss') }}<span class="arrow">→</span>回避 + {{ s('rush-strike') }} / {{ s('leaping-slam') }}<span class="arrow">→</span>転倒へのお仕置き</div>
+    <p>転倒が入らなかったら、{{ s('rage-burst') }}か{{ s('forced-restraint') }}でチャンスを作れる。</p>
+  </div>
+  <div class="callout">
+    <h3>生き残る</h3>
+    <ul>
+      <li>最初のハードCCは{{ s('defiance') }}で解除し、{{ s('tenaciousness') }}は続く連携のために取っておく。</li>
+      <li>{{ s('armor-of-balance') }}は飛び込む前に使う。倒されてからでは遅い。</li>
+      <li>ヒーラー相手には、まず刃飛ばし、次に粉砕波動で引き寄せる。</li>
+    </ul>
+  </div>
+{% endcall %}
+
+{% call section('recap', 'まとめ', 'pve') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>打ち下ろし20、切断の猛打16→20、破滅の猛打16。それ以外は12以下。</li>
+    <li><strong>レベルの上げ方：</strong>ディーヴァニオン(+4)→ 指輪(+2)→ アルカナ(+4)。</li>
+    <li><strong>スティグマ：</strong>突撃姿勢20、集中ガード5、激怒爆発5、ジケルの祝福10(または吸血の剣20)。</li>
+    <li><strong>パッシブ：</strong>攻撃準備 &gt; 巧みな反撃 &gt; 殺気破裂 / 衝撃的中。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('recap-pvp', 'まとめ', 'pvp') %}
+  <div class="callout accent"><ul>
+    <li><strong>スキル：</strong>打ち下ろし16→20、蹂躙の剣16、衝撃解除16、空中結縛16。</li>
+    <li><strong>スティグマ：</strong>突撃姿勢20 + 均衡の鎧 + 根性 + 刃飛ばし(アビス)または集中ガード(アリーナ)。</li>
+    <li><strong>ディーヴァニオン：</strong>アスフェル(PvPダメージ増幅と耐性)を取り、トリニエルも早めに。</li>
+    <li><strong>立ち回り：</strong>転倒 → 打ち下ろし。CCは衝撃解除で解除し、根性は温存。</li>
+  </ul></div>
+{% endcall %}
+
+{# ============================ Leveling ============================ #}
+{% call section('fight-lvl', t.lvl_combat, 'lvl') %}
+  <div class="callout"><ul>
+    <li><strong>群れ：</strong>{{ s('leaping-slam') }}で突入 → {{ s('crushing-wave') }} → {{ s('rending-blow') }}。敵を倒すと跳躍突き落としがリセットされるので、そのまま次の群れへ。</li>
+    <li><strong>エリート：</strong>{{ s('mocking-blade') }}(転倒)→ {{ s('overhead-slam') }}を連打 → {{ s('ruinous-blow') }}は再使用時間が明けるたびに。回避 → {{ s('rush-strike') }}でもNPCを転倒させられる。</li>
+    <li><strong>HPが減ったら：</strong>蹂躙の剣と粉砕波動でHPを吸収でき、血の吸収はHP50%で回復する。雑魚相手ならポーションは不要。</li>
+  </ul></div>
+{% endcall %}
+
+{% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
+  <p>レベリング中とレベル上限に達した最初の数日向けの、もっと簡単な構成。Grobsの序盤用マクロがもと。入れるのは連打するスキルだけで、バフ、スティグマのバースト、接近スキルは個別のキーに置いておく。</p>
+  <div class="hotlines">
+    {{ hotline('1', 'ライン1', ['rage-burst', 'overhead-slam', 'rending-blow'], []) }}
+  </div>
+  <p>ゲーム内マクロ：ライン1を、それぞれDelay 10msで入れる。通常攻撃の{{ s('keen-strike') }}(左クリック)<strong>と</strong>マクロキーを同時に押しっぱなしにする。</p>
+  <div class="callout">
+    <h3>レベリング中の優先順位(Grobs)</h3>
+    <ul>
+      <li><strong>パッシブ：</strong>まず{{ s('experienced-counterstrike') }}、次に{{ s('attack-preparation') }}。この時点で意味があるのはこの2つだけ。</li>
+      <li><strong>ディーヴァニオン：</strong>スキルポイントでスキルは10まで上がり、そこから先はボードで上げる。65ポイントのルートで主力の攻撃スキル4つに+2がつくので、早いうちに12に届いて2つ目の特化が開く。下のボードを参照。</li>
+      <li><strong>16になったら：</strong>打ち下ろしと切断の猛打が16になったら左クリックの押しっぱなしをやめる。{{ s('keen-strike') }}がダメージロスになるからだ。マクロだけを押し、MP用に切断の猛打の「クリティカル的中時にMP50回復」を取る。</li>
+    </ul>
+  </div>
+  <p class="note">スキルが12〜16になり、特化で再使用時間が変わってきたら、PvEタブの完全版の構成に切り替えよう。</p>
+  <h3>ディーヴァニオン ボードのレベリングルート(Grobs、65ポイント)</h3>
+  <p>打ち下ろし、切断の猛打、破滅の猛打、鋭利な一撃を+2。Lv12でネザカン、続いてLv20でジケル。</p>
+  {{ dv_board('lvl') }}
+{% endcall %}
+
+{# ============================ Sources ============================ #}
+<section class="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources">{{ t.sources }}</h2>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=xRPr30JetyY" target="_blank" rel="noopener">Grobs「The Only Gladiator PVE Guide You Need」</a>：このガイドのビルド、スティグマ、マクロを裏付ける動画</li>
+    <li><a href="https://www.youtube.com/watch?v=tYTZ8VucMXw" target="_blank" rel="noopener">Arthars Gaming「The ULTIMATE AION 2 Gladiator Starter Guide」</a>(PvE、台湾サーバー)</li>
+    <li><a href="https://questlog.gg/aion-2/en/db/skills/gladiator" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルとスティグマのデータ</li>
+    <li><a href="https://vortexgaming.io/en/postdetail/611533" target="_blank" rel="noopener">Vortex Gaming</a>：韓国のPvPビルド(アビス / アリーナ)</li>
+    <li><a href="https://www.iggm.com/news/aion-2-global-servers-dungeon-gameplay-changes-expeditions-gear-progression-stigma-slots" target="_blank" rel="noopener">IGGM</a>：グローバル版シーズン1の変更点</li>
+    <li><a href="https://nemobek.github.io/aion2-guide/" target="_blank" rel="noopener">nemobek.github.io/aion2-guide</a>(TitanTheFの表)：レベリングルート</li>
+    <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs「AION 2 Macro Guide」</a>：ホットバーラインとゲーム内マクロの仕組み</li>
+    <li><a href="https://www.youtube.com/watch?v=WlxLOTs62dM" target="_blank" rel="noopener">aLuckyRO「AION 2 Latest Gladiator PVE Build for Global」</a>：序盤の特化(鋭利な一撃、ボスへの空中結縛)、スティグマ、ディーヴァニオンの優先順位、正面からのボスローテーション</li>
+    <li><a href="https://www.youtube.com/watch?v=t-B-5lR_GIs" target="_blank" rel="noopener">Sen「AION 2 Progression Guide (+ Gladiator guide)」</a>：このガイドのスキル、スティグマ、パッシブがグローバル版サーバーでも通用することを確認</li>
+  </ul>
+  <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
+</section>
