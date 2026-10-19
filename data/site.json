@@ -12,7 +12,7 @@
   "_src": "classes[].src: per guide mode, [who the info comes from, date it was checked]; shown in the class hero.",
   "repo": "https://github.com/Couga54/aion2-guides",
   "_feedback": "Report form: the page POSTs to this Cloudflare Worker (tools/feedback-worker/worker.js), which sends the text to the owner in Telegram. Empty string = the report buttons open a GitHub issue instead.",
-  "feedback_url": "https://aion2-feedback.couga-ua.workers.dev/",
+  "feedback_url": "",
   "_ga": "Google Analytics 4 measurement ID; the tag is added to every page by base.html (not loaded on localhost). Empty string = analytics off.",
   "ga": "",
   "_noindex": "true = every page asks search engines not to index it (robots meta tag) and robots.txt disallows crawling. This fork is a personal copy of Couga54/aion2-guides with a Japanese version; the original site is the one that should be found.",
