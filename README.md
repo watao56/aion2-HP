@@ -1,123 +1,146 @@
-# AION 2 Guides
+# AION 2 Guides(日本語版フォーク)
 
-Class guides and trackers for **AION 2 global Season 1** in English, Russian and Ukrainian. Skill, item and Daevanion board data come from the global client (via questlog.gg); the builds come from creators' guides, which every page lists as its sources.
+**AION 2 グローバル版シーズン1** のクラスガイドとトラッカー。英語・ロシア語・ウクライナ語・トルコ語・日本語で読める。スキル、アイテム、ディーヴァニオン ボードのデータはグローバル版クライアントのもの(questlog.gg 経由)、ビルドは配信者・クリエイターのガイドが元で、各ページに出典を明記している。
 
-**Live site:** https://couga54.github.io/aion2-guides/
+このリポジトリは [Couga54/aion2-guides](https://github.com/Couga54/aion2-guides) を個人用に改良したフォークで、日本語版を追加している。日本語のゲーム内名称は日本語クライアントの表記(questlog.gg の `ja` データ)を使う。
 
-## What's on the site
+**公開サイト:** https://watao56.github.io/aion2-HP/
 
-| Class | PvE | PvP | Leveling | Daevanion boards |
+## サイトの内容
+
+| クラス | PvE | PvP | レベリング | ディーヴァニオン ボード |
 |---|---|---|---|---|
-| Gladiator | ✅ | ✅ | ✅ | PvE, PvP, leveling |
-| Templar | ✅ | ✅ | ✅ | PvE, PvP |
-| Ranger | ✅ | — | ✅ | PvE |
-| Assassin | ✅ | — | ✅ | PvE |
-| Chanter | ✅ | — | ✅ | PvE |
-| Cleric | ✅ | — | ✅ | PvE |
-| Sorcerer | ✅ | — | ✅ | PvE |
-| Elementalist | — | — | ✅ | — |
+| グラディエーター | ✅ | ✅ | ✅ | PvE、PvP、レベリング |
+| テンプラー | ✅ | ✅ | ✅ | PvE、PvP |
+| レンジャー | ✅ | — | ✅ | PvE |
+| アサシン | ✅ | — | ✅ | PvE |
+| チャンター | ✅ | — | ✅ | PvE |
+| クレリック | ✅ | ✅ | ✅ | PvE、PvP |
+| ソーサラー | ✅ | — | ✅ | PvE |
+| スピリットマスター | ✅ | ✅ | ✅ | PvE、PvP |
 
-A PvP mode is switched on only when there is a real source for it.
+PvP モードは、ちゃんとした出典があるクラスだけ有効にしている。
 
-Besides the class guides:
+クラスガイド以外のページ:
 
-- **After 45** (progression) and **Gathering and crafting** — what to do at the level cap, gear upgrade basics, professions.
-- **Game settings** — controls, targeting, keys, on-screen info, FPS and mass PvP options worth changing on day one.
-- **First week** — a day-by-day plan for the launch week.
-- **Weekly tracker** and **Bosses** — checklists and respawn timers kept in the browser, with optional notifications.
-- **Sources** — every creator and site the guides are built on, and who to watch for each class.
-- **What's new** — a changelog, also shown once as a popup after each update.
+- **Lv45 以降**(進行)と **採集と製作**: レベル上限後にやること、装備強化の基本、生産。
+- **ダンジョン**: ローンチ時ダンジョンのボスギミックをアリーナ図付きで。
+- **ティアリスト**: 複数のクリエイターの評価をコンテンツ別に並べ、その平均も載せる。
+- **ゲーム設定**: 操作、ターゲット、キー、画面表示、FPS、大規模 PvP で初日に変えておく設定。
+- **最初の 1 週間**: ローンチ週の日ごとのプラン。
+- **週間トラッカー** と **ワールドボス**: ブラウザに保存されるチェックリストとリポップタイマー(通知はオプション)。
+- **出典**: ガイドの元になったクリエイターとサイト、クラスごとの「おすすめ配信者」。
+- **更新履歴**: 変更履歴。更新のたびにポップアップでも一度表示される。
 
-On every class page: a "build at a glance" panel, skill cards with specializations, hover tooltips for skills and items, hotbar lines and the in-game macro, a leveling checklist, and the Daevanion boards with the route the guide takes. Search is on `Ctrl+K`.
+各クラスページには、ビルド概要パネル、特化付きのスキルカード、スキルとアイテムのホバーツールチップ、ホットバーのラインとゲーム内マクロ、ホットバー配置の例、レベリングのチェックリスト、ガイドのルートを示すディーヴァニオン ボード(レベリング順のスライダー付き)がある。検索は `Ctrl+K`。
 
-## How it's built
+## 仕組み
 
-A small Python static-site generator (Jinja2) renders everything into `docs/`, which GitHub Pages serves. No framework and no build step for CSS or JS.
+小さな Python 製の静的サイトジェネレーター(Jinja2)がすべてを `docs/` に書き出し、それを GitHub Pages が配信する。フレームワークはなく、CSS や JS のビルド工程もない。
 
 ```
 data/
-  site.json               classes (modes, sources and dates, status), languages, launch events
-  i18n.json               UI strings (EN / RU / UK)
-  skills/<class>.json     skill names, descriptions, specializations (generated)
-  boards/<class>.json     Daevanion boards: nodes, costs, effects (generated)
-  boards/presets.json     which nodes each guide mode takes; the route is calculated at build time
-  items.json              item names, icons, tooltips (generated)
-  class_items.json        item keys used inside class guides
-  leveling/*.json         leveling checklist: shared route + per-class steps
-  progression.json, crafting.json, settings.json, week1.json, weekly.json, bosses.json   the other pages
-  sources.json            creators and sites, "who to watch"
-  changelog.json          What's new
+  site.json               クラス(モード、出典と日付、状態)、言語、イベント、公開設定
+  i18n.json               UI 文字列(EN / RU / UK / TR / JA)
+  skills/<class>.json     スキル名、説明、特化(自動生成)
+  boards/<class>.json     ディーヴァニオン ボード: ノード、コスト、効果(自動生成)
+  boards/presets.json     各ガイドモードが取るノード。ルートはビルド時に計算する
+  items.json              アイテム名、アイコン、ツールチップ(自動生成)
+  class_items.json        クラスガイド内で使うアイテムキー
+  leveling/*.json         レベリングのチェックリスト: 共通ルート + クラス別の手順
+  dungeons.json           ダンジョンページの本文(ギミック)。dungeons_db.json はダンジョン名とボス名(自動生成)
+  tierlist.json           ティアリスト
+  progression.json, crafting.json, settings.json, week1.json, weekly.json, bosses.json   その他のページ
+  sources.json            クリエイターとサイト、「おすすめ配信者」
+  changelog.json          更新履歴
 src/
-  templates/              base, home, class page, guide pages, trackers, macros
-  content/<class>/        en.html, ru.html and uk.html — the guide text
-  assets/                 css, js, icons, class art, social preview images
+  templates/              ベース、ホーム、クラスページ、ガイドページ、トラッカー、マクロ、アリーナ図(diagrams/)
+  content/<class>/        en.html、ru.html、uk.html、tr.html、ja.html: ガイド本文
+  assets/                 css、js、アイコン、クラスアート、SNS プレビュー画像
 tools/
-  build.py                data + templates → docs/
-  fetch_skills.py         skills and icons from questlog.gg
-  fetch_boards.py         Daevanion boards from questlog.gg
-  fetch_items.py          items and icons from questlog.gg
-  fetch_art.py            class art
-  make_og.py              social preview images
-  video_guide.py          prepare a guide video for analysis: fetch_video.py + fetch_transcript.py + storyboard.py
-docs/                     build output (committed, published)
-frames/                   local working files per guide video (git-ignored, see below)
+  build.py                データ + テンプレート → docs/(ガイドの整合性チェック lint_guides.py も呼ぶ)
+  fetch_skills.py         questlog.gg からスキルとアイコン(en / ru / ja)
+  fetch_boards.py         questlog.gg からディーヴァニオン ボード
+  fetch_items.py          questlog.gg からアイテムとアイコン
+  fetch_dungeons.py       questlog.gg からダンジョン名、ボス名、ボスの肖像
+  fetch_art.py            クラスアート
+  make_og.py              SNS プレビュー画像
+  make_icons.py           ラスターのサイトアイコン(favicon)
+  lang_fill.py            手整形の JSON を崩さずに言語を追加する(extract / check / inject)
+  i18n_check.py           英語の変更に対して他言語が追従しているかの確認
+  jedit.py                data/*.json をパス指定で編集(再ダンプしない)
+  find_guides.py          YouTube の新しいガイド動画を探す
+  video_guide.py          ガイド動画の分析準備: fetch_video.py + fetch_transcript.py + storyboard.py
+docs/                     ビルド出力(コミットして公開する)
+frames/                   ガイド動画ごとのローカル作業ファイル(git 管理外、下記参照)
 ```
 
-## Setup
+## セットアップ
 
 ```bash
-python -m venv .venv
-.venv/Scripts/python -m pip install -r requirements.txt
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
 ```
 
-On macOS/Linux use `.venv/bin/python` instead of `.venv/Scripts/python`.
+Windows では `.venv/bin/python` を `.venv/Scripts/python` に読み替える。
 
-## Build and preview
+## ビルドとプレビュー
 
 ```bash
-.venv/Scripts/python tools/build.py
-python -m http.server 8000 --directory docs
+PYTHONHASHSEED=0 .venv/bin/python tools/build.py
+python3 -m http.server 8000 --directory docs
 ```
 
-Then open http://localhost:8000.
+http://localhost:8000 を開く。`PYTHONHASHSEED=0` を付けるのは、同コストのディーヴァニオン ボード経路の選択を毎回同じにして、触っていないクラスの `docs/` に差分が出ないようにするため。
 
-## Updating a guide from a video
+## 動画からガイドを更新する
 
 ```bash
-.venv/Scripts/python tools/video_guide.py <youtube url or id>
+.venv/bin/python tools/video_guide.py <youtube url or id>
 ```
 
-This downloads the video (Full HD, no sound), saves its transcript and cuts it into frames and contact sheets in `frames/<youtube id>/`. The rest of the workflow — reading the frames, comparing with the current guide, proposing changes, what to update afterwards — is described in `.claude/skills/guide-from-video/SKILL.md`.
+動画(Full HD、音声なし)をダウンロードし、字幕を保存し、フレームとコンタクトシートに切り出して `frames/<youtube id>/` に置く。その先の手順(フレームを読む、現在のガイドと比べる、変更を提案する、更新後にやること)は `.claude/skills/guide-from-video/SKILL.md` に書いてある。
 
-**Source material stays local.** Creators' videos, transcripts, frames and screenshots live only in `frames/`, which is git-ignored; they are never committed or published. The repository holds our own text, the game data and links to the sources.
+**素材はローカルにだけ置く。** クリエイターの動画、字幕、フレーム、スクリーンショットは git 管理外の `frames/` にのみ置き、コミットも公開もしない。リポジトリに入れるのは自分たちの文章、ゲームデータ、出典へのリンクだけ。
 
-## Editing a class guide
+## クラスガイドの編集
 
-- The text is in `src/content/<class>/en.html`, `ru.html` and `uk.html` — always change all three. Ukrainian pages show skill, item and other game names in English (there is no Ukrainian game data), so `uk.html` writes them in English too.
-- `{{ s('skill-slug') }}` renders a skill with its icon and name in the page language; `{{ it('{i:item_key}') }}` does the same for an item.
-- `{% call skill('slug', 'must', '16', [1, 3]) %}…{% endcall %}` is a skill card with the chosen specializations; `hotline(...)` and `macroseq(...)` draw hotbar lines and macro steps; `{{ dv_board('pve') }}` shows the Daevanion boards with that mode's route.
-- Sections are tagged with the modes they belong to (`'pve'`, `'pvp'`, `'pve pvp'`, `'lvl'`). Each PvP block sits right after its PvE counterpart, so both modes read in the same order.
-- After a change, set the class's `updated` date and the `src` date of every re-checked mode in `data/site.json`, update the creator in `data/sources.json`, and add an entry to `data/changelog.json`.
-- In leveling steps, `[[skill-slug]]` gives the skill name and `[[skill-slug#N]]` its N-th specialization.
+- 本文は `src/content/<class>/en.html`、`ru.html`、`uk.html`、`tr.html`、`ja.html`。必ず 5 つすべてを変更する。ウクライナ語とトルコ語のページはスキル名やアイテム名などゲーム内名称を英語で表示する(該当言語のゲームデータがない)ので、`uk.html` と `tr.html` でも英語で書く。日本語ページは日本語クライアントの表記を使う(文体と用語は `.claude/ja-style.md`)。
+- `{{ s('skill-slug') }}` はスキルをアイコンとページ言語の名前で表示する。`{{ it('{i:item_key}') }}` はアイテムで同じ。
+- `{% call skill('slug', 'must', '16', [1, 3]) %}…{% endcall %}` は特化を選んだスキルカード。レベル 20 の 3 つ目は `then=[i]`。`hotline(...)` と `macroseq(...)` はホットバーのラインとマクロの手順、`hotbar(...)` はホットバー配置の例、`{{ dv_board('pve') }}` はそのモードのルート付きディーヴァニオン ボード。
+- セクションには属するモードのタグを付ける(`'pve'`、`'pvp'`、`'pve pvp'`、`'lvl'`)。PvP ブロックは対応する PvE ブロックの直後に置き、両モードが同じ順で読めるようにする。
+- 変更後は `data/site.json` でそのクラスの `updated` と再確認したモードの `src` の日付を更新し、`data/sources.json` のクリエイターを更新し、`data/changelog.json` に項目を足す。
+- レベリングの手順では `[[skill-slug]]` がスキル名、`[[skill-slug#N]]` がその N 番目の特化になる。
+- 他言語との整合性は `.venv/bin/python tools/i18n_check.py --all` で確認する(テンプレートタグの並びが `en.html` と一致しているか、`ja` などの欠けた文字列がないか)。
 
-## Adding a class
+## クラスの追加
 
-1. Fetch its data: `tools/fetch_skills.py <class>` and `tools/fetch_boards.py <class>`.
-2. Write `src/content/<class>/en.html`, `ru.html` and `uk.html` (copy an existing class as a template).
-3. Add class steps to `data/leveling/<class>.json` and, for the boards, the class's presets to `data/boards/presets.json`.
-4. Set `"status": "ready"` (plus `accent`, `weapon`, `difficulty`, `pitch`, `src`) for the class in `data/site.json`.
-5. Run `tools/make_og.py`, then `tools/build.py`.
+1. データを取得する: `tools/fetch_skills.py <class>` と `tools/fetch_boards.py <class>`。
+2. `src/content/<class>/` に 5 言語の本文を書く(既存クラスをテンプレートにする)。
+3. `data/leveling/<class>.json` にクラスの手順を、ボード用に `data/boards/presets.json` にクラスのプリセットを足す。
+4. `data/site.json` でそのクラスを `"status": "ready"` にする(`accent`、`weapon`、`difficulty`、`pitch`、`src` も)。
+5. `tools/make_og.py` を実行し、`tools/build.py` を実行する。
 
-## Publishing
+## 公開
 
-Push to `main`; GitHub Pages serves the `docs/` folder (**Settings → Pages → Deploy from a branch**, branch `main`, folder `/docs`).
+`main` に push すると GitHub Pages が `docs/` を配信する(**Settings → Pages → Deploy from a branch**、ブランチ `main`、フォルダ `/docs`)。
 
-Report form: the "Report a mistake" buttons open a form that is sent to the owner's Telegram through a small Cloudflare Worker — its code is in `tools/feedback-worker/worker.js` (secrets `BOT_TOKEN` and `CHAT_ID` are set in the Worker, never in the repo), its address is `feedback_url` in `data/site.json` (empty string = the buttons open a GitHub issue instead).
+このフォークの公開設定(`data/site.json`):
 
-Google Analytics: the measurement ID is `ga` in `data/site.json` (empty string turns it off); the tag is not loaded on localhost.
+- `noindex: true`: 全ページに robots の noindex を付け、`robots.txt` でクロールを拒否する。元サイトの複製が検索に載らないようにするため。
+- `ga` と `feedback_url` は空。Google Analytics は読み込まず、「フィードバックを送る」ボタンは GitHub の issue を開く(元サイトは Cloudflare Worker 経由で作者の Telegram に送る。そのコードは `tools/feedback-worker/worker.js`)。
 
-`LAUNCH.md` lists every value that has to be re-checked against the live servers; `CONTEXT.md` holds the project requirements and verified game facts.
+`LAUNCH.md` は稼働中のサーバーで再確認すべき値の一覧、`CONTEXT.md` はプロジェクトの要件と確認済みのゲーム仕様。
 
-## Credits
+## 上流の取り込み
 
-Unofficial fan site, not affiliated with NCSOFT. AION 2, its art and its skill icons are © NCSOFT. Game data comes from [questlog.gg](https://questlog.gg/aion-2/). The builds are based on creators' guides — each guide page and the Sources page link to them.
+```bash
+git fetch upstream
+git merge upstream/main
+```
+
+衝突はほぼ「こちらが `"ja"` を足した行を上流も編集した」型。上流の文を採り、`"tr"` の直後に `"ja"` を戻す。このフォーク独自の設定(`base_url`、`langs`、`ga`、`noindex`、`feedback_url`)は戻さない。マージ後は必ず再ビルドし、新しく入った英語には `tools/lang_fill.py extract ja` と `tools/i18n_check.py` で日本語を足す。
+
+## クレジット
+
+NCSOFT とは無関係の非公式ファンサイト。AION 2、そのアート、スキルアイコンの著作権は NCSOFT に帰属する。ゲームデータは [questlog.gg](https://questlog.gg/aion-2/) のもの。ビルドはクリエイターのガイドに基づいており、各ガイドページと出典ページからリンクしている。元のサイトとリポジトリは [Couga54/aion2-guides](https://github.com/Couga54/aion2-guides)。
