@@ -1,4 +1,4 @@
-{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, hotbar, dv_board with context %}
 
 {# ===== PvE and PvP: each PvP block follows its PvE counterpart, so both modes read in the same order; shared sections are 'pve pvp' ===== #}
 {% call glance('pve') %}
@@ -51,8 +51,8 @@
 {% call section('skills', 'スキル', 'pve') %}
   <p>高く上げる必要があるのは3つだけ：<strong>打ち下ろし → 切断の猛打 → 破滅の猛打</strong>。スキルはスキルポイントで<strong>10</strong>、ディーヴァニオンで<strong>14</strong>、指輪2つ(各+1)で<strong>16</strong>、アルカナで<strong>20</strong>まで上がる。特化はスキルLv8、12、16で解放される。</p>
   <ul class="skill-grid">
-    {% call skill('overhead-slam', 'must', '16 → 20', [2, 4]) %}最大のダメージ源。激怒爆発と突撃姿勢があれば実質いつでも使える。Lv20で開く3つ目のスロットは確定クリティカルに。{% endcall %}
-    {% call skill('rending-blow', 'must', '16 → 20', [3, 4]) %}2番目のダメージ源で、MP回復の要。Lv20で移動可能スキルの特化を足す。{% endcall %}
+    {% call skill('overhead-slam', 'must', '16 → 20', [2, 4], then=[3]) %}最大のダメージ源。激怒爆発と突撃姿勢があれば実質いつでも使える。Lv20で開く3つ目のスロットは確定クリティカルに。{% endcall %}
+    {% call skill('rending-blow', 'must', '16 → 20', [3, 4], then=[2]) %}2番目のダメージ源で、MP回復の要。Lv20で移動可能スキルの特化を足す。{% endcall %}
     {% call skill('ruinous-blow', 'must', '16', [2, 3]) %}戦闘準備(PvEダメージ+20%、20秒)を付与する大技。GrobsはLv8でスキル クリティカルの代わりにスキル速度+20%を選んでいる。{% endcall %}
     {% call skill('leaping-slam', 'opt', '12', [0, 2]) %}メインの接近スキル。3秒間の戦闘準備を破滅の猛打の前に入れると、効果時間を延ばせる。{% endcall %}
     {% call skill('rush-strike', 'opt', '12', [1, 0]) %}回避から接近につなげる。突撃姿勢で再使用時間が減っていくので、再使用時間−10秒より行動力回復のほうが得。{% endcall %}
@@ -72,7 +72,7 @@
     <p>{{ s('overhead-slam') }}と{{ s('aerial-snare') }}は<strong>転倒</strong>状態の対象にしか当たらない(ボスは例外なので、PvEでは気にする必要がない)。バーストはすべて転倒から始まる：蹂躙の剣(確定)、回避後の突進一撃、足首斬り。例外は{{ s('rage-burst') }}で、対象に対して10秒間、打ち下ろしを活性化する。</p>
   </div>
   <ul class="skill-grid">
-    {% call skill('overhead-slam', 'must', '16 → 20', [2, 4]) %}転倒した対象へのお仕置き。韓国のPvPガイドはLv20の確定クリティカルを必須としている。これはLv20で開く3つ目のスロットに入る。{% endcall %}
+    {% call skill('overhead-slam', 'must', '16 → 20', [2, 4], then=[3]) %}転倒した対象へのお仕置き。韓国のPvPガイドはLv20の確定クリティカルを必須としている。これはLv20で開く3つ目のスロットに入る。{% endcall %}
     {% call skill('mocking-blade', 'must', '16', [3, 4]) %}3秒の確定転倒で、メインの開幕スキル。Lv16では転倒時間の延長と、ガードと回避の無視を取る。2回追加攻撃はLv20の3つ目のスロットまで待つ。{% endcall %}
     {% call skill('defiance', 'must', '16', [3, 4]) %}気絶、転倒、空中束縛、掴み、氷結、恐怖を解除する。必須。Lv16では強靭さ+2秒とダメージ耐性を取る。HP20%回復はLv20の3つ目のスロット。{% endcall %}
     {% call skill('aerial-snare', 'must', '16', [3, 4]) %}転倒した対象を打ち上げる追撃。PvEでは役に立たないが、ここでは主力。Lv16では強制落下の連続スキルと再使用時間半減を取る。空中束縛確率はLv20の3つ目のスロット。{% endcall %}
@@ -109,7 +109,7 @@
   </table></div>
 {% endcall %}
 
-{% call section('gear', '装備と魂刻印', 'pve') %}
+{% call section('gear', '装備とステータス', 'pve') %}
   <p>英雄装備がないため、追加オプションの大半は攻撃速度、移動速度、Might、Precisionで埋まり、パッシブに回せるのは1〜2枠だけ。優先順位：</p>
   <div class="table-wrap"><table>
     <thead><tr><th>#</th><th>パッシブ</th><th>理由</th></tr></thead>
@@ -120,9 +120,17 @@
     </tbody>
   </table></div>
   <p>武器ダメージと前方・後方ダメージの増幅が最も強いタイプで、グラディエーターは常に正面から戦う。シーズン1では魔石の厳選にこだわらないこと。台湾サーバーでは付け直し1回に約200〜300kかかる。</p>
+  <h3>ステータス(Ulfhednar、グローバル版)</h3>
+  <div class="callout"><ul>
+    <li><strong>装備のオプション：</strong>ダメージに関わるものなら何でも。クリティカル、ダメージ増幅。</li>
+    <li><strong>武器とガーダーの魂刻印：</strong>武器ダメージ増幅、戦闘速度、ダメージ増幅、Mightの順。</li>
+    <li><strong>ステータス：</strong>Wisdom(強打)、Time(戦闘速度)、Destruction(ダメージ)、それに命中を少し。命中が足りないグラディエーターの攻撃はボスに武器ガードされる。</li>
+    <li><strong>Genus Insight：</strong>攻撃系のオプションを付け直す。戦闘力が上がり、パーティーはダンジョンに誘う前にこの数字を見る。</li>
+    <li><strong>MP：</strong>MPが枯れるなら、最大MPとMP回復のオプション、ディーヴァニオン ボードの+50 MPノード、MPポーション(製作 → 錬金)で補う。</li>
+  </ul></div>
 {% endcall %}
 
-{% call section('gear-pvp', '装備とアルカナ', 'pvp') %}
+{% call section('gear-pvp', '装備とステータス', 'pvp') %}
   <p>シーズン1は装備が限られるので、まだPvP専用セットは作らない。PvE装備のまま、パッシブ、スティグマ、ディーヴァニオンを切り替える。</p>
   <div class="callout"><ul>
     <li><strong>命中</strong>：プレイヤーはボスよりはるかに頻繁にガードや回避をする。</li>
@@ -255,6 +263,21 @@
   </div>
   <p>マクロはテンポを保ってくれるだけで、代わりに戦ってはくれない。いつガードするか、いつ距離を詰めるか、いつ自己回復するかは自分で決める。シーズン1はステータスが弱く、ボス戦は数分かかるので、攻撃が止まる1秒1秒が響く。</p>
   <p class="note">キー配置はArtharsのアクションモードのもの(右クリック / E)。タブターゲットなら連打しやすいキーを2つ使えばよい。マクロスロットの順番は、韓国のビルドと同じライン単位の組み方に従っている。</p>
+
+  <h3>別の選択肢：Ulfhednarのマクロ(グローバル版)</h3>
+  <p>Ulfhednarのホットバー(10月6日の動画、3:04と3:12のフレーム)。激怒爆発と打ち下ろしが同じラインなのは上と同じだが、切断の猛打は{{ s('sword-aura-rampage') }}と同じラインに入る。剣気乱舞はその下に置かれ、ボスがグロッキーになるたびに先に発動する。破滅の猛打はバフラインの一番上に入る。集中ガードの代わりに{{ s('blade-toss') }}(敵の防御力−30%を10秒、パーティー全体のためのデバフ)を使っている。</p>
+  {{ hotbar([('1', ['leaping-slam']), ('2', ['mocking-blade']), ('3', ['rush-strike', 'aerial-snare']), ('4', ['ankle-slice']), None, ('Caps', []), ('—', ['crushing-wave']), ('F', []), ('9', []), None, ('Q', ['zikels-blessing', 'lunge-stance', 'blade-toss', 'ruinous-blow']), ('E', ['sword-aura-rampage', 'rending-blow']), ('左クリ', ['keen-strike']), ('右クリ', ['rage-burst', 'overhead-slam'])], macro=['Q', '右クリ', 'E'], own_keys=true) }}
+  <div class="hotlines">
+    {% call hotline('Q', 'バフライン', ['zikels-blessing', 'lunge-stance', 'blade-toss', 'ruinous-blow']) %}バフとデバフを再使用時間ごとに使い、それらがすべてかかっているときに破滅の猛打が発動する。{% endcall %}
+    {% call hotline('右クリック', 'メインライン', ['rage-burst', 'overhead-slam']) %}激怒爆発を一番下のスロットに、その上に打ち下ろし。{% endcall %}
+    {% call hotline('E', 'グロッキーライン', ['sword-aura-rampage', 'rending-blow']) %}剣気乱舞はグロッキー状態の対象にしか当たらないので、それ以外の時間はこのラインが切断の猛打を使う。{% endcall %}
+  </div>
+  {{ macroseq([('バフライン', 'Q · 10ms'), ('メインライン', '右クリック · 10ms'), ('グロッキーライン', 'E · 10ms')]) }}
+  <ul class="presslist">
+    <li><span class="press-how">長押し</span><span class="press-what"><span class="key">左クリック</span>の{{ s('keen-strike') }}とマクロキー。彼はゲーム内マクロを<span class="key">C</span>に割り当てている。鋭利な一撃はMPを保ち、的中するたびに破滅の猛打の再使用時間を減らす。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">1〜4の接近スキルと{{ s('mocking-blade') }}、群れには{{ s('crushing-wave') }}。</span></li>
+  </ul>
+  <p class="note">さらに彼は、同じキーを連打するマウスソフトのマクロ(各10ms、左クリックは15ms)を使い、その実行中にゲーム内マクロのキーを押して、攻撃をより多く挟み込んでいる。始めのうちは普通のゲーム内マクロで十分だ。</p>
 {% endcall %}
 
 {% call section('combos-pvp', 'コンボと立ち回り', 'pvp') %}
@@ -337,6 +360,7 @@
     <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs「AION 2 Macro Guide」</a>：ホットバーラインとゲーム内マクロの仕組み</li>
     <li><a href="https://www.youtube.com/watch?v=WlxLOTs62dM" target="_blank" rel="noopener">aLuckyRO「AION 2 Latest Gladiator PVE Build for Global」</a>：序盤の特化(鋭利な一撃、ボスへの空中結縛)、スティグマ、ディーヴァニオンの優先順位、正面からのボスローテーション</li>
     <li><a href="https://www.youtube.com/watch?v=t-B-5lR_GIs" target="_blank" rel="noopener">Sen「AION 2 Progression Guide (+ Gladiator guide)」</a>：このガイドのスキル、スティグマ、パッシブがグローバル版サーバーでも通用することを確認</li>
+    <li><a href="https://www.youtube.com/watch?v=zrdG1XDYUtE" target="_blank" rel="noopener">Ulfhednar「AION 2 Gladiator PvE DPS Build」</a>：彼のホットバーによる2つ目のマクロ(剣気乱舞ライン、刃飛ばし)、装備のオプション、魂刻印、ステータス、Genus Insight、MP</li>
   </ul>
   <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
 </section>

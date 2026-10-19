@@ -836,7 +836,7 @@
   },
   "ru": {
    "name": "Кооперация: Проклятие",
-   "desc": "Выберите цель в радиусе 20 м и нанесите {se_dmg:1614000011:SkillUIMinDmgsum}–{se_dmg:1614000011:SkillUIMaxDmgsum} урона врагам (макс. 4) в радиусе 4 м от цели, наложите проклятие.\n\nПроклятие: наносит {se_abe_dmg:1614000013:1614000011:SkillUIDotMinDmg:tick}–{se_abe_dmg:1614000013:1614000011:SkillUIDotMaxDmg:tick} продолжительного урона кажд. 1 сек. и снижает наносимый Заклинателю урон на 10% на 5s\n\nДух участвует в совместной атаке.\nСтихия огня: {se_dmg:1600110111:SkillUIMinDmgsum}–{se_dmg:1600110111:SkillUIMaxDmgsum} урона по области\nСтихия воды: {se_dmg:1600110511:SkillUIMinDmgsum}–{se_dmg:1600110511:SkillUIMaxDmgsum} урона\nСтихия земли: {se_dmg:1600111311:SkillUIMinDmgsum}–{se_dmg:1600111311:SkillUIMaxDmgsum} урона и снижение сопротивления эффектам контроля на 10%\nСтихия воздуха: {se_dmg:1600110911:SkillUIMinDmgsum}–{se_dmg:1600110911:SkillUIMaxDmgsum} урона по области и {se_abe_dmg:1600110917:1600110911:SkillUIDotMinDmg:total}–{se_abe_dmg:1600110917:1600110911:SkillUIDotMaxDmg:total} продолжительного урона\nДревний дух: {se_dmg:1600111711:SkillUIMinDmgsum}–{se_dmg:1600111711:SkillUIMaxDmgsum} урона по области\n\n10 ед. урона по шкале Истощения",
+   "desc": "Выберите цель в радиусе 20 м и нанесите {se_dmg:1614000011:SkillUIMinDmgsum}–{se_dmg:1614000011:SkillUIMaxDmgsum} урона макс. 4 врагам в радиусе 4 м от цели, наложите проклятие.\n\nПроклятие: наносит {se_abe_dmg:1614000013:1614000011:SkillUIDotMinDmg:tick}–{se_abe_dmg:1614000013:1614000011:SkillUIDotMaxDmg:tick} продолжительного урона кажд. 1 сек. и снижает наносимый Заклинателю урон на 10% на 5s\n\nДух участвует в совместной атаке.\nСтихия огня: {se_dmg:1600110111:SkillUIMinDmgsum}–{se_dmg:1600110111:SkillUIMaxDmgsum} урона по области\nСтихия воды: {se_dmg:1600110511:SkillUIMinDmgsum}–{se_dmg:1600110511:SkillUIMaxDmgsum} урона\nСтихия земли: {se_dmg:1600111311:SkillUIMinDmgsum}–{se_dmg:1600111311:SkillUIMaxDmgsum} урона и снижение сопротивления эффектам контроля на 10%\nСтихия воздуха: {se_dmg:1600110911:SkillUIMinDmgsum}–{se_dmg:1600110911:SkillUIMaxDmgsum} урона по области и {se_abe_dmg:1600110917:1600110911:SkillUIDotMinDmg:total}–{se_abe_dmg:1600110917:1600110911:SkillUIDotMaxDmg:total} продолжительного урона\nДревний дух: {se_dmg:1600111711:SkillUIMinDmgsum}–{se_dmg:1600111711:SkillUIMaxDmgsum} урона по области\n\n10 ед. урона по шкале Истощения",
    "specs": [
     {
      "level": 8,
@@ -2102,7 +2102,7 @@
   },
   "ru": {
    "name": "Слияние стихий",
-   "desc": "Дает персонажу и духу увеличение усиления крит. урона на 1.1% на 10s при атаке умением духа.\n\nВремя перезарядки: 1 с",
+   "desc": "Дает персонажу и духу увеличение усиления крит. урона на 1.1% на 10s при атаке умением духа. Эффект суммируется до 5 раз.\n\nВремя перезарядки: 1 с",
    "specs": []
   },
   "ja": {

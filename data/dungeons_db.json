@@ -2,6 +2,7 @@
  "600001": {
   "en": "Krao Cave",
   "ru": "Пещера крао",
+  "ja": "クラオ洞窟",
   "players": 5,
   "energy": 40,
   "bosses": [
@@ -9,18 +10,21 @@
     "id": "2300104",
     "en": "Enhanced Harcon",
     "ru": "Усиленный Харкон",
+    "ja": "強化されたハルコン",
     "icon": true
    },
    {
     "id": "2300108",
     "en": "Neglected Gadioton",
     "ru": "Брошенный Гадиотон",
+    "ja": "放置されたガディオトン",
     "icon": true
    },
    {
     "id": "2300171",
     "en": "Ultimate Berk",
     "ru": "Завершенная форма Берка",
+    "ja": "完成体ベルク",
     "icon": true
    }
   ]
@@ -28,6 +32,7 @@
  "600031": {
   "en": "Draupnir",
   "ru": "Драупнир",
+  "ja": "ドラウプニル",
   "players": 5,
   "energy": 40,
   "bosses": [
@@ -35,18 +40,21 @@
     "id": "2310401",
     "en": "Phantasmal Lakshmi",
     "ru": "Лакшми видения",
+    "ja": "夢幻のラクシュミ",
     "icon": true
    },
    {
     "id": "2310403",
     "en": "Predator Saraswati",
     "ru": "Хищница Сарасвати",
+    "ja": "捕食者サラスワティ",
     "icon": true
    },
    {
     "id": "2310471",
     "en": "Transcendent Bakarma",
     "ru": "Возвышенный Бакрам",
+    "ja": "超越したヴォカルマ",
     "icon": true
    }
   ]
@@ -54,6 +62,7 @@
  "600011": {
   "en": "Urugugu Canyon",
   "ru": "Ущелье ауругу",
+  "ja": "ウルググ峡谷",
   "players": 5,
   "energy": 20,
   "bosses": [
@@ -61,18 +70,21 @@
     "id": "2310206",
     "en": "Guardian Captain Raur",
     "ru": "Капитан охраны Лаур",
+    "ja": "守護隊長ラウル",
     "icon": true
    },
    {
     "id": "2310207",
     "en": "Judge Urahum",
     "ru": "Судья Урахум",
+    "ja": "審判者ウラフム",
     "icon": true
    },
    {
     "id": "2310218",
     "en": "Divine Auldor",
     "ru": "Священный Аулдор",
+    "ja": "神聖なアウルドール",
     "icon": true
    }
   ]
@@ -80,6 +92,7 @@
  "600071": {
   "en": "Vakron Sky Island",
   "ru": "Парящий остров Вакрона",
+  "ja": "バクロンの空中島",
   "players": 5,
   "energy": 40,
   "bosses": [
@@ -87,18 +100,21 @@
     "id": "2310811",
     "en": "Thamon",
     "ru": "Тамон",
+    "ja": "タモン",
     "icon": true
    },
    {
     "id": "2310810",
     "en": "Tiere",
     "ru": "Тие",
+    "ja": "ティエ",
     "icon": true
    },
    {
     "id": "2310812",
     "en": "Vakron",
     "ru": "Вакрон",
+    "ja": "バクロン",
     "icon": true
    }
   ]
@@ -106,6 +122,7 @@
  "600021": {
   "en": "Fire Temple",
   "ru": "Храм огня",
+  "ja": "炎の神殿",
   "players": 5,
   "energy": 30,
   "bosses": [
@@ -113,18 +130,21 @@
     "id": "2310311",
     "en": "Red Spark Ignus",
     "ru": "Игнус красного языка пламени",
+    "ja": "赤い炎イグヌス",
     "icon": true
    },
    {
     "id": "2310312",
     "en": "Black Smoke Murute",
     "ru": "Мурт черного дыма",
+    "ja": "黒煙モルト",
     "icon": true
    },
    {
     "id": "2310371",
     "en": "Kromede's Desire",
     "ru": "Желание Кромед",
+    "ja": "クロメデの欲望",
     "icon": true
    }
   ]
@@ -132,6 +152,7 @@
  "600091": {
   "en": "Ferocious Horn Den",
   "ru": "Логово Свирепого Рога",
+  "ja": "獰猛な角岩窟",
   "players": 5,
   "energy": 40,
   "bosses": [
@@ -139,18 +160,21 @@
     "id": "2310908",
     "en": "Watchdog Kwapo",
     "ru": "Сторожевой пес Кухапу",
+    "ja": "番犬クハプ",
     "icon": true
    },
    {
     "id": "2310909",
     "en": "Necromancer Duanka",
     "ru": "Некромант Дванка",
+    "ja": "降霊術士ドゥアンカ",
     "icon": true
    },
    {
     "id": "2310910",
     "en": "Ferocious Horn Nuakum",
     "ru": "Нуакум свирепого рога",
+    "ja": "獰猛な角ヌアクム",
     "icon": true
    }
   ]
@@ -158,6 +182,7 @@
  "600053": {
   "en": "Deus Research Base",
   "ru": "Исследовательская база Деус",
+  "ja": "デウス研究基地",
   "players": 5,
   "energy": 40,
   "bosses": [
@@ -165,18 +190,21 @@
     "id": "2320615",
     "en": "Nazmun",
     "ru": "Назмун",
+    "ja": "ナズムン",
     "icon": true
    },
    {
     "id": "2320616",
     "en": "Gelcos",
     "ru": "Гелькос",
+    "ja": "ガルコス",
     "icon": true
    },
    {
     "id": "2320601",
     "en": "Atiel",
     "ru": "Атиэль",
+    "ja": "アティエル",
     "icon": true
    }
   ]
@@ -184,6 +212,7 @@
  "600063": {
   "en": "Shattered Arkanis",
   "ru": "Расколотый Арканис",
+  "ja": "砕けたアルカニス",
   "players": 5,
   "energy": 40,
   "bosses": [
@@ -191,18 +220,21 @@
     "id": "2330707",
     "en": "Siliator of Deceit",
     "ru": "Силиатор лжи",
+    "ja": "偽りのシリアトール",
     "icon": true
    },
    {
     "id": "2330708",
     "en": "Ruthilis of Pain",
     "ru": "Руталис боли",
+    "ja": "苦痛のルタリス",
     "icon": true
    },
    {
     "id": "2330709",
     "en": "Talisra of the Void",
     "ru": "Талира пустоты",
+    "ja": "空虚のターリスラ",
     "icon": true
    }
   ]

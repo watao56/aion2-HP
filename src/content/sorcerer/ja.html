@@ -44,7 +44,7 @@
     {% call skill('blaze', 'must', '16', [2, 3]) %}火の印状態の対象へのメインダメージで、MPも回復する。パーティーでは遅延ダメージと多段ヒット。ソロで硬いボスを相手にするときは、遅延ダメージをHP吸収に替える（aLuckyRO）。20では集中の祈願の再使用時間を減らす特化を足す。{% endcall %}
     {% call skill('wish-of-concentration', 'must', '16', [1, 3]) %}「攻撃力10%追加増加」と「戦闘速度10%増加」。どちらのソースもこの2つを取る。20では「すべてのスキル再使用時間10秒減少」を足す。{% endcall %}
     {% call skill('winters-shackles', 'must', '16', [2, 4]) %}的中時に5秒間PvEダメージ増幅が20%上がる。このスキルを上げる理由はこれ。16で再使用時間15秒減少。EUTOPIAは代わりに連続スキル追加の特化を取る。{% endcall %}
-    {% call skill('flame-arrow', 'must', '16', [3, 4]) %}通常攻撃で、MP供給の要。最初の数日は「MP回復20%増加」、MPが持つようになったら多段ヒット50%増加。12で炎の矢自体が火の印を付与するようになり、16で炎爆発の再使用時間を初期化する。{% endcall %}
+    {% call skill('flame-arrow', 'must', '16', [3, 4]) %}通常攻撃で、MP供給の要。最初の数日は「MP回復20%増加」、MPが持つようになったら多段ヒット50%増加。12で烈火が発動するたびに10秒間、属性ダメージ5%増加。16で炎爆発の再使用時間を初期化する。{% endcall %}
     {% call skill('ice-chain', 'opt', '12', [1, 3]) %}EUTOPIAは氷鎖、氷結、氷結爆発をホットバーから外している。挟み込むのに時間がかかるわりにダメージが伸びないため。aLuckyROは氷鎖を12で残す。1ヒットごとに冬の束縛の再使用時間が1秒減る。特化はスキル速度20%増加、MPが足りなければMP消耗量20%減少。{% endcall %}
     {% call skill('flame-scattershot', 'opt', '12', [2, 3]) %}グロッキー状態の対象にしか使えないので、マクロに入れておいてよい。移動可能になる特化を取り、12で多段ヒットを足す。{% endcall %}
     {% call skill('frost', 'opt', 'レベリング', [0, 2]) %}MPを200回復する。MPが足りないレベリング中は便利だが、グローバル版のエンドコンテンツ構成ではホットバーから外す。{% endcall %}
@@ -174,7 +174,7 @@
 {% call section('fight-lvl', t.lvl_combat, 'lvl') %}
   <div class="callout"><ul>
     <li><strong>敵の群れ：</strong>{{ s('bittercold-wind') }}（束縛 + 引き寄せ）→ {{ s('hellfire') }} → 倒れるまで{{ s('ice-chain') }}。</li>
-    <li><strong>エリート：</strong>{{ s('flame-arrow') }}で火の印 → {{ s('blaze') }} → {{ s('firestorm') }}。{{ s('ice-chain') }}の鈍化でカイトしながら戦う。</li>
+    <li><strong>エリート：</strong>{{ s('fire-mark') }} → {{ s('blaze') }} → {{ s('firestorm') }}。{{ s('ice-chain') }}の鈍化でカイトしながら戦う。</li>
     <li><strong>MP：</strong>ターゲットモードで通常攻撃を回し続け、炎の矢を挟む。</li>
     <li><strong>HPが減ったら：</strong>{{ s('steel-barrier') }}を張って距離を取る。ソーサラーに回復スキルはない。</li>
   </ul></div>

@@ -1,4 +1,4 @@
-{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, hotbar, dv_board with context %}
 
 {# ===== PvE and PvP: each PvP block follows its PvE counterpart, so both modes read in the same order; shared sections are 'pve pvp' ===== #}
 {% call glance('pve') %}
@@ -23,7 +23,7 @@
   <p>テンプラーはAION 2のメインタンクで、それでいて火力もしっかり出る。ビルド全体を支えるのは、できるだけ早く20まで上げる3つのスキルの<strong>「三位一体」</strong>：{{ s('judgment') }}、{{ s('punishment') }}、{{ s('pummel') }}。これをとにかく回せるだけ回す。テンプラーの限界を決めるのは生存力ではなく火力だ。</p>
   <div class="callout accent">
     <h3>ビルドを一言で</h3>
-    <p>盾スキルが{{ s('judgment') }}を発動させる。審判ラインをサイドボタンで連打し、マクロを押しっぱなしにして連続乱打とその発動スキルを回す。{{ s('punishment') }}は再使用時間が明けるたびにチャージして撃ち、大きな攻撃はガードしてパーティーに{{ s('fury') }}を維持する。</p>
+    <p>盾スキルが{{ s('judgment') }}を発動させる。マクロを押しっぱなしにする：{{ s('doom-shield') }}で開幕し、審判を回し続け、合間を連続乱打とその発動スキルで埋める。{{ s('punishment') }}は再使用時間が明けるたびにチャージして撃ち、大きな攻撃はガードしてパーティーに{{ s('fury') }}を維持する。</p>
   </div>
   <p class="note">このガイドはSolAshurのグローバル版ローンチ向けテンプラービルド（solashur.com、9月27日）と、その解説動画（9月29日）に基づく。9月30日に動画のフレームと照らし合わせて再確認した。</p>
 {% endcall %}
@@ -52,12 +52,12 @@
   <ul class="skill-grid">
     {% call skill('judgment', 'must', '20', [4, 3, 2]) %}火力の中心。シールド強打、庇護の一撃、シールド突撃、破滅のシールドで発動し、16で再使用時間がなくなる。{% endcall %}
     {% call skill('punishment', 'must', '20', [1, 4, 2]) %}チャージ式のバースト。持続ダメージ、ガードを無視した確定クリティカル、スキル速度+30%。移動可能化とHP吸収の特化は取らないこと。攻撃速度が十分なら、どちらも「罠」でしかない。{% endcall %}
-    {% call skill('pummel', 'must', '20', [1, 2, 4]) %}つなぎとグロッキー用。SolAshurは特化をすべて戒めの一撃に寄せている：HPを回復し、もう一度発動する。懲罰の再使用時間−1sの特化は取らない。できるだけ早く20にしよう。trueeevilは逆にその懲罰−1sの特化を取る。懲罰が早く戻ってくるので、回復が要らないならHP吸収と入れ替える価値は十分ある。{% endcall %}
-    {% call skill('annihilate', 'must', '16 → 20', [2, 3]) %}行動不可免疫のボスにダメージ+100%、再使用時間−10s。別ビルドでは範囲転倒の特化のために20まで上げる。3つ目のスロットは20で開く：ボス向けに多段ヒット。{% endcall %}
+    {% call skill('pummel', 'must', '20', [1, 2, 4]) %}つなぎとグロッキー用。SolAshurは特化をすべて戒めの一撃に寄せている：HPを回復し、ダメージも上がる。懲罰の再使用時間−1sの特化は取らない。できるだけ早く20にしよう。trueeevilは逆にその懲罰−1sの特化を取る。懲罰が早く戻ってくるので、回復が要らないならHP吸収と入れ替える価値は十分ある。Leonisもこの特化を取る。懲罰は20秒間PvEダメージ増幅+20%を付与し、この特化で再使用時間が20秒を切るので、増幅が途切れない。彼の木人テストではDPSが約22k → 26kになった。{% endcall %}
+    {% call skill('annihilate', 'must', '16 → 20', [2, 3], then=[0]) %}行動不可免疫のボスにダメージ+100%、再使用時間−10s。別ビルドでは範囲転倒の特化のために20まで上げる。3つ目のスロットは20で開く：ボス向けに多段ヒット。{% endcall %}
     {% call skill('shield-smite', 'must', '16', [3, 2]) %}審判を発動させる。再使用時間−2sと、50%の確率で衰弱の猛打が発動。{% endcall %}
     {% call skill('debilitating-smash', 'opt', '12', [3, 0]) %}ガード後やシールド強打の後に発動する。ガードと回避を無視する。{% endcall %}
     {% call skill('warding-strike', 'opt', '12', [1, 3]) %}審判を発動させる。庇護中はガードとダメージ耐性が上がる。{% endcall %}
-    {% call skill('flash-rampage', 'opt', '12 → 16', [4, 3]) %}グロッキー状態の対象にしか使えない。1ヒットごとに全スキルの再使用時間−1s。PvEマクロには入れるが、ディーヴァニオンのノードは取らない：中盤で失速する。−1sの特化は16が必要で、12では多段ヒットとMP回復を取る。{% endcall %}
+    {% call skill('flash-rampage', 'opt', '12 → 16', [4, 3]) %}グロッキー状態の対象にしか使えない。1ヒットごとに全スキルの再使用時間−1s。PvEのラインからは外れた：LeonisはDPSが単純に下がるとして外した。合間は連続乱打で埋める方がよい。ディーヴァニオンのノードも取らない。−1sの特化は16が必要で、12では多段ヒットとMP回復を取る。{% endcall %}
     {% call skill('shield-rush', 'opt', '12', [3, 1]) %}回避 → 突進。審判を発動させる。再使用時間−10sと射程+10m。{% endcall %}
     {% call skill('vicious-strike', 'opt', '10', []) %}左クリックの基本攻撃。スキルポイントで上がる10で十分。{% endcall %}
   </ul>
@@ -67,7 +67,7 @@
   <ul class="skill-grid">
     {% call skill('judgment', 'must', '20', [4, 3, 2]) %}PvEと同じループ：盾スキルで発動する。{% endcall %}
     {% call skill('punishment', 'must', '20', [1, 4, 2]) %}ガードと回避を貫くバースト。{% endcall %}
-    {% call skill('pummel', 'must', '20', [1, 2, 4]) %}審判の発動の合間をつなぐ。戒めの一撃でHPが回復し、もう一度発動する。{% endcall %}
+    {% call skill('pummel', 'must', '20', [1, 2, 4]) %}審判の発動の合間をつなぐ。戒めの一撃でHPが回復し、追加ダメージも入る。{% endcall %}
     {% call skill('annihilate', 'must', '20', [2, 3, 4]) %}別ビルド：20では気絶か転倒状態の敵を最大4体まで攻撃し、30%の確率で転倒させる。−10sの特化と合わせれば連発できる範囲転倒になる。{% endcall %}
     {% call skill('shield-smite', 'opt', '16', [3, 2]) %}審判の発動役で、気絶の手段にもなる。{% endcall %}
   </ul>
@@ -88,7 +88,7 @@
 {% call section('gear', '装備の進め方', 'pve') %}
   <p>初日から始めるなら、ルートは次のとおり。</p>
   <ol>
-    <li><strong>聖霊セット</strong>：アビス下層（1体倒すごとにアビス ポイント、ペット、ゴールドがドロップし、ボスも出現する）か、オープンワールドのどこでも集められる。<strong>戦闘力1,600前後</strong>が目安。</li>
+    <li><strong>聖霊セット</strong>（天族は{{ it('{i:holyspirit_torso}') }}で、ベルテロンとエルトネンで集める。魔族は同じ装備を<strong>Spectral</strong>セット（{{ it('{i:spectral_torso}') }}）としてアルトガルドとモルヘイムで集める。天族と魔族の装備は名前が違うだけで中身は同じ。アイテムにカーソルを合わせるとステータスを比較できる）：アビス下層（1体倒すごとにアビス ポイント、ペット、ゴールドがドロップし、ボスも出現する）か、オープンワールドのどこでも集められる。<strong>戦闘力1,600前後</strong>が目安。</li>
     <li><strong>最初のダンジョン帯は飛ばす</strong>：<strong>ウルググ峡谷</strong>でアウルラムスのロングソード（アイテムレベル76、攻撃力308–385、取得時に刻印）、<strong>バクロンの空中島</strong>でバクロンのガーダー（アイテムレベル76）とバクロンの防具を狙う。炎の神殿に挑めるようになるまでバクロン装備を強化し続ける。</li>
     <li><strong>超越</strong>で<strong>炎の神殿</strong>（怒りのクロメデのソード：アイテムレベル84、攻撃力340–425、射程延長）と<strong>獰猛な角岩窟</strong>（Nuakum防具）に備える。周回はNuakumの方が安全：ほぼ全部位が更新になる一方、武器箱からは他クラスの武器が出ることがある。</li>
     <li><strong>最終目標</strong>：PvEなら白龍王の剣、次に盾、次にアクセサリーで、防具はNuakum（白龍防具一式はPvE耐性が増えるだけで、重課金者の領域）。大半のプレイヤー向けのPvX構成は、怒りのクロメデの剣、白龍の盾、Nuakum防具、白龍のアクセサリー。</li>
@@ -178,6 +178,7 @@
     {% call skill('nezekans-shield', 'opt', '代替', upto=15) %}生存力重視の入れ替え候補。15未満では弱い。{% endcall %}
     {% call skill('comrade-in-arms', 'opt', 'パーティー', upto=15) %}ダンジョンで生存力を上げるための入れ替え候補で、破滅のシールドと替える。ソロでは役に立たない。{% endcall %}
     {% call skill('executing-blade', 'opt', 'ソロ · 序盤', upto=10) %}trueeevilが初日のPvEで選んだスティグマ。対象の防御力−30%、10で隙を付与。これで開幕し、続けて懲罰を撃つ。神の懲罰か挑発の代わりになる、ソロ・序盤向けの選択肢。{% endcall %}
+    {% call skill('shield-of-protection', 'opt', '安全策', upto=10) %}ヒーラーが弱いときや初見の戦闘で、Leonisが神の懲罰と入れ替えるスティグマ。完全にガードしてダメージを無効化し、少し回復する。10では発動中も移動できる。{% endcall %}
     {% call skill('noble-armor', 'opt', 'ソロ · 序盤', upto=5) %}2分間、最大HPと防御力が上がり、再使用時間も2分なので常に維持できる。trueeevilはソロで使っている。パーティーでは挑発とグロッキー用のスティグマの方が重要。{% endcall %}
   </ul>
   <div class="table-wrap"><table>
@@ -210,19 +211,22 @@
     <li><strong>ホットバーライン</strong>：<em>1つ</em>のホットバーボタンに複数のスキルを重ねたもの。押すと使用可能なスキルのうち最も優先度の高いものが発動し、AION 2では<strong>一番下のスロットが最優先</strong>になる。カードは各ラインをゲーム内と同じく上から下の順に表示している。</li>
     <li><strong>ゲーム内マクロ</strong>：キーを押している間、ホットバーラインを順番に押し、モーションの後隙をキャンセルする。再使用待ちのスキルは飛ばされる。</li>
   </ul>
+  <p>Leonisのグローバル版の設定（10月5日の動画、0:57のフレーム）：ゲーム内マクロが押すホットバーラインが2つで、残りは手動。今はマクロの最初が破滅のシールドになっている。新しい設定で火力が約20%上がると彼は言う。</p>
+  {{ hotbar([('1', ['poach']), ('2', ['punishment', 'empyrean-lords-punishment']), ('3', ['debilitating-smash', 'annihilate', 'pummel']), ('サイド', []), None, ('X', []), ('R', []), ('サイド2', []), ('', []), None, ('Q', ['shield-rush']), ('E', ['battlefield-banner', 'noble-armor']), ('左クリ', ['vicious-strike']), ('—', ['doom-shield', 'judgment', 'shield-smite', 'warding-strike'])], macro=['—', '3'], own_keys=true) }}
 
   <h3>1. ホットバーライン</h3>
   <div class="hotlines">
-    {% call hotline('右クリック', '連続乱打ライン', ['annihilate', 'debilitating-smash', 'flash-rampage', 'pummel']) %}ゲーム内マクロが押すのはこのライン。発動スキルは光った瞬間に発動し、それ以外は連続乱打が埋める。{{ s('flash-rampage') }}はグロッキー状態の対象にしか当たらない。それ以外のときはマクロが飛ばし、グロッキー中は1ヒットごとに全スキルの再使用時間が1s短くなる。{% endcall %}
-    {% call hotline('サイド', '審判ライン', ['judgment', 'shield-smite', 'warding-strike', 'doom-shield']) %}連打する。盾スキルはすべて審判を発動させ、審判が常に優先される。{% endcall %}
-    {% call hotline('右クリック · PvX', 'PvX用の連続乱打ライン', ['doom-shield', 'annihilate', 'debilitating-smash', 'pummel']) %}PvXプリセットでの同じボタン。{{ s('flash-rampage') }}が抜け、{{ s('doom-shield') }}が最優先になり、残りは順に下がる。審判ラインにも入れているのは意図的だ。ここでは戦闘の開幕役で、突進してNPCに確定転倒を入れ、{{ s('annihilate') }}を使えるようにする。さらにLv15では敵を倒すと再使用時間が初期化され、PvXとペット周回の要になる。{% endcall %}
+    {% call hotline('—', '破滅のシールドライン', ['doom-shield', 'judgment', 'shield-smite', 'warding-strike']) %}マクロの1段目。{{ s('doom-shield') }}は戦闘の開幕役で、突進してNPCに確定転倒を入れ、{{ s('annihilate') }}を使えるようにする。さらにLv15では敵を倒すと再使用時間が初期化され、PvXとペット周回の要になる。発動の合間は、審判とそれを発動させる盾スキルをこのラインが連打する。{% endcall %}
+    {% call hotline('3', '連続乱打ライン', ['debilitating-smash', 'annihilate', 'pummel']) %}マクロの2段目。発動スキルは光った瞬間に発動し、合間はすべて連続乱打が埋める。懲罰−1sの特化があれば、連続乱打を撃つたびに懲罰が早く戻ってくる。{{ s('flash-rampage') }}は外した：Leonisのテストでは、ないほうがラインの火力が高い。SolAshurは殲滅を先頭に置いている。{% endcall %}
+    {% call hotline('サイド', '審判ライン（SolAshur）', ['judgment', 'shield-smite', 'warding-strike', 'doom-shield']) %}SolAshurの形で、マクロの外に置く。審判が常に優先され、破滅のシールドは最後。彼は<span class="key">R</span>に割り当て、マウスでRを毎秒約10回リピートさせている。{% endcall %}
   </div>
 
-  <h3>2. キー</h3>
+  <h3>2. ゲーム内マクロとキー</h3>
+  {{ macroseq([('破滅のシールドライン', '10ms'), ('連続乱打ライン', '3 · 10ms')]) }}
   <ul class="presslist">
     <li><span class="press-how">左クリック</span><span class="press-what">{{ s('vicious-strike') }}（クイックスロット1）。</span></li>
-    <li><span class="press-how">右クリック</span><span class="press-what">ゲーム内マクロ（連続乱打ライン）、10ms。</span></li>
-    <li><span class="press-how">サイドボタン</span><span class="press-what">審判ライン。SolAshurは<span class="key">R</span>に割り当て、マウスでRを毎秒約10回リピートさせている。</span></li>
+    <li><span class="press-how">右クリック</span><span class="press-what">ゲーム内マクロ。Leonisは戦闘中ずっとマウスの両ボタンを押し続けている。</span></li>
+    <li><span class="press-how">代替</span><span class="press-what">マクロの破滅のシールドの代わりに、SolAshurの審判ラインをサイドボタンに置く（上記参照）。</span></li>
     <li><span class="press-how">手動</span><span class="press-what">チャージした{{ s('punishment') }}を再使用時間ごとに、{{ s('battlefield-banner') }}、グロッキー用の{{ s('empyrean-lords-punishment') }}、{{ s('taunt') }}。</span></li>
   </ul>
   <p class="note">SolAshurはホットキー設定の全体を以前のマクロ動画で解説している。それに合わせるには、ゲーム内のキー割り当てをいくつか変える必要がある。</p>
@@ -233,7 +237,7 @@
     <li><strong>スキル：</strong>まず審判、懲罰、連続乱打を20に。殲滅とシールド強打は16、残りは12。</li>
     <li><strong>スティグマ：</strong>神の懲罰、戦場の旗、破滅のシールド、挑発。それぞれに1ポイント入れてからブレイクポイントへ。</li>
     <li><strong>ステータス：</strong>序盤はガード + 回避 + Dexterity、終盤はガード + 鉄壁。ペットは飛ばさない。</li>
-    <li><strong>装備：</strong>聖霊 → ウルググ / バクロン → 炎の神殿と獰猛な角岩窟 → 白龍の武器、盾、アクセサリー。</li>
+    <li><strong>装備：</strong>聖霊 / Spectral → ウルググ / バクロン → 炎の神殿と獰猛な角岩窟 → 白龍の武器、盾、アクセサリー。</li>
   </ul></div>
 {% endcall %}
 
@@ -279,6 +283,7 @@
     <li><a href="https://nemobek.github.io/aion2-guide/" target="_blank" rel="noopener">nemobek.github.io/aion2-guide</a>（TitanTheFの表）：レベリングルート</li>
     <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs「AION 2 Macro Guide」</a>：ホットバーラインとゲーム内マクロの仕組み</li>
     <li><a href="https://www.youtube.com/watch?v=ZQVq7IYbLy8" target="_blank" rel="noopener">trueeevil「Ultimate Templar Guide for Aion 2: Skills, Stigmas, Rotations, Daevanion Board Explained」</a>：グローバル版2日目の構成。ソロPvE向けの処刑の剣と高潔の甲冑、連続乱打の懲罰−1s特化、パッシブの順番</li>
+    <li><a href="https://www.youtube.com/watch?v=0_Fu1DlEKPc" target="_blank" rel="noopener">Leonis「How I'm Top DPS as Templar | Build Guide Update」</a>：連続乱打の懲罰−1s特化、閃光乱舞をラインから外す、安全策としての保護のシールド</li>
   </ul>
   <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>
 </section>

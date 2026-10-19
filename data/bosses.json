@@ -55,18 +55,18 @@
        {"id": "2400853", "name": {"en": "High Commander Lagta", "ru": "Глава армии Рагт", "ja": "軍団長ラグタ"}, "level": 48, "area": {"en": "Ragta Fortress"}, "respawn_min": 720, "schedule": null, "kr": null},
        {"id": "2400800", "name": {"en": "Immortal Gartua", "ru": "Бессмертный Гартуа", "ja": "不滅のガルトゥア"}, "level": 51, "area": {"en": "Isle of Immortality"}, "respawn_min": 720, "schedule": null, "kr": null}
      ]},
-    {"id": "abyss", "zone": {"en": "Chaotic Lower Reshanta", "ru": "Хаотическая нижняя Reshanta"}, "faction": {"en": "Abyss", "ru": "Бездна", "ja": "アビス"},
+    {"id": "abyss", "zone": {"en": "Chaotic Lower Reshanta", "ru": "Хаотическая нижняя Reshanta", "ja": "混沌のエレシュランタ下層"}, "faction": {"en": "Abyss", "ru": "Бездна", "ja": "アビス"},
      "bosses": [
        {"id": "2600089", "name": {"en": "Watcher Kaira", "ru": "Дозорщик Кайра", "ja": "監視者カイラ"}, "level": 65, "respawn_min": null, "schedule": null,
-        "kr": {"en": "every 4 h from 01:00", "ru": "каждые 4 ч с 01:00"}},
+        "kr": {"en": "every 4 h from 01:00", "ru": "каждые 4 ч с 01:00", "ja": "01:00から4時間ごと"}},
        {"id": "2600097", "name": {"en": "Executor Argo", "ru": "Исполнитель Агро", "ja": "執行者アグロ"}, "level": 65, "respawn_min": null, "schedule": null,
-        "kr": {"en": "Wed, Sat 22:30", "ru": "ср, сб 22:30"}},
+        "kr": {"en": "Wed, Sat 22:30", "ru": "ср, сб 22:30", "ja": "水・土 22:30"}},
        {"id": "2600098", "name": {"en": "Executor Kaira", "ru": "Исполнитель Кайра", "ja": "執行者カイラ"}, "level": 65, "respawn_min": null, "schedule": null,
-        "kr": {"en": "Wed, Sat 22:30", "ru": "ср, сб 22:30"}},
+        "kr": {"en": "Wed, Sat 22:30", "ru": "ср, сб 22:30", "ja": "水・土 22:30"}},
        {"id": "2600096", "name": {"en": "Executor Tamasa", "ru": "Исполнитель Тамаса", "ja": "執行者タマサ"}, "level": 65, "respawn_min": null, "schedule": null,
-        "kr": {"en": "Wed, Sat 22:30", "ru": "ср, сб 22:30"}},
-       {"id": "siege-lower", "name": {"en": "Abyss siege boss", "ru": "Босс осады Бездны"}, "level": null, "respawn_min": null, "schedule": null,
-        "kr": {"en": "Fri, Sun 22:00", "ru": "пт, вс 22:00"}}
+        "kr": {"en": "Wed, Sat 22:30", "ru": "ср, сб 22:30", "ja": "水・土 22:30"}},
+       {"id": "siege-lower", "name": {"en": "Abyss siege boss", "ru": "Босс осады Бездны", "ja": "アビス攻城ボス"}, "level": null, "respawn_min": null, "schedule": null,
+        "kr": {"en": "Fri, Sun 22:00", "ru": "пт, вс 22:00", "ja": "金・日 22:00"}}
      ]}
   ]
 }

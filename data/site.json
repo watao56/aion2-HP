@@ -23,7 +23,7 @@
     {"id": "rift", "cycle": "rift"},
     {"id": "reset", "cycle": "weekly_reset", "href": "weekly/"}
   ],
-  "updated": "2026-10-10",
+  "updated": "2026-10-19",
   "classes": [
     {"slug": "gladiator", "status": "ready", "src": {"pve": ["Arthars Gaming · aLuckyRO · Sen · Ulfhednar", "2026-10-09"], "pvp": ["Vortex Gaming (KR)", "2026-09-27"], "lvl": ["Grobs", "2026-09-30"]}, "updated": "2026-10-09", "patch": "S1", "accent": "crimson", "art_pos": "40% 8%",
      "name": {"en": "Gladiator", "ru": "Гладиатор", "uk": "Gladiator", "tr": "Gladiator", "ja": "グラディエーター"},

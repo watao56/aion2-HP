@@ -1,4 +1,4 @@
-{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, hotbar, dv_board with context %}
 
 {# ============================== PvE ============================== #}
 {% call glance('pve') %}
@@ -14,10 +14,10 @@
   <p>チャンターはワンドで近接戦闘をこなしながら、パーティー全体を強化する。どのパーティーにも欲しいバッファー兼サブヒーラーだ。火力トップは期待しないこと。装備が同じなら、チャンターとクレリックは与ダメージが最も低い2クラスになる。それでもパーティーの火力は上がり、倒れにくくなり、デバフも解除してもらえる。</p>
   <div class="callout accent">
     <h3>このビルドを一言で</h3>
-    <p>{{ s('undefeated-mantra') }}を常に有効にしておき、{{ s('spinning-strike') }}と{{ s('impactful-crush') }}で{{ s('dark-crush') }}を開くラインを連打する。一撃ごとに{{ s('onslaught') }}を挟み、岩撃砕が使えない時は{{ s('marchutans-wrath') }}を手動で使う。</p>
+    <p>{{ s('undefeated-mantra') }}を常に有効にしておき、{{ s('spinning-strike') }}、{{ s('marchutans-wrath') }}、{{ s('impactful-crush') }}が{{ s('dark-crush') }}を何度も開き直すラインでマクロを押し続ける。一撃ごとに{{ s('onslaught') }}を挟む。</p>
   </div>
   <p><strong>岩撃砕の仕組み：</strong>遠距離スキルを使った直後の短い時間しか使えない。{{ s('spinning-strike') }}か{{ s('impactful-crush') }}の後は2秒、{{ s('marchutans-wrath') }}の後は3秒。スキルLv16で岩撃砕自体の再使用時間がなくなるので、その受付時間中は何度でも押せる。このビルドはすべて、この受付時間を開け続けるために組まれている。</p>
-  <p class="note">PvEモードは、Arthars Gamingのグローバル版ローンチ向けチャンター入門ガイド（動画、9月26日公開。台湾サーバーでこのクラスを8か月プレイ）をコマ単位で読み取ってまとめた。レベリングはTitanTheFのシートに従う。</p>
+  <p class="note">PvEモードは、Arthars Gamingのグローバル版ローンチ向けチャンター入門ガイド（動画、9月26日公開。台湾サーバーでこのクラスを8か月プレイ）をコマ単位で読み取ってまとめた。GrobsのチャンターPvEガイド（英語、グローバル版、10月5日）と照合済み。</p>
 {% endcall %}
 
 {% call section('global', 'グローバル版シーズン1：変更点', 'pve pvp') %}
@@ -37,11 +37,11 @@
 {% call section('skills', 'スキル', 'pve') %}
   <p>意味のあるスキルLvは<strong>12、16、20</strong>だけ。ここで新しい特化やスロットが開き、その間のLvはほとんど何も足さない。スキルポイントで10、ディーヴァニオンで+4、両方の指輪で+2、残りはアルカナ。まず主要スキルを<strong>16</strong>にしよう。</p>
   <ul class="skill-grid">
-    {% call skill('dark-crush', 'must', '16 → 20', [3, 4]) %}メイン火力で、最初に16にするスキル。再使用時間削除がないとこのクラスは回らない。20では確定クリティカルを追加する。これで岩撃砕のすべてが風の約束のボーナスを丸ごと受けられる。{% endcall %}
-    {% call skill('onslaught', 'must', '16 → 20', [3, 4]) %}あらゆる攻撃の合間に挟む基本攻撃。MPを回復し、回転撃の再使用時間を縮め、16で暴風砕が追加される。20の3つ目は好みで、火力かHP吸収を選ぶ。{% endcall %}
-    {% call skill('spinning-strike', 'must', '16 → 20', [0, 2]) %}最も重い一撃のひとつ。30秒間のクリティカル ダメージ増幅+15%が重複し、岩撃砕も開く。20ではガードと回避を無視してクリティカルで的中する特化を追加する。治癒増幅は取らない。メインヒーラーではないからだ。{% endcall %}
+    {% call skill('dark-crush', 'must', '16 → 20', [3, 4], then=[2]) %}メイン火力で、最初に16にするスキル。再使用時間削除がないとこのクラスは回らない。20では確定クリティカルを追加する。これで岩撃砕のすべてが風の約束のボーナスを丸ごと受けられる。{% endcall %}
+    {% call skill('onslaught', 'must', '16 → 20', [3, 4], then=[2]) %}あらゆる攻撃の合間に挟む基本攻撃。MPを回復し、回転撃の再使用時間を縮め、16で暴風砕が追加される。20の3つ目は好みで、火力かHP吸収を選ぶ。{% endcall %}
+    {% call skill('spinning-strike', 'must', '16 → 20', [0, 2], then=[4]) %}最も重い一撃のひとつ。30秒間のクリティカル ダメージ増幅+15%が重複し、岩撃砕も開く。20ではガードと回避を無視してクリティカルで的中する特化を追加する。Grobsはこの特化を16の時点で取り、代わりに−5秒を外す。治癒増幅は取らない。メインヒーラーではないからだ。{% endcall %}
     {% call skill('incandescent-blow', 'must', '16', [2, 4]) %}岩撃砕が閉じている間のつなぎ。単体相手に+12%と多段ヒット。3つ目に良い特化がないので16で十分。{% endcall %}
-    {% call skill('recuperation', 'must', '12', [0, 3]) %}スティグマ以外で唯一の回復で、デバフ解除も担う。12で十分（notXeon、WallyJTV）：HP5%追加回復（基本の回復量は固定値）と連続発動+1回。デバフの多い戦闘では連続発動をデバフ2個解除に替える。16にして−3秒を取るのは、自分しかヒーラーがいない時だけ。{% endcall %}
+    {% call skill('recuperation', 'must', '12', [0, 3]) %}スティグマ以外で唯一の回復で、デバフ解除も担う。12で十分（notXeon、WallyJTV）：HP5%追加回復（基本の回復量は固定値）と連続発動+1回。デバフの多い戦闘では連続発動をデバフ2個解除に替える。16にして−3秒を取るのは、自分しかヒーラーがいない時だけ。Grobsは16にして、HP5%追加回復の代わりに−3秒を取る。{% endcall %}
     {% call skill('defiance', 'must', '16', [3, 4]) %}CC解除。強靭さの持続時間+2秒、その間ずっとダメージ耐性50%。7秒間、ギミックの中に立っていられる。{% endcall %}
     {% call skill('impactful-crush', 'opt', '12', [2, 3]) %}岩撃砕を開く遠距離スキル。移動しながら使えて、スキル速度も上がる。12で十分。16の特化はPvP向け。{% endcall %}
     {% call skill('wave-blow', 'opt', '12', [1, 3]) %}10秒間ボスの与ダメージ−15%、射程10m。モーションが他のスキルとかみ合わないので、隙がある時だけ押す。岩撃砕の代わりに使うのは厳禁。{% endcall %}
@@ -126,14 +126,14 @@
     {% call skill('undefeated-mantra', 'must', 'Lv20', upto=20) %}パーティーがチャンターを入れる理由そのもの。PvEダメージ増幅と耐性、クリティカル、命中、クリティカル ダメージ増幅、強打を全員に与える。最初にLv20にし、バーから外すことはない。{% endcall %}
     {% call skill('marchutans-wrath', 'must', 'Lv1', upto=1) %}岩撃砕を3秒間開く、3つ目の遠距離スキル。岩撃砕を使える時間がほぼ倍になる。1ポイントで十分で、上の段階はPvP向け。{% endcall %}
     {% call skill('focused-defense', 'must', 'Lv5', upto=5) %}Lv5で連続発動が2回になるガード。過小評価されがち：近接職が逃げ回らず、ほとんどの攻撃の間もボスに張り付いていられる。{% endcall %}
-    {% call skill('sprint-mantra', 'opt', 'Lv10', upto=10) %}移動速度、受ける治癒量+10%、行動力の回復で、パーティーはほぼ無制限に回避できる。notXeonはダンジョンと周回で使い、PvPでは外す。回復量は微々たるものなので、10より上げない。{% endcall %}
-    {% call skill('power-of-the-storm', 'must', 'Lv5 → 20', upto=20) %}10秒間、戦闘速度+20%、再使用時間−20%（パーティーには+20%と−10%）。notXeonはあらゆるコンテンツで採用している。まだ誰も戦闘速度を持っていない今は、最大級の火力バフのひとつ。Lv5で自身の再使用時間が30秒縮み、20で自分とパーティーの攻撃力が上がる。{% endcall %}
-    {% call skill('healing-touch', 'opt', 'クレリック不在', upto=15) %}強力な緊急回復。HPが低いほど回復量が増え、15でデバフを5個解除する。自分しかヒーラーがいない時や、デバフの多い戦闘で取る。{% endcall %}
+    {% call skill('sprint-mantra', 'opt', 'Lv10', upto=10) %}移動速度、受ける治癒量+10%、行動力の回復で、パーティーはほぼ無制限に回避できる。notXeonはダンジョンと周回で使い、PvPでは外す。Grobsは集中防御の代わりに常に使う。チャンターがいればパーティーはほとんどの攻撃から歩いて抜けられ、攻撃が当たるたびに15%の確率でパーティーを回復する。回復量は微々たるものなので、10より上げない。{% endcall %}
+    {% call skill('power-of-the-storm', 'must', 'Lv5 → 20', upto=20) %}10秒間、戦闘速度+20%、再使用時間−20%（パーティーには+20%と−10%）。notXeonはあらゆるコンテンツで採用している。まだ誰も戦闘速度を持っていない今は、最大級の火力バフのひとつ。Lv5で自身の再使用時間が30秒縮み、20で自分とパーティーの攻撃力が上がる。Grobsの順番：まずこれを5、次に不敗のマントラを20、残りはその後。{% endcall %}
+    {% call skill('healing-touch', 'opt', 'クレリック不在', upto=15) %}強力な緊急回復。HPが低いほど回復量が増え、15でデバフを5個解除する。自分しかヒーラーがいない時や、デバフの多い戦闘で取る。Grobsはその場合でも取らない。再使用時間30秒にしては回復量が少なすぎ、火力とバフを増やすほうがパーティーの助けになる。{% endcall %}
     {% call skill('impeding-authority', 'opt', '初見攻略', upto=15) %}パーティーにバリアを張る。パーティーがまだ戦闘に慣れていない間、実質HPが増える。{% endcall %}
     {% call skill('guardian-blessing', 'opt', '枠なし', upto=15) %}15で風の約束が1.5倍になり、確かな火力アップになる。ただし枠が4つでは、シーズン1に入れる余地はない。{% endcall %}
     {% call skill('obliterate', 'opt', 'グロッキー', upto=5) %}レベリング中の群れに使う範囲転倒。WallyJTVはグロッキーギミックのあるボス用に上限まで上げている。パーティーが必要とする時に、グロッキー ゲージ ダメージ量50を出せる。{% endcall %}
   </ul>
-  <p class="note">マントラはトグル式。一度有効にしたら、どのマクロにも入れない。もう一度押すと切れてしまう。{{ s('barrier-spell') }}、{{ s('ensnaring-mark') }}、{{ s('fracturing-blow') }}、{{ s('assault-shock') }}はPvEでは出番がない。</p>
+  <p class="note">マントラはトグル式。一度有効にしたら、どのマクロにも入れない。もう一度押すと切れてしまう。{{ s('barrier-spell') }}、{{ s('ensnaring-mark') }}、{{ s('assault-shock') }}はPvEでは出番がない。{{ s('fracturing-blow') }}は、シーズン序盤の固定パーティー向けのGrobsの選択。防御力は固定値で軽減するので、装備が弱いうちほど下げる価値が大きい。</p>
 {% endcall %}
 
 {% call section('macro', 'マクロとローテーション', 'pve') %}
@@ -142,24 +142,42 @@
     <li><strong>ホットバーライン</strong>：<em>1つ</em>のホットバーボタンに複数のスキルを重ねたもの。押すと、使えるスキルのうち優先度が最も高いものが発動する。AION 2では<strong>一番下のスロットが最優先</strong>。カードでは各ラインをゲーム内と同じく上から下へ並べている。</li>
     <li><strong>ゲーム内マクロ</strong>：キーを押している間、ホットバーボタンを順番に押し、モーションの後隙をキャンセルする。再使用時間中のスキルは飛ばされる。</li>
   </ul>
+  {{ hotbar([('1', []), ('2', []), ('3', ['undefeated-mantra']), ('4', ['sprint-mantra']), None, ('Q', ['recuperation']), ('E', ['power-of-the-storm']), ('R', []), ('F', ['rushing-smash', 'tremor-crush']), None, ('サイド2', []), ('サイド', ['dark-crush', 'spinning-strike', 'marchutans-wrath', 'impactful-crush']), ('左クリ', ['onslaught']), ('—', ['incandescent-blow'])], macro=['サイド', '—'], own_keys=true) }}
 
   <h3>1. ホットバーライン</h3>
+  <p>Grobsのグローバル版の構成（19:05のフレーム）：開くスキル3つをすべて1本のラインに入れ、一番下に{{ s('dark-crush') }}を置く。これでどの開くスキルの後も、ラインはすぐ岩撃砕に戻る。百裂撃は専用のラインに置く。</p>
   <div class="hotlines">
-    {% call hotline('E', '岩撃砕ライン', ['dark-crush', 'spinning-strike', 'impactful-crush', 'incandescent-blow']) %}受付時間が開いていれば岩撃砕が出る。閉じたら回転撃が開き直し、次に打撃砕が開く。両方が再使用時間中なら百裂撃でつなぐ。{% endcall %}
+    {% call hotline('サイド', '岩撃砕ライン', ['dark-crush', 'spinning-strike', 'marchutans-wrath', 'impactful-crush']) %}受付時間が開いていれば岩撃砕。閉じたら回転撃が開き直し、次にマルクタンの怒り、その次に打撃砕。{% endcall %}
+    {{ hotline('—', 'つなぎ', ['incandescent-blow']) }}
   </div>
-  <p class="note">{{ s('marchutans-wrath') }}はこのラインに<strong>入れない</strong>。別のキーに置いて予備にする。遠距離スキルが両方とも再使用時間中の時や、ボスから離れざるを得なかった直後に、岩撃砕を開く手段になる。ラインに入れると、百裂撃がローテーションから押し出されてしまう。</p>
+  <p>マクロの外にある、残りのバー：</p>
+  <div class="hotlines">
+    {% call hotline('F', '突進ライン', ['rushing-smash', 'tremor-crush']) %}突進撃破（敵を倒すとリセット）、それが再使用時間中なら震動砕。{% endcall %}
+  </div>
+  <ul class="presslist">
+    <li><span class="press-how">専用キー</span><span class="press-what"><span class="key">左クリック</span>に{{ s('onslaught') }}、<span class="key">3</span>に{{ s('undefeated-mantra') }}、<span class="key">4</span>に{{ s('sprint-mantra') }}（トグル式なので一度有効にするだけ）、<span class="key">Q</span>に{{ s('recuperation') }}、<span class="key">E</span>に{{ s('power-of-the-storm') }}。</span></li>
+  </ul>
   <p class="note">岩撃砕が16になるまでは、その再使用時間がこのラインを崩す。岩撃砕がまだ再使用時間中なのにマクロが開くためのスキルを使ってしまい、3秒の受付時間が無駄になる。それまでのnotXeonの対処法：開くスキルを1つ別のキーに置き、岩撃砕が使えるようになった瞬間に自分で押す。</p>
 
   <h3>2. ゲーム内マクロ</h3>
   <p>2ステップ、各<strong>10ms</strong>。押しっぱなしにできるキーに置く（ほとんどの人は<span class="key">右クリック</span>）。</p>
-  {{ macroseq([('岩撃砕ライン', '10ms'), (skill_data('onslaught')[lang].name, '10ms')]) }}
+  {{ macroseq([('岩撃砕ライン', '10ms'), ('つなぎ', '10ms')]) }}
 
   <h3>3. 実際に押すもの</h3>
   <ul class="presslist">
-    <li><span class="press-how">押しっぱなし</span><span class="press-what">マクロのキー。</span></li>
-    <li><span class="press-how">連打</span><span class="press-what">{{ s('onslaught') }}（<span class="key">左クリック</span>）と岩撃砕ライン自体。マクロだけでは足りず、自分で押した分がマクロのステップの間に入る。連打はキーボードやマウスのマクロ機能に任せてもいい。</span></li>
-    <li><span class="press-how">手動</span><span class="press-what">岩撃砕が閉じている時の{{ s('marchutans-wrath') }}、大技に合わせた{{ s('focused-defense') }}、デバフ解除や回復の{{ s('recuperation') }}、隙がある時だけの{{ s('wave-blow') }}、それと突進スキル。</span></li>
+    <li><span class="press-how">開幕</span><span class="press-what">まず{{ s('power-of-the-storm') }}、{{ s('rushing-smash') }}でボスへ飛び込み、それからマクロ。</span></li>
+    <li><span class="press-how">押しっぱなし</span><span class="press-what">マクロのキーと、<span class="key">左クリック</span>の{{ s('onslaught') }}を一緒に。撃破砕がすべてのステップの間に入る。開くスキルがすべて再使用時間中なら、マクロは百裂撃に切り替わる。</span></li>
+    <li><span class="press-how">手動</span><span class="press-what">パーティーのHPが減った時やデバフ解除が必要な時の{{ s('recuperation') }}、隙がある時だけの{{ s('wave-blow') }}、それと突進スキル。</span></li>
   </ul>
+
+  <h3>別の選択肢：Artharsのライン</h3>
+  <p>百裂撃を含む1本のラインに、{{ s('marchutans-wrath') }}は別のキー。マクロはラインを押し、次に撃破砕を押す。</p>
+  <div class="hotlines">
+    {% call hotline('E', '岩撃砕ライン', ['dark-crush', 'spinning-strike', 'impactful-crush', 'incandescent-blow']) %}受付時間が開いていれば岩撃砕が出る。閉じたら回転撃が開き直し、次に打撃砕が開く。両方が再使用時間中なら百裂撃でつなぐ。{% endcall %}
+  </div>
+  <p class="note">{{ s('marchutans-wrath') }}はこのラインに<strong>入れない</strong>。別のキーに置いて予備にする。遠距離スキルが両方とも再使用時間中の時や、ボスから離れざるを得なかった直後に、岩撃砕を開く手段になる。ラインに入れると、百裂撃がローテーションから押し出されてしまう。</p>
+  {{ macroseq([('岩撃砕ライン', '10ms'), (skill_data('onslaught')[lang].name, '10ms')]) }}
+  <p class="note">このラインを使う場合は、撃破砕とラインのキーも自分で連打する。自分で押した分がマクロのステップの間に入る。大技には{{ s('focused-defense') }}。</p>
   <p class="note">Artharsのテストでのダメージ内訳：岩撃砕とその連続スキル貫通砕で約40%、続いて破裂撃、暴風砕、百裂撃、回転撃がそれぞれ約10%。だから岩撃砕を最初に16にし、撃破砕には暴風砕が必要になる。</p>
 {% endcall %}
 
@@ -168,7 +186,7 @@
     <li><strong>スキル：</strong>岩撃砕、撃破砕、回転撃は16 → 20。百裂撃、衝撃解除は16。快癒の呪文とその他は12。</li>
     <li><strong>スティグマ：</strong>不敗のマントラ20、疾風の権能5 → 20、マルクタンの怒り1、集中防御5。ダンジョンでは疾走のマントラ、グロッキーギミックには滅火。</li>
     <li><strong>パッシブ：</strong>攻撃準備、鼓舞の呪文、風の約束、衝撃的中。保護陣も最大まで。</li>
-    <li><strong>マクロ：</strong>岩撃砕ライン → 撃破砕。マルクタンの怒りは手動。</li>
+    <li><strong>マクロ：</strong>開くスキル3つを入れた岩撃砕ライン → 百裂撃。撃破砕は左クリックで押しっぱなし。</li>
   </ul></div>
 {% endcall %}
 
@@ -183,10 +201,11 @@
 {% endcall %}
 
 {% call section('macro-lvl', 'レベリング用マクロ', 'lvl') %}
-  <p>レベリング中、岩撃砕が16になる前は、TitanTheFのもっとシンプルな構成がLv1から使える。右クリックに砕ライン、左クリックに撃破砕、ホイールクリックにゲーム内マクロ（疾風の権能 → 撃破砕 → 波ライン → 撃破砕）。1〜45の序盤ビルド：撃破砕、百裂撃、回転撃、突進撃破を12、それ以外は8。</p>
+  <p>レベリング中、岩撃砕が16になる前は、もっとシンプルな構成がLv1から使える。右クリックに砕ライン、左クリックに撃破砕、ホイールクリックにゲーム内マクロ（疾風の権能 → 撃破砕 → 波ライン → 撃破砕）。1〜45の序盤ビルド：撃破砕、百裂撃、回転撃、突進撃破を12、それ以外は8。</p>
   <div class="hotlines">
     {{ hotline('右クリック', '砕ライン', ['impactful-crush', 'dark-crush', 'spinning-strike', 'incandescent-blow']) }}
   </div>
+  <p><strong>Grobsの序盤の構成：</strong>岩撃砕、回転撃、百裂撃の1本のライン。<span class="key">左クリック</span>とマクロを一緒に押し続ける。岩撃砕が使えるようになるたびに{{ s('impactful-crush') }}を自分で押し、マクロが回転撃を待たないようにする。撃破砕はHP吸収と多段ヒットを取る。打撃砕は移動しながら使える特化を付けたLv8で十分。</p>
   <p><a href="https://aion2t.com/ru/simulator?job=9&amp;b=S5RCtE" target="_blank" rel="noopener">1〜45の初期ビルド（aion2t）→</a> · <a href="https://aion2t.com/ru/simulator?job=9&amp;b=yDzsiQ" target="_blank" rel="noopener">45以降の目標ビルド →</a></p>
 {% endcall %}
 
@@ -200,6 +219,7 @@
     <li><a href="https://questlog.gg/aion-2/en/db/skills/chanter" target="_blank" rel="noopener">questlog.gg</a>：グローバル版クライアントのスキルデータ</li>
     <li><a href="https://www.youtube.com/watch?v=HMod6Z4GrE0" target="_blank" rel="noopener">Grobs「AION 2 Macro Guide」</a>：ホットバーラインとゲーム内マクロの仕組み</li>
     <li><a href="https://www.youtube.com/watch?v=aqv5kWXqtIw" target="_blank" rel="noopener">notXeon「The ONLY Chanter Skill Guide You'll Ever Need」</a>：最初に16にするスキル、パッシブの優先度、コンテンツ別のスティグマ、岩撃砕16前のマクロのコツ</li>
+    <li><a href="https://www.youtube.com/watch?v=2qTjfkuzdj4" target="_blank" rel="noopener">Grobs「The Only Chanter PVE Guide You Need」</a>：グローバル版の16での特化、疾走のマントラ、スティグマの順番、ホットバーラインと序盤の構成</li>
     <li><a href="https://www.youtube.com/watch?v=zxq03c3NhEw" target="_blank" rel="noopener">WallyJTV「Aion 2 CHANTER Global Skill Guide」</a>：グローバル版の変更点、PvEとPvPの特化、グロッキーギミック用に滅火を入れたスティグマ</li>
   </ul>
   <p class="sources-all"><a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></p>

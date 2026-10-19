@@ -2,6 +2,19 @@
   "_note": "What's new modal. Newest entry first. A visitor sees the modal once per new top entry: its id is saved in localStorage ('whatsnew-seen') when they close it. Add a new entry (new id) to show it again to everyone; edit an existing one without changing its id to avoid re-showing.",
   "entries": [
     {
+      "id": "2026-10-19-ja-sync",
+      "date": "2026-10-19",
+      "items": [
+        {
+          "en": "<strong>Japanese version in step with the original site</strong> — everything added there through October 13 is now in Japanese too: the Dungeons and Tier list pages, the re-checked guides of all eight classes (new macros and hotbars, Daevanion order, where to get Stigma Shards and Daevanion Crystals) and the board slider.",
+          "ru": "<strong>Японская версия догнала оригинальный сайт</strong> — всё, что появилось там до 13 октября, теперь и на японском: страницы Подземелья и Тир-лист, перепроверенные гайды всех восьми классов (новые макросы и панели, порядок Даэваниона, где брать осколки стигм и кристаллы Даэваниона) и ползунок досок.",
+          "uk": "<strong>Японська версія наздогнала оригінальний сайт</strong> — усе, що з'явилося там до 13 жовтня, тепер і японською: сторінки Dungeons і Tier list, перевірені гайди всіх восьми класів (нові макроси й панелі, порядок Daevanion, де брати Stigma Shards і Daevanion Crystals) і повзунок дошок.",
+          "tr": "<strong>Japonca sürüm orijinal siteyle aynı seviyede</strong> — 13 Ekim'e kadar orada eklenen her şey artık Japonca da: Dungeons ve Tier list sayfaları, sekiz sınıfın yeniden kontrol edilen rehberleri (yeni makrolar ve hotbar'lar, Daevanion sırası, Stigma Shard ve Daevanion Crystal kaynakları) ve levha kaydırıcısı.",
+          "ja": "<strong>日本語版を元サイトの最新に追従</strong>：10月13日までに元サイトへ追加された内容がすべて日本語でも読める。ダンジョンとティアリストのページ、全8クラスの再確認済みガイド（新しいマクロとホットバー、ディーヴァニオンの順番、スティグマ シャードとディーヴァニオン結晶の入手先）、ボードのスライダー。"
+        }
+      ]
+    },
+    {
       "id": "2026-10-10-slider",
       "date": "2026-10-10",
       "items": [
@@ -9,7 +22,7 @@
           "en": "<strong>Daevanion boards: a slider for the leveling path</strong> — drag the slider under a board tab to see the order to take the nodes in: first the guide's route, then the rest of the board (suggested by a site visitor).",
           "ru": "<strong>Доски Даэваниона: ползунок пути прокачки</strong> — двигай ползунок под вкладкой доски, чтобы увидеть, в каком порядке брать узлы: сначала маршрут гайда, потом остальная доска (идея посетителя сайта).",
           "uk": "<strong>Дошки Daevanion: повзунок шляху прокачки</strong> — посунь повзунок під вкладкою дошки, щоб побачити, у якому порядку брати вузли: спершу маршрут гайда, далі решта дошки (ідея відвідувача сайту).",
-          "tr": "<strong>Daevanion levhaları: gelişim yolu kaydırıcısı</strong> — düğümleri hangi sırayla alacağını görmek için levha sekmesinin altındaki kaydırıcıyı sürükle: önce rehberin rotası, sonra levhanın geri kalanı (bir site ziyaretçisinin önerisi)."
+          "tr": "<strong>Daevanion levhaları: gelişim yolu kaydırıcısı</strong> — düğümleri hangi sırayla alacağını görmek için levha sekmesinin altındaki kaydırıcıyı sürükle: önce rehberin rotası, sonra levhanın geri kalanı (bir site ziyaretçisinin önerisi).", "ja": "<strong>ディーヴァニオン ボード：レベリングの順番を示すスライダー</strong>：ボードのタブの下にあるスライダーを動かすと、ノードを取る順番がわかる。まずガイドのルート、続いてボードの残り（サイト訪問者の提案）。"
         }
       ]
     },
@@ -21,7 +34,7 @@
           "en": "<strong>Where to get Stigma Shards</strong> — under Stigmas in every class guide: the Abyss, Nightmare and Shugo shops with their limits and full prices (about 270 per character), plus a few from levels and the story.",
           "ru": "<strong>Где брать Обломки стигмы</strong> — под разделом «Стигмы» в гайде каждого класса: магазины Бездны, Кошмара и Шуго с лимитами и полной ценой (около 270 на персонажа), плюс несколько за уровни и сюжет.",
           "uk": "<strong>Де брати Stigma Shards</strong> — під розділом «Стигми» в гайді кожного класу: магазини Abyss, Nightmare і Shugo з лімітами й повною ціною (близько 270 на персонажа), плюс кілька за рівні й сюжет.",
-          "tr": "<strong>Stigma Shard nereden alınır</strong> — her sınıf rehberinde Stigmalar bölümünün altında: Abyss, Nightmare ve Shugo mağazaları limitleri ve tam fiyatlarıyla (karakter başına yaklaşık 270), artı seviyeler ve hikâyeden birkaç tane."
+          "tr": "<strong>Stigma Shard nereden alınır</strong> — her sınıf rehberinde Stigmalar bölümünün altında: Abyss, Nightmare ve Shugo mağazaları limitleri ve tam fiyatlarıyla (karakter başına yaklaşık 270), artı seviyeler ve hikâyeden birkaç tane.", "ja": "<strong>スティグマ シャードの入手先</strong>：各クラスガイドのスティグマの項に掲載。アビス、悪夢、シューゴのショップの上限と総額（1キャラクターあたり約270個）、それにレベルとストーリーで手に入る少しの分。"
         }
       ]
     },
@@ -33,7 +46,7 @@
           "en": "<strong>How many Daevanion crystals you can get</strong> — under the route board of every class: levels, sealed dungeons, regional quests and the Shugo and Nightmare shops (with the full price in their currencies) give about 416 for the four PvE boards, which cost 570 — so the route takes the nodes that count first.",
           "ru": "<strong>Сколько кристаллов Даэваниона можно получить</strong> — под доской с маршрутом у каждого класса: уровни, запечатанные подземелья, региональные квесты и магазины Шуго и Кошмара (с полной ценой в их валютах) дают около 416 на четыре PvE-доски, а стоят они 570 — поэтому маршрут сначала берёт важные узлы.",
           "uk": "<strong>Скільки кристалів Daevanion можна отримати</strong> — під дошкою з маршрутом у кожного класу: рівні, запечатані підземелля, регіональні квести й магазини Shugo і Nightmare (з повною ціною в їхніх валютах) дають близько 416 на чотири PvE-дошки, а коштують вони 570 — тому маршрут спершу бере важливі вузли.",
-          "tr": "<strong>Kaç Daevanion kristali alabilirsin</strong> — her sınıfın rota levhasının altında: seviyeler, mühürlü zindanlar, bölge görevleri ve Shugo ile Nightmare mağazaları (kendi para birimleriyle tam fiyatı) dört PvE levhası için yaklaşık 416 verir, levhalar ise 570 tutar — bu yüzden rota önce önemli düğümleri alır."
+          "tr": "<strong>Kaç Daevanion kristali alabilirsin</strong> — her sınıfın rota levhasının altında: seviyeler, mühürlü zindanlar, bölge görevleri ve Shugo ile Nightmare mağazaları (kendi para birimleriyle tam fiyatı) dört PvE levhası için yaklaşık 416 verir, levhalar ise 570 tutar — bu yüzden rota önce önemli düğümleri alır.", "ja": "<strong>ディーヴァニオン結晶はいくつ手に入るか</strong>：各クラスのルートボードの下に掲載。レベル、封印されたダンジョン、地域クエスト、シューゴと悪夢のショップ（それぞれの通貨での総額付き）で、PvEの4つのボード用に約416個手に入る。ボードに必要なのは570個なので、ルートは重要なノードから先に取る。"
         }
       ]
     },
@@ -45,7 +58,7 @@
           "en": "<strong>Ranger: Fubgun's hotbar as in the game</strong> — Rotation &amp; macro now shows a full skill bar from his global endgame guide (Gale line and Drill line in the macro, buffs on one key by hand) next to Whelps' lines; Explosive Arrow over Griffon Arrow until Griffon reaches 15, Deadshot and Gale Arrow picks for more damage, starter stigma levels 15 / 10 / 10 / 5, bow and guard at +10.",
           "ru": "<strong>Стрелок: панель Fubgun как в игре</strong> — в «Ротации и макросе» теперь есть полная панель скиллов по его глобальному эндгейм-гайду (линии Шквала и Пронзающей в макросе, баффы на одной клавише вручную) рядом с линиями Whelps; Взрывная стрела вместо Стрелы грифона, пока та не дойдёт до 15, выбор для Прицельного выстрела и Шквала стрел на больший урон, стартовые уровни стигм 15 / 10 / 10 / 5, лук и наручи на +10.",
           "uk": "<strong>Ranger: панель Fubgun як у грі</strong> — у «Ротації й макросі» тепер є повна панель скілів за його глобальним ендгейм-гайдом (лінії Gale і Drill у макросі, бафи на одній клавіші вручну) поруч із лініями Whelps; Explosive Arrow замість Griffon Arrow, поки та не дійде до 15, вибір для Deadshot і Gale Arrow на більшу шкоду, стартові рівні стигм 15 / 10 / 10 / 5, лук і guard на +10.",
-          "tr": "<strong>Ranger: Fubgun'ın oyundaki gibi çubuğu</strong> — Rotasyon ve makro bölümünde artık Whelps'in satırlarının yanında onun global endgame rehberinden tam bir yetenek çubuğu var (makroda Gale ve Drill satırları, bufflar tek tuşta elle); Griffon Arrow 15'e ulaşana kadar onun yerine Explosive Arrow, daha fazla hasar için Deadshot ve Gale Arrow seçimleri, başlangıç stigma seviyeleri 15 / 10 / 10 / 5, +10 yay ve guard."
+          "tr": "<strong>Ranger: Fubgun'ın oyundaki gibi çubuğu</strong> — Rotasyon ve makro bölümünde artık Whelps'in satırlarının yanında onun global endgame rehberinden tam bir yetenek çubuğu var (makroda Gale ve Drill satırları, bufflar tek tuşta elle); Griffon Arrow 15'e ulaşana kadar onun yerine Explosive Arrow, daha fazla hasar için Deadshot ve Gale Arrow seçimleri, başlangıç stigma seviyeleri 15 / 10 / 10 / 5, +10 yay ve guard.", "ja": "<strong>レンジャー：ゲーム内そのままのFubgunのホットバー</strong>：マクロとローテーションに、彼のグローバル版エンドゲームガイドのスキルバー全体を、Whelpsの行と並べて掲載（マクロには狂風の矢の行と鋭穿の矢の行、バフは1つのキーで手動）。グリフォンの矢が15になるまでは爆発の矢を優先、火力を上げる必中の矢と狂風の矢の特化、序盤のスティグマのLvは15 / 10 / 10 / 5、ボウとガーダーは+10。"
         }
       ]
     },
@@ -57,7 +70,7 @@
           "en": "<strong>Gladiator: stats and a second macro from Ulfhednar's global guide</strong> — Gear &amp; stats now lists the gear lines, the soul binds for weapon and guard, the stats, Genus Insight and where to get mana; Macro &amp; rotation has his hotbar as another option (Rending Blow shares a line with Sword Aura Rampage, Blade Toss instead of Focused Block). The gear sections of Gladiator, Ranger and Elementalist are renamed to match the other classes.",
           "ru": "<strong>Гладиатор: статы и второй макрос по глобальному гайду Ulfhednar</strong> — в «Экипировке и статах» появились строки экипировки, связывание души на оружии и наручах, статы, Genus Insight и где брать ману; в «Макросе и ротации» — его панель как другой вариант (Ожесточенный удар в одной линии с Неистовым клинком, Летающие лезвия вместо Концентрации на блоке). Разделы экипировки Гладиатора, Стрелка и Заклинателя названы так же, как у остальных классов.",
           "uk": "<strong>Gladiator: стати й другий макрос за глобальним гайдом Ulfhednar</strong> — у «Спорядженні й статах» з'явилися рядки спорядження, soul binds на зброї та guard, стати, Genus Insight і де брати ману; у «Макросі і ротації» — його панель як інший варіант (Rending Blow в одній лінії з Sword Aura Rampage, Blade Toss замість Focused Block). Розділи спорядження Gladiator, Ranger і Elementalist названо так само, як в інших класів.",
-          "tr": "<strong>Gladiator: Ulfhednar'ın global rehberinden statlar ve ikinci makro</strong> — Ekipman ve statlar bölümüne ekipman satırları, silah ve guard için soul bind, statlar, Genus Insight ve mananın nereden geleceği eklendi; Makro ve rotasyon'da onun kısayol çubuğu diğer seçenek olarak var (Rending Blow, Sword Aura Rampage ile aynı satırda; Focused Block yerine Blade Toss). Gladiator, Ranger ve Elementalist'in ekipman bölümleri diğer sınıflarla aynı adı aldı."
+          "tr": "<strong>Gladiator: Ulfhednar'ın global rehberinden statlar ve ikinci makro</strong> — Ekipman ve statlar bölümüne ekipman satırları, silah ve guard için soul bind, statlar, Genus Insight ve mananın nereden geleceği eklendi; Makro ve rotasyon'da onun kısayol çubuğu diğer seçenek olarak var (Rending Blow, Sword Aura Rampage ile aynı satırda; Focused Block yerine Blade Toss). Gladiator, Ranger ve Elementalist'in ekipman bölümleri diğer sınıflarla aynı adı aldı.", "ja": "<strong>グラディエーター：Ulfhednarのグローバル版ガイドのステータスと2つ目のマクロ</strong>：装備とステータスに、装備の系統、武器とガーダーの魂刻印、ステータス、Genus Insight、魔石の入手先を掲載。マクロとローテーションには、別の選択肢として彼のホットバーを追加（切断の猛打が剣気乱舞と同じ行、集中ガードの代わりに刃飛ばし）。グラディエーター、レンジャー、スピリットマスターの装備セクションは、他のクラスに合わせて名前を変えた。"
         }
       ]
     },
@@ -69,7 +82,7 @@
           "en": "<strong>Cleric checked against Whelps' global guide</strong> — a second macro option with his hotbar (three Earth Punishment steps for every debuff step) and a Combat Analysis check, his order on the Daevanion boards, specialization options for Bolt, Divine Aura and Chain of Torment, stigma swaps for support; in Leveling: which stigma goes into each new slot and his starter macro. Kaeria's Taiwan macro is gone.",
           "ru": "<strong>Целитель сверен с глобальным гайдом Whelps</strong> — второй вариант макроса с его панелью (три шага Возмездия природы на каждый шаг дебаффа) и проверкой по анализу боя, его порядок на досках Даэваниона, варианты особенностей для Раската грома, Священной ауры и Цепи боли, замены стигм для поддержки; в «Прокачке» — какую стигму ставить в каждый новый слот и его стартовый макрос. Тайваньский макрос Kaeria убран.",
           "uk": "<strong>Cleric звірено з глобальним гайдом Whelps</strong> — другий варіант макросу з його панеллю (три кроки Earth Punishment на кожен крок дебафу) і перевіркою за аналізом бою, його порядок на дошках Daevanion, варіанти спеціалізацій для Bolt, Divine Aura і Chain of Torment, заміни стигм для підтримки; у «Прокачці» — яку стигму ставити в кожен новий слот і його стартовий макрос. Тайванський макрос Kaeria прибрано.",
-          "tr": "<strong>Cleric, Whelps'in global rehberiyle kontrol edildi</strong> — onun kısayol çubuğuyla ikinci makro seçeneği (her debuff adımına üç Earth Punishment adımı) ve Combat Analysis kontrolü, Daevanion levhalarındaki sırası, Bolt, Divine Aura ve Chain of Torment için uzmanlık seçenekleri, destek için stigma değişimleri; Seviye atlama'da her yeni yuvaya hangi stigmanın gireceği ve başlangıç makrosu. Kaeria'nın Tayvan makrosu kaldırıldı."
+          "tr": "<strong>Cleric, Whelps'in global rehberiyle kontrol edildi</strong> — onun kısayol çubuğuyla ikinci makro seçeneği (her debuff adımına üç Earth Punishment adımı) ve Combat Analysis kontrolü, Daevanion levhalarındaki sırası, Bolt, Divine Aura ve Chain of Torment için uzmanlık seçenekleri, destek için stigma değişimleri; Seviye atlama'da her yeni yuvaya hangi stigmanın gireceği ve başlangıç makrosu. Kaeria'nın Tayvan makrosu kaldırıldı.", "ja": "<strong>クレリックをWhelpsのグローバル版ガイドと照合</strong>：彼のホットバーを使った2つ目のマクロ（デバフの段1つにつき大地の懲罰の段を3つ）とCombat Analysisでの確認、ディーヴァニオン ボードでの彼の取得順、霹靂・神聖な気・苦痛の連鎖の特化オプション、サポート向けのスティグマの入れ替え。レベリングには、新しいスロットごとに入れるスティグマと彼の序盤用マクロ。Kaeriaの台湾版マクロは削除した。"
         }
       ]
     },
@@ -81,13 +94,13 @@
           "en": "<strong>Templar: Leonis' macro</strong> — the in-game macro now opens with the Doom Shield line, then the Pummel line with Debilitating Smash first; SolAshur's Judgment line stays as an option.",
           "ru": "<strong>Страж: макрос Leonis</strong> — встроенный макрос теперь начинается с линии Щита погибели, затем линия Града ударов с Ударом изнеможения первым; линия Суда от SolAshur осталась вариантом.",
           "uk": "<strong>Templar: макрос Leonis</strong> — вбудований макрос тепер починається з лінії Doom Shield, далі лінія Pummel з Debilitating Smash першим; лінія Judgment від SolAshur лишилась варіантом.",
-          "tr": "<strong>Templar: Leonis'in makrosu</strong> — oyun içi makro artık Doom Shield satırıyla başlıyor, ardından Debilitating Smash'in ilk sırada olduğu Pummel satırı geliyor; SolAshur'un Judgment satırı seçenek olarak kaldı."
+          "tr": "<strong>Templar: Leonis'in makrosu</strong> — oyun içi makro artık Doom Shield satırıyla başlıyor, ardından Debilitating Smash'in ilk sırada olduğu Pummel satırı geliyor; SolAshur'un Judgment satırı seçenek olarak kaldı.", "ja": "<strong>テンプラー：Leonisのマクロ</strong>：ゲーム内マクロは破滅のシールドの行から始まり、次に衰弱の猛打を先頭にした連続乱打の行。SolAshurの審判の行は選択肢として残す。"
         },
         {
           "en": "<strong>Example hotbar layout for Chanter, Assassin and Templar</strong> — the author's bar as in the game, read from their videos (Grobs, Arthars, Leonis). Where the author uses side mouse buttons or the numpad, the note under the bar says to copy the lines, not the keys.",
           "ru": "<strong>Пример раскладки скиллов на панели для Чародея, Убийцы и Стража</strong> — панель автора как в игре, по их видео (Grobs, Arthars, Leonis). Если автор использует боковые кнопки мыши или нампад, подсказка под панелью напомнит повторять линии, а не клавиши.",
           "uk": "<strong>Приклад розкладки скілів на панелі для Chanter, Assassin і Templar</strong> — панель автора як у грі, за їхніми відео (Grobs, Arthars, Leonis). Якщо автор використовує бічні кнопки миші чи нампад, підказка під панеллю нагадає повторювати лінії, а не клавіші.",
-          "tr": "<strong>Chanter, Assassin ve Templar için örnek kısayol çubuğu düzeni</strong> — yazarın çubuğu oyundaki gibi, videolarından okundu (Grobs, Arthars, Leonis). Yazar yan fare tuşları ya da numpad kullanıyorsa, çubuğun altındaki not tuşları değil satırları kopyalamanı hatırlatır."
+          "tr": "<strong>Chanter, Assassin ve Templar için örnek kısayol çubuğu düzeni</strong> — yazarın çubuğu oyundaki gibi, videolarından okundu (Grobs, Arthars, Leonis). Yazar yan fare tuşları ya da numpad kullanıyorsa, çubuğun altındaki not tuşları değil satırları kopyalamanı hatırlatır.", "ja": "<strong>チャンター、アサシン、テンプラーのホットバー配置例</strong>：作者の動画（Grobs、Arthars、Leonis）から読み取った、ゲーム内そのままのバー。作者がマウスのサイドボタンやテンキーを使っている場合は、バーの下の注記で、キーではなく行をまねるよう案内している。"
         }
       ]
     },
@@ -99,19 +112,19 @@
           "en": "<strong>Ranger: new Leveling mode</strong> — from Moxsy's guide (made with JohnPal): how to pull packs, what to level first with the early skill picks, his hotbar and four-step macro, links to JohnPal's leveling planner and Allyria's written guide. Burst Arrow in PvE now takes +50% Multi-Hit.",
           "ru": "<strong>Стрелок: новый режим «Прокачка»</strong> — по гайду Moxsy (вместе с JohnPal): как собирать мобов, что качать первым и ранние особенности, его панель и макрос из четырёх шагов, ссылки на планировщик прокачки JohnPal и текстовый гайд Allyria. Рассекающая стрела в PvE теперь берёт +50% мультиудара.",
           "uk": "<strong>Ranger: новий режим «Прокачка»</strong> — за гайдом Moxsy (разом з JohnPal): як збирати мобів, що качати першим і ранні спеціалізації, його панель і макрос із чотирьох кроків, посилання на планувальник прокачки JohnPal і текстовий гайд Allyria. Burst Arrow у PvE тепер бере +50% мультиудару.",
-          "tr": "<strong>Ranger: yeni Seviye atlama modu</strong> — Moxsy'nin rehberinden (JohnPal ile): mobları nasıl toplamalı, önce neyi yükseltmeli ve erken seçimler, çubuğu ve dört adımlı makrosu, JohnPal'ın seviye planlayıcısı ve Allyria'nın yazılı rehberine bağlantılar. PvE'de Burst Arrow artık +%50 Multi-Hit alıyor."
+          "tr": "<strong>Ranger: yeni Seviye atlama modu</strong> — Moxsy'nin rehberinden (JohnPal ile): mobları nasıl toplamalı, önce neyi yükseltmeli ve erken seçimler, çubuğu ve dört adımlı makrosu, JohnPal'ın seviye planlayıcısı ve Allyria'nın yazılı rehberine bağlantılar. PvE'de Burst Arrow artık +%50 Multi-Hit alıyor.", "ja": "<strong>レンジャー：新モード「レベリング」</strong>：Moxsyのガイド（JohnPalと共同制作）から。モンスターの集め方、序盤の特化と合わせて最初に上げるもの、彼のホットバーと4段マクロ、JohnPalのレベリングプランナーとAllyriaの文章ガイドへのリンク。PvEの破裂の矢は多段ヒット+50%を取るようにした。"
         },
         {
           "en": "<strong>Example hotbar layout</strong> — the Cleric and Ranger guides show the author's skill bar as in the game: all keys and slots, the macro lines in gold, a skill tooltip on every icon. A <strong>?</strong> next to every Macro section says where to bind the macro key.",
           "ru": "<strong>Пример раскладки скиллов на панели</strong> — гайды Целителя и Стрелка показывают панель автора как в игре: все клавиши и слоты, линии макроса золотом, подсказка скилла на каждой иконке. Значок <strong>?</strong> у каждого раздела «Макрос» подсказывает, где назначить клавишу макроса.",
           "uk": "<strong>Приклад розкладки скілів на панелі</strong> — гайди Cleric і Ranger показують панель автора як у грі: усі клавіші й слоти, лінії макросу золотом, підказка скіла на кожній іконці. Значок <strong>?</strong> біля кожного розділу «Макрос» підказує, де призначити клавішу макросу.",
-          "tr": "<strong>Örnek kısayol çubuğu düzeni</strong> — Cleric ve Ranger rehberleri yazarın yetenek çubuğunu oyundaki gibi gösteriyor: tüm tuşlar ve yuvalar, altın renkli makro satırları, her simgede yetenek ipucu. Her Makro bölümünün yanındaki <strong>?</strong>, makro tuşunun nereden atanacağını söylüyor."
+          "tr": "<strong>Örnek kısayol çubuğu düzeni</strong> — Cleric ve Ranger rehberleri yazarın yetenek çubuğunu oyundaki gibi gösteriyor: tüm tuşlar ve yuvalar, altın renkli makro satırları, her simgede yetenek ipucu. Her Makro bölümünün yanındaki <strong>?</strong>, makro tuşunun nereden atanacağını söylüyor.", "ja": "<strong>ホットバー配置例</strong>：クレリックとレンジャーのガイドに、作者のスキルバーをゲーム内そのままに表示。すべてのキーとスロット、金色のマクロの行、各アイコンのスキルツールチップ付き。各マクロセクションの横の<strong>?</strong>で、マクロキーの設定場所がわかる。"
         },
         {
           "en": "<strong>Templar: Asmodian gear</strong> — the Holy Spirit set drops only on Elyos maps; Asmodians farm the same gear as the Spectral set in Altgard and Morheim. Hover the items to compare the stats.",
           "ru": "<strong>Страж: экипировка Асмодиан</strong> — сет Holy Spirit падает только на картах Элийцев; Асмодиане фармят ту же экипировку как сет Spectral в Altgard и Morheim. Наведи на предметы, чтобы сравнить статы.",
           "uk": "<strong>Templar: спорядження Asmodian</strong> — сет Holy Spirit падає лише на мапах Elyos; Asmodian фармлять те саме спорядження як сет Spectral в Altgard і Morheim. Наведи на предмети, щоб порівняти стати.",
-          "tr": "<strong>Templar: Asmodian ekipmanı</strong> — Holy Spirit seti yalnızca Elyos haritalarında düşer; Asmodian'lar aynı ekipmanı Spectral seti olarak Altgard ve Morheim'da farmlar. Statları karşılaştırmak için eşyaların üzerine gel."
+          "tr": "<strong>Templar: Asmodian ekipmanı</strong> — Holy Spirit seti yalnızca Elyos haritalarında düşer; Asmodian'lar aynı ekipmanı Spectral seti olarak Altgard ve Morheim'da farmlar. Statları karşılaştırmak için eşyaların üzerine gel.", "ja": "<strong>テンプラー：魔族の装備</strong>：聖霊セットは天族のマップでしかドロップしない。魔族はアルトガルドとMorheimで、同じ装備をSpectralセットとして周回する。アイテムにカーソルを合わせるとステータスを比較できる。"
         }
       ]
     },
@@ -123,13 +136,13 @@
           "en": "<strong>Cleric, Chanter and Templar checked against fresh global guides</strong> — Lucia (World's First Rank 1 Cleric), Grobs and Leonis. New main macros: Lucia's two-step macro for the Cleric and Grobs' line for the Chanter, with the rest of their hotbars; Flash Rampage out of the Templar's Pummel line. Plus skill-pick options, stigma levels, Cleric gear lines, Genus Insight and wings.",
           "ru": "<strong>Целитель, Чародей и Страж сверены со свежими глобальными гайдами</strong> — Lucia (Целитель, первое место в мировом рейтинге), Grobs и Leonis. Новые основные макросы: макрос Lucia из двух шагов для Целителя и линия Grobs для Чародея, вместе с остальной панелью; Сияющий клинок убран из линии Града ударов у Стража. Плюс варианты особенностей, уровни стигм, строки экипировки Целителя, Genus Insight и крылья.",
           "uk": "<strong>Cleric, Chanter і Templar звірено зі свіжими глобальними гайдами</strong> — Lucia (Cleric, перше місце у світовому рейтингу), Grobs і Leonis. Нові основні макроси: макрос Lucia з двох кроків для Cleric і лінія Grobs для Chanter, разом з рештою панелі; Flash Rampage прибраний з лінії Pummel у Templar. Плюс варіанти спеціалізацій, рівні стигм, рядки спорядження Cleric, Genus Insight і крила.",
-          "tr": "<strong>Cleric, Chanter ve Templar yeni global rehberlerle karşılaştırıldı</strong> — Lucia (dünya birincisi Cleric), Grobs ve Leonis. Yeni ana makrolar: Cleric için Lucia'nın iki adımlı makrosu ve Chanter için Grobs'un satırı, çubuğun geri kalanıyla birlikte; Templar'ın Pummel satırından Flash Rampage çıkarıldı. Ayrıca yetenek seçimi seçenekleri, stigma seviyeleri, Cleric ekipman satırları, Genus Insight ve kanatlar."
+          "tr": "<strong>Cleric, Chanter ve Templar yeni global rehberlerle karşılaştırıldı</strong> — Lucia (dünya birincisi Cleric), Grobs ve Leonis. Yeni ana makrolar: Cleric için Lucia'nın iki adımlı makrosu ve Chanter için Grobs'un satırı, çubuğun geri kalanıyla birlikte; Templar'ın Pummel satırından Flash Rampage çıkarıldı. Ayrıca yetenek seçimi seçenekleri, stigma seviyeleri, Cleric ekipman satırları, Genus Insight ve kanatlar.", "ja": "<strong>クレリック、チャンター、テンプラーを最新のグローバル版ガイドと照合</strong>：Lucia（World's First Rank 1のクレリック）、Grobs、Leonis。新しいメインマクロは、クレリックがLuciaの2段マクロ、チャンターがGrobsの行で、それぞれ残りのホットバーも掲載。テンプラーの連続乱打の行から閃光乱舞を外した。さらに特化の選択肢、スティグマのLv、クレリックの装備の系統、Genus Insight、翼。"
         },
         {
           "en": "<strong>Cleric: new PvP mode</strong> — from Lucia's guide: stigmas for duels, group fights and the Abyss (Voice of Doom against healers, Yustiel's Power against bursts), the crowd-control picks, Genus Insight for PvP and a PvP route on the Daevanion boards.",
           "ru": "<strong>Целитель: новый PvP-режим</strong> — по гайду Lucia: стигмы для дуэлей, групповых боёв и Бездны (Крик смерти против хилов, Сила Юстиэль против бурста), особенности на контроль, Genus Insight под PvP и PvP-маршрут на досках Daevanion.",
           "uk": "<strong>Cleric: новий PvP-режим</strong> — за гайдом Lucia: стигми для дуелей, групових боїв і Безодні (Voice of Doom проти хілерів, Yustiel's Power проти бурсту), спеціалізації на контроль, Genus Insight під PvP і PvP-маршрут на дошках Daevanion.",
-          "tr": "<strong>Cleric: yeni PvP modu</strong> — Lucia'nın rehberinden: düellolar, grup dövüşleri ve Abyss için stigmalar (şifacılara karşı Voice of Doom, burst'e karşı Yustiel's Power), kitle kontrolü seçimleri, PvP için Genus Insight ve Daevanion panolarında PvP rotası."
+          "tr": "<strong>Cleric: yeni PvP modu</strong> — Lucia'nın rehberinden: düellolar, grup dövüşleri ve Abyss için stigmalar (şifacılara karşı Voice of Doom, burst'e karşı Yustiel's Power), kitle kontrolü seçimleri, PvP için Genus Insight ve Daevanion panolarında PvP rotası.", "ja": "<strong>クレリック：新モード「PvP」</strong>：Luciaのガイドから。決闘、集団戦、アビス向けのスティグマ（ヒーラー相手には破滅の声、バースト対策にはユスティエルの権能）、CCの特化、PvP向けのGenus Insight、ディーヴァニオン ボードのPvPルート。"
         }
       ]
     },
@@ -141,7 +154,7 @@
           "en": "<strong>After 45: SywoGG's gear route</strong> — item level milestones from 700, clash runes, the story bracelet, belt and amulet, arcana math, Fire Temple, gear past +15 and where else combat power comes from. Also fixed for global: Shugo cards by place, Nightmare attempts and the Nightmare shop.",
           "ru": "<strong>После 45: путь экипировки от SywoGG</strong> — ориентиры уровня предмета с 700, руны столкновения, браслет из сюжета, пояс и амулет, арифметика аркан, Храм огня, заточка выше +15 и откуда ещё берётся боевая мощь. Плюс исправлено под глобал: карточки Шуго по местам, попытки Кошмара и магазин Кошмара.",
           "uk": "<strong>Після 45: маршрут екіпірування від SywoGG</strong> — орієнтири рівня предмета з 700, clash runes, браслет із сюжету, пояс і амулет, арифметика аркан, Fire Temple, заточка вище +15 і звідки ще береться combat power. Також виправлено під глобал: картки Shugo за місцями, спроби Nightmare і магазин Nightmare.",
-          "tr": "<strong>45 sonrası: SywoGG'nin ekipman yolu</strong> — 700'den itibaren eşya seviyesi aşamaları, clash runes, hikâye bileziği, kemer ve muska, arcana hesabı, Fire Temple, +15 üstü ekipman ve combat power başka nereden gelir. Global'e göre düzeltildi: sıraya göre Shugo kartları, Nightmare denemeleri ve Nightmare mağazası."
+          "tr": "<strong>45 sonrası: SywoGG'nin ekipman yolu</strong> — 700'den itibaren eşya seviyesi aşamaları, clash runes, hikâye bileziği, kemer ve muska, arcana hesabı, Fire Temple, +15 üstü ekipman ve combat power başka nereden gelir. Global'e göre düzeltildi: sıraya göre Shugo kartları, Nightmare denemeleri ve Nightmare mağazası.", "ja": "<strong>45以降：SywoGGの装備ルート</strong>：700からのアイテムレベルの節目、激突のルーン、ストーリーのブレスレット、ベルトとアミュレット、アルカナの計算、炎の神殿、+15を超える装備、戦闘力のその他の上げ方。グローバル版向けの修正も：場所ごとのシューゴのカード、悪夢の入場回数、悪夢ショップ。"
         }
       ]
     },
@@ -153,7 +166,7 @@
           "en": "<strong>Fixed skill data and guides</strong> — skill specializations re-checked against the live client for all classes. Cleric: Radiant Recovery now has +1 consecutive use and the guide takes it at 16. Assassin (Shadowstrike), Sorcerer (Flame Arrow) and Templar (Pummel): the guide texts now match what the options do.",
           "ru": "<strong>Исправлены ошибки в данных скиллов и гайдах</strong> — особенности всех классов сверены с живым клиентом. Целитель: у Света исцеления есть +1 применение подряд, и гайд берёт его на 16. Убийца (Удар из сумрака), Волшебник (Огненная стрела) и Страж (Град ударов): тексты гайдов теперь совпадают с тем, что делают особенности.",
           "uk": "<strong>Виправлено помилки в даних скілів і гайдах</strong> — спеціалізації всіх класів звірено з живим клієнтом. Cleric: у Radiant Recovery є +1 використання поспіль, і гайд бере його на 16. Assassin (Shadowstrike), Sorcerer (Flame Arrow) і Templar (Pummel): тексти гайдів тепер відповідають тому, що роблять спеціалізації.",
-          "tr": "<strong>Yetenek verilerindeki ve rehberlerdeki hatalar düzeltildi</strong> — tüm sınıfların uzmanlaşmaları canlı istemciyle karşılaştırıldı. Cleric: Radiant Recovery'de +1 art arda kullanım var ve rehber onu 16'da alıyor. Assassin (Shadowstrike), Sorcerer (Flame Arrow) ve Templar (Pummel): rehber metinleri artık seçeneklerin yaptığıyla uyuşuyor."
+          "tr": "<strong>Yetenek verilerindeki ve rehberlerdeki hatalar düzeltildi</strong> — tüm sınıfların uzmanlaşmaları canlı istemciyle karşılaştırıldı. Cleric: Radiant Recovery'de +1 art arda kullanım var ve rehber onu 16'da alıyor. Assassin (Shadowstrike), Sorcerer (Flame Arrow) ve Templar (Pummel): rehber metinleri artık seçeneklerin yaptığıyla uyuşuyor.", "ja": "<strong>スキルデータとガイドを修正</strong>：全クラスのスキル特化を現行クライアントで再確認した。クレリック：快癒の光輝に連続使用+1が付き、ガイドでは16で取る。アサシン（闇討）、ソーサラー（炎の矢）、テンプラー（連続乱打）：ガイドの文章を各オプションの実際の効果に合わせた。"
         }
       ]
     },
@@ -165,31 +178,31 @@
           "en": "<strong>New page: Dungeons</strong> — the bosses of Krao Cave, Draupnir, Urugugu Canyon, Vakron Sky Island, Fire Temple, Ferocious Horn Den, both Transcendence dungeons and Zikel in Nightmare: the mechanics that wipe a group, with arena diagrams and links to the moment in the video. In the Guides menu.",
           "ru": "<strong>Новая страница: Подземелья</strong> — боссы Пещеры крао, Драупнира, Ущелья ауругу, Парящего острова Вакрона, Храма огня, Логова Свирепого Рога, обоих подземелий Transcendence и Зикель в Кошмаре: механики, на которых вайпается группа, со схемами арен и ссылками на момент в видео. В меню «Гайды».",
           "uk": "<strong>Нова сторінка: Підземелля</strong> — боси Krao Cave, Draupnir, Urugugu Canyon, Vakron Sky Island, Fire Temple, Ferocious Horn Den, обох підземель Transcendence і Zikel у Nightmare: механіки, на яких вайпається група, зі схемами арен і посиланнями на момент у відео. У меню «Гайди».",
-          "tr": "<strong>Yeni sayfa: Zindanlar</strong> — Krao Cave, Draupnir, Urugugu Canyon, Vakron Sky Island, Fire Temple, Ferocious Horn Den, iki Transcendence zindanı ve Nightmare'de Zikel'in bossları: grubu silen mekanikler, arena şemaları ve videodaki ana bağlantılarla. Rehberler menüsünde."
+          "tr": "<strong>Yeni sayfa: Zindanlar</strong> — Krao Cave, Draupnir, Urugugu Canyon, Vakron Sky Island, Fire Temple, Ferocious Horn Den, iki Transcendence zindanı ve Nightmare'de Zikel'in bossları: grubu silen mekanikler, arena şemaları ve videodaki ana bağlantılarla. Rehberler menüsünde.", "ja": "<strong>新ページ：ダンジョン</strong>：クラオ洞窟、ドラウプニル、ウルググ峡谷、バクロンの空中島、炎の神殿、獰猛な角岩窟、2つの超越ダンジョン、悪夢のジケルのボス。パーティーが全滅するギミックを、アリーナ図と動画の該当箇所へのリンク付きで解説。ガイドメニューにある。"
         },
         {
           "en": "<strong>New page: Tier list</strong> (not final, subjective) — trueeevil, XifanGG, Kanon and KaidWOW side by side for PvE, mass PvP, solo PvP and pure DPS, with the average, plus how your ping changes the choice.",
           "ru": "<strong>Новая страница: Тир-лист</strong> (не окончательный, субъективный) — trueeevil, XifanGG, Kanon и KaidWOW рядом для PvE, массового PvP, соло PvP и чистого DPS, со средним, плюс как пинг меняет выбор.",
           "uk": "<strong>Нова сторінка: Тір-лист</strong> (не остаточний, суб'єктивний) — trueeevil, XifanGG, Kanon і KaidWOW поруч для PvE, масового PvP, соло PvP і чистого DPS, із середнім, плюс як пінг змінює вибір.",
-          "tr": "<strong>Yeni sayfa: Tier list</strong> (kesin değil, öznel) — PvE, toplu PvP, solo PvP ve saf DPS için trueeevil, XifanGG, Kanon ve KaidWOW yan yana, ortalamayla, artı ping'in seçimi nasıl değiştirdiği."
+          "tr": "<strong>Yeni sayfa: Tier list</strong> (kesin değil, öznel) — PvE, toplu PvP, solo PvP ve saf DPS için trueeevil, XifanGG, Kanon ve KaidWOW yan yana, ortalamayla, artı ping'in seçimi nasıl değiştirdiği.", "ja": "<strong>新ページ：ティアリスト</strong>（確定ではなく主観的）：trueeevil、XifanGG、Kanon、KaidWOWのリストをPvE、大規模PvP、ソロPvP、純粋なDPSごとに並べ、平均も表示。さらにPingでクラス選びがどう変わるか。"
         },
         {
           "en": "<strong>Suggest a change</strong> — every class guide now starts with a box that opens the feedback form; modes still built on Korean guides and classes without a PvP guide ask for a link to a global one.",
           "ru": "<strong>Предложить изменение</strong> — каждый гайд по классу теперь начинается с плашки, которая открывает форму; режимы, всё ещё собранные по корейским гайдам, и классы без PvP-гайда просят ссылку на глобальный.",
           "uk": "<strong>Запропонувати зміну</strong> — кожен гайд по класу тепер починається з плашки, яка відкриває форму; режими, ще зібрані за корейськими гайдами, і класи без PvP-гайда просять посилання на глобальний.",
-          "tr": "<strong>Değişiklik öner</strong> — her sınıf rehberi artık geri bildirim formunu açan bir kutuyla başlıyor; hâlâ Kore rehberlerine dayanan modlar ve PvP rehberi olmayan sınıflar global bir rehberin bağlantısını istiyor."
+          "tr": "<strong>Değişiklik öner</strong> — her sınıf rehberi artık geri bildirim formunu açan bir kutuyla başlıyor; hâlâ Kore rehberlerine dayanan modlar ve PvP rehberi olmayan sınıflar global bir rehberin bağlantısını istiyor.", "ja": "<strong>変更を提案</strong>：各クラスガイドの冒頭に、フィードバックフォームを開くボックスを追加。まだ韓国版のガイドに基づいているモードと、PvPガイドのないクラスでは、グローバル版ガイドのリンクを募集している。"
         },
         {
           "en": "<strong>Home page timers</strong> — next to “Global launch started”: the next Rift opening and the weekly reset.",
           "ru": "<strong>Таймеры на главной</strong> — рядом с «Глобальный запуск начался»: следующее открытие Rift и еженедельный сброс.",
           "uk": "<strong>Таймери на головній</strong> — поруч із «Глобальний запуск почався»: наступне відкриття Rift і тижневе скидання.",
-          "tr": "<strong>Ana sayfa zamanlayıcıları</strong> — “Global çıkış başladı”nın yanında: bir sonraki Rift açılışı ve haftalık sıfırlama."
+          "tr": "<strong>Ana sayfa zamanlayıcıları</strong> — “Global çıkış başladı”nın yanında: bir sonraki Rift açılışı ve haftalık sıfırlama.", "ja": "<strong>ホームページのタイマー</strong>：「グローバル版ローンチ開始」の横に、次の亀裂の開放と週間リセット。"
         },
         {
           "en": "<strong>World bosses by faction</strong> — tabs for Elyos, Asmodians and the Abyss; the page remembers yours. The site is now called AION 2 Global - Guides.",
           "ru": "<strong>Мировые боссы по фракциям</strong> — вкладки Элийцы, Асмодиане и Бездна; страница запоминает твою. Сайт теперь называется AION 2 Global - Гайды.",
           "uk": "<strong>Світові боси за фракціями</strong> — вкладки Elyos, Asmodians і Abyss; сторінка запам'ятовує твою. Сайт тепер називається AION 2 Global - Гайди.",
-          "tr": "<strong>Fraksiyona göre dünya bossları</strong> — Elyos, Asmodian ve Abyss sekmeleri; sayfa seninkini hatırlar. Sitenin adı artık AION 2 Global - Rehberler."
+          "tr": "<strong>Fraksiyona göre dünya bossları</strong> — Elyos, Asmodian ve Abyss sekmeleri; sayfa seninkini hatırlar. Sitenin adı artık AION 2 Global - Rehberler.", "ja": "<strong>勢力別のワールドボス</strong>：天族、魔族、アビスのタブ。選んだタブをページが覚えている。サイト名をAION 2 Global - Guidesに変更した。"
         }
       ]
     },
