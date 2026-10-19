@@ -21,11 +21,14 @@
 <meta property="og:title" content="AION 2 グローバル版シーズン1のクラスガイド">
 <meta property="og:description" content="AION 2 グローバル版ローンチ向けのコンパクトなクラスガイド。配信者のビルドをまとめた、PvE・PvPビルド、ディーヴァニオン、スティグマ、アルカナ、マクロ、操作できるレベリング用チェックリスト。">
 <meta property="og:url" content="https://watao56.github.io/aion2-HP/ja/">
-<meta property="og:image" content="https://watao56.github.io/aion2-HP/assets/og/home-ja.jpg?v=16a30350">
+<meta property="og:image" content="https://watao56.github.io/aion2-HP/assets/og/home-ja.jpg?v=2b436859">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image"><link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="../assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&display=swap&subset=cyrillic">
@@ -41,7 +44,7 @@
     else if (modes.indexOf(r.dataset.mode) < 0) r.dataset.mode = modes[0];
   })(document.documentElement);
 </script>
-<link rel="stylesheet" href="../assets/css/site.css?v=16a30350">
+<link rel="stylesheet" href="../assets/css/site.css?v=2b436859">
 </head>
 <body class="page-home">
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -49,8 +52,7 @@
 <header class="topbar">
   <div class="topbar-in">
     <a class="brand" href="../ja/">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg>
-      <span>AION 2 ガイド</span>
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg><span class="brand-text"><b>AION 2 ガイド</b></span>
     </a>
     <details class="class-menu">
       <summary class="class-menu-btn">
@@ -83,13 +85,13 @@
         </a>
       </nav>
     </details>
-    <div class="topbar-tools">      <span class="rift-timer" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="亀裂が開放中" title="亀裂：敵対エリアへのポータル。3時間ごとに開き、入口は10分間開いたままで、中には約1時間滞在できる。次回">
+    <div class="topbar-tools">      <span class="rift-timer is-away" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="亀裂が開放中" title="亀裂：敵対エリアへのポータル。3時間ごとに開き、入口は10分間開いたままで、中には約1時間滞在できる。次回">
         <svg class="rt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="7.5" ry="10.5"/><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/><g transform="rotate(180 12 12)"><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/></g></svg><span class="rt-name">Rift</span><b class="rt-time">--:--</b>
       </span>
-      <a class="wr-chip" href="../ja/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="日,時間,分,秒" title="週間リセットまで">
+      <a class="wr-chip is-away" href="../ja/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="日,時間,分,秒" title="週間リセットまで">
         <svg class="wr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="wr-name">リセット</span><b class="wr-time">--</b>
       </a>
-      <a class="top-timer is-away" href="../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-09-28T13:00:00Z", "n": "\u30d7\u30ea\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9", "o": ""}, {"at": "2026-09-30T14:00:00Z", "n": "\u5148\u884c\u30a2\u30af\u30bb\u30b9", "o": "\u5148\u884c\u30a2\u30af\u30bb\u30b9\u958b\u59cb"}, {"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
+      <a class="top-timer is-away" href="../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
         <span class="tt-dot" aria-hidden="true"></span><span class="tt-name"></span><b class="tt-time">--:--:--</b>
       </a>
       <details class="class-menu nav-menu">
@@ -115,6 +117,14 @@
             <a href="../ja/settings/" class="nm-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
               <span class="nm-name">ゲーム設定</span><span class="nm-desc">操作、キー、FPS、大規模PvP</span>
+            </a>
+            <a href="../ja/dungeons/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6a3 3 0 0 1 6 0v6"/></svg>
+              <span class="nm-name">Dungeons</span><span class="nm-desc">Boss mechanics with arena diagrams</span>
+            </a>
+            <a href="../ja/tier-list/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4M4 12h4M4 19h4"/><path d="M11 5h9M11 12h6M11 19h3"/></svg>
+              <span class="nm-name">Tier list</span><span class="nm-desc">Classes ranked by content</span>
             </a>
           </div>
           <div class="nm-col">
@@ -155,7 +165,6 @@
 
 <main id="main">
   <section class="home-hero" data-fx="aether">
-    <div class="cel-ribbon" aria-hidden="true"><span>先行アクセス開始 · ファウンダーパック · ようこそアトレイアへ · 先行アクセス開始 · ファウンダーパック · ようこそアトレイアへ · 先行アクセス開始 · ファウンダーパック · ようこそアトレイアへ · 先行アクセス開始 · ファウンダーパック · ようこそアトレイアへ · </span></div>
     <div class="home-hero-art" aria-hidden="true">
       <img src="../assets/art/home-bg.webp" width="1920" height="1080" alt="" fetchpriority="high">
     </div>
@@ -173,32 +182,10 @@
       <aside class="events" aria-labelledby="h-events" data-units="日,時間,分,秒" data-lang="ja">
         <h2 id="h-events" class="events-title">ローンチスケジュール</h2>
         <ol class="ev-list">
-          <li class="ev ev-all is-ongoing" data-at="2026-09-28T13:00:00Z">
-            <div class="ev-head">
-              <span class="ev-name">プリダウンロード</span>
-            </div>
-            <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>日</i></span><span><b>--</b><i>時間</i></span><span><b>--</b><i>分</i></span><span><b>--</b><i>秒</i></span></div>
-            <div class="ev-done">開始済み</div>
-            <p class="ev-when">
-              <time datetime="2026-09-28T13:00:00Z">9月28日 · 13:00 UTC</time>
-              <span class="ev-local"></span>
-            </p>
-          </li>
-          <li class="ev ev-founder" data-at="2026-09-30T14:00:00Z" data-celebrate>
-            <div class="ev-head">
-              <span class="ev-name">先行アクセス</span>
-<span class="ev-acc">ファウンダーパック</span>            </div>
-            <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>日</i></span><span><b>--</b><i>時間</i></span><span><b>--</b><i>分</i></span><span><b>--</b><i>秒</i></span></div>
-            <div class="ev-done">開始済み</div>
-<div class="ev-open-msg">サーバー開放</div>            <p class="ev-when">
-              <time datetime="2026-09-30T14:00:00Z">9月30日 · 14:00 UTC</time>
-              <span class="ev-local"></span>
-<span class="ev-note ev-delayed">延期</span>            </p>
-          </li>
-          <li class="ev ev-all" data-at="2026-10-05T13:00:00Z">
+          <li class="ev ev-all is-ongoing" data-at="2026-10-05T13:00:00Z">
             <div class="ev-head">
               <span class="ev-name">グローバル版ローンチ</span>
-<span class="ev-acc">無料 · 全プレイヤー</span>            </div>
+            </div>
             <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>日</i></span><span><b>--</b><i>時間</i></span><span><b>--</b><i>分</i></span><span><b>--</b><i>秒</i></span></div>
             <div class="ev-done">開始済み</div>
             <p class="ev-when">
@@ -206,10 +193,37 @@
               <span class="ev-local"></span>
             </p>
           </li>
+          <li class="ev ev-cycle ev-rift" data-cycle="rift" data-anchor="2026-10-02T18:00:00Z" data-tz="Europe/Kyiv" data-every="3" data-open-min="10">
+            <div class="ev-head">
+              <span class="ev-name">Rift</span>
+              <span class="ev-acc">every 3 h · open 10 min</span>
+            </div>
+            <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>日</i></span><span><b>--</b><i>時間</i></span><span><b>--</b><i>分</i></span><span><b>--</b><i>秒</i></span></div>
+<div class="ev-open-msg">亀裂が開放中</div>            <p class="ev-when"><time></time></p>
+          </li>
+          <li class="ev ev-cycle ev-reset" data-cycle="weekly_reset" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-every="168" data-open-min="0">
+            <div class="ev-head">
+              <span class="ev-name"><a href="../ja/weekly/">Weekly reset</a></span>
+              <span class="ev-acc">every week</span>
+            </div>
+            <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>日</i></span><span><b>--</b><i>時間</i></span><span><b>--</b><i>分</i></span><span><b>--</b><i>秒</i></span></div>
+            <p class="ev-when"><time></time></p>
+          </li>
         </ol>
       </aside>
     </div>
-  </section>
+  </section><div class="wrap">
+    <p class="credit-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.6 1-1.1a5.5 5.5 0 0 0 0-7.7z"/></svg><span>Every guide here comes from content creators — each page links its sources, and all credit goes to them. I only collect, check and organise their guides with the help of Claude (AI). <a href="../ja/sources/">すべての出典と配信者 →</a></span></p>
+  </div><div class="wrap spot-grid">
+    <a class="spot spot-dungeons" href="../ja/dungeons/">
+      <span class="spot-art" aria-hidden="true"><svg class="dz" viewBox="0 0 200 200" role="img" aria-label="Krao Cave: hide behind the rocks"><defs><marker id="dz-ar-krao-rocks" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="dz-ah"/></marker></defs><circle cx="100" cy="100" r="88" class="dz-floor"/><circle cx="100" cy="100" r="88" class="dz-bad-soft"/><path d="M162.4 85.6L162.4 114.4L181.7 126.9L181.7 73.1z" class="dz-safe"/><rect x="150.0" y="92.0" width="16" height="16" rx="4" class="dz-rock" transform="rotate(45 158.0 100.0)"/><circle cx="176.0" cy="100.0" r="5" class="dz-p"/><path d="M114.4 162.4L85.6 162.4L73.1 181.7L126.9 181.7z" class="dz-safe"/><rect x="92.0" y="150.0" width="16" height="16" rx="4" class="dz-rock" transform="rotate(45 100.0 158.0)"/><circle cx="100.0" cy="176.0" r="5" class="dz-p"/><path d="M37.6 114.4L37.6 85.6L18.3 73.1L18.3 126.9z" class="dz-safe"/><rect x="34.0" y="92.0" width="16" height="16" rx="4" class="dz-rock" transform="rotate(45 42.0 100.0)"/><circle cx="24.0" cy="100.00000000000001" r="5" class="dz-p"/><path d="M85.6 37.6L114.4 37.6L126.9 18.3L73.1 18.3z" class="dz-safe"/><rect x="92.0" y="34.0" width="16" height="16" rx="4" class="dz-rock" transform="rotate(45 100.0 42.0)"/><circle cx="99.99999999999999" cy="24.0" r="5" class="dz-p"/><path d="M111.3 111.3L156.6 156.6" class="dz-beam"/><path d="M88.7 111.3L43.4 156.6" class="dz-beam"/><path d="M88.7 88.7L43.4 43.4" class="dz-beam"/><path d="M111.3 88.7L156.6 43.4" class="dz-beam"/><circle cx="100" cy="100" r="11" class="dz-boss"/><path d="M96 99l4-5 4 5-4 6z" class="dz-boss-in"/></svg></span>
+      <span class="spot-body"><span class="spot-kicker">Boss mechanics with arena diagrams</span><span class="spot-title">Dungeon bosses →</span><span class="spot-text">The mechanics that wipe a group, boss by boss, with arena diagrams.</span></span>
+    </a>
+    <a class="spot spot-tier" href="../ja/tier-list/">
+      <span class="spot-art spot-emblems" aria-hidden="true"><img src="../assets/classes/gladiator.webp" width="40" height="40" alt="" loading="lazy"><img src="../assets/classes/ranger.webp" width="40" height="40" alt="" loading="lazy"><img src="../assets/classes/templar.webp" width="40" height="40" alt="" loading="lazy"><img src="../assets/classes/assassin.webp" width="40" height="40" alt="" loading="lazy"></span>
+      <span class="spot-body"><span class="spot-kicker">Classes ranked by content</span><span class="spot-title">Class tier list →</span><span class="spot-text">Several creators&#39; tier lists side by side, by kind of content — and the average of them.</span></span>
+    </a>
+  </div>
 
   <section class="wrap" id="classes" aria-labelledby="h-classes">
     <h2 id="h-classes" class="section-title">クラス</h2>
@@ -218,7 +232,7 @@
 <a class="class-card-link" href="gladiator/">          <img class="class-card-art" src="../assets/art/gladiator.webp" alt="" loading="lazy" style="object-position:40% 8%">
           <img class="class-emblem" src="../assets/classes/gladiator.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">更新 <time datetime="2026-10-03">2026年10月3日</time></span>            <h3>グラディエーター</h3>
+<span class="class-status">更新 <time datetime="2026-10-09">2026年10月9日</time></span>            <h3>グラディエーター</h3>
             <p class="class-role">近接DPS · ブルーザー · グレートソード</p>
 <p class="class-pitch">序盤に集中する高火力、疑似タンクの装備、1つのスティグマでほぼ常時クールタイム解消。</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">PvP</span><span class="chip">レベリング</span></span>
@@ -232,7 +246,7 @@
 <a class="class-card-link" href="ranger/">          <img class="class-card-art" src="../assets/art/ranger.webp" alt="" loading="lazy" style="object-position:28% 6%">
           <img class="class-emblem" src="../assets/classes/ranger.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">更新 <time datetime="2026-10-03">2026年10月3日</time></span>            <h3>レンジャー</h3>
+<span class="class-status">更新 <time datetime="2026-10-10">2026年10月10日</time></span>            <h3>レンジャー</h3>
             <p class="class-role">遠距離DPS · カイター · ボウ</p>
 <p class="class-pitch">バフ、溜め撃ちの必中の矢、出血で組む20mのバースト。PvP随一のゾーニング手段も持つ。</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">レベリング</span></span>
@@ -246,7 +260,7 @@
 <a class="class-card-link" href="templar/">          <img class="class-card-art" src="../assets/art/templar.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/templar.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">更新 <time datetime="2026-10-03">2026年10月3日</time></span>            <h3>テンプラー</h3>
+<span class="class-status">更新 <time datetime="2026-10-07">2026年10月7日</time></span>            <h3>テンプラー</h3>
             <p class="class-role">タンク · パーティーバッファー · ソードと盾</p>
 <p class="class-pitch">メインタンク：ガードがパーティー全体にバフを与え、審判が盾スキルをすべてダメージに変え、PvPでは誰よりCCが多い。</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">PvP</span><span class="chip">レベリング</span></span>
@@ -260,7 +274,7 @@
 <a class="class-card-link" href="assassin/">          <img class="class-card-art" src="../assets/art/assassin.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/assassin.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">更新 <time datetime="2026-10-03">2026年10月3日</time></span>            <h3>アサシン</h3>
+<span class="class-status">更新 <time datetime="2026-10-07">2026年10月7日</time></span>            <h3>アサシン</h3>
             <p class="class-role">近接DPS · バースト · ダガー</p>
 <p class="class-pitch">紋様のスタック、クリティカルで発動する心臓突き、再使用時間を消す分身。対象の背後を取り続ければ近接最高のバースト。</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">レベリング</span></span>
@@ -274,7 +288,7 @@
 <a class="class-card-link" href="sorcerer/">          <img class="class-card-art" src="../assets/art/sorcerer.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/sorcerer.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">更新 <time datetime="2026-10-03">2026年10月3日</time></span>            <h3>ソーサラー</h3>
+<span class="class-status">更新 <time datetime="2026-10-06">2026年10月6日</time></span>            <h3>ソーサラー</h3>
             <p class="class-role">遠距離魔法DPS · マジックブック</p>
 <p class="class-pitch">炎と氷を操るガラスの大砲。火の印と炎爆発で火力、氷結と束縛で制御、元素強化で巨大なバースト。</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">レベリング</span></span>
@@ -288,7 +302,7 @@
 <a class="class-card-link" href="elementalist/">          <img class="class-card-art" src="../assets/art/elementalist.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/elementalist.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">更新 <time datetime="2026-10-03">2026年10月3日</time></span>            <h3>スピリットマスター</h3>
+<span class="class-status">更新 <time datetime="2026-10-09">2026年10月9日</time></span>            <h3>スピリットマスター</h3>
             <p class="class-role">召喚士 · 魔法DPS · オーブ</p>
 <p class="class-pitch">唯一の召喚士。火・水・地・風の精霊が戦い、精霊スキルのたびに元素融合が溜まり、呪いが対象を蝕む。</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">PvP</span><span class="chip">レベリング</span></span>
@@ -302,10 +316,10 @@
 <a class="class-card-link" href="cleric/">          <img class="class-card-art" src="../assets/art/cleric.webp" alt="" loading="lazy" style="object-position:37% 8%">
           <img class="class-emblem" src="../assets/classes/cleric.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">更新 <time datetime="2026-10-03">2026年10月3日</time></span>            <h3>クレリック</h3>
+<span class="class-status">更新 <time datetime="2026-10-08">2026年10月8日</time></span>            <h3>クレリック</h3>
             <p class="class-role">ヒーラー · 大地と雷の攻撃 · メイス</p>
 <p class="class-pitch">殴ってレベルを上げるヒーラー。苦痛の連鎖で対象に印を付け、断罪で罰し、ヒットのたびにパーティーを回復する。</p>            <div class="class-meta">
-              <span class="chips"><span class="chip">PvE</span><span class="chip">レベリング</span></span>
+              <span class="chips"><span class="chip">PvE</span><span class="chip">PvP</span><span class="chip">レベリング</span></span>
               <span class="diff" title="難易度: 普通">
 <i class="on"></i><i class="on"></i><i class=""></i>                <span>普通</span>
               </span>
@@ -316,7 +330,7 @@
 <a class="class-card-link" href="chanter/">          <img class="class-card-art" src="../assets/art/chanter.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/chanter.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">更新 <time datetime="2026-10-03">2026年10月3日</time></span>            <h3>チャンター</h3>
+<span class="class-status">更新 <time datetime="2026-10-07">2026年10月7日</time></span>            <h3>チャンター</h3>
             <p class="class-role">近接サポート · バッファー · ワンド</p>
 <p class="class-pitch">パーティー全体にバフを配るワンド格闘家。火力と速度のマントラ、再使用時間を縮める疾風の権能、強烈な岩撃砕コンボ。</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">レベリング</span></span>
@@ -355,14 +369,9 @@
     <div>
       <a class="brand brand-sm" href="../ja/">AION 2 ガイド</a>
       <p>NCSOFTとは無関係の非公式ファンサイト。AION 2とそのスキルアイコンの著作権はNCSOFTに帰属する。</p>
-      <p>最終確認: 2026-10-04 (グローバル版ローンチ前).</p>
-      <p><a href="../ja/sources/">すべての出典と配信者</a> · <a href="../ja/changelog/">更新履歴</a> · <a class="report-link" href="https://github.com/watao56/aion2-HP/issues/new" target="_blank" rel="noopener" title="短いフォームが開く。メッセージはサイト作者に直接届く" data-body="ページ: {url}
-モード: {mode}
-
-間違っている点・古い点:
-
-出典または根拠（リンク、スクリーンショット）:
-" data-page="ja/">誤りを報告</a></p>
+      <p class="foot-credit">Guides are collected from content creators — all credit goes to them; the site is put together with the help of Claude (AI).</p>
+      <p>最終確認: <time datetime="2026-10-10">2026年10月10日</time>.</p>
+      <p><a href="../ja/sources/">すべての出典と配信者</a> · <a href="../ja/changelog/">更新履歴</a> · <button type="button" class="link-btn report-open">誤りを報告</button></p>
     </div>
   </div>
 </footer>
@@ -377,7 +386,7 @@
     <ul class="search-res" role="listbox"></ul>
   </div>
 </dialog>
-<dialog class="whatsnew" data-id="2026-10-04" aria-labelledby="wn-title">
+<dialog class="whatsnew" data-id="2026-10-10-slider" aria-labelledby="wn-title">
   <form method="dialog" class="wn-in">
     <div class="wn-head">
       <h2 id="wn-title">更新情報</h2>
@@ -386,22 +395,38 @@
       </button>
     </div>
     <section class="wn-entry">
-      <time class="wn-date" datetime="2026-10-04">2026年10月4日</time>
+      <time class="wn-date" datetime="2026-10-10">2026年10月10日</time>
       <ul>
-        <li><span><strong>トルコ語版</strong>：サイト全体がトルコ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ウクライナ語ページと同じく、スキル名とアイテム名は英語のまま。翻訳はAIによるもので、誤りを見つけたら「誤りを報告」を使うかGitHubでissueを立ててほしい。</span></li>
+        <li><span><strong>Daevanion boards: a slider for the leveling path</strong> — drag the slider under a board tab to see the order to take the nodes in: first the guide's route, then the rest of the board (suggested by a site visitor).</span></li>
       </ul>
     </section>
     <button class="btn btn-primary wn-ok" value="close">閉じる</button>
     <p class="wn-all"><a href="../ja/changelog/">更新履歴をすべて見る →</a></p>
   </form>
 </dialog>
-<script src="../assets/js/site.js?v=16a30350" defer></script>
-<script src="../assets/js/fx.js?v=16a30350" defer></script>
-<div class="cel-banner" role="status" hidden data-at="2026-09-30T14:00:00Z" data-id="early">
-  <span class="cel-ico" aria-hidden="true">✦</span>
-  <div><p class="cel-h">先行アクセス開始！</p><p class="cel-p">ファウンダーパックのサーバーが稼働中。初日の健闘を祈る。クラスガイドは準備できている。</p></div>
-  <button type="button" class="cel-x" aria-label="閉じる">×</button>
-</div>
-<script src="../assets/js/celebrate.js?v=16a30350" defer></script>
+<dialog class="whatsnew feedback" aria-labelledby="fb-title" data-url="https://aion2-feedback.couga-ua.workers.dev/" data-page="ja/" data-lang="ja">
+  <form class="wn-in fb-form" novalidate>
+    <div class="wn-head">
+      <h2 id="fb-title">誤りを報告</h2>
+      <button type="button" class="icon-btn fb-x" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="fb-hint">どこが間違っている、または古い？ 出典のリンクやスクリーンショットがあると助かる。</p>
+    <label class="fb-label" for="fb-text">メッセージ</label>
+    <textarea id="fb-text" class="fb-text" name="text" rows="6" maxlength="2000" required placeholder="例：グローバル版では炎爆発の3つ目の特化が違う…"></textarea>
+    <label class="fb-label" for="fb-contact">返信先の連絡先（任意）</label>
+    <input id="fb-contact" class="fb-contact" name="contact" type="text" maxlength="100" autocomplete="off" placeholder="DiscordまたはTelegram">
+    <input class="fb-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fb-meta">メッセージと一緒に送信される情報： <b class="fb-where"></b></p>
+    <p class="fb-status" role="status" data-sending="送信中…" data-ok="送信した。ありがとう！" data-err="送信できなかった。しばらくしてからもう一度試してほしい。" data-rate="連続送信が多すぎる。数分後にもう一度試してほしい。" data-short="まず少し書いてほしい。"></p>
+    <div class="fb-actions">
+      <button type="submit" class="btn btn-primary fb-send">送信</button>
+      <button type="button" class="btn btn-ghost fb-cancel">キャンセル</button>
+    </div>
+  </form>
+</dialog>
+<script src="../assets/js/site.js?v=2b436859" defer></script>
+<script src="../assets/js/fx.js?v=2b436859" defer></script>
 </body>
 </html>

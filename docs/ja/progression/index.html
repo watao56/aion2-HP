@@ -21,11 +21,14 @@
 <meta property="og:title" content="Lv45以降：最初のレイドまでの装備ルート — AION 2 ガイド">
 <meta property="og:description" content="AION 2 グローバル版シーズン1のLv45以降の進行。アイテムレベル1,279から2,800までのルート：シューゴ フェスタ、悪夢、ドラウプニル、バクロン、超越、獰猛な角岩窟、ドラゴンレイド。">
 <meta property="og:url" content="https://watao56.github.io/aion2-HP/ja/progression/">
-<meta property="og:image" content="https://watao56.github.io/aion2-HP/assets/og/progression-ja.jpg?v=16a30350">
+<meta property="og:image" content="https://watao56.github.io/aion2-HP/assets/og/progression-ja.jpg?v=2b436859">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image"><link rel="icon" href="../../favicon.ico" sizes="48x48">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="../../assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&display=swap&subset=cyrillic">
@@ -41,7 +44,7 @@
     else if (modes.indexOf(r.dataset.mode) < 0) r.dataset.mode = modes[0];
   })(document.documentElement);
 </script>
-<link rel="stylesheet" href="../../assets/css/site.css?v=16a30350">
+<link rel="stylesheet" href="../../assets/css/site.css?v=2b436859">
 </head>
 <body class="page-guide page-progression">
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -49,8 +52,7 @@
 <header class="topbar">
   <div class="topbar-in">
     <a class="brand" href="../../ja/">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg>
-      <span>AION 2 ガイド</span>
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg><span class="brand-text"><b>AION 2 ガイド</b></span>
     </a>
     <details class="class-menu">
       <summary class="class-menu-btn">
@@ -89,7 +91,7 @@
       <a class="wr-chip" href="../../ja/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="日,時間,分,秒" title="週間リセットまで">
         <svg class="wr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="wr-name">リセット</span><b class="wr-time">--</b>
       </a>
-      <a class="top-timer" href="../../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-09-28T13:00:00Z", "n": "\u30d7\u30ea\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9", "o": ""}, {"at": "2026-09-30T14:00:00Z", "n": "\u5148\u884c\u30a2\u30af\u30bb\u30b9", "o": "\u5148\u884c\u30a2\u30af\u30bb\u30b9\u958b\u59cb"}, {"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
+      <a class="top-timer" href="../../ja/" title="ローンチスケジュール" data-events='[{"at": "2026-10-05T13:00:00Z", "n": "\u30b0\u30ed\u30fc\u30d0\u30eb\u7248\u30ed\u30fc\u30f3\u30c1", "o": "\u30b5\u30fc\u30d0\u30fc\u958b\u653e"}]' data-units="日,時間,分,秒" data-open="開始">
         <span class="tt-dot" aria-hidden="true"></span><span class="tt-name"></span><b class="tt-time">--:--:--</b>
       </a>
       <details class="class-menu nav-menu">
@@ -115,6 +117,14 @@
             <a href="../../ja/settings/" class="nm-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
               <span class="nm-name">ゲーム設定</span><span class="nm-desc">操作、キー、FPS、大規模PvP</span>
+            </a>
+            <a href="../../ja/dungeons/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6a3 3 0 0 1 6 0v6"/></svg>
+              <span class="nm-name">Dungeons</span><span class="nm-desc">Boss mechanics with arena diagrams</span>
+            </a>
+            <a href="../../ja/tier-list/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4M4 12h4M4 19h4"/><path d="M11 5h9M11 12h6M11 19h3"/></svg>
+              <span class="nm-name">Tier list</span><span class="nm-desc">Classes ranked by content</span>
             </a>
           </div>
           <div class="nm-col">
@@ -169,7 +179,7 @@
   </aside>
   <div class="pg-page">
     <p class="pg-note"><span class="wip-tag">データマイン</span> ローンチ前日のグローバル版データマイン（Sanya Jacuzzi）と、TitanTheFの進行シート（台湾の実績）をもとにしている。実サーバーで確認すること。動画由来のブロックから該当箇所へ飛べる。
-<a class="w1-src" href="https://www.youtube.com/watch?v=a8zVweGN--4" target="_blank" rel="noopener" title="Sanya Jacuzzi — Они всё изменили! Мой новый план прокачки после 45 уровня">Sanya Jacuzzi</a><a class="w1-src" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml#gid=53494555" target="_blank" rel="noopener" title="TitanTheF — AION 2 progression sheet">TitanTheF</a></p>
+<a class="w1-src" href="https://www.youtube.com/watch?v=a8zVweGN--4" target="_blank" rel="noopener" title="Sanya Jacuzzi — Они всё изменили! Мой новый план прокачки после 45 уровня">Sanya Jacuzzi</a><a class="w1-src" href="https://www.youtube.com/watch?v=J8WVY3FxPQM" target="_blank" rel="noopener" title="SywoGG — AION 2: UPDATED Gear Progression Guide for GLOBAL">SywoGG</a><a class="w1-src" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml#gid=53494555" target="_blank" rel="noopener" title="TitanTheF — AION 2 progression sheet">TitanTheF</a></p>
 
     <ol class="pg-toc" aria-label="ステップ">
       <li><a href="#global"><span>グローバル版での変更点</span></a></li>
@@ -198,8 +208,11 @@
     </section>
     <section class="pg-sec has-gs" id="s45" aria-labelledby="h-s45">
 <span class="pg-gs" aria-hidden="true">45</span>      <h2 id="h-s45" class="section-title">ストーリー、地域クエスト、自分のマップ</h2>
+      <div class="callout pg-tip" role="note"><p><strong>Milestones.</strong> You reach 45 at about 700 item level. The last step of the main story (in the Abyss) asks for about 1,000 — if it doesn't let you in, do the steps below first and come back: Daevanion crystals, clash runes, belt and amulet, Exploration: Draupnir. <a class="pg-at" href="https://www.youtube.com/watch?v=J8WVY3FxPQM&t=46s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ SywoGG 0:46</a></p></div>
       <ul class="pg-list">
 <li><strong>まずメインストーリーを終わらせる。</strong>自分のクラス用の金武器、<span class="it g41" data-sk="i:bracelet"><img src="../../assets/icons/items/bracelet.webp" width="20" height="20" alt="" loading="lazy">覚醒のブレスレット</span>、<span class="it g41" data-sk="i:wings"><img src="../../assets/icons/items/wings.webp" width="20" height="20" alt="" loading="lazy">ディーヴァの最上級翼</span>が手に入る（装備時：HP500、MP250、貫通500、クリティカル35。所持時：貫通100、命中+20、攻撃力+10）。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=87s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 1:27</a></li><li><strong>地域クエスト</strong>（ジャーナル → 地域）：リング2つ、イヤリング2つ、ネックレス1つ（青）に加え、PvEルーン2つ。称号と神石の箱ももらえる。</li><li>少し強化してPvEマクロを整え、<strong>自分のマップのすべての?</strong>を消化する。封印されたダンジョン1つにつき<span class="it g71" data-sk="i:dcrystal"><img src="../../assets/icons/items/dcrystal.webp" width="20" height="20" alt="" loading="lazy">ディーヴァニオン結晶</span> ×2とスキルポイント2、拠点1つにつき<span class="it g11" data-sk="i:beltscroll"><img src="../../assets/icons/items/beltscroll.webp" width="20" height="20" alt="" loading="lazy">高潔のベルト強化スクロール</span> ×2が手に入る。</li><li>その後、残りの地域クエストと羽を集める。<strong><span class="it g71" data-sk="i:trace"><img src="../../assets/icons/items/trace.webp" width="20" height="20" alt="" loading="lazy">神の痕跡：アルトガルド</span>を95個以上</strong>集めるとモノリスがLv11になり、アミュレットが緑から青に上がる。</li>      </ul>
+      <ul class="pg-list">
+<li><strong>Clash runes</strong> (<span class="it g71" data-sk="i:clashrune"><img src="../../assets/icons/items/clashrune.webp" width="20" height="20" alt="" loading="lazy">激突のルーン箱</span>): 60 item level each, so the pair is +120. They come from green quests around the map, or buy them in the Nightmare shop (Growth tab) with the currency from first clears. Don't enhance them past +1 unless you have a spare. <a class="pg-at" href="https://www.youtube.com/watch?v=J8WVY3FxPQM&t=152s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ SywoGG 2:32</a></li><li><strong>The story bracelet</strong> (<span class="it g41" data-sk="i:bracelet"><img src="../../assets/icons/items/bracelet.webp" width="20" height="20" alt="" loading="lazy">覚醒のブレスレット</span>) stays with you for months: take it to +10–11 — it adds attack and defense too — and put your one <span class="it g11" data-sk="i:mana_sup"><img src="../../assets/icons/items/mana_sup.webp" width="20" height="20" alt="" loading="lazy">上級魔石</span> in it: two gold rolls give the most item level. The second bracelet comes from a quest of your own faction (item level 43).</li>      </ul>
     </section>
     <section class="pg-sec has-gs" id="s1400" aria-labelledby="h-s1400">
 <span class="pg-gs" aria-hidden="true">1400</span>      <h2 id="h-s1400" class="section-title">1,400まで：シューゴ、悪夢、ドラウプニル</h2>
@@ -208,14 +221,14 @@
       <div class="pg-table-wrap">
         <table class="pg-table">
           <thead><tr><th scope="col">順位</th><th scope="col">カード</th></tr></thead>
-          <tbody><tr><th scope="row">1位、2位</th><td>3</td></tr><tr><th scope="row">3位以下</th><td>2</td></tr></tbody>
+          <tbody><tr><th scope="row">1st</th><td>4</td></tr><tr><th scope="row">2nd, 3rd</th><td>3</td></tr><tr><th scope="row">4th and lower</th><td>2</td></tr></tbody>
         </table>
 <p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=324s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 5:24</a></p>      </div>
       <p class="pg-p"><strong>ボス亀裂</strong>（例：Beritra Air Raid）：ウェーブを防ぎ、中ボスを倒す。<strong>貢献ポイント100で3枚</strong>、報酬はシューゴ フェスタと同じ。ポータルの前でチャンター、クレリック、テンプラーを誘おう。パーティーバフのおかげで100ポイントは簡単に届く。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=354s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 5:54</a></p>
-      <div class="callout pg-tip" role="note"><p>一番の目的はシューゴ通貨。フェスタショップですべて<span class="it g71" data-sk="i:dcrystal"><img src="../../assets/icons/items/dcrystal.webp" width="20" height="20" alt="" loading="lazy">ディーヴァニオン結晶</span>に使う。キャラクターごとに価格が段階的に上がる：50（×10）、100（×10）、200（×15）、その後4段階目（×15）。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=396s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 6:36</a></p></div>
+      <div class="callout pg-tip" role="note"><p>The main prize is Shugo currency: spend all of it on <span class="it g71" data-sk="i:dcrystal"><img src="../../assets/icons/items/dcrystal.webp" width="20" height="20" alt="" loading="lazy">ディーヴァニオン結晶</span> in the Festival Shop — per character, price goes up in steps: 50 (×10), 100 (×10), 200 (×15), 400 (×15) — <span class="it g11" data-sk="i:shugocoin"><img src="../../assets/icons/items/shugocoin.webp" width="20" height="20" alt="" loading="lazy">Centuryroot Token</span> ×10,500 in total. <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=396s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 6:36</a></p></div>
       <h3 class="pg-h">悪夢</h3>
       <ul class="pg-list">
-<li>ソロのボスダンジョン。挑戦回数は14回、1日に+2、最大30回まで貯められる。回数が貯まり始めるのは<strong>Lv45</strong>からなので、最初のリセットまでに到達しておく。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=426s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 7:06</a></li><li>どのボスにも挑戦レベルが10段階あり、すべてのレベルで倒す。挑戦回数は倒したときだけ消費されるので、いったん撤退して強くなってから戻ってもいい。順番は灰、緑、ラストボスの順。</li><li>初回クリアで悪夢通貨500、2回目以降は100。ショップ：<span class="it g71" data-sk="i:dcrystal_ariel"><img src="../../assets/icons/items/dcrystal_ariel.webp" width="20" height="20" alt="" loading="lazy">ディーヴァニオン結晶：アリエル</span>が800（キャラクターごとに×10）、<span class="it g71" data-sk="i:wisdom"><img src="../../assets/icons/items/wisdom.webp" width="20" height="20" alt="" loading="lazy">知恵の石</span>が700（×5）、<span class="it g71" data-sk="i:clashrune"><img src="../../assets/icons/items/clashrune.webp" width="20" height="20" alt="" loading="lazy">激突のルーン箱</span>が500。像のために14,000は残しておく。</li>      </ul>
+<li>Solo boss dungeon. 14 base attempts that refill on their own (+2 a day), plus a second pool of up to 30 that you fill with tickets; charges start piling up at <strong>level 45</strong> — reach it before the first reset. <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=426s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 7:06</a></li><li>どのボスにも挑戦レベルが10段階あり、すべてのレベルで倒す。挑戦回数は倒したときだけ消費されるので、いったん撤退して強くなってから戻ってもいい。順番は灰、緑、ラストボスの順。</li><li>First clear gives <span class="it g11" data-sk="i:nmcoin"><img src="../../assets/icons/items/nmcoin.webp" width="20" height="20" alt="" loading="lazy">Phantasmal Fragment</span> ×500, repeats 100. Shop, Growth tab: <span class="it g71" data-sk="i:dcrystal"><img src="../../assets/icons/items/dcrystal.webp" width="20" height="20" alt="" loading="lazy">ディーヴァニオン結晶</span> for 300 (×50 per character), <span class="it g71" data-sk="i:stigmashard"><img src="../../assets/icons/items/stigmashard.webp" width="20" height="20" alt="" loading="lazy">スティグマ シャード</span> for 1,500 (×35), <span class="it g71" data-sk="i:clashrune"><img src="../../assets/icons/items/clashrune.webp" width="20" height="20" alt="" loading="lazy">激突のルーン箱</span> for 500. Keep 14,000 for the statue.</li>      </ul>
       <h3 class="pg-h">遠征：Conquest、ドラウプニル</h3>
       <ul class="pg-list">
 <li><strong>保証の宝箱14回</strong>（プレミアムなら7回）まで周回する。1回ごとにオード エネルギー40。目標はドロップで金装備2つ、保証で3つ目。ヴォカルマ装備（<span class="it g41" data-sk="i:bakarma"><img src="../../assets/icons/items/bakarma.webp" width="20" height="20" alt="" loading="lazy">ヴォカルマのプレート</span>、ヘルム、ショルダー、グローブ、グリーブ、ブーツ）のうちどれにするかは自分で選べる。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=465s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 7:45</a></li><li>カオス エレシュランタ下層の<span class="it g71" data-sk="i:trace"><img src="../../assets/icons/items/trace.webp" width="20" height="20" alt="" loading="lazy">神の痕跡：アルトガルド</span>をすべて集める。モノリスの共鳴レベルで<span class="it g71" data-sk="i:dcrystal_azphel"><img src="../../assets/icons/items/dcrystal_azphel.webp" width="20" height="20" alt="" loading="lazy">ディーヴァニオン結晶：アスフェル</span>などのディーヴァニオン結晶が手に入る。</li><li>それでも足りない？<strong>Exploration: ドラウプニル</strong>を3回クリアすると金装備がもう1つ保証される。持っていない部位を選び、<span class="it g11" data-sk="i:mana_int"><img src="../../assets/icons/items/mana_int.webp" width="20" height="20" alt="" loading="lazy">中級魔石</span>を付ける。</li>      </ul>
@@ -227,6 +240,9 @@
         </table>
 <p class="pg-table-at"> <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=489s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 8:09</a></p>      </div>
       <p class="pg-p">加えて、武器に緑の神石を付ける（例：<span class="it g31" data-sk="i:theostone"><img src="../../assets/icons/items/theostone.webp" width="20" height="20" alt="" loading="lazy">神石：ユベントスの敏捷</span>）。地域クエストで1つもらえる。正しく進めれば、ちょうど1,400になる。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=507s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 8:27</a></p>
+      <h3 class="pg-h">Belt, amulet and Odyle energy</h3>
+      <ul class="pg-list">
+<li>Belt and amulet: green → blue in Substance Morph, then up to gold — a big jump in item level. Enhancing them eats enhancement stones: the enemy ? marks (through the Rift, every 3 hours) give 2,500 <span class="it g11" data-sk="i:enhance"><img src="../../assets/icons/items/enhance.webp" width="20" height="20" alt="" loading="lazy">強化石</span> each — see the table at the top. <a class="pg-at" href="https://www.youtube.com/watch?v=J8WVY3FxPQM&t=384s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ SywoGG 6:24</a></li><li>Spend Odyle energy with care: after each new piece enhance it, add manastones, check your item level, and only then decide where to go next — another run of the same dungeon or something you haven't done yet.</li>      </ul>
     </section>
     <section class="pg-sec has-gs" id="s1900" aria-labelledby="h-s1900">
 <span class="pg-gs" aria-hidden="true">1900</span>      <h2 id="h-s1900" class="section-title">1,900まで：バクロン</h2>
@@ -236,14 +252,18 @@
     <section class="pg-sec has-gs" id="s2100" aria-labelledby="h-s2100">
 <span class="pg-gs" aria-hidden="true">2100</span>      <h2 id="h-s2100" class="section-title">2,100まで：★2 超越</h2>
       <p class="pg-p">緑スロット2つ（ベルとミラー：<span class="it g21" data-sk="i:bell_green"><img src="../../assets/icons/items/bell_green.webp" width="20" height="20" alt="" loading="lazy">活力の鐘</span>、<span class="it g21" data-sk="i:mirror_green"><img src="../../assets/icons/items/mirror_green.webp" width="20" height="20" alt="" loading="lazy">魔力の鏡</span>、どちらもアイテムレベル40）が揃うまで★2 超越を周回する。残りのスロットは灰アルカナ（<span class="it g11" data-sk="i:compass_grey"><img src="../../assets/icons/items/compass_grey.webp" width="20" height="20" alt="" loading="lazy">魔力のコンパス</span>、<span class="it g11" data-sk="i:chalice_grey"><img src="../../assets/icons/items/chalice_grey.webp" width="20" height="20" alt="" loading="lazy">魔力の聖杯</span>、アイテムレベル20）で埋める。ボーナスはまだ気にしなくていい。必要なのはアイテムレベルだけ。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=597s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 9:57</a></p>
+      <ul class="pg-list">
+<li>Transcendence opens at 1,600. Five arcana slots: a grey card gives 20 item level, green 40, blue 60. A full green set is +200 (1,600 → 1,800), swapping it for blue is another +100. <a class="pg-at" href="https://www.youtube.com/watch?v=J8WVY3FxPQM&t=526s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ SywoGG 8:46</a></li>      </ul>
     </section>
     <section class="pg-sec has-gs" id="s2500" aria-labelledby="h-s2500">
 <span class="pg-gs" aria-hidden="true">2500</span>      <h2 id="h-s2500" class="section-title">2,500まで：獰猛な角岩窟</h2>
       <p class="pg-p">そのまま<strong>獰猛な角岩窟</strong>（RUコミュニティでは「犬」と呼ばれている）に行き、防具セットの大半が揃うまで居続ける。バクロンで付けた強化は装備移植(Gear Transfer)で新しい部位に移す。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=618s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 10:18</a></p>
+      <p class="pg-p">Fire Temple, the other dungeon of this tier, drops the weapon and accessories. <a class="pg-at" href="https://www.youtube.com/watch?v=J8WVY3FxPQM&t=676s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ SywoGG 11:16</a></p>
     </section>
     <section class="pg-sec has-gs" id="s2800" aria-labelledby="h-s2800">
 <span class="pg-gs" aria-hidden="true">2800</span>      <h2 id="h-s2800" class="section-title">2,800まで：金アルカナとレイド</h2>
       <p class="pg-p">★4 超越で金アルカナを周回し、PvEとPvPの構成に必要なスキルをロールする（例：<span class="it g41" data-sk="i:mirror_gold"><img src="../../assets/icons/items/mirror_gold.webp" width="20" height="20" alt="" loading="lazy">活力の鏡</span>を+5にして太初の活力セットと組み合わせる）。2,800で<strong>10人のドラゴンレイド</strong>が解放される。シーズン1で最も難しいPvEであり、次のアップデートに向けた資源の入手先でもある。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=630s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 10:30</a></p>
+      <p class="pg-p">From here +10–11 is not enough: gear goes past +15 towards +20, and above +15 that needs <span class="it g41" data-sk="i:amplify"><img src="../../assets/icons/items/amplify.webp" width="20" height="20" alt="" loading="lazy">突破石(唯一)</span>. Don't take all dungeon gear to +20 — crafted gear (item level 94 and 102 against 86 from drops) is what is worth +20 and fine-tuned manastones. <a class="pg-at" href="https://www.youtube.com/watch?v=J8WVY3FxPQM&t=692s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ SywoGG 11:32</a></p>
     </section>
     <section class="pg-sec" id="hardcore" aria-labelledby="h-hardcore">
       <h2 id="h-hardcore" class="section-title">ハードコア ルート：安い素体を強化してから移植する</h2>
@@ -254,7 +274,7 @@
       <h2 id="h-titan" class="section-title">TitanTheFのルート：アビス周回と製作武器</h2>
 <p class="pg-sec-src">出典: <a class="pg-at" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml#gid=53494555" target="_blank" rel="noopener" title="TitanTheF — AION 2 progression sheet">TitanTheF</a></p><p class="pg-lead">TitanTheFの進行表（台湾での経験）にある別のルート。ダンジョンの待ち時間が減り、アビスと製作が増える。プレイ時間がかなり必要。</p>      <h3 class="pg-h">45になった直後</h3>
       <ul class="pg-list">
-<li><strong>シューゴ フェスタはすべて参加する。</strong>Lv45になって初めて、金装備や製作素材を含む報酬をフルで受け取れる。グローバル版では<span class="it g71" data-sk="i:stigmashard"><img src="../../assets/icons/items/stigmashard.webp" width="20" height="20" alt="" loading="lazy">スティグマ シャード</span>も追加された。宝箱とジャンプのゲームを狙い、タイルのゲームは飛ばす。初心者に台無しにされる。</li><li><strong>マップを埋める</strong>：すべての?とたき火、緑のサイドクエストを消化し、途中で隠しキューブと羽を拾う。それが終わると、ディーヴァニオン ポイントは570のうち約<strong>420</strong>になるはず。残りはシューゴと悪夢で得る。羽で祭壇がLv30になり、称号がもらえる。</li><li>その後は3つのうち1つ：すべてのペットがLv3になるまでモンスターを倒す（ペットを全部合わせて戦闘力55k）、アビスに行く（同じペットと翼）、または<strong>ドラウプニルを3〜4回</strong>周回するパーティーを組む。TitanTheFが選ぶのはドラウプニル。最初の装備、ギーナ、強化が手に入る。</li><li>毎日の悪夢の入場回数を使い切る。白アルカナのために最初の超越を1回回せば十分で、2階を開けるだけでいい。T1ダンジョンの素材は相場を見て、シーズンショップ用にすべて拾っておく。</li><li>最初の数日の目標は、<strong>製作したT1武器</strong>のための資金を作ること。これが強化とステータスロールをする武器になる。</li>      </ul>
+<li><strong>シューゴ フェスタはすべて参加する。</strong>Lv45になって初めて、金装備や製作素材を含む報酬をフルで受け取れる。グローバル版では<span class="it g71" data-sk="i:stigmashard"><img src="../../assets/icons/items/stigmashard.webp" width="20" height="20" alt="" loading="lazy">スティグマ シャード</span>も追加された。宝箱とジャンプのゲームを狙い、タイルのゲームは飛ばす。初心者に台無しにされる。</li><li><strong>Clear the map</strong>: every ? and campfire, the green side quests, and pick up hidden cubes and feathers on the way. Together with your levels that is about <strong>316 of 570</strong> Daevanion points (levels 136, sealed dungeons 122, regional quests 58); Shugo and Nightmare add 50 each. Feathers take the altar to level 30 and give a title.</li><li>その後は3つのうち1つ：すべてのペットがLv3になるまでモンスターを倒す（ペットを全部合わせて戦闘力55k）、アビスに行く（同じペットと翼）、または<strong>ドラウプニルを3〜4回</strong>周回するパーティーを組む。TitanTheFが選ぶのはドラウプニル。最初の装備、ギーナ、強化が手に入る。</li><li>毎日の悪夢の入場回数を使い切る。白アルカナのために最初の超越を1回回せば十分で、2階を開けるだけでいい。T1ダンジョンの素材は相場を見て、シーズンショップ用にすべて拾っておく。</li><li>最初の数日の目標は、<strong>製作したT1武器</strong>のための資金を作ること。これが強化とステータスロールをする武器になる。</li>      </ul>
       <h3 class="pg-h">アビスの周回</h3>
       <ul class="pg-list">
 <li>サービス開始時は、ただ1か所に立っているだけではいけない。アビス拠点のNPCからクエストスクロールを買う。白から金まですべてで、約140万ギーナ。白、緑、青のクエストを消化する。</li><li>同じクエストをしているプレイヤーについていき、戦闘はスキップする。戦闘は報酬が少ない。クエストは金素材かPvPボード向けにリロールするが、通貨には気をつける。その後、中央の金クエスト、さらに脇の島で周回する。</li><li>2人1組で行こう。2人のほうがアビス ポイントと素材が多く手に入り、金装備は後で分ける。周回できない場合は、ワールドで同じクエストをやる。大きな街にはどこにも商人がいる。シューゴも忘れずに。</li><li><strong>ワールドボス</strong>をすべて1回ずつ倒す。ドロップのチャンスと参加称号がもらえる。タイマーはマップで確認でき、ほぼすべてのゾーンに1体いる。</li>      </ul>
@@ -284,8 +304,11 @@
 <li>スロット1〜4にある<strong>金の鍵</strong>付きの契約はすべて受ける。</li><li>鍵がない場合：強化石が足りないなら、石が最も多いもの。そうでなければ、虹などのペット石が最も多いもの。</li><li>リストの末尾にある金のアイテムや資源は、ほぼ必ず罠。飛ばす。</li>      </ul>
       <div class="callout pg-tip" role="note"><p><strong>隠しキューブ</strong>は1つにつき1,000クリスタルをくれる。通りかかったら必ず拾う。<strong>非刻印のギーナ</strong>は素材の購入用で、強化には使わない。 <a class="pg-at" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0C3iKFteGvIbgqNDnQq7bmwIaU23DvjbPa0HPSVAdOOiCeBkEq69Cn8jVMJhToJcztCRylYeTYfOk/pubhtml#gid=53494555" target="_blank" rel="noopener" title="TitanTheF — AION 2 progression sheet">TitanTheF</a></p></div>
       <div class="callout pg-tip" role="note"><p><strong>デイリーダンジョンと試練：</strong>サービス開始時に配られても、手を付けず、パスの箱も開けない。作り直しが予定されていて、報酬はスコア（討伐速度）で決まり、更新は週末にだけ行われる。そのときに最も強い状態で行く。週間のワールド報酬とアビス報酬も作り直し中なので、実際の数値を待つ。 <a class="pg-at" href="https://www.youtube.com/watch?v=a8zVweGN--4&t=921s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ 15:21</a></p></div>
+      <h3 class="pg-h">Where else combat power comes from</h3>
+      <ul class="pg-list">
+<li>Stigmas and their levels — the biggest single jump. <a class="pg-at" href="https://www.youtube.com/watch?v=J8WVY3FxPQM&t=800s" target="_blank" rel="noopener" title="動画の該当箇所を見る">▶ SywoGG 13:20</a></li><li>Soul Binding: reroll the stats on your weapon, guard and accessories towards better ones (for example Critical Hit → Attack Speed).</li><li>Offensive items past +15 — each step adds Attack %.</li><li>Titles, Pantheon decorations (Illusion and Wisdom have the best stats) and wings — Vakron or Nightmare wings are great.</li><li>Rerolling the stats on the Pet / Genus Insight branch, and fine-tuning manastones and soulstones towards offensive stats.</li><li>Weapon skins: dismantle them on alts and use Combine on your main — every weapon you unlock adds damage with that weapon type.</li>      </ul>
     </section>
-    <script type="application/json" id="sk-data">{"i:wings":{"n":"ディーヴァの最上級翼(刻印)","m":"","g":41,"d":"[ディーヴァの最上級翼(刻印)]を獲得します。\n\n[装着効果]\nHP：500\nMP：250\n貫通：500\nクリティカル：35\n[保有効果]\n飛行力：500\n貫通：100\n追加命中：20\n追加攻撃力：10","sp":[]},"i:bracelet":{"n":"覚醒のブレスレット","m":"アイテムレベル 51","g":41,"d":"防御力: 156\n攻撃力: 65","sp":[]},"i:trace":{"n":"神の痕跡：アルトガルド(刻印)","m":"","g":71,"d":"アルトガルドを守護する神たちの力が微かに残っている痕跡です。アルトガルドのモノリスに共鳴させることができます。","sp":[]},"i:dcrystal":{"n":"ディーヴァニオン結晶(刻印)","m":"","g":71,"d":"使用するとディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_ariel":{"n":"ディーヴァニオン結晶：アリエル(刻印)","m":"","g":71,"d":"使用するとアリエル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_azphel":{"n":"ディーヴァニオン結晶：アスフェル(刻印)","m":"","g":71,"d":"使用するとアスフェル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:wisdom":{"n":"知恵の石(刻印)","m":"","g":71,"d":"戦闘の記憶が宿る神秘的な石です。\n使用するとスキル ポイントを1獲得します。","sp":[]},"i:clashrune":{"n":"激突のルーン箱(刻印)","m":"","g":71,"d":"悪夢を克服した者だけが得られるルーンです。\n使用すると激突のルーン(刻印)とルーン強化スクロール(刻印)を獲得できます。","sp":[]},"i:beltscroll":{"n":"高潔のベルト強化スクロール(刻印)","m":"","g":11,"d":"古代の力が込められた強化スクロールです。\n高潔のベルトを強化できます。","sp":[]},"i:shugokey":{"n":"シューゴ フェスタ報酬の鍵(刻印)","m":"","g":71,"d":"シューゴ フェスタ報酬の鍵の回数を1回チャージします。","sp":[]},"i:bakarma":{"n":"ヴォカルマのプレート","m":"アイテムレベル 54","g":41,"d":"HP: 216\n防御力: 397","sp":[]},"i:voucher":{"n":"装備変更券：バクロンの空中島(刻印)","m":"","g":41,"d":"バクロンを倒して獲得した報酬です。\n物質変換の材料に使用すると、唯一級ガーダーまたは唯一級装備選択箱に変換できます。","sp":[]},"i:vakronguard":{"n":"バクロンのガーダー","m":"アイテムレベル 70","g":41,"d":"クリティカル: 50\n命中: 50\n攻撃力: 144","sp":[]},"i:mana_sup":{"n":"上級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_int":{"n":"中級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_less":{"n":"下級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:theostone":{"n":"神石：ユベントスの敏捷(刻印)","m":"","g":31,"d":"[神石：ユベントスの敏捷]を獲得します。\n獲得した神石は統合強化ウィンドウから確認できます。\n攻撃時に20%の確率で最大4体に広域風属性ダメージ250\n効果発動クールタイム：1秒\n同じ神石を複数着用時、1個の効果のみ適用されます。","sp":[]},"i:enhance":{"n":"強化石","m":"","g":11,"d":"装備の秘められた力を目覚めさせるのに使用されます。","sp":[]},"i:bell_green":{"n":"活力の鐘","m":"アイテムレベル 40 · セット: 太初の活力","g":21,"d":"Justice [ネザカン]: 12","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_green":{"n":"魔力の鏡","m":"アイテムレベル 40 · セット: 魔力鎧","g":21,"d":"Wisdom [ルミエル]: 12","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:compass_grey":{"n":"魔力のコンパス","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Death [トリニエル]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:chalice_grey":{"n":"魔力の聖杯","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Space [Israphel]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:mirror_gold":{"n":"活力の鏡","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Illusion [カイジネル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:transfer_w":{"n":"継承石：武器(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の武器に使用できます。","sp":[]},"i:transfer_a":{"n":"継承石：防具(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の防具に使用できます。","sp":[]},"i:stigmashard":{"n":"スティグマ シャード(刻印)","m":"","g":71,"d":"経験の精髄が封印された破片です。\n獲得時にスティグマ シャード ポイントの1ポイント獲得します。","sp":[]},"i:amplify":{"n":"突破石(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を引き出す神秘的な原石です。\n最大強化段階に達した唯一級の装備を突破する材料に使用されます。","sp":[]},"i:amplify_frag":{"n":"突破石の欠片(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を目覚めさせる時に使用する突破石の破片です。\n物質変換で突破石に変換できます。","sp":[]},"i:sync":{"n":"調律石(唯一)(刻印)","m":"","g":41,"d":"装備に宿る力を調律して、新しい可能性を目覚めさせる調律石です。\n[統合強化 - 魂刻印 - 調律]で装備に使用すると、オプションを調律できます。","sp":[]},"i:sapphire":{"n":"サファイアの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:ruby":{"n":"ルビーの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:odyle":{"n":"オード","m":"","g":11,"d":"アイテムにオードの力を吹き込むことができます。製作と物質変換の材料です。","sp":[]},"i:log":{"n":"ユグドラシルの木(刻印)","m":"","g":11,"d":"魔法の力が宿る木です。細工で木製武器を作る材料です。","sp":[]},"i:odyle_energy":{"n":"オード エネルギー(刻印)","m":"","g":71,"d":"オード エネルギーを40チャージします。\nオード エネルギーは遠征、超越、聖域の挑戦に成功した時に現れるオード エネルギー キューブを活性化するのに使用できます。","sp":[]},"i:ore":{"n":"オリハルコン鉱石","m":"","g":11,"d":"頑丈さを持つ鉱石です。鍛冶と防具製作の材料です。","sp":[]},"i:herb":{"n":"カレンドラ","m":"","g":11,"d":"薬草の葉です。錬金術でポーションを作る材料です。","sp":[]},"i:ingredient":{"n":"ククル","m":"","g":11,"d":"料理を作る材料です。","sp":[]},"i:parchment_vigor":{"n":"活力の羊皮紙","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Life [ユスティエル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:compass_vigor":{"n":"活力のコンパス","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:chalice_vigor":{"n":"活力の聖杯","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_magic_gold":{"n":"魔力の鏡","m":"アイテムレベル 80 · セット: 魔力鎧","g":41,"d":"Wisdom [ルミエル]: 20","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]}}</script>
+    <script type="application/json" id="sk-data">{"i:wings":{"n":"ディーヴァの最上級翼(刻印)","m":"","g":41,"d":"[ディーヴァの最上級翼(刻印)]を獲得します。\n\n[装着効果]\nHP：500\nMP：250\n貫通：500\nクリティカル：35\n[保有効果]\n飛行力：500\n貫通：100\n追加命中：20\n追加攻撃力：10","sp":[]},"i:bracelet":{"n":"覚醒のブレスレット","m":"アイテムレベル 51","g":41,"d":"防御力: 156\n攻撃力: 65","sp":[]},"i:trace":{"n":"神の痕跡：アルトガルド(刻印)","m":"","g":71,"d":"アルトガルドを守護する神たちの力が微かに残っている痕跡です。アルトガルドのモノリスに共鳴させることができます。","sp":[]},"i:dcrystal":{"n":"ディーヴァニオン結晶(刻印)","m":"","g":71,"d":"使用するとディーヴァニオン ポイントを1獲得します。","sp":[]},"i:dcrystal_azphel":{"n":"ディーヴァニオン結晶：アスフェル(刻印)","m":"","g":71,"d":"使用するとアスフェル ディーヴァニオン ポイントを1獲得します。","sp":[]},"i:wisdom":{"n":"知恵の石(刻印)","m":"","g":71,"d":"戦闘の記憶が宿る神秘的な石です。\n使用するとスキル ポイントを1獲得します。","sp":[]},"i:clashrune":{"n":"激突のルーン箱(刻印)","m":"","g":71,"d":"悪夢を克服した者だけが得られるルーンです。\n使用すると激突のルーン(刻印)とルーン強化スクロール(刻印)を獲得できます。","sp":[]},"i:beltscroll":{"n":"高潔のベルト強化スクロール(刻印)","m":"","g":11,"d":"古代の力が込められた強化スクロールです。\n高潔のベルトを強化できます。","sp":[]},"i:shugokey":{"n":"シューゴ フェスタ報酬の鍵(刻印)","m":"","g":71,"d":"シューゴ フェスタ報酬の鍵の回数を1回チャージします。","sp":[]},"i:shugocoin":{"n":"Centuryroot Token","m":"","g":11,"d":"Made by drying high quality centuryroot, this token is popular among Shugo as a collectable item. Can be used to purchase various items in the Shugo Festival Shop.","sp":[]},"i:nmcoin":{"n":"Phantasmal Fragment","m":"","g":11,"d":"A fragment of a dream corrupted by nightmarish horrors. Can be used to purchase various items in the Nightmare Shop.","sp":[]},"i:abysspts":{"n":"Abyss Points","m":"","g":11,"d":"A mark of honor won on the fields of a war without end.","sp":[]},"i:bakarma":{"n":"ヴォカルマのプレート","m":"アイテムレベル 54","g":41,"d":"HP: 216\n防御力: 397","sp":[]},"i:voucher":{"n":"装備変更券：バクロンの空中島(刻印)","m":"","g":41,"d":"バクロンを倒して獲得した報酬です。\n物質変換の材料に使用すると、唯一級ガーダーまたは唯一級装備選択箱に変換できます。","sp":[]},"i:vakronguard":{"n":"バクロンのガーダー","m":"アイテムレベル 70","g":41,"d":"クリティカル: 50\n命中: 50\n攻撃力: 144","sp":[]},"i:mana_sup":{"n":"上級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_int":{"n":"中級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:mana_less":{"n":"下級魔石(刻印)","m":"","g":11,"d":"すべての武器、防具の魔石スロットに刻印してステータスを付与できます。\n確率によってステータスの種類と数値が決まります。","sp":[]},"i:theostone":{"n":"神石：ユベントスの敏捷(刻印)","m":"","g":31,"d":"[神石：ユベントスの敏捷]を獲得します。\n獲得した神石は統合強化ウィンドウから確認できます。\n攻撃時に20%の確率で最大4体に広域風属性ダメージ250\n効果発動クールタイム：1秒\n同じ神石を複数着用時、1個の効果のみ適用されます。","sp":[]},"i:enhance":{"n":"強化石","m":"","g":11,"d":"装備の秘められた力を目覚めさせるのに使用されます。","sp":[]},"i:bell_green":{"n":"活力の鐘","m":"アイテムレベル 40 · セット: 太初の活力","g":21,"d":"Justice [ネザカン]: 12","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_green":{"n":"魔力の鏡","m":"アイテムレベル 40 · セット: 魔力鎧","g":21,"d":"Wisdom [ルミエル]: 12","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:compass_grey":{"n":"魔力のコンパス","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Death [トリニエル]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:chalice_grey":{"n":"魔力の聖杯","m":"アイテムレベル 20 · セット: 魔力鎧","g":11,"d":"Space [Israphel]: 8","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:mirror_gold":{"n":"活力の鏡","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Illusion [カイジネル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:transfer_w":{"n":"継承石：武器(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の武器に使用できます。","sp":[]},"i:transfer_a":{"n":"継承石：防具(唯一)(刻印)","m":"","g":41,"d":"装備に秘められた無限の力を、別の装備へ継承させる強大な力を持つ原石です。\n唯一級の防具に使用できます。","sp":[]},"i:stigmashard":{"n":"スティグマ シャード(刻印)","m":"","g":71,"d":"経験の精髄が封印された破片です。\n獲得時にスティグマ シャード ポイントの1ポイント獲得します。","sp":[]},"i:amplify":{"n":"突破石(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を引き出す神秘的な原石です。\n最大強化段階に達した唯一級の装備を突破する材料に使用されます。","sp":[]},"i:amplify_frag":{"n":"突破石の欠片(唯一)(刻印)","m":"","g":41,"d":"装備の固有能力を目覚めさせる時に使用する突破石の破片です。\n物質変換で突破石に変換できます。","sp":[]},"i:sync":{"n":"調律石(唯一)(刻印)","m":"","g":41,"d":"装備に宿る力を調律して、新しい可能性を目覚めさせる調律石です。\n[統合強化 - 魂刻印 - 調律]で装備に使用すると、オプションを調律できます。","sp":[]},"i:sapphire":{"n":"サファイアの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:ruby":{"n":"ルビーの原石(刻印)","m":"","g":11,"d":"高価な宝石が入っている原石です。装身具細工の材料です。","sp":[]},"i:odyle":{"n":"オード","m":"","g":11,"d":"アイテムにオードの力を吹き込むことができます。製作と物質変換の材料です。","sp":[]},"i:log":{"n":"ユグドラシルの木(刻印)","m":"","g":11,"d":"魔法の力が宿る木です。細工で木製武器を作る材料です。","sp":[]},"i:odyle_energy":{"n":"オード エネルギー(刻印)","m":"","g":71,"d":"オード エネルギーを40チャージします。\nオード エネルギーは遠征、超越、聖域の挑戦に成功した時に現れるオード エネルギー キューブを活性化するのに使用できます。","sp":[]},"i:ore":{"n":"オリハルコン鉱石","m":"","g":11,"d":"頑丈さを持つ鉱石です。鍛冶と防具製作の材料です。","sp":[]},"i:herb":{"n":"カレンドラ","m":"","g":11,"d":"薬草の葉です。錬金術でポーションを作る材料です。","sp":[]},"i:ingredient":{"n":"ククル","m":"","g":11,"d":"料理を作る材料です。","sp":[]},"i:parchment_vigor":{"n":"活力の羊皮紙","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"Life [ユスティエル]: 20","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:compass_vigor":{"n":"活力のコンパス","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:chalice_vigor":{"n":"活力の聖杯","m":"アイテムレベル 80 · セット: 太初の活力","g":41,"d":"","sp":[["2×","HPが70%以上の時にPvE攻撃力60増加"],["4×","HPが70%以上の時にPvE攻撃力150増加"]]},"i:mirror_magic_gold":{"n":"魔力の鏡","m":"アイテムレベル 80 · セット: 魔力鎧","g":41,"d":"Wisdom [ルミエル]: 20","sp":[["2×","MPが20%以下の時にMPを1,500回復[回復の再発動制限時間30秒]"],["4×","MPが50%以上の時にPvE防御力1,000増加"]]},"i:holyspirit_torso":{"n":"Holy Spirit Breastplate","m":"アイテムレベル 41","g":41,"d":"HP: 164\n防御力: 299","sp":[]},"i:spectral_torso":{"n":"Spectral Breastplate","m":"アイテムレベル 41","g":41,"d":"HP: 164\n防御力: 299","sp":[]}}</script>
 <p class="w1-cta"><a class="btn btn-primary" href="../../ja/week-1/">1週目チェックリストに戻る →</a></p>  </div>
   </div>
 </main>
@@ -295,14 +318,9 @@
     <div>
       <a class="brand brand-sm" href="../../ja/">AION 2 ガイド</a>
       <p>NCSOFTとは無関係の非公式ファンサイト。AION 2とそのスキルアイコンの著作権はNCSOFTに帰属する。</p>
-      <p>最終確認: 2026-10-04 (グローバル版ローンチ前).</p>
-      <p><a href="../../ja/sources/">すべての出典と配信者</a> · <a href="../../ja/changelog/">更新履歴</a> · <a class="report-link" href="https://github.com/watao56/aion2-HP/issues/new" target="_blank" rel="noopener" title="短いフォームが開く。メッセージはサイト作者に直接届く" data-body="ページ: {url}
-モード: {mode}
-
-間違っている点・古い点:
-
-出典または根拠（リンク、スクリーンショット）:
-" data-page="ja/progression/">誤りを報告</a></p>
+      <p class="foot-credit">Guides are collected from content creators — all credit goes to them; the site is put together with the help of Claude (AI).</p>
+      <p>最終確認: <time datetime="2026-10-10">2026年10月10日</time>.</p>
+      <p><a href="../../ja/sources/">すべての出典と配信者</a> · <a href="../../ja/changelog/">更新履歴</a> · <button type="button" class="link-btn report-open">誤りを報告</button></p>
     </div>
   </div>
 </footer>
@@ -317,7 +335,7 @@
     <ul class="search-res" role="listbox"></ul>
   </div>
 </dialog>
-<dialog class="whatsnew" data-id="2026-10-04" aria-labelledby="wn-title">
+<dialog class="whatsnew" data-id="2026-10-10-slider" aria-labelledby="wn-title">
   <form method="dialog" class="wn-in">
     <div class="wn-head">
       <h2 id="wn-title">更新情報</h2>
@@ -326,22 +344,38 @@
       </button>
     </div>
     <section class="wn-entry">
-      <time class="wn-date" datetime="2026-10-04">2026年10月4日</time>
+      <time class="wn-date" datetime="2026-10-10">2026年10月10日</time>
       <ul>
-        <li><span><strong>トルコ語版</strong>：サイト全体がトルコ語でも読めるようになった。ガイド、各ページ、トラッカーが対象。ウクライナ語ページと同じく、スキル名とアイテム名は英語のまま。翻訳はAIによるもので、誤りを見つけたら「誤りを報告」を使うかGitHubでissueを立ててほしい。</span></li>
+        <li><span><strong>Daevanion boards: a slider for the leveling path</strong> — drag the slider under a board tab to see the order to take the nodes in: first the guide's route, then the rest of the board (suggested by a site visitor).</span></li>
       </ul>
     </section>
     <button class="btn btn-primary wn-ok" value="close">閉じる</button>
     <p class="wn-all"><a href="../../ja/changelog/">更新履歴をすべて見る →</a></p>
   </form>
 </dialog>
-<script src="../../assets/js/site.js?v=16a30350" defer></script>
-<script src="../../assets/js/fx.js?v=16a30350" defer></script>
-<div class="cel-banner" role="status" hidden data-at="2026-09-30T14:00:00Z" data-id="early">
-  <span class="cel-ico" aria-hidden="true">✦</span>
-  <div><p class="cel-h">先行アクセス開始！</p><p class="cel-p">ファウンダーパックのサーバーが稼働中。初日の健闘を祈る。クラスガイドは準備できている。</p></div>
-  <button type="button" class="cel-x" aria-label="閉じる">×</button>
-</div>
-<script src="../../assets/js/celebrate.js?v=16a30350" defer></script>
+<dialog class="whatsnew feedback" aria-labelledby="fb-title" data-url="https://aion2-feedback.couga-ua.workers.dev/" data-page="ja/progression/" data-lang="ja">
+  <form class="wn-in fb-form" novalidate>
+    <div class="wn-head">
+      <h2 id="fb-title">誤りを報告</h2>
+      <button type="button" class="icon-btn fb-x" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="fb-hint">どこが間違っている、または古い？ 出典のリンクやスクリーンショットがあると助かる。</p>
+    <label class="fb-label" for="fb-text">メッセージ</label>
+    <textarea id="fb-text" class="fb-text" name="text" rows="6" maxlength="2000" required placeholder="例：グローバル版では炎爆発の3つ目の特化が違う…"></textarea>
+    <label class="fb-label" for="fb-contact">返信先の連絡先（任意）</label>
+    <input id="fb-contact" class="fb-contact" name="contact" type="text" maxlength="100" autocomplete="off" placeholder="DiscordまたはTelegram">
+    <input class="fb-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fb-meta">メッセージと一緒に送信される情報： <b class="fb-where"></b></p>
+    <p class="fb-status" role="status" data-sending="送信中…" data-ok="送信した。ありがとう！" data-err="送信できなかった。しばらくしてからもう一度試してほしい。" data-rate="連続送信が多すぎる。数分後にもう一度試してほしい。" data-short="まず少し書いてほしい。"></p>
+    <div class="fb-actions">
+      <button type="submit" class="btn btn-primary fb-send">送信</button>
+      <button type="button" class="btn btn-ghost fb-cancel">キャンセル</button>
+    </div>
+  </form>
+</dialog>
+<script src="../../assets/js/site.js?v=2b436859" defer></script>
+<script src="../../assets/js/fx.js?v=2b436859" defer></script>
 </body>
 </html>

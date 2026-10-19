@@ -1,4 +1,4 @@
-{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, dv_board with context %}
+{% from "macros.html" import section, skill, core, loadout, passives, glance, hotline, macroseq, hotbar, dv_board with context %}
 
 {# ============================== PvE ============================== #}
 {% call glance('pve') %}
@@ -26,7 +26,7 @@
     </ul>
     <p>Arthars'ın kararı: eğlenceli, yüksek beceri isteyen bir sınıf; aynı veya daha az hasar için Gladiator ya da Sorcerer'dan kat kat fazla emek ister. Rakamlar için değil, oyun tarzını sevdiğin için seç.</p>
   </div>
-  <p class="note">PvE modu, Arthars Gaming'in global çıkış için Assassin videosunu (30 Eylül, Tayvan sunucusunda kaydedildi) kare kare izliyor; videoda altyazı yok, bu yüzden metni sesten konuşma tanımayla alındı ve her ad ve sayı ekrana göre kontrol edildi. Seviye atlama TitanTheF'in tablosunu izliyor.</p>
+  <p class="note">PvE modu, Arthars Gaming'in global çıkış için Assassin videosunu (30 Eylül, Tayvan sunucusunda kaydedildi) kare kare izliyor; videoda altyazı yok, bu yüzden metni sesten konuşma tanımayla alındı ve her ad ve sayı ekrana göre kontrol edildi.</p>
 {% endcall %}
 
 {% call section('global', 'Global Season 1: neler değişiyor', 'pve pvp') %}
@@ -46,14 +46,14 @@
 {% call section('skills', 'Yetenekler', 'pve') %}
   <p>Yalnızca üç yetenek seviyesi önemli: <strong>12, 16 ve 20</strong>. Yetenek puanları 10, Daevanion +4, iki yüzük +2, arcana geri kalanını verir. Önce beş ana yeteneği <strong>16</strong>'ya çıkar, sonra Heart Gore ve Insignia Explosion'ı 20'ye it.</p>
   <ul class="skill-grid">
-    {% call skill('heart-gore', 'must', '16 → 20', [0, 4]) %}En önemli yeteneğin. 16 ister: bir kritik bekleme süresini sıfırlar, yoksa 5 saniye bekler. HP emme seni hayatta tutar; 20'de Multi-Hit ekle. Başta Critical Hit'in azsa emme yerine +%20 kritik seçimi bir seçenek.{% endcall %}
-    {% call skill('insignia-explosion', 'must', '16 → 20', [2, 4]) %}Hasarının diğer yarısı. −3 sn bekleme süresi ve her patlamadan sonra korunan iki Insignia — her hazır olduğunda bas, yük bekleme. 20'de Multi-Hit ekle.{% endcall %}
-    {% call skill('quick-slice', 'must', '16 → 20', [3, 4]) %}Her şeyin arasına ördüğün temel saldırı: garantili kritik ve vuruş başına Insignia Explosion'a −1 sn. 20'de üçüncü slot senin seçimin — HP emme veya Multi-Hit.{% endcall %}
+    {% call skill('heart-gore', 'must', '16 → 20', [0, 4], then=[3]) %}En önemli yeteneğin. 16 ister: bir kritik bekleme süresini sıfırlar, yoksa 5 saniye bekler. HP emme seni hayatta tutar; 20'de Multi-Hit ekle. Başta Critical Hit'in azsa emme yerine +%20 kritik seçimi bir seçenek.{% endcall %}
+    {% call skill('insignia-explosion', 'must', '16 → 20', [2, 4], then=[1]) %}Hasarının diğer yarısı. −3 sn bekleme süresi ve her patlamadan sonra korunan iki Insignia — her hazır olduğunda bas, yük bekleme. 20'de Multi-Hit ekle.{% endcall %}
+    {% call skill('quick-slice', 'must', '16 → 20', [3, 4], then=[2]) %}Her şeyin arasına ördüğün temel saldırı: garantili kritik ve vuruş başına Insignia Explosion'a −1 sn. 20'de üçüncü slot senin seçimin — HP emme veya Multi-Hit.{% endcall %}
     {% call skill('ambush', 'must', '16', [0, 4]) %}Heart Gore kapalıyken ilk dolgun: 16'da iki ek kullanım ve arkadan vuruş başına iki Insignia. 20'ye ulaşırsa HP emmeyi ekle.{% endcall %}
     {% call skill('storm-rampage', 'must', '16', [3, 4]) %}Diğer sınıflarda atlanabilir; burada değil. Boss stagger'dayken her vuruş tüm bekleme sürelerinden 1 sn düşer — bufflarını geri getirir ve bu sınıf buffsız hasar yapmaz.{% endcall %}
     {% call skill('defiance', 'opt', '12 → 16', [2, 3]) %}Kontrol kırıcı: 12'de iyileşme ve +2 sn Tenacity; 16'da iyileşmeyi hasar toleransıyla değiştir.{% endcall %}
     {% call skill('savage-roar', 'opt', '12', [1, 3]) %}Satırdaki son dolgu: daha hızlı ve her vuruş Shadowstrike'ı kısaltır. 12–16'dan fazlasına değmez.{% endcall %}
-    {% call skill('shadowstrike', 'opt', '12', [1]) %}Hedefin arkasına ışınlanma ve 5 sn boyunca +%20 Critical Damage — bir buff ve arkaya geçmenin en iyi yolu. Bekleme süresi dolunca harcamak yerine yeniden konumlanmak için sakla; diğer seçimler PvP için.{% endcall %}
+    {% call skill('shadowstrike', 'opt', '12', [1]) %}Hedefin arkasına ışınlanma ve 10 sn boyunca +%20 Critical Damage — bir buff ve arkaya geçmenin en iyi yolu. Bekleme süresi dolunca harcamak yerine yeniden konumlanmak için sakla; diğer seçimler PvP için.{% endcall %}
     {% call skill('flash-slice', 'opt', '12', [1, 3]) %}Hedefin arkasına geçmenin ikinci yolu: 10 m menzil ve iki kullanım.{% endcall %}
     {% call skill('infiltrate', 'opt', '12', [0, 1]) %}Kaçın → hedefin arkasına, ve stamina'yı geri öder. Devam zincirini asla alma.{% endcall %}
     {% call skill('whirlwind-slice', 'opt', '12', [0, 2]) %}Uzun menzilli mesafe kapatıcı. Kâğıt üzerinde sert vurur ama animasyonu uzun — rotasyonun parçası değil.{% endcall %}
@@ -147,6 +147,7 @@
     <li><strong>Hızlı erişim satırı</strong> — <em>tek</em> bir hızlı erişim düğmesine üst üste dizilmiş birkaç yetenek. Basınca hazır olan en yüksek öncelikli yeteneği kullanır ve AION 2'de <strong>en alttaki slot en yüksek önceliğe sahiptir</strong>. Kartlar her satırı oyundaki gibi yukarıdan aşağıya gösterir.</li>
     <li><strong>Oyun içi makro</strong> — tuşunu basılı tuttuğun sürece hızlı erişim düğmelerine sırayla basar ve animasyon kuyruklarını iptal eder. Bekleme süresindeki yetenekler atlanır.</li>
   </ul>
+  {{ hotbar([('N2', ['shadowstrike']), ('Yan', []), ('3', ['flash-slice']), ('4', []), None, ('5', []), ('N4', []), ('6', []), ('7', ['illusive-clone', 'swift-contract', 'savage-fang', 'triniels-dagger']), None, ('N1', ['whirlwind-slice', 'infiltrate', 'shadow-fall']), ('N5', ['storm-rampage']), ('1', ['quick-slice']), ('E', ['insignia-explosion', 'heart-gore', 'ambush', 'savage-roar'])], macro=['E', '1'], own_keys=true) }}
 
   <h3>1. Hızlı erişim satırları</h3>
   <div class="hotlines">
@@ -190,7 +191,7 @@
 {% endcall %}
 
 {% call section('macro-lvl', 'Seviye makrosu', 'lvl') %}
-  <p>Seviye atlarken, Heart Gore 16'ya ulaşmadan önce TitanTheF'in daha basit düzeni 1. seviyeden çalışır: orta fare tuşunda oyun içi makroda Insignia satırı, LMB'de Quick Slice ve Q'da Heart Gore. Mob farmı için Throw Shadowblade (2) ve RMB kullanıyor. 1–45 erken build: Quick Slice, Savage Roar, Insignia Explosion ve Heart Gore 12'ye, geri kalan her şey 8'e.</p>
+  <p>Seviye atlarken, Heart Gore 16'ya ulaşmadan önce daha basit bir düzen 1. seviyeden çalışır: orta fare tuşunda oyun içi makroda Insignia satırı, LMB'de Quick Slice ve Q'da Heart Gore. Mob farmı için Throw Shadowblade (2) ve RMB kullan. 1–45 erken build: Quick Slice, Savage Roar, Insignia Explosion ve Heart Gore 12'ye, geri kalan her şey 8'e.</p>
   <div class="hotlines">
     {{ hotline('MMB', 'Insignia satırı', ['insignia-explosion', 'whirlwind-slice', 'ambush', 'savage-roar']) }}
   </div>

@@ -16,16 +16,19 @@
 <meta name="theme-color" content="#0b0e14">
 <meta name="color-scheme" content="dark light">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="AION 2 Guides">
+<meta property="og:site_name" content="AION 2 Global - Guides">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="AION 2 class guides for global Season 1">
 <meta property="og:description" content="Compact AION 2 class guides for the global launch, gathered from creators&#39; builds: PvE and PvP builds, Daevanion, stigmas, arcana, macros and an interactive leveling checklist.">
 <meta property="og:url" content="https://watao56.github.io/aion2-HP/en/">
-<meta property="og:image" content="https://watao56.github.io/aion2-HP/assets/og/home-en.jpg?v=16a30350">
+<meta property="og:image" content="https://watao56.github.io/aion2-HP/assets/og/home-en.jpg?v=2b436859">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image"><link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="../assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&family=JetBrains+Mono:wght@500;700&display=swap&subset=cyrillic">
@@ -41,7 +44,7 @@
     else if (modes.indexOf(r.dataset.mode) < 0) r.dataset.mode = modes[0];
   })(document.documentElement);
 </script>
-<link rel="stylesheet" href="../assets/css/site.css?v=16a30350">
+<link rel="stylesheet" href="../assets/css/site.css?v=2b436859">
 </head>
 <body class="page-home">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -49,8 +52,7 @@
 <header class="topbar">
   <div class="topbar-in">
     <a class="brand" href="../en/">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg>
-      <span>AION 2 Guides</span>
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c1.8 4.6 5.6 7.2 12 8-4.4 2.2-6.8 5.6-7.4 10.6L16 29l-4.6-7.4C10.8 16.6 8.4 13.2 4 11c6.4-.8 10.2-3.4 12-8z" fill="currentColor"/></svg><span class="brand-text"><b>AION 2 Global</b><small><span class="sr-only"> - </span>Guides</small></span>
     </a>
     <details class="class-menu">
       <summary class="class-menu-btn">
@@ -83,13 +85,13 @@
         </a>
       </nav>
     </details>
-    <div class="topbar-tools">      <span class="rift-timer" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="Rift is open" title="Rift — portal to the enemy zone, opens every 3 hours; the entrance stays open for 10 minutes, inside you can stay about an hour. Next">
+    <div class="topbar-tools">      <span class="rift-timer is-away" data-anchor="2026-10-02T18:00:00Z" data-every="3" data-tz="Europe/Kyiv" data-open-min="10" data-open="Rift is open" title="Rift — portal to the enemy zone, opens every 3 hours; the entrance stays open for 10 minutes, inside you can stay about an hour. Next">
         <svg class="rt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="7.5" ry="10.5"/><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/><g transform="rotate(180 12 12)"><path d="M11 13C10.2 11.4 11.4 10 12.8 10.4C14.6 11 14.6 14 12.8 15.6C11.4 16.8 9.6 16.8 8.6 16"/><path d="M12.4 6.6C14.8 6.4 17 8.6 17 12"/></g></svg><span class="rt-name">Rift</span><b class="rt-time">--:--</b>
       </span>
-      <a class="wr-chip" href="../en/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="d,h,m,s" title="Weekly reset in">
+      <a class="wr-chip is-away" href="../en/weekly/" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-units="d,h,m,s" title="Weekly reset in">
         <svg class="wr-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="wr-name">Reset</span><b class="wr-time">--</b>
       </a>
-      <a class="top-timer is-away" href="../en/" title="Launch schedule" data-events='[{"at": "2026-09-28T13:00:00Z", "n": "Pre-download", "o": ""}, {"at": "2026-09-30T14:00:00Z", "n": "Early Access", "o": "Early Access is live"}, {"at": "2026-10-05T13:00:00Z", "n": "Global launch", "o": "Servers are open"}]' data-units="d,h,m,s" data-open="live">
+      <a class="top-timer is-away" href="../en/" title="Timers" data-events='[{"at": "2026-10-05T13:00:00Z", "n": "Global launch", "o": "Servers are open"}]' data-units="d,h,m,s" data-open="live">
         <span class="tt-dot" aria-hidden="true"></span><span class="tt-name"></span><b class="tt-time">--:--:--</b>
       </a>
       <details class="class-menu nav-menu">
@@ -116,6 +118,14 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
               <span class="nm-name">Game settings</span><span class="nm-desc">Controls, keys, FPS and mass PvP</span>
             </a>
+            <a href="../en/dungeons/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6a3 3 0 0 1 6 0v6"/></svg>
+              <span class="nm-name">Dungeons</span><span class="nm-desc">Boss mechanics with arena diagrams</span>
+            </a>
+            <a href="../en/tier-list/" class="nm-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4M4 12h4M4 19h4"/><path d="M11 5h9M11 12h6M11 19h3"/></svg>
+              <span class="nm-name">Tier list</span><span class="nm-desc">Classes ranked by content</span>
+            </a>
           </div>
           <div class="nm-col">
             <p class="nm-group">Trackers</p>
@@ -125,7 +135,7 @@
             </a>
             <a href="../en/bosses/" class="nm-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4.4 0-8 3.1-8 7.5 0 2.6 1.3 4.4 3 5.5V20h2v-2h2v2h2v-2h2v2h2v-4c1.7-1.1 3-2.9 3-5.5C20 6.1 16.4 3 12 3z"/><circle cx="9" cy="11" r="1.5"/><circle cx="15" cy="11" r="1.5"/></svg>
-              <span class="nm-name">Bosses</span><span class="nm-desc">Kill tracker and timers</span>
+              <span class="nm-name">World bosses</span><span class="nm-desc">Kill tracker and timers</span>
             </a>
           </div>
           <div class="nm-foot">
@@ -155,7 +165,6 @@
 
 <main id="main">
   <section class="home-hero" data-fx="aether">
-    <div class="cel-ribbon" aria-hidden="true"><span>Early Access is open · Founder&#39;s Pack · Welcome to Atreia · Early Access is open · Founder&#39;s Pack · Welcome to Atreia · Early Access is open · Founder&#39;s Pack · Welcome to Atreia · Early Access is open · Founder&#39;s Pack · Welcome to Atreia · </span></div>
     <div class="home-hero-art" aria-hidden="true">
       <img src="../assets/art/home-bg.webp" width="1920" height="1080" alt="" fetchpriority="high">
     </div>
@@ -163,7 +172,7 @@
       <div class="home-hero-text">
         <p class="kicker">Global Season 1</p>
         <h1>Class builds and guides, gathered in one place</h1>
-        <p class="lead">A digest of creators&#39; builds for PvE and PvP, plus a leveling checklist you can keep open on a second monitor. Every guide names its sources; skill data is taken from the global client, and each guide says where it still relies on Korean/Taiwanese experience.</p>
+        <p class="lead">Creators&#39; PvE and PvP builds in one place, plus a leveling checklist. Every guide names its sources and says where it still relies on Korean/Taiwanese experience.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#classes">Choose a class</a>
           <a class="btn btn-ghost" href="../en/week-1/">Your first week →</a>
@@ -171,34 +180,12 @@
       </div>
 
       <aside class="events" aria-labelledby="h-events" data-units="d,h,m,s" data-lang="en">
-        <h2 id="h-events" class="events-title">Launch schedule</h2>
+        <h2 id="h-events" class="events-title">Timers</h2>
         <ol class="ev-list">
-          <li class="ev ev-all is-ongoing" data-at="2026-09-28T13:00:00Z">
-            <div class="ev-head">
-              <span class="ev-name">Pre-download</span>
-            </div>
-            <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>d</i></span><span><b>--</b><i>h</i></span><span><b>--</b><i>m</i></span><span><b>--</b><i>s</i></span></div>
-            <div class="ev-done">Started</div>
-            <p class="ev-when">
-              <time datetime="2026-09-28T13:00:00Z">Sep 28 · 13:00 UTC</time>
-              <span class="ev-local"></span>
-            </p>
-          </li>
-          <li class="ev ev-founder" data-at="2026-09-30T14:00:00Z" data-celebrate>
-            <div class="ev-head">
-              <span class="ev-name">Early Access</span>
-<span class="ev-acc">Founder&#39;s Pack</span>            </div>
-            <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>d</i></span><span><b>--</b><i>h</i></span><span><b>--</b><i>m</i></span><span><b>--</b><i>s</i></span></div>
-            <div class="ev-done">Started</div>
-<div class="ev-open-msg">Servers are open</div>            <p class="ev-when">
-              <time datetime="2026-09-30T14:00:00Z">Sep 30 · 14:00 UTC</time>
-              <span class="ev-local"></span>
-<span class="ev-note ev-delayed">delayed</span>            </p>
-          </li>
-          <li class="ev ev-all" data-at="2026-10-05T13:00:00Z">
+          <li class="ev ev-all is-ongoing" data-at="2026-10-05T13:00:00Z">
             <div class="ev-head">
               <span class="ev-name">Global launch</span>
-<span class="ev-acc">Free · all players</span>            </div>
+            </div>
             <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>d</i></span><span><b>--</b><i>h</i></span><span><b>--</b><i>m</i></span><span><b>--</b><i>s</i></span></div>
             <div class="ev-done">Started</div>
             <p class="ev-when">
@@ -206,10 +193,37 @@
               <span class="ev-local"></span>
             </p>
           </li>
+          <li class="ev ev-cycle ev-rift" data-cycle="rift" data-anchor="2026-10-02T18:00:00Z" data-tz="Europe/Kyiv" data-every="3" data-open-min="10">
+            <div class="ev-head">
+              <span class="ev-name">Rift</span>
+              <span class="ev-acc">every 3 h · open 10 min</span>
+            </div>
+            <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>d</i></span><span><b>--</b><i>h</i></span><span><b>--</b><i>m</i></span><span><b>--</b><i>s</i></span></div>
+<div class="ev-open-msg">Rift is open</div>            <p class="ev-when"><time></time></p>
+          </li>
+          <li class="ev ev-cycle ev-reset" data-cycle="weekly_reset" data-anchor="2026-09-30T07:00:00Z" data-tz="Europe/Kyiv" data-every="168" data-open-min="0">
+            <div class="ev-head">
+              <span class="ev-name"><a href="../en/weekly/">Weekly reset</a></span>
+              <span class="ev-acc">every week</span>
+            </div>
+            <div class="ev-timer" aria-hidden="true"><span><b>--</b><i>d</i></span><span><b>--</b><i>h</i></span><span><b>--</b><i>m</i></span><span><b>--</b><i>s</i></span></div>
+            <p class="ev-when"><time></time></p>
+          </li>
         </ol>
       </aside>
     </div>
-  </section>
+  </section><div class="wrap">
+    <p class="credit-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.6 1-1.1a5.5 5.5 0 0 0 0-7.7z"/></svg><span>Every guide here comes from content creators — each page links its sources, and all credit goes to them. I only collect, check and organise their guides with the help of Claude (AI). <a href="../en/sources/">All sources and creators →</a></span></p>
+  </div><div class="wrap spot-grid">
+    <a class="spot spot-dungeons" href="../en/dungeons/">
+      <span class="spot-art" aria-hidden="true"><svg class="dz" viewBox="0 0 200 200" role="img" aria-label="Krao Cave: hide behind the rocks"><defs><marker id="dz-ar-krao-rocks" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="dz-ah"/></marker></defs><circle cx="100" cy="100" r="88" class="dz-floor"/><circle cx="100" cy="100" r="88" class="dz-bad-soft"/><path d="M162.4 85.6L162.4 114.4L181.7 126.9L181.7 73.1z" class="dz-safe"/><rect x="150.0" y="92.0" width="16" height="16" rx="4" class="dz-rock" transform="rotate(45 158.0 100.0)"/><circle cx="176.0" cy="100.0" r="5" class="dz-p"/><path d="M114.4 162.4L85.6 162.4L73.1 181.7L126.9 181.7z" class="dz-safe"/><rect x="92.0" y="150.0" width="16" height="16" rx="4" class="dz-rock" transform="rotate(45 100.0 158.0)"/><circle cx="100.0" cy="176.0" r="5" class="dz-p"/><path d="M37.6 114.4L37.6 85.6L18.3 73.1L18.3 126.9z" class="dz-safe"/><rect x="34.0" y="92.0" width="16" height="16" rx="4" class="dz-rock" transform="rotate(45 42.0 100.0)"/><circle cx="24.0" cy="100.00000000000001" r="5" class="dz-p"/><path d="M85.6 37.6L114.4 37.6L126.9 18.3L73.1 18.3z" class="dz-safe"/><rect x="92.0" y="34.0" width="16" height="16" rx="4" class="dz-rock" transform="rotate(45 100.0 42.0)"/><circle cx="99.99999999999999" cy="24.0" r="5" class="dz-p"/><path d="M111.3 111.3L156.6 156.6" class="dz-beam"/><path d="M88.7 111.3L43.4 156.6" class="dz-beam"/><path d="M88.7 88.7L43.4 43.4" class="dz-beam"/><path d="M111.3 88.7L156.6 43.4" class="dz-beam"/><circle cx="100" cy="100" r="11" class="dz-boss"/><path d="M96 99l4-5 4 5-4 6z" class="dz-boss-in"/></svg></span>
+      <span class="spot-body"><span class="spot-kicker">Boss mechanics with arena diagrams</span><span class="spot-title">Dungeon bosses →</span><span class="spot-text">The mechanics that wipe a group, boss by boss, with arena diagrams.</span></span>
+    </a>
+    <a class="spot spot-tier" href="../en/tier-list/">
+      <span class="spot-art spot-emblems" aria-hidden="true"><img src="../assets/classes/gladiator.webp" width="40" height="40" alt="" loading="lazy"><img src="../assets/classes/ranger.webp" width="40" height="40" alt="" loading="lazy"><img src="../assets/classes/templar.webp" width="40" height="40" alt="" loading="lazy"><img src="../assets/classes/assassin.webp" width="40" height="40" alt="" loading="lazy"></span>
+      <span class="spot-body"><span class="spot-kicker">Classes ranked by content</span><span class="spot-title">Class tier list →</span><span class="spot-text">Several creators&#39; tier lists side by side, by kind of content — and the average of them.</span></span>
+    </a>
+  </div>
 
   <section class="wrap" id="classes" aria-labelledby="h-classes">
     <h2 id="h-classes" class="section-title">Classes</h2>
@@ -218,7 +232,7 @@
 <a class="class-card-link" href="gladiator/">          <img class="class-card-art" src="../assets/art/gladiator.webp" alt="" loading="lazy" style="object-position:40% 8%">
           <img class="class-emblem" src="../assets/classes/gladiator.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">Updated <time datetime="2026-10-03">Oct 3, 2026</time></span>            <h3>Gladiator</h3>
+<span class="class-status">Updated <time datetime="2026-10-09">Oct 9, 2026</time></span>            <h3>Gladiator</h3>
             <p class="class-role">Melee DPS · bruiser · Greatsword</p>
 <p class="class-pitch">Front-loaded damage, a pseudo-tank toolkit and near-permanent cooldowns off one stigma.</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">PvP</span><span class="chip">Leveling</span></span>
@@ -232,7 +246,7 @@
 <a class="class-card-link" href="ranger/">          <img class="class-card-art" src="../assets/art/ranger.webp" alt="" loading="lazy" style="object-position:28% 6%">
           <img class="class-emblem" src="../assets/classes/ranger.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">Updated <time datetime="2026-10-03">Oct 3, 2026</time></span>            <h3>Ranger</h3>
+<span class="class-status">Updated <time datetime="2026-10-10">Oct 10, 2026</time></span>            <h3>Ranger</h3>
             <p class="class-role">Ranged DPS · kiter · Bow</p>
 <p class="class-pitch">20-metre burst built on buffs, charged Deadshots and bleeds — and the best zoning tools in PvP.</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">Leveling</span></span>
@@ -246,7 +260,7 @@
 <a class="class-card-link" href="templar/">          <img class="class-card-art" src="../assets/art/templar.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/templar.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">Updated <time datetime="2026-10-03">Oct 3, 2026</time></span>            <h3>Templar</h3>
+<span class="class-status">Updated <time datetime="2026-10-07">Oct 7, 2026</time></span>            <h3>Templar</h3>
             <p class="class-role">Tank · party buffer · Sword &amp; shield</p>
 <p class="class-pitch">The main tank: blocks buff the whole party, Judgment turns every shield skill into damage, and more crowd control than anyone in PvP.</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">PvP</span><span class="chip">Leveling</span></span>
@@ -260,7 +274,7 @@
 <a class="class-card-link" href="assassin/">          <img class="class-card-art" src="../assets/art/assassin.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/assassin.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">Updated <time datetime="2026-10-03">Oct 3, 2026</time></span>            <h3>Assassin</h3>
+<span class="class-status">Updated <time datetime="2026-10-07">Oct 7, 2026</time></span>            <h3>Assassin</h3>
             <p class="class-role">Melee DPS · burst · Daggers</p>
 <p class="class-pitch">Insignia stacks, crits that fire Heart Gore and a clone that removes its cooldown — the highest burst in melee, if you stay behind the target.</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">Leveling</span></span>
@@ -274,7 +288,7 @@
 <a class="class-card-link" href="sorcerer/">          <img class="class-card-art" src="../assets/art/sorcerer.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/sorcerer.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">Updated <time datetime="2026-10-03">Oct 3, 2026</time></span>            <h3>Sorcerer</h3>
+<span class="class-status">Updated <time datetime="2026-10-06">Oct 6, 2026</time></span>            <h3>Sorcerer</h3>
             <p class="class-role">Ranged magic DPS · Spellbook</p>
 <p class="class-pitch">A glass-cannon caster that mixes fire and ice: Fire Mark and Blaze for damage, Frost and roots for control, and huge burst behind Element Enhancement.</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">Leveling</span></span>
@@ -288,7 +302,7 @@
 <a class="class-card-link" href="elementalist/">          <img class="class-card-art" src="../assets/art/elementalist.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/elementalist.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">Updated <time datetime="2026-10-03">Oct 3, 2026</time></span>            <h3>Elementalist</h3>
+<span class="class-status">Updated <time datetime="2026-10-09">Oct 9, 2026</time></span>            <h3>Elementalist</h3>
             <p class="class-role">Summoner · magic DPS · Orb</p>
 <p class="class-pitch">The only summoner: spirits of fire, water, earth and wind fight for you, every spirit skill charges Elemental Fusion, and curses tick on the target.</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">PvP</span><span class="chip">Leveling</span></span>
@@ -302,10 +316,10 @@
 <a class="class-card-link" href="cleric/">          <img class="class-card-art" src="../assets/art/cleric.webp" alt="" loading="lazy" style="object-position:37% 8%">
           <img class="class-emblem" src="../assets/classes/cleric.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">Updated <time datetime="2026-10-03">Oct 3, 2026</time></span>            <h3>Cleric</h3>
+<span class="class-status">Updated <time datetime="2026-10-08">Oct 8, 2026</time></span>            <h3>Cleric</h3>
             <p class="class-role">Healer · earth and lightning damage · Mace</p>
 <p class="class-pitch">The healer who levels by hitting: Chain of Torment marks the target, Condemnation punishes it, and every hit heals the party.</p>            <div class="class-meta">
-              <span class="chips"><span class="chip">PvE</span><span class="chip">Leveling</span></span>
+              <span class="chips"><span class="chip">PvE</span><span class="chip">PvP</span><span class="chip">Leveling</span></span>
               <span class="diff" title="Difficulty: Medium">
 <i class="on"></i><i class="on"></i><i class=""></i>                <span>Medium</span>
               </span>
@@ -316,7 +330,7 @@
 <a class="class-card-link" href="chanter/">          <img class="class-card-art" src="../assets/art/chanter.webp" alt="" loading="lazy">
           <img class="class-emblem" src="../assets/classes/chanter.webp" width="72" height="72" alt="" loading="lazy">
           <div class="class-card-body">
-<span class="class-status">Updated <time datetime="2026-10-03">Oct 3, 2026</time></span>            <h3>Chanter</h3>
+<span class="class-status">Updated <time datetime="2026-10-07">Oct 7, 2026</time></span>            <h3>Chanter</h3>
             <p class="class-role">Melee support · buffer · Staff</p>
 <p class="class-pitch">A staff fighter who buffs the whole party: mantras for damage and speed, Power of the Storm for cooldowns, and a Dark Crush combo that still hits hard.</p>            <div class="class-meta">
               <span class="chips"><span class="chip">PvE</span><span class="chip">Leveling</span></span>
@@ -353,16 +367,11 @@
 <footer class="site-footer">
   <div class="wrap footer-in">
     <div>
-      <a class="brand brand-sm" href="../en/">AION 2 Guides</a>
+      <a class="brand brand-sm" href="../en/">AION 2 Global - Guides</a>
       <p>Unofficial fan site, not affiliated with NCSOFT. AION 2 and its skill icons are © NCSOFT.</p>
-      <p>Last checked: 2026-10-04 (before the global launch).</p>
-      <p><a href="../en/sources/">All sources and creators</a> · <a href="../en/changelog/">Changelog</a> · <a class="report-link" href="https://github.com/watao56/aion2-HP/issues/new" target="_blank" rel="noopener" title="Opens a short form — the message goes straight to the site author" data-body="Page: {url}
-Mode: {mode}
-
-What is wrong / outdated:
-
-Source or proof (link, screenshot):
-" data-page="en/">Report a mistake</a></p>
+      <p class="foot-credit">Guides are collected from content creators — all credit goes to them; the site is put together with the help of Claude (AI).</p>
+      <p>Last checked: <time datetime="2026-10-10">Oct 10, 2026</time>.</p>
+      <p><a href="../en/sources/">All sources and creators</a> · <a href="../en/changelog/">Changelog</a> · <button type="button" class="link-btn report-open">Send feedback</button></p>
     </div>
   </div>
 </footer>
@@ -377,7 +386,7 @@ Source or proof (link, screenshot):
     <ul class="search-res" role="listbox"></ul>
   </div>
 </dialog>
-<dialog class="whatsnew" data-id="2026-10-04" aria-labelledby="wn-title">
+<dialog class="whatsnew" data-id="2026-10-10-slider" aria-labelledby="wn-title">
   <form method="dialog" class="wn-in">
     <div class="wn-head">
       <h2 id="wn-title">What&#39;s new</h2>
@@ -386,22 +395,38 @@ Source or proof (link, screenshot):
       </button>
     </div>
     <section class="wn-entry">
-      <time class="wn-date" datetime="2026-10-04">Oct 4, 2026</time>
+      <time class="wn-date" datetime="2026-10-10">Oct 10, 2026</time>
       <ul>
-        <li><span><strong>Turkish version</strong> — the whole site is now also in Turkish: guides, pages and trackers. As on the Ukrainian pages, skill and item names stay in English. The translation is made with AI — if you spot a mistake, use "Report a mistake" or open an issue on GitHub.</span></li>
+        <li><span><strong>Daevanion boards: a slider for the leveling path</strong> — drag the slider under a board tab to see the order to take the nodes in: first the guide's route, then the rest of the board (suggested by a site visitor).</span></li>
       </ul>
     </section>
     <button class="btn btn-primary wn-ok" value="close">Got it</button>
     <p class="wn-all"><a href="../en/changelog/">Full changelog →</a></p>
   </form>
 </dialog>
-<script src="../assets/js/site.js?v=16a30350" defer></script>
-<script src="../assets/js/fx.js?v=16a30350" defer></script>
-<div class="cel-banner" role="status" hidden data-at="2026-09-30T14:00:00Z" data-id="early">
-  <span class="cel-ico" aria-hidden="true">✦</span>
-  <div><p class="cel-h">Early Access is open!</p><p class="cel-p">Founder&#39;s Pack servers are live — good luck on day one. Your class guides are ready.</p></div>
-  <button type="button" class="cel-x" aria-label="Close">×</button>
-</div>
-<script src="../assets/js/celebrate.js?v=16a30350" defer></script>
+<dialog class="whatsnew feedback" aria-labelledby="fb-title" data-url="https://aion2-feedback.couga-ua.workers.dev/" data-page="en/" data-lang="en">
+  <form class="wn-in fb-form" novalidate>
+    <div class="wn-head">
+      <h2 id="fb-title">Send feedback</h2>
+      <button type="button" class="icon-btn fb-x" aria-label="Got it">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="fb-hint">What is wrong or outdated, or which guide should be added? A link to a source or a screenshot helps a lot.</p>
+    <label class="fb-label" for="fb-text">Your message</label>
+    <textarea id="fb-text" class="fb-text" name="text" rows="6" maxlength="2000" required placeholder="For example: the third Blaze specialization is different on global…"></textarea>
+    <label class="fb-label" for="fb-contact">Contact for a reply (optional)</label>
+    <input id="fb-contact" class="fb-contact" name="contact" type="text" maxlength="100" autocomplete="off" placeholder="Discord or Telegram">
+    <input class="fb-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fb-meta">Sent together with the message: <b class="fb-where"></b></p>
+    <p class="fb-status" role="status" data-sending="Sending…" data-ok="Sent — thank you!" data-err="Could not send. Please try again later." data-rate="Too many messages in a row — try again in a few minutes." data-short="Write a few words first."></p>
+    <div class="fb-actions">
+      <button type="submit" class="btn btn-primary fb-send">Send</button>
+      <button type="button" class="btn btn-ghost fb-cancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+<script src="../assets/js/site.js?v=2b436859" defer></script>
+<script src="../assets/js/fx.js?v=2b436859" defer></script>
 </body>
 </html>

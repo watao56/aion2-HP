@@ -51,6 +51,18 @@
   </aside>
 
   <main id="main" class="guide">
+    {#- Suggest box at the top of every guide: opens the feedback form. Modes still built on Korean guides and classes
+        without a PvP guide ask for a global source. -#}
+    {% set off = cls.get('modes_off', []) %}
+    <div class="suggest-box" role="note">
+      <svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v6M9 10h6"/></svg>
+      <div class="sg-text">
+        <p>{{ t.sg_text }}</p>
+        {% for m, v in cls.get('src', {}).items() if m not in off and ('(KR' in v[0] or m in cls.get('wip_modes', [])) %}<p class="sg-extra" data-only="{{ m }}">{{ t.sg_kr }}</p>{% endfor %}
+        {% if 'pvp' in off %}<p class="sg-extra">{{ t.sg_nopvp }}</p>{% endif %}
+      </div>
+      {% if SITE.get('feedback_url') %}<button type="button" class="btn btn-primary btn-sm report-open">{{ t.sg_btn }}</button>{% else %}<a class="btn btn-primary btn-sm report-link" href="{{ SITE.repo }}/issues/new" target="_blank" rel="noopener" data-body="{{ t.report_body }}" data-page="{{ lang }}/{{ path }}">{{ t.sg_btn }}</a>{% endif %}
+    </div>
     <section id="progress" class="g-section tracker" data-only="lvl" data-class="{{ cls.slug }}" aria-labelledby="h-progress">
       <div class="sec-head"><span class="sec-num" aria-hidden="true"></span><h2 id="h-progress">{{ t.lvl_progress }}</h2></div>
       <div class="tracker-bar">
@@ -88,6 +100,22 @@
 
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
       {{ t.report }}{% if SITE.get('feedback_url') %}</button>{% else %}</a>{% endif %}</p>
+    {%- if cls.slug == 'cleric' %}
+    {#- Easter egg: the site author's main. A faint star under the guide opens the screenshot. -#}
+    <button type="button" class="egg-star" aria-label="{{ t.egg_hint }}" title="{{ t.egg_hint }}">✦</button>
+    <dialog class="egg-dlg" aria-labelledby="egg-title">
+      <div class="wn-in">
+        <div class="wn-head">
+          <h2 id="egg-title">{{ t.egg_title }}</h2>
+          <button type="button" class="icon-btn egg-x" aria-label="{{ t.cel_close }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <img class="egg-img" src="{{ root }}assets/art/egg-cleric.webp" width="1200" height="675" alt="Mimisaki" loading="lazy">
+        <p class="egg-cap">{{ cls.name[lang] }} — {{ t.egg_text }}.<br><b>Mimisaki</b> · {{ t.egg_faction }} · {{ t.egg_server }}</p>
+      </div>
+    </dialog>
+    {%- endif %}
     <script type="application/json" id="sk-data" data-cd="{{ t.tip_cd }}" data-s="{{ t.tip_s }}" data-active="{{ t.tip_cat.active }}" data-stigma="{{ t.tip_cat.stigma }}" data-passive="{{ t.tip_cat.passive }}">{{ tooltip_json(cls.slug, lang) }}</script>
   </main>
 </div>

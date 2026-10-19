@@ -134,33 +134,6 @@
       "set": null
     }
   },
-  "dcrystal_ariel": {
-    "id": "531900011",
-    "grade": 71,
-    "cat": "getpoint",
-    "icon": "dcrystal_ariel.webp",
-    "en": "Daevanion Crystal: Ariel (Bound)",
-    "tip_en": {
-      "desc": "Use to obtain 1 Ariel Daevanion Point.",
-      "il": null,
-      "stats": [],
-      "set": null
-    },
-    "ru": "Кристалл Даэваниона: Ариэль (привяз.)",
-    "tip_ru": {
-      "desc": "Дает 1 очко Даэваниона Ариэль.",
-      "il": null,
-      "stats": [],
-      "set": null
-    },
-    "ja": "ディーヴァニオン結晶：アリエル(刻印)",
-    "tip_ja": {
-      "desc": "使用するとアリエル ディーヴァニオン ポイントを1獲得します。",
-      "il": null,
-      "stats": [],
-      "set": null
-    }
-  },
   "dcrystal_azphel": {
     "id": "531900012",
     "grade": 71,
@@ -291,6 +264,66 @@
     "ja": "シューゴ フェスタ報酬の鍵(刻印)",
     "tip_ja": {
       "desc": "シューゴ フェスタ報酬の鍵の回数を1回チャージします。",
+      "il": null,
+      "stats": [],
+      "set": null
+    }
+  },
+  "shugocoin": {
+    "id": "930100011",
+    "grade": 11,
+    "cat": "currency",
+    "icon": "shugocoin.webp",
+    "en": "Centuryroot Token",
+    "tip_en": {
+      "desc": "Made by drying high quality centuryroot, this token is popular among Shugo as a collectable item. Can be used to purchase various items in the Shugo Festival Shop.",
+      "il": null,
+      "stats": [],
+      "set": null
+    },
+    "ru": "Жетон столетнего женьшеня",
+    "tip_ru": {
+      "desc": "Предмет коллекционирования шиго, изготовленный из хорошо высушенного столетнего женьшеня высокого качества. В магазине Фестиваля шиго за них можно приобрести различные товары.",
+      "il": null,
+      "stats": [],
+      "set": null
+    }
+  },
+  "nmcoin": {
+    "id": "930100017",
+    "grade": 11,
+    "cat": "currency",
+    "icon": "nmcoin.webp",
+    "en": "Phantasmal Fragment",
+    "tip_en": {
+      "desc": "A fragment of a dream corrupted by nightmarish horrors. Can be used to purchase various items in the Nightmare Shop.",
+      "il": null,
+      "stats": [],
+      "set": null
+    },
+    "ru": "Осколок видения",
+    "tip_ru": {
+      "desc": "Осколок сна, пропитанный кошмаром. В магазине Кошмаров за них можно приобрести различные товары.",
+      "il": null,
+      "stats": [],
+      "set": null
+    }
+  },
+  "abysspts": {
+    "id": "930100003",
+    "grade": 11,
+    "cat": "currency",
+    "icon": "abysspts.webp",
+    "en": "Abyss Points",
+    "tip_en": {
+      "desc": "A mark of honor won on the fields of a war without end.",
+      "il": null,
+      "stats": [],
+      "set": null
+    },
+    "ru": "Очки Бездны",
+    "tip_ru": {
+      "desc": "Символ славы, завоеванной в нескончаемых ожесточенных сражениях.",
       "il": null,
       "stats": [],
       "set": null
@@ -618,7 +651,7 @@
         ]
       ],
       "set": {
-        "name": "Первозданная витальность",
+        "name": "Рождение жизни",
         "bonus": [
           [
             2,
@@ -930,7 +963,7 @@
         ]
       ],
       "set": {
-        "name": "Первозданная витальность",
+        "name": "Рождение жизни",
         "bonus": [
           [
             2,
@@ -1115,9 +1148,9 @@
       "stats": [],
       "set": null
     },
-    "ru": "Камень налаживания (уникальный) (привяз.)",
+    "ru": "Камень гармонии (уникальный) (привяз.)",
     "tip_ru": {
-      "desc": "Камень налаживания, пробуждающий новые свойства снаряжения путем преобразования его внутренней силы.\nВ меню [Усиление — Привязка души — Налаживание] можно наладить опции.",
+      "desc": "Камень гармонии, пробуждающий новые свойства снаряжения путем преобразования его внутренней силы.\nВ меню [Усиление — Привязка души — Налаживание] можно наладить опции.",
       "il": null,
       "stats": [],
       "set": null
@@ -1386,7 +1419,7 @@
         ]
       ],
       "set": {
-        "name": "Первозданная витальность",
+        "name": "Рождение жизни",
         "bonus": [
           [
             2,
@@ -1464,7 +1497,7 @@
         ]
       ],
       "set": {
-        "name": "Первозданная витальность",
+        "name": "Рождение жизни",
         "bonus": [
           [
             2,
@@ -1542,7 +1575,7 @@
         ]
       ],
       "set": {
-        "name": "Первозданная витальность",
+        "name": "Рождение жизни",
         "bonus": [
           [
             2,
@@ -1656,6 +1689,82 @@
           ]
         ]
       }
+    }
+  },
+  "holyspirit_torso": {
+    "id": "210130002",
+    "grade": 41,
+    "cat": "torso",
+    "icon": "holyspirit_torso.webp",
+    "en": "Holy Spirit Breastplate",
+    "tip_en": {
+      "desc": "",
+      "il": 41,
+      "stats": [
+        [
+          "hpmax",
+          164
+        ],
+        [
+          "armordefense",
+          299
+        ]
+      ],
+      "set": null
+    },
+    "ru": "Нагрудник святого духа",
+    "tip_ru": {
+      "desc": "",
+      "il": 41,
+      "stats": [
+        [
+          "hpmax",
+          164
+        ],
+        [
+          "armordefense",
+          299
+        ]
+      ],
+      "set": null
+    }
+  },
+  "spectral_torso": {
+    "id": "210130006",
+    "grade": 41,
+    "cat": "torso",
+    "icon": "spectral_torso.webp",
+    "en": "Spectral Breastplate",
+    "tip_en": {
+      "desc": "",
+      "il": 41,
+      "stats": [
+        [
+          "hpmax",
+          164
+        ],
+        [
+          "armordefense",
+          299
+        ]
+      ],
+      "set": null
+    },
+    "ru": "Нагрудник спектра",
+    "tip_ru": {
+      "desc": "",
+      "il": 41,
+      "stats": [
+        [
+          "hpmax",
+          164
+        ],
+        [
+          "armordefense",
+          299
+        ]
+      ],
+      "set": null
     }
   }
 }

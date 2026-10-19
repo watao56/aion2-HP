@@ -149,6 +149,14 @@
     });
   }
 
+  // ---- easter egg (Cleric guide): the star under the guide opens the author's main ----
+  var egg = document.querySelector('.egg-dlg'), eggStar = document.querySelector('.egg-star');
+  if (egg && eggStar && typeof egg.showModal === 'function') {
+    eggStar.addEventListener('click', function () { egg.showModal(); });
+    egg.addEventListener('click', function (ev) { if (ev.target === egg) egg.close(); });
+    egg.querySelector('.egg-x').addEventListener('click', function () { egg.close(); });
+  }
+
   // ---- "Report a mistake": a form sent to the site owner (Telegram, through the Worker in site.json) ----
   var fb = document.querySelector('.feedback');
   if (fb && typeof fb.showModal === 'function') {
@@ -211,7 +219,7 @@
       var now = Date.now(), next = null, live = null;
       ttList.forEach(function (e) {
         if (!next && e.at > now) next = e;
-        if (e.o && e.at <= now && now < e.at + 864e5) live = e;   // open for less than a day
+        if (e.o && e.at <= now && now < e.at + 2 * 864e5) live = e;   // 'open' for two days, then the chip goes away
       });
       topTimer.classList.toggle('is-live', !!live);
       if (live) {
@@ -230,17 +238,19 @@
       setTimeout(ttTick, 1000 - (Date.now() % 1000));
     };
     ttTick();
-    // Home: the schedule panel already shows the timers, so the chip appears only when the panel scrolls away.
-    var ttPanel = document.querySelector('.events');
-    if (ttPanel && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        var on = entries[0].isIntersecting;
-        topTimer.classList.toggle('is-away', on);
-        root.classList.toggle('tt-panel', on);
-      }, { rootMargin: '-56px 0px 0px 0px' }).observe(ttPanel);
-    } else {
-      topTimer.classList.remove('is-away');
-    }
+  }
+  // Home: the timers panel already shows the launch, Rift and reset timers, so the top bar chips appear only when
+  // the panel scrolls away.
+  var ttChips = [].slice.call(document.querySelectorAll('.top-timer, .rift-timer, .wr-chip'));
+  var ttPanel = document.querySelector('.events');
+  if (ttPanel && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      var on = entries[0].isIntersecting;
+      ttChips.forEach(function (c) { c.classList.toggle('is-away', on); });
+      root.classList.toggle('tt-panel', on);
+    }, { rootMargin: '-56px 0px 0px 0px' }).observe(ttPanel);
+  } else {
+    ttChips.forEach(function (c) { c.classList.remove('is-away'); });
   }
 
   // ---- Rift countdown in the top bar (every page): openings every N hours from the anchor, at the same
@@ -333,6 +343,7 @@
       evs.forEach(function (e) {
         var ms = e.at - now;
         e.li.classList.toggle('is-done', ms <= 0);
+        if (ms < -2 * 864e5) { e.li.hidden = true; return; }   // two days after it started the card leaves the panel
         e.li.classList.remove('is-next');
         if (ms <= 0) return;
         if (!next) next = e;
@@ -345,7 +356,82 @@
       }
     };
     tick();
+
+    // Repeating timers (Rift, weekly reset): the next occurrence every N hours from the anchor, at the same
+    // wall-clock hour in tz across daylight saving — the same rule as the top bar chips.
+    [].slice.call(evBox.querySelectorAll('.ev-cycle')).forEach(function (li) {
+      var anchor = Date.parse(li.dataset.anchor), every = (+li.dataset.every || 168) * 36e5, openMs = (+li.dataset.openMin || 0) * 6e4;
+      var cells = li.querySelectorAll('.ev-timer b'), when = li.querySelector('.ev-when time'), zf = null, lf = null;
+      try { zf = new Intl.DateTimeFormat('en-US', { timeZone: li.dataset.tz, hourCycle: 'h23', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' }); } catch (err) {}
+      try { lf = new Intl.DateTimeFormat(({ ru: 'ru-RU', uk: 'uk-UA', tr: 'tr-TR' })[evBox.dataset.lang] || 'en-GB', { weekday: 'short', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }); } catch (err) {}
+      var off = function (t) {
+        if (!zf) return 0;
+        var p = {};
+        zf.formatToParts(new Date(t)).forEach(function (x) { p[x.type] = +x.value; });
+        return Date.UTC(p.year, p.month - 1, p.day, p.hour % 24, p.minute, p.second) - Math.floor(t / 1000) * 1000;
+      };
+      var off0 = off(anchor);
+      var at = function (k) { var t = anchor + k * every; return t + off0 - off(t); };
+      var ctick = function () {
+        var now = Date.now(), k = Math.max(0, Math.floor((now - anchor) / every) - 1), next;
+        while ((next = at(k)) <= now) k++;
+        var shut = openMs && k > 0 ? at(k - 1) + openMs : 0, open = now < shut;   // the Rift entrance stays open a few minutes
+        li.classList.toggle('is-open', open);
+        var ms = (open ? shut : next) - now;
+        var v = [Math.floor(ms / 864e5), Math.floor(ms / 36e5) % 24, Math.floor(ms / 6e4) % 60, Math.floor(ms / 1e3) % 60];
+        for (var i = 0; i < 4; i++) cells[i].textContent = i ? pad(v[i]) : v[i];
+        if (when && lf) when.textContent = lf.format(next);
+        setTimeout(ctick, 1000 - (Date.now() % 1000));
+      };
+      ctick();
+    });
   }
+
+  // ---- page tabs (templates/tabs.html): show one data-tab-panel, slide the gold indicator, open the tab of a #link ----
+  [].forEach.call(document.querySelectorAll('.page-tabs'), function (bar) {
+    var tabs = [].slice.call(bar.querySelectorAll('.pt-tab')), ind = bar.querySelector('.pt-ind');
+    var panels = [].slice.call(document.querySelectorAll('[data-tab-panel]'));
+    var place = function () {
+      var on = tabs.filter(function (x) { return x.getAttribute('aria-selected') === 'true'; })[0];
+      if (!on || !ind) return;
+      ind.style.width = on.offsetWidth + 'px';
+      ind.style.transform = 'translateX(' + on.offsetLeft + 'px)';
+      if (bar.scrollWidth > bar.clientWidth) on.scrollIntoView({ block: 'nearest', inline: 'center' });
+    };
+    var show = function (id) {
+      tabs.forEach(function (x) { x.setAttribute('aria-selected', x.dataset.tab === id ? 'true' : 'false'); });
+      panels.forEach(function (p) { p.hidden = p.dataset.tabPanel !== id; });
+      place();
+    };
+    tabs.forEach(function (x) {
+      x.addEventListener('click', function () {
+        show(x.dataset.tab);
+        // a shorter panel must not drop the reader to the footer: keep the tabs at the top of the screen
+        var top = bar.getBoundingClientRect().top;
+        if (top < 0) window.scrollTo({ top: top + window.pageYOffset - 80, behavior: 'smooth' });
+      });
+      x.addEventListener('keydown', function (e) {   // arrow keys move between tabs
+        var i = tabs.indexOf(x) + (e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0);
+        if (i !== tabs.indexOf(x) && tabs[i]) { e.preventDefault(); tabs[i].focus(); show(tabs[i].dataset.tab); }
+      });
+    });
+    var fromHash = function () {
+      var el = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      var p = el && el.closest('[data-tab-panel]');
+      if (p) { show(p.dataset.tabPanel); el.scrollIntoView(); }
+    };
+    window.addEventListener('hashchange', fromHash);
+    window.addEventListener('resize', place);
+    // remember the last tab of this page in this browser (a #link still wins)
+    var key = 'tab:' + location.pathname.replace(/^.*?\/(?:en|ru|uk|tr)\//, '');
+    var saved = null;
+    try { saved = localStorage.getItem(key); } catch (err) {}
+    if (saved && tabs.some(function (x) { return x.dataset.tab === saved; })) show(saved);
+    tabs.forEach(function (x) { x.addEventListener('click', function () { try { localStorage.setItem(key, x.dataset.tab); } catch (err) {} }); });
+    fromHash();
+    place();
+    requestAnimationFrame(function () { bar.classList.add('is-ready'); });   // no slide on first paint
+  });
 
   // ---- tooltips: hover (or tap) any skill name or icon, or an item on the progression page ---------------------
   var skEl = document.getElementById('sk-data');
@@ -407,6 +493,36 @@
         document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
       });
     }
+    // slider: light up the nodes (and links) whose running crystal total fits
+    var panels = [].slice.call(box.querySelectorAll('.dvb-panel'));
+    function setBoard(panel, v) {
+      var range = panel.querySelector('[data-dvb-range]');
+      range.value = v;
+      v = +range.value;
+      panel.querySelector('[data-dvb-v]').textContent = v;
+      range.style.setProperty('--p', (v / +range.max * 100) + '%');
+      [].forEach.call(panel.querySelectorAll('.dvb-n:not(.start), .dvb-svg line'), function (el) {
+        el.classList.toggle('on', +el.getAttribute('data-c') <= v);
+      });
+      var reset = panel.querySelector('[data-dvb-reset]');
+      if (reset) reset.disabled = v === +reset.getAttribute('data-dvb-reset');
+      var tab = document.getElementById(panel.getAttribute('aria-labelledby'));
+      var t = tab && tab.querySelector('[data-dvb-t]');
+      if (t) t.textContent = v;
+    }
+    panels.forEach(function (panel) {
+      var range = panel.querySelector('[data-dvb-range]');
+      if (!range) return;
+      range.addEventListener('input', function () { setBoard(panel, range.value); });
+      var reset = panel.querySelector('[data-dvb-reset]');
+      // back to the guide's route (the value the page opened with)
+      if (reset) reset.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        setBoard(panel, reset.getAttribute('data-dvb-reset'));
+        range.focus();
+      });
+      range.style.setProperty('--p', (+range.value / +range.max * 100) + '%');
+    });
     tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function () { pick(tab); });
       tab.addEventListener('keydown', function (ev) {

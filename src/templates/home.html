@@ -24,6 +24,19 @@
         <h2 id="h-events" class="events-title">{{ t.events_title }}</h2>
         <ol class="ev-list">
           {% for ev in SITE.events %}
+          {% if ev.get('cycle') %}
+          {#- Repeating timer: the next Rift opening or weekly reset, same rules as the top bar chips (site.js). -#}
+          {% set C = SITE[ev.cycle] %}
+          <li class="ev ev-cycle ev-{{ ev.id }}" data-cycle="{{ ev.cycle }}" data-anchor="{{ C.anchor }}" data-tz="{{ C.tz }}" data-every="{{ C.get('every_h', 168) }}" data-open-min="{{ C.get('open_min', 0) }}">
+            <div class="ev-head">
+              <span class="ev-name">{% if ev.get('href') %}<a href="{{ root }}{{ lang }}/{{ ev.href }}">{{ t['ev_' ~ ev.id] }}</a>{% else %}{{ t['ev_' ~ ev.id] }}{% endif %}</span>
+              <span class="ev-acc">{{ t['ev_' ~ ev.id ~ '_note'] }}</span>
+            </div>
+            <div class="ev-timer" aria-hidden="true">{% for u in t.units %}<span><b>--</b><i>{{ u }}</i></span>{% endfor %}</div>
+            {% if ev.cycle == 'rift' %}<div class="ev-open-msg">{{ t.rift_open }}</div>{% endif %}
+            <p class="ev-when"><time></time></p>
+          </li>
+          {% else %}
           <li class="ev ev-{{ ev.access }}{% if ev.get('ongoing') %} is-ongoing{% endif %}"{% if ev.at %} data-at="{{ ev.at }}"{% endif %}{% if ev.get('celebrate') %} data-celebrate{% endif %}>
             <div class="ev-head">
               <span class="ev-name">{{ t['ev_' ~ ev.id] }}</span>
@@ -43,11 +56,29 @@
             <p class="ev-tba">{{ t.ev_tba }}</p>
             {% endif %}
           </li>
+          {% endif %}
           {% endfor %}
         </ol>
       </aside>
     </div>
   </section>
+
+  {#- Who made the guides: creators first, the site only collects them. -#}
+  <div class="wrap">
+    <p class="credit-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.6 1-1.1a5.5 5.5 0 0 0 0-7.7z"/></svg><span>{{ t.credit }} <a href="{{ root }}{{ lang }}/sources/">{{ t.src_all }} →</a></span></p>
+  </div>
+
+  {#- Spotlight: the guide pages people look for after launch (dungeon bosses first). -#}
+  <div class="wrap spot-grid">
+    <a class="spot spot-dungeons" href="{{ root }}{{ lang }}/dungeons/">
+      <span class="spot-art" aria-hidden="true">{% include 'diagrams/krao-rocks.svg' %}</span>
+      <span class="spot-body"><span class="spot-kicker">{{ t.nd_dungeons }}</span><span class="spot-title">{{ t.dg_h1 }} →</span><span class="spot-text">{{ t.dg_lead }}</span></span>
+    </a>
+    <a class="spot spot-tier" href="{{ root }}{{ lang }}/tier-list/">
+      <span class="spot-art spot-emblems" aria-hidden="true">{% for c in classes[:4] %}<img src="{{ root }}assets/classes/{{ c.slug }}.webp" width="40" height="40" alt="" loading="lazy">{% endfor %}</span>
+      <span class="spot-body"><span class="spot-kicker">{{ t.nd_tier }}</span><span class="spot-title">{{ t.tl_h1 }} →</span><span class="spot-text">{{ t.tl_lead }}</span></span>
+    </a>
+  </div>
 
   <section class="wrap" id="classes" aria-labelledby="h-classes">
     <h2 id="h-classes" class="section-title">{{ t.classes }}</h2>
@@ -72,6 +103,7 @@
             {% endif %}
           </div>
         {% if c.status == 'ready' %}</a>{% else %}</div>{% endif %}
+        {% if c.slug == SITE.get('author_main') %}<span class="my-pick" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.6 1.3 5.3 3.2 1.7-1.9 3.1-3.2 5.3-3.2 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="my-pick-tip"><b>{{ t.my_pick }}</b>{{ t.my_pick_note }}</span></span>{% endif %}
         {% if c.status == 'ready' %}<div class="pop-art" aria-hidden="true"><img src="{{ root }}assets/art/{{ c.slug }}.webp" alt="" loading="lazy"{% if c.get('art_pos') or c.get('art_up') %} style="{% if c.get('art_pos') %}--fx:{{ c.art_pos.split()[0] }};{% endif %}{% if c.get('art_up') %}--fy:{{ c.art_up }};{% endif %}"{% endif %}></div>{% endif %}
       </li>
     {% endmacro %}

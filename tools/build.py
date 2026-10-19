@@ -11,6 +11,7 @@ Inputs:
   src/assets/                       css, js, icons (copied as-is)
 """
 import json
+import re
 import shutil
 from pathlib import Path
 from urllib.parse import urlparse
@@ -39,6 +40,9 @@ BOSSES = load(DATA / "bosses.json")
 PROGRESSION = load(DATA / "progression.json")
 CRAFTING = load(DATA / "crafting.json")
 SETTINGS = load(DATA / "settings.json")
+DUNGEONS = load(DATA / "dungeons.json")          # dungeon guides: our text
+DUNGEONS_DB = load(DATA / "dungeons_db.json")    # dungeon and boss names from questlog (tools/fetch_dungeons.py)
+TIERS = load(DATA / "tierlist.json")
 BOARDS = {p.stem: load(p) for p in (DATA / "boards").glob("*.json") if p.stem != "presets"}
 BOARD_PRESETS = load(DATA / "boards" / "presets.json")
 ITEMS = load(DATA / "items.json")
@@ -71,7 +75,7 @@ def _game_lang(x, mapping):
             _game_lang(v, mapping)
 
 
-for _data in (SKILLS, ITEMS, BOARDS, BOSSES):
+for _data in (SKILLS, ITEMS, BOARDS, BOSSES, DUNGEONS_DB):
     _game_lang(_data, DATA_LANG)
     _game_lang(_data, GAME_FALLBACK)
 
@@ -92,7 +96,7 @@ def _text_fallback(x):
             _text_fallback(v)
 
 
-for _data in (SITE, SOURCES, WEEKLY, CHANGELOG, WEEK1, PROGRESSION, CRAFTING, SETTINGS):
+for _data in (SITE, SOURCES, WEEKLY, CHANGELOG, WEEK1, PROGRESSION, CRAFTING, SETTINGS, DUNGEONS, TIERS):
     _text_fallback(_data)
 for _lang, _src in TEXT_FALLBACK.items():
     I18N[_lang] = {**I18N[_src], **I18N.get(_lang, {})}
@@ -192,36 +196,79 @@ def watch_for(cls, lang, limit=3):
     return (authors + streamers + fill)[:limit]
 
 
-def board_route(board, targets):
-    """Cheapest connected set of nodes from Start that includes every target (targets taken nearest-first,
-    so shared path segments are reused). Node weight = its Daevanion point cost."""
+# The board slider past the guide's route: paths to what the build uses come first - the glance core skills and key
+# passives, then the other skills on the guide's cards, then the damage / speed orange nodes, then any other skill or
+# passive; plain stats only on the way, then Attack / Critical Hit, defense (and the tolerance / resist orange nodes
+# in PvE), MP last.
+ATTACK_STATS = {"pve": {"fixingdamage", "critical"}, "pvp": {"pvpadddamage", "pvpcritical", "pvpaccuracy", "fixingdamage", "critical"}}
+DEFENSE_STATS = {"hpmax", "defense", "criticalresist", "pvpdamagedefense", "pvpcriticalresist", "pvpevasion"}
+ORANGE_GUARD = {"decreasedamage", "decreasecriticaldamage", "additionalhitresistrate"}
+
+
+def board_order(board, targets, mode, prefer=(), used=()):
+    """board_order_once with and without the preference for useful nodes on the way: the cheaper route wins, on a
+    tie the one with more useful nodes (the route is built nearest target first, so a different tie can change its
+    total by a crystal or two)."""
+    cost = {n["id"]: n["cost"] or 0 for n in board["nodes"]}
+    tries = [board_order_once(board, targets, mode, prefer, used, g) for g in (True, False)]
+    return min(tries, key=lambda t: (sum(cost[x] for x in t[0][:t[1]]), -t[2]))[:2]
+
+
+def board_order_once(board, targets, mode, prefer, used, use_gain):
+    """Every node of the board in the order to take it: first the route to the guide's targets (the cheapest
+    connected path from Start, nearest target first), then the tiers above (what the build uses first, plain stats last).
+    Between paths of the same cost it takes the one that passes more useful nodes on the way (`prefer` = the
+    guide's skills and key passives, then other skills and passives, then Attack / Critical Hit), so the result
+    is the same on every build."""
     import heapq
     pos = {(n["row"], n["col"]): n for n in board["nodes"]}
     by_id = {n["id"]: n for n in board["nodes"]}
     start = next(n for n in board["nodes"] if n["auto"])
-    taken, left = {start["id"]}, set(targets)
+    taken, order = {start["id"]}, []
+    stats = lambda n: {e.get("statName") for e in n["raw"] or [] if e["type"] == "stat"}
+    gain = {n["id"]: 0 if not use_gain else 3 if n["skill"] in prefer else 1 if n["skill"] else
+            0.5 if stats(n) & {"fixingdamage", "critical"} else 0 for n in board["nodes"]}
 
     def near(n):
         return [pos[k] for k in ((n["row"] + 1, n["col"]), (n["row"] - 1, n["col"]), (n["row"], n["col"] + 1), (n["row"], n["col"] - 1)) if k in pos]
-    while left:
-        dist, prev, pq = {i: 0 for i in taken}, {}, [(0, i) for i in taken]
-        while pq:
-            c, i = heapq.heappop(pq)
-            if c > dist[i]:
-                continue
-            for m in near(by_id[i]):
-                if c + (m["cost"] or 0) < dist.get(m["id"], 1e9):
-                    dist[m["id"]], prev[m["id"]] = c + (m["cost"] or 0), i
-                    heapq.heappush(pq, (dist[m["id"]], m["id"]))
-        reach = [t for t in left if t in dist]
-        if not reach:
-            break
-        t = min(reach, key=lambda x: dist[x])
-        while t not in taken:
-            taken.add(t)
-            t = prev[t]
-        left -= taken                 # the target and any others picked up on its path
-    return taken
+
+    def route(tier):
+        left = set(tier) - taken
+        while left:
+            # distance = (crystals, -useful nodes on the way): the cheapest path, and of those the most useful one
+            dist, prev, pq = {i: (0, 0) for i in taken}, {}, [((0, 0), i) for i in taken]
+            while pq:
+                c, i = heapq.heappop(pq)
+                if c > dist[i]:
+                    continue
+                for m in near(by_id[i]):
+                    d = (c[0] + (m["cost"] or 0), c[1] - gain[m["id"]])
+                    if d < dist.get(m["id"], (1e9, 0)):
+                        dist[m["id"]], prev[m["id"]] = d, i
+                        heapq.heappush(pq, (d, m["id"]))
+            reach = [t for t in left if t in dist]
+            if not reach:
+                break
+            t = min(reach, key=lambda x: (dist[x], x))
+            path = []
+            while t not in taken:
+                path.append(t)
+                t = prev[t]
+            for i in reversed(path):
+                taken.add(i)
+                order.append(i)
+            left -= taken
+
+    route(targets)
+    k = len(order)                    # the guide's route ends here
+    useful = sum(gain[x] for x in order)
+    guard = lambda n: n["grade"] == 41 and mode != "pvp" and stats(n) & ORANGE_GUARD
+    for tier in (lambda n: n["skill"] in prefer, lambda n: n["skill"] in used,
+                 lambda n: n["grade"] == 41 and not guard(n), lambda n: n["skill"],
+                 lambda n: stats(n) & ATTACK_STATS["pvp" if mode == "pvp" else "pve"],
+                 lambda n: stats(n) & DEFENSE_STATS or guard(n), lambda n: True):
+        route([n["id"] for n in board["nodes"] if tier(n)])
+    return order, k, useful
 
 
 # Board stats stored in 1/100 of a percent (150 -> 1.5%); the rest are flat values.
@@ -255,6 +302,22 @@ def board_tips(cls_slug, lang):
     return out
 
 
+def guide_skills(cls_slug, mode):
+    """(core skills and key passives of the guide's 'Build at a glance', skills on its cards that are not 'skip')
+    for one mode."""
+    import ast
+    import re
+    text = (SRC / "content" / cls_slug / "en.html").read_text(encoding="utf-8")
+    g = re.search(r"\{%\s*call glance\('" + mode + r"'\)\s*%\}(.*?)\{%\s*endcall", text, re.S)
+    glance, cards = set(), set()
+    for m in re.finditer(r"(core|passives)\((\[.*?\])\)", g.group(1) if g else "", re.S):
+        glance.update(x[0] if isinstance(x, tuple) else x for x in ast.literal_eval(m.group(2)))
+    for sec in re.finditer(r"\{%\s*call section\('[^']*',\s*[^,]+,\s*'([^']*)'\)\s*%\}(.*?)(?=\{%\s*call section\(|\Z)", text, re.S):
+        if mode in sec.group(1).split():
+            cards.update(m.group(1) for m in re.finditer(r"call skill\('([\w-]+)',\s*'(?!skip')", sec.group(2)))
+    return glance, cards
+
+
 @pass_context
 def board_view(ctx, cls_slug, mode):
     """One Daevanion route (data/boards/presets.json -> mode) on every board of the class, for the static board macro."""
@@ -262,6 +325,8 @@ def board_view(ctx, cls_slug, mode):
     skills = SKILLS[cls_slug]
     preset = BOARD_PRESETS[cls_slug][mode]
     out, total, levels, focus = [], 0, {}, set()
+    glance, cards = guide_skills(cls_slug, mode)
+    prefer = glance | {sk for r in preset.values() if isinstance(r, dict) for sk in r.get("skills", [])}
     for i, b in enumerate(BOARDS[cls_slug]["boards"]):
         rule = preset[str(i)] if str(i) in preset else preset.get("*")
         targets = []
@@ -272,7 +337,12 @@ def board_view(ctx, cls_slug, mode):
                 sp and n["grade"] == 41 and (sp is True or any(e.get("statName") in sp for e in n["raw"] or [])))]
         if not rule and preset.get("_hide_empty"):
             continue
-        taken = board_route(b, targets)
+        order, k = board_order(b, targets, "pvp" if mode == "pvp" else "pve", prefer, cards)
+        taken = {n["id"] for n in b["nodes"] if n["auto"]} | set(order[:k])   # the guide's route = the first k nodes
+        cum, run = {}, 0                  # running crystal total in the order -> the slider lights nodes up to it
+        for i in order:
+            run += next(n["cost"] or 0 for n in b["nodes"] if n["id"] == i)
+            cum[i] = run
         r0, c0 = min(n["row"] for n in b["nodes"]), min(n["col"] for n in b["nodes"])      # crop empty rows / columns
         rows, cols = max(n["row"] for n in b["nodes"]) - r0 + 1, max(n["col"] for n in b["nodes"]) - c0 + 1
         pos = {(n["row"], n["col"]): n for n in b["nodes"]}
@@ -285,12 +355,12 @@ def board_view(ctx, cls_slug, mode):
                 levels[sk] = levels.get(sk, 0) + 1
             nodes.append({"x": (n["col"] - c0 + 0.5) / cols * 100, "y": (n["row"] - r0 + 0.5) / rows * 100, "g": n["grade"], "on": on,
                           "start": n["auto"], "skill": sk, "tip": sk or board_tip_key(n), "icon": f'assets/icons/{cls_slug}/{skills[sk]["icon"]}' if sk else None,
-                          "name": skills[sk][lang]["name"] if sk else n["name"][lang], "cost": n["cost"] or 0})
+                          "name": skills[sk][lang]["name"] if sk else n["name"][lang], "cost": n["cost"] or 0, "cum": cum.get(n["id"], 0)})
             for d in ((0, 1), (1, 0)):
                 m = pos.get((n["row"] + d[0], n["col"] + d[1]))
                 if m:
                     lines.append({"x1": n["col"] - c0 + 0.5, "y1": n["row"] - r0 + 0.5, "x2": m["col"] - c0 + 0.5, "y2": m["row"] - r0 + 0.5,
-                                  "on": on and m["id"] in taken})
+                                  "on": on and m["id"] in taken, "a": cum.get(n["id"], 0), "b": cum.get(m["id"], 0)})
         total += cost
         out.append({"id": b["id"], "name": b["name"][lang], "lv": b["needLevel"], "rows": rows, "cols": cols, "cost": cost,
                     "max": sum(n["cost"] or 0 for n in b["nodes"]), "nodes": nodes, "lines": lines})
@@ -430,7 +500,7 @@ def env():
         lstrip_blocks=True,
         extensions=["jinja2.ext.do"],
     )
-    e.globals.update(chips=chips, ASSET_V=asset_version(), tooltip_json=tooltip_json, CHANGELOG=CHANGELOG, fmt_utc=fmt_utc, fmt_day=fmt_day, s=s, sp=sp, skill_data=skill_data, icon_url=icon_url, it=it, items_tip_json=items_tip_json, board_view=board_view, BOARDS=BOARDS, SITE=SITE, watch_for=watch_for)
+    e.globals.update(chips=chips, ASSET_V=asset_version(), tooltip_json=tooltip_json, CHANGELOG=CHANGELOG, fmt_utc=fmt_utc, fmt_day=fmt_day, s=s, sp=sp, skill_data=skill_data, icon_url=icon_url, it=it, items_tip_json=items_tip_json, board_view=board_view, BOARDS=BOARDS, SITE=SITE, watch_for=watch_for, DG_DB=DUNGEONS_DB)
     return e
 
 
@@ -451,9 +521,30 @@ def page_ctx(lang, path, root, cls=None):
     }
 
 
+# Typography for Russian and Ukrainian pages, applied to the built HTML only (sources stay plain so grep/replace keep
+# working): a no-break space after one-letter words and before an em dash, so they never end or start a line.
+_NBSP_WORDS = {"ru": "вксоуиаяВКСОУИАЯ", "uk": "вузійоаяВУЗІЙОАЯ"}
+_SKIP = re.compile(r"(<script\b.*?</script>|<style\b.*?</style>|<[^>]*>)", re.S | re.I)
+
+
+def typograph(html, lang):
+    one = re.compile(r"(?<![\w\-])([" + _NBSP_WORDS[lang] + r"]) (?=\S)")
+    parts = _SKIP.split(html)
+    for i in range(0, len(parts), 2):          # even items are text between tags
+        t = parts[i]
+        if t.strip():
+            t = one.sub("\\1\u00a0", t)
+            t = t.replace(" \u2014", "\u00a0\u2014")
+            parts[i] = t
+    return "".join(parts)
+
+
 def write(rel, html):
     p = OUT / rel
     p.parent.mkdir(parents=True, exist_ok=True)
+    lang = rel.split("/", 1)[0]
+    if rel.endswith(".html") and lang in _NBSP_WORDS:
+        html = typograph(html, lang)
     p.write_text(html, encoding="utf-8")
 
 
@@ -488,7 +579,7 @@ def page_entries(lang):
     """Search entries for the standalone pages and the world bosses."""
     t = I18N[lang]
     out = [{"k": "page", "t": t[key], "s": "", "u": path} for path, key in (
-        ("week-1/", "w1_title"), ("progression/", "pg_title"), ("crafting/", "cr_title"), ("settings/", "st_title"), ("weekly/", "wk_title"), ("bosses/", "bs_title"),
+        ("week-1/", "w1_title"), ("progression/", "pg_title"), ("crafting/", "cr_title"), ("settings/", "st_title"), ("weekly/", "wk_title"), ("bosses/", "bs_title"), ("dungeons/", "dg_title"), ("tier-list/", "tl_title"),
         ("sources/", "src_title"), ("changelog/", "wn_history"))]
     for g in BOSSES["groups"]:
         for b in g["bosses"]:
@@ -503,6 +594,7 @@ def build():
     OUT.mkdir()
     shutil.copytree(SRC / "assets", OUT / "assets")
     (OUT / ".nojekyll").write_text("")
+    shutil.copy(SRC / "assets" / "favicon.ico", OUT / "favicon.ico")   # crawlers also look for /favicon.ico next to the home page
 
     e = env()
     urls = []
@@ -523,7 +615,7 @@ def build():
             write(f'{lang}/{path}index.html', html)
             urls.append(path)
             index += search_entries(cls, lang, html)
-        for path, tpl, key, data in (("week-1/", "week1.html", "week1", WEEK1), ("progression/", "guide_page.html", "prog", PROGRESSION), ("crafting/", "guide_page.html", "prog", CRAFTING), ("settings/", "guide_page.html", "prog", SETTINGS), ("weekly/", "weekly.html", "weekly", WEEKLY), ("bosses/", "bosses.html", "bosses", BOSSES), ("changelog/", "changelog.html", "changelog", CHANGELOG)):
+        for path, tpl, key, data in (("week-1/", "week1.html", "week1", WEEK1), ("progression/", "guide_page.html", "prog", PROGRESSION), ("crafting/", "guide_page.html", "prog", CRAFTING), ("settings/", "guide_page.html", "prog", SETTINGS), ("weekly/", "weekly.html", "weekly", WEEKLY), ("bosses/", "bosses.html", "bosses", BOSSES), ("dungeons/", "dungeons.html", "dg", DUNGEONS), ("tier-list/", "tierlist.html", "tl", TIERS), ("changelog/", "changelog.html", "changelog", CHANGELOG)):
             ctx = page_ctx(lang, path, "../../")
             ctx[key] = data
             write(f"{lang}/{path}index.html", e.get_template(tpl).render(ctx))
@@ -552,6 +644,12 @@ def build():
     write("sitemap.xml", "\n".join(sm) + "\n")
     write("robots.txt", "User-agent: *\nDisallow: /\n" if SITE.get("noindex") else f"User-agent: *\nAllow: /\n\nSitemap: {base}sitemap.xml\n")
     print(f"built {len(urls)} pages -> docs/")
+    from lint_guides import lint
+    problems = lint()
+    for p in problems:
+        print(f"  guide check: {p}")
+    if problems:
+        print(f"{len(problems)} guide problem(s) - see tools/lint_guides.py for the rules")
 
 
 if __name__ == "__main__":
